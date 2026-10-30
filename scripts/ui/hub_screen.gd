@@ -29,6 +29,7 @@ const ActivityManager = preload("res://scripts/core/activity_manager.gd")
 @onready var rest_button: Button = %RestButton
 @onready var travel_button: Button = %TravelButton
 @onready var socialise_button: Button = %SocialiseButton
+@onready var situation_button: Button = %SituationButton
 @onready var stats_button: Button = %StatsButton
 @onready var menu_button: Button = %MenuButton
 
@@ -46,6 +47,7 @@ func _ready() -> void:
 	rest_button.pressed.connect(_on_rest_pressed)
 	travel_button.pressed.connect(_on_travel_pressed)
 	socialise_button.pressed.connect(_on_socialise_pressed)
+	situation_button.pressed.connect(_on_situation_pressed)
 	stats_button.pressed.connect(_on_stats_pressed)
 	menu_button.pressed.connect(_on_menu_pressed)
 	travel_dialog.confirmed.connect(_on_travel_confirmed)
@@ -188,6 +190,24 @@ func _process_activity_outcome(res: Dictionary) -> void:
 		event_dialog.title = "Street Event: " + ev.get("title", "Notice")
 		event_dialog.dialog_text = "%s\n\nOutcome: %s" % [ev.get("description", ""), ev_msg]
 		event_dialog.popup_centered()
+	else:
+		# If no daily event occurred, 25% chance of encountering an active street situation
+		var sit_check = ActivityManager.maybe_trigger_situation(0.25)
+		if sit_check.get("triggered", false):
+			var sit = sit_check.get("situation", {})
+			GameState.flags["active_situation_id"] = sit.get("id", "")
+			get_tree().change_scene_to_file("res://scenes/situation_screen.tscn")
+
+func _on_situation_pressed() -> void:
+	var eligible = DataLoader.get_eligible_situations(GameState.class_id, GameState.location_id, GameState.time_block)
+	if eligible.is_empty():
+		eligible = DataLoader.get_all_situations()
+	if eligible.is_empty():
+		_show_notice("No street situations available right now.")
+		return
+	var sit = eligible[randi() % eligible.size()]
+	GameState.flags["active_situation_id"] = sit.get("id", "")
+	get_tree().change_scene_to_file("res://scenes/situation_screen.tscn")
 
 func _on_stats_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/stats_screen.tscn")

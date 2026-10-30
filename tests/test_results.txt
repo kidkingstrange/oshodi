@@ -1,0 +1,95 @@
+=== RUNNING TEST SUITES ===
+
+[Suite: DataLoader Validation]
+  [PASS] Production JSON in res://data loads with 0 errors
+  [PASS] At least 6 classes loaded
+  [PASS] At least 12 subclasses loaded
+  [PASS] JSON parser catches malformed JSON syntax
+  [PASS] Validator catches missing required fields in class object
+  [PASS] Validator rejects non-snake_case uppercase ID
+  [PASS] Validator detects and rejects duplicate class IDs
+  [PASS] Validator catches broken foreign key reference in subclass
+  [PASS] Validator catches invalid stat value (< 1)
+
+[Suite: GameState Initialization & Resources]
+  [PASS] Character creation returns true for valid inputs
+  [PASS] Player name is set correctly
+  [PASS] Class ID is set to trader
+  [PASS] Initial level is 1
+  [PASS] Initial XP is 0
+  [PASS] Trader base hustle is 5
+  [PASS] Initial energy is 100
+  [PASS] Trader starting cash is ₦12,000
+  [PASS] Initial respect is 10
+  [PASS] Initial heat is 0
+  [PASS] GameState.has_character() returns true
+  [PASS] Energy does not exceed max_energy (100)
+  [PASS] Energy clamps at 0 on massive drain
+  [PASS] Heat clamps at 0 minimum
+  [PASS] Naira cannot drop below 0
+  [PASS] modify_stat increases stat value
+  [PASS] Stats cannot be reduced below 1
+  [PASS] create_character rejects unknown class ID
+
+[Suite: World, Time, Activities & Events (Phase 2)]
+  [PASS] Exact 4 Oshodi locations loaded
+  [PASS] oshodi_underbridge location exists
+  [PASS] Underbridge has travel routes to other locations
+  [PASS] At least 8 street events loaded in pool
+  [PASS] sudden_gridlock event exists
+  [PASS] Event weight is positive
+  [PASS] Time advances from morning to afternoon
+  [PASS] Time advances to evening
+  [PASS] Time advances to night
+  [PASS] Day counter advances from 1 to 2
+  [PASS] Time block resets to morning at dawn
+  [PASS] Rollover report confirms new day
+  [PASS] Daily food expense (₦1,500) deducted overnight
+  [PASS] Morning news headline generated
+  [PASS] Work activity succeeds with sufficient energy
+  [PASS] Trader receives ₦3,200 work income
+  [PASS] Work consumes 20 energy
+  [PASS] Work grants +15 XP
+  [PASS] Work fails when Energy is below 10
+  [PASS] Rest activity succeeds
+  [PASS] Rest reports +35 Energy restored
+  [PASS] Rest clamps energy within max_energy 100
+  [PASS] Travel succeeds for valid connected route
+  [PASS] Location updated to oshodi_market
+  [PASS] Transport fare (₦200) reported in result
+  [PASS] Travel rejected for invalid destination
+  [PASS] Travel rejected if player lacks fare
+  [PASS] Socialise activity succeeds
+  [PASS] Socialising fee (₦500) reported in result
+  [PASS] Socialising grants +2 Respect
+  [PASS] Seeded event roll successfully triggers an event
+  [PASS] Event result contains valid event data
+  [PASS] Event adheres to morning time_block condition
+
+[Suite: Situations & Conflict System (Phase 3)]
+  [PASS] Exact 20 Situations authored and loaded
+  [PASS] 10 general Oshodi street situations authored
+  [PASS] 5 Trader-specific situations authored
+  [PASS] 5 Transporter-specific situations authored
+  [PASS] All situations have between 2 and 4 options
+  [PASS] All option stat checks reference valid stats with valid difficulties
+  [PASS] Trader eligibility excludes transporter-only situations
+  [PASS] Trader eligibility includes trader situations
+  [PASS] Transporter eligibility excludes trader-only situations
+  [PASS] checkpoint_stop situation exists
+  [PASS] Guaranteed option always succeeds
+  [PASS] Guaranteed option has no dice check
+  [PASS] Guaranteed option deducted 8 energy (50 -> 42)
+  [PASS] Stat check succeeds when stat + roll >= difficulty
+  [PASS] Roll is a standard 1d6 (1 to 6)
+  [PASS] Total equals stat + roll
+  [PASS] Success grants +1 respect
+  [PASS] Stat check fails when stat + roll < difficulty
+  [PASS] Total was below required difficulty 5
+  [PASS] Exhaustion recovery triggered when Energy drops <= 0
+  [PASS] Player revived with positive Energy (never stuck at 0)
+  [PASS] Player revived at clinic with 30 Energy
+  [PASS] Clinic medicine fee was deducted
+
+===========================
+Results: 83 Passed, 0 Failed

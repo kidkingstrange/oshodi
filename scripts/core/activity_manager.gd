@@ -157,3 +157,16 @@ static func perform_socialise(rng: RandomNumberGenerator = null) -> Dictionary:
 		"event_result": event_result,
 		"message": msg
 	}
+
+## Checks if a situation conflict is triggered during daily street hustle
+static func maybe_trigger_situation(trigger_chance: float = 0.25, rng: RandomNumberGenerator = null) -> Dictionary:
+	var roll = rng.randf() if rng != null else randf()
+	if roll < trigger_chance:
+		var eligible = DataLoader.get_eligible_situations(GameState.class_id, GameState.location_id, GameState.time_block)
+		if not eligible.is_empty():
+			var idx = (rng.randi() % eligible.size()) if rng != null else (randi() % eligible.size())
+			return {
+				"triggered": true,
+				"situation": eligible[idx]
+			}
+	return { "triggered": false, "situation": {} }

@@ -12,6 +12,7 @@ var subclasses: Dictionary = {}
 var economy: Dictionary = {}
 var locations: Dictionary = {}
 var events: Dictionary = {}
+var situations: Dictionary = {}
 
 var is_loaded: bool = false
 var load_errors: Array[String] = []
@@ -29,6 +30,7 @@ func load_and_validate_all(data_dir: String = "res://data") -> bool:
 	economy.clear()
 	locations.clear()
 	events.clear()
+	situations.clear()
 	
 	# 1. Load Classes
 	var classes_raw = _load_json_file(data_dir + "/classes.json")
@@ -65,10 +67,17 @@ func load_and_validate_all(data_dir: String = "res://data") -> bool:
 	else:
 		_validate_events(events_raw)
 	
+	# 6. Load Situations
+	var situations_raw = _load_json_file(data_dir + "/situations.json")
+	if situations_raw == null:
+		load_errors.append("situations.json: Failed to read or parse JSON file.")
+	else:
+		_validate_situations(situations_raw)
+	
 	is_loaded = (load_errors.is_empty())
 	if is_loaded:
-		print("[DataLoader] Successfully loaded and validated %d classes, %d subclasses, %d locations, %d events." % [
-			classes.size(), subclasses.size(), locations.size(), events.size()
+		print("[DataLoader] Successfully loaded and validated %d classes, %d subclasses, %d locations, %d events, %d situations." % [
+			classes.size(), subclasses.size(), locations.size(), events.size(), situations.size()
 		])
 		data_loaded.emit(true)
 		return true
@@ -277,6 +286,72 @@ func _validate_events(raw_data: Variant) -> void:
 		
 		events[id_val] = item
 
+## Validates situations array against schema
+func _validate_situations(raw_data: Variant) -> void:
+	if not (raw_data is Array):
+		load_errors.append("situations.json: Root must be a JSON Array of situation objects.")
+		return
+	
+	var seen_ids: Dictionary = {}
+	for idx in range(raw_data.size()):
+		var item = raw_data[idx]
+		var ctx = "situations.json[%d]" % idx
+		if not (item is Dictionary):
+			load_errors.append("%s: Expected JSON Object." % ctx)
+			continue
+		
+		var id_val = item.get("id", "")
+		if not (id_val is String) or id_val.strip_edges().is_empty():
+			load_errors.append("%s: Missing or empty 'id' field." % ctx)
+			continue
+		
+		ctx = "situations.json (id: '%s')" % id_val
+		if not _is_valid_id(id_val):
+			load_errors.append("%s: ID must be lowercase alphanumeric with underscores." % ctx)
+		
+		if seen_ids.has(id_val):
+			load_errors.append("%s: Duplicate situation id detected." % ctx)
+		seen_ids[id_val] = true
+		
+		for str_field in ["title", "setup_text"]:
+			var val = item.get(str_field, "")
+			if not (val is String) or val.strip_edges().is_empty():
+				load_errors.append("%s: Missing or empty required field '%s'." % [ctx, str_field])
+		
+		var options = item.get("options", null)
+		if not (options is Array) or options.is_empty():
+			load_errors.append("%s: 'options' must be a non-empty array of choices." % ctx)
+		else:
+			for o_idx in range(options.size()):
+				var opt = options[o_idx]
+				var opt_ctx = "%s options[%d]" % [ctx, o_idx]
+				if not (opt is Dictionary):
+					load_errors.append("%s: Expected option object." % opt_ctx)
+					continue
+				
+				if not (opt.get("id", "") is String) or opt.get("id", "").is_empty():
+					load_errors.append("%s: Missing or empty 'id' in option." % opt_ctx)
+				if not (opt.get("label", "") is String) or opt.get("label", "").is_empty():
+					load_errors.append("%s: Missing or empty 'label' in option." % opt_ctx)
+				
+				var check = opt.get("check", null)
+				if check != null:
+					if not (check is Dictionary):
+						load_errors.append("%s: 'check' must be Dictionary or null." % opt_ctx)
+					else:
+						var stat = check.get("stat", "")
+						if not (stat is String) or not REQUIRED_STATS.has(stat):
+							load_errors.append("%s: 'check.stat' must be one of %s." % [opt_ctx, str(REQUIRED_STATS)])
+						var diff = check.get("difficulty", null)
+						if diff == null or not (diff is int or diff is float) or diff < 1:
+							load_errors.append("%s: 'check.difficulty' must be an integer >= 1." % opt_ctx)
+				
+				var on_succ = opt.get("on_success", null)
+				if not (on_succ is Dictionary) or not (on_succ.get("text", "") is String):
+					load_errors.append("%s: 'on_success' must be Dictionary with 'text'." % opt_ctx)
+		
+		situations[id_val] = item
+
 ## Validates economy dictionary
 func _validate_economy(raw_data: Variant) -> void:
 	if not (raw_data is Dictionary):
@@ -354,6 +429,34 @@ func get_all_events() -> Array[Dictionary]:
 
 func get_event_by_id(event_id: String) -> Dictionary:
 	return events.get(event_id, {})
+
+func get_all_situations() -> Array[Dictionary]:
+	var list: Array[Dictionary] = []
+	for s_id in situations:
+		list.append(situations[s_id])
+	return list
+
+func get_situation_by_id(sit_id: String) -> Dictionary:
+	return situations.get(sit_id, {})
+
+func get_eligible_situations(class_id: String, location_id: String, time_block: String) -> Array[Dictionary]:
+	var list: Array[Dictionary] = []
+	for s_id in situations:
+		var s = situations[s_id]
+		var req_class = s.get("required_class", null)
+		if req_class != null and req_class != class_id:
+			continue
+		
+		var loc_tags = s.get("location_tags", [])
+		if not loc_tags.has("all") and not loc_tags.has(location_id):
+			continue
+		
+		var valid_times = s.get("time_blocks", [])
+		if not valid_times.is_empty() and not valid_times.has(time_block):
+			continue
+		
+		list.append(s)
+	return list
 
 func get_starting_naira(class_id: String) -> int:
 	var starting_dict = economy.get("starting_naira_by_class", {})

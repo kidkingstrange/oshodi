@@ -256,13 +256,17 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 10
 
-[node name="Grid" type="GridContainer" parent="MarginContainer/VBox/ActionsCard/ActionsMargin"]
+[node name="ActionsVBox" type="VBoxContainer" parent="MarginContainer/VBox/ActionsCard/ActionsMargin"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Grid" type="GridContainer" parent="MarginContainer/VBox/ActionsCard/ActionsMargin/ActionsVBox"]
 layout_mode = 2
 theme_override_constants/h_separation = 10
 theme_override_constants/v_separation = 8
 columns = 2
 
-[node name="WorkButton" type="Button" parent="MarginContainer/VBox/ActionsCard/ActionsMargin/Grid"]
+[node name="WorkButton" type="Button" parent="MarginContainer/VBox/ActionsCard/ActionsMargin/ActionsVBox/Grid"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
@@ -270,7 +274,7 @@ size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 13
 text = "Work (+₦3,200)"
 
-[node name="RestButton" type="Button" parent="MarginContainer/VBox/ActionsCard/ActionsMargin/Grid"]
+[node name="RestButton" type="Button" parent="MarginContainer/VBox/ActionsCard/ActionsMargin/ActionsVBox/Grid"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
@@ -278,7 +282,7 @@ size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 13
 text = "Rest (+35 Energy)"
 
-[node name="TravelButton" type="Button" parent="MarginContainer/VBox/ActionsCard/ActionsMargin/Grid"]
+[node name="TravelButton" type="Button" parent="MarginContainer/VBox/ActionsCard/ActionsMargin/ActionsVBox/Grid"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
@@ -286,13 +290,20 @@ size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 13
 text = "Travel / Bus"
 
-[node name="SocialiseButton" type="Button" parent="MarginContainer/VBox/ActionsCard/ActionsMargin/Grid"]
+[node name="SocialiseButton" type="Button" parent="MarginContainer/VBox/ActionsCard/ActionsMargin/ActionsVBox/Grid"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 13
 text = "Socialise (-₦500)"
+
+[node name="SituationButton" type="Button" parent="MarginContainer/VBox/ActionsCard/ActionsMargin/ActionsVBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 46)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "⚡ Encounter Street Situation"
 
 [node name="NavRow" type="HBoxContainer" parent="MarginContainer/VBox"]
 layout_mode = 2

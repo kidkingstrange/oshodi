@@ -1,0 +1,195 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/situation_screen.gd" id="1_sit"]
+
+[node name="SituationScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sit")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.96, 0.95, 0.91, 1)
+
+[node name="DanfoTopStripe" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+color = Color(0.96, 0.76, 0.17, 1)
+
+[node name="DanfoSubStripe" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 12.0
+offset_bottom = 15.0
+grow_horizontal = 2
+color = Color(0.12, 0.13, 0.16, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 28
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 24
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="ContentVBox" type="VBoxContainer" parent="MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 14
+
+[node name="HeaderCard" type="PanelContainer" parent="MarginContainer/ScrollContainer/ContentVBox"]
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="MarginContainer/ScrollContainer/ContentVBox/HeaderCard"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 12
+
+[node name="VBox" type="VBoxContainer" parent="MarginContainer/ScrollContainer/ContentVBox/HeaderCard/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="LocationBadgeLabel" type="Label" parent="MarginContainer/ScrollContainer/ContentVBox/HeaderCard/Margin/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.45, 0.05, 1)
+theme_override_font_sizes/font_size = 13
+text = "Location: Anywhere in Oshodi"
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/ScrollContainer/ContentVBox/HeaderCard/Margin/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.1, 0.12, 0.16, 1)
+theme_override_font_sizes/font_size = 22
+text = "ROADSIDE CHECKPOINT ENCOUNTER"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="SetupCard" type="PanelContainer" parent="MarginContainer/ScrollContainer/ContentVBox"]
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="MarginContainer/ScrollContainer/ContentVBox/SetupCard"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 14
+
+[node name="SetupTextLabel" type="Label" parent="MarginContainer/ScrollContainer/ContentVBox/SetupCard/Margin"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.18, 0.2, 0.25, 1)
+theme_override_font_sizes/font_size = 14
+text = "An authoritative road safety patrol stops your movement along the transit corridor..."
+autowrap_mode = 2
+
+[node name="ChoicesCard" type="PanelContainer" parent="MarginContainer/ScrollContainer/ContentVBox"]
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="MarginContainer/ScrollContainer/ContentVBox/ChoicesCard"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 12
+
+[node name="ChoicesVBox" type="VBoxContainer" parent="MarginContainer/ScrollContainer/ContentVBox/ChoicesCard/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="ChoicesTitle" type="Label" parent="MarginContainer/ScrollContainer/ContentVBox/ChoicesCard/Margin/ChoicesVBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.45, 0.05, 1)
+theme_override_font_sizes/font_size = 14
+text = "WHAT DO YOU DO?"
+
+[node name="OptionsVBox" type="VBoxContainer" parent="MarginContainer/ScrollContainer/ContentVBox/ChoicesCard/Margin/ChoicesVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="ResolutionCard" type="PanelContainer" parent="MarginContainer/ScrollContainer/ContentVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="MarginContainer/ScrollContainer/ContentVBox/ResolutionCard"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 14
+
+[node name="ResolutionVBox" type="VBoxContainer" parent="MarginContainer/ScrollContainer/ContentVBox/ResolutionCard/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="OutcomeBadgeLabel" type="Label" parent="MarginContainer/ScrollContainer/ContentVBox/ResolutionCard/Margin/ResolutionVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.12, 0.58, 0.28, 1)
+theme_override_font_sizes/font_size = 18
+text = "★ SUCCESS! ★"
+horizontal_alignment = 1
+
+[node name="RollBreakdownLabel" type="Label" parent="MarginContainer/ScrollContainer/ContentVBox/ResolutionCard/Margin/ResolutionVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.45, 0.48, 0.52, 1)
+theme_override_font_sizes/font_size = 12
+text = "Roll: Charisma (4) + Roll (5) = 9 vs Difficulty 6"
+horizontal_alignment = 1
+
+[node name="ResultTextLabel" type="Label" parent="MarginContainer/ScrollContainer/ContentVBox/ResolutionCard/Margin/ResolutionVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.15, 0.17, 0.22, 1)
+theme_override_font_sizes/font_size = 14
+text = "Your respectful greetings win them over..."
+autowrap_mode = 2
+
+[node name="EffectsPillsLabel" type="Label" parent="MarginContainer/ScrollContainer/ContentVBox/ResolutionCard/Margin/ResolutionVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.12, 0.58, 0.28, 1)
+theme_override_font_sizes/font_size = 13
+text = "Effects Applied: +1 Respect • +10 XP"
+
+[node name="ExhaustionAlertLabel" type="Label" parent="MarginContainer/ScrollContainer/ContentVBox/ResolutionCard/Margin/ResolutionVBox"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.22, 0.22, 1)
+theme_override_font_sizes/font_size = 13
+text = "⚠ Exhaustion Notice"
+autowrap_mode = 2
+
+[node name="ContinueButton" type="Button" parent="MarginContainer/ScrollContainer/ContentVBox/ResolutionCard/Margin/ResolutionVBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Continue Hustle"

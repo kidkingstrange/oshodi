@@ -6,6 +6,7 @@ extends Control
 const TestDataLoader = preload("res://tests/test_data_loader.gd")
 const TestGameState = preload("res://tests/test_game_state.gd")
 const TestWorldAndTime = preload("res://tests/test_world_and_time.gd")
+const TestSituations = preload("res://tests/test_situations.gd")
 
 @onready var output_label: Label = %OutputLabel
 @onready var summary_label: Label = %SummaryLabel
@@ -46,6 +47,14 @@ func _run_all_tests() -> void:
 	total_passed += wt_res.passed
 	total_failed += wt_res.failed
 	for msg in wt_res.messages:
+		all_messages.append(msg)
+	
+	# Suite 4: Situations & Conflict System (Phase 3)
+	all_messages.append("\n[Suite: Situations & Conflict System (Phase 3)]")
+	var sit_res = TestSituations.run_tests()
+	total_passed += sit_res.passed
+	total_failed += sit_res.failed
+	for msg in sit_res.messages:
 		all_messages.append(msg)
 	
 	# Summary
