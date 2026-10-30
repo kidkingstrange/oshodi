@@ -1,0 +1,552 @@
+[gd_scene load_steps=9 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/style_guide.gd" id="1_guide"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_card_light"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+bg_color = Color(0.960784, 0.945098, 0.909804, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.105882, 0.105882, 0.121569, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0.105882, 0.105882, 0.121569, 1)
+shadow_size = 4
+shadow_offset = Vector2(3, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_card_dark"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+bg_color = Color(0.105882, 0.105882, 0.121569, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.968627, 0.709804, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0, 0, 0, 0.4)
+shadow_size = 4
+shadow_offset = Vector2(3, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_primary"]
+content_margin_left = 16.0
+content_margin_top = 12.0
+content_margin_right = 16.0
+content_margin_bottom = 12.0
+bg_color = Color(0.968627, 0.709804, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.105882, 0.105882, 0.121569, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0.105882, 0.105882, 0.121569, 1)
+shadow_size = 2
+shadow_offset = Vector2(2, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_green"]
+content_margin_left = 16.0
+content_margin_top = 12.0
+content_margin_right = 16.0
+content_margin_bottom = 12.0
+bg_color = Color(0.117647, 0.556863, 0.305882, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.105882, 0.105882, 0.121569, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0.105882, 0.105882, 0.121569, 1)
+shadow_size = 2
+shadow_offset = Vector2(2, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_red"]
+content_margin_left = 16.0
+content_margin_top = 12.0
+content_margin_right = 16.0
+content_margin_bottom = 12.0
+bg_color = Color(0.847059, 0.25098, 0.184314, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.105882, 0.105882, 0.121569, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0.105882, 0.105882, 0.121569, 1)
+shadow_size = 2
+shadow_offset = Vector2(2, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_teal"]
+content_margin_left = 16.0
+content_margin_top = 12.0
+content_margin_right = 16.0
+content_margin_bottom = 12.0
+bg_color = Color(0.168627, 0.65098, 0.627451, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.105882, 0.105882, 0.121569, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0.105882, 0.105882, 0.121569, 1)
+shadow_size = 2
+shadow_offset = Vector2(2, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_chip"]
+content_margin_left = 10.0
+content_margin_top = 6.0
+content_margin_right = 10.0
+content_margin_bottom = 6.0
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.105882, 0.105882, 0.121569, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="StyleGuide" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_guide")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.960784, 0.945098, 0.909804, 1)
+
+[node name="DanfoBand" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 16.0
+grow_horizontal = 2
+theme_override_constants/separation = 0
+
+[node name="YellowBand" type="ColorRect" parent="DanfoBand"]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+color = Color(0.968627, 0.709804, 0, 1)
+
+[node name="BlackStripe" type="ColorRect" parent="DanfoBand"]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+color = Color(0.105882, 0.105882, 0.121569, 1)
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Scroll" type="ScrollContainer" parent="Margin"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="VBox" type="VBoxContainer" parent="Margin/Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 16
+
+[node name="TitleBox" type="VBoxContainer" parent="Margin/Scroll/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="HeaderLabel" type="Label" parent="Margin/Scroll/VBox/TitleBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.105882, 0.105882, 0.121569, 1)
+theme_override_font_sizes/font_size = 28
+text = "DANFO POSTER STYLE GUIDE"
+horizontal_alignment = 1
+
+[node name="SubtitleLabel" type="Label" parent="Margin/Scroll/VBox/TitleBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.419608, 0.290196, 0.184314, 1)
+theme_override_font_sizes/font_size = 14
+text = "Locked Option A — Lagos Sign-Writer Street Identity (docs/07_UI_UX_GUIDE.md)"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Divider1" type="ColorRect" parent="Margin/Scroll/VBox"]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+color = Color(0.105882, 0.105882, 0.121569, 1)
+
+[node name="Section1Label" type="Label" parent="Margin/Scroll/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.105882, 0.105882, 0.121569, 1)
+theme_override_font_sizes/font_size = 20
+text = "1. COLOUR PALETTE (SWATCHES)"
+
+[node name="PaletteGrid" type="GridContainer" parent="Margin/Scroll/VBox"]
+layout_mode = 2
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+columns = 2
+
+[node name="Swatch1" type="PanelContainer" parent="Margin/Scroll/VBox/PaletteGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_chip")
+
+[node name="HBox" type="HBoxContainer" parent="Margin/Scroll/VBox/PaletteGrid/Swatch1"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Color" type="ColorRect" parent="Margin/Scroll/VBox/PaletteGrid/Swatch1/HBox"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+color = Color(0.968627, 0.709804, 0, 1)
+
+[node name="Lbl" type="Label" parent="Margin/Scroll/VBox/PaletteGrid/Swatch1/HBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.105882, 0.105882, 0.121569, 1)
+theme_override_font_sizes/font_size = 13
+text = "Danfo Yellow (#F7B500)\nRole: Primary"
+
+[node name="Swatch2" type="PanelContainer" parent="Margin/Scroll/VBox/PaletteGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_chip")
+
+[node name="HBox" type="HBoxContainer" parent="Margin/Scroll/VBox/PaletteGrid/Swatch2"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Color" type="ColorRect" parent="Margin/Scroll/VBox/PaletteGrid/Swatch2/HBox"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+color = Color(0.105882, 0.105882, 0.121569, 1)
+
+[node name="Lbl" type="Label" parent="Margin/Scroll/VBox/PaletteGrid/Swatch2/HBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.105882, 0.105882, 0.121569, 1)
+theme_override_font_sizes/font_size = 13
+text = "Asphalt Black (#1B1B1F)\nRole: Surface / Border"
+
+[node name="Swatch3" type="PanelContainer" parent="Margin/Scroll/VBox/PaletteGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_chip")
+
+[node name="HBox" type="HBoxContainer" parent="Margin/Scroll/VBox/PaletteGrid/Swatch3"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Color" type="ColorRect" parent="Margin/Scroll/VBox/PaletteGrid/Swatch3/HBox"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+color = Color(0.960784, 0.945098, 0.909804, 1)
+
+[node name="Lbl" type="Label" parent="Margin/Scroll/VBox/PaletteGrid/Swatch3/HBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.105882, 0.105882, 0.121569, 1)
+theme_override_font_sizes/font_size = 13
+text = "Chalk White (#F5F1E8)\nRole: Text / Canvas"
+
+[node name="Swatch4" type="PanelContainer" parent="Margin/Scroll/VBox/PaletteGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_chip")
+
+[node name="HBox" type="HBoxContainer" parent="Margin/Scroll/VBox/PaletteGrid/Swatch4"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Color" type="ColorRect" parent="Margin/Scroll/VBox/PaletteGrid/Swatch4/HBox"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+color = Color(0.117647, 0.556863, 0.305882, 1)
+
+[node name="Lbl" type="Label" parent="Margin/Scroll/VBox/PaletteGrid/Swatch4/HBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.105882, 0.105882, 0.121569, 1)
+theme_override_font_sizes/font_size = 13
+text = "Naija Green (#1E8E4E)\nRole: Money / Success"
+
+[node name="Swatch5" type="PanelContainer" parent="Margin/Scroll/VBox/PaletteGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_chip")
+
+[node name="HBox" type="HBoxContainer" parent="Margin/Scroll/VBox/PaletteGrid/Swatch5"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Color" type="ColorRect" parent="Margin/Scroll/VBox/PaletteGrid/Swatch5/HBox"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+color = Color(0.847059, 0.25098, 0.184314, 1)
+
+[node name="Lbl" type="Label" parent="Margin/Scroll/VBox/PaletteGrid/Swatch5/HBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.105882, 0.105882, 0.121569, 1)
+theme_override_font_sizes/font_size = 13
+text = "Signal Red (#D8402F)\nRole: Danger / Heat"
+
+[node name="Swatch6" type="PanelContainer" parent="Margin/Scroll/VBox/PaletteGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_chip")
+
+[node name="HBox" type="HBoxContainer" parent="Margin/Scroll/VBox/PaletteGrid/Swatch6"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Color" type="ColorRect" parent="Margin/Scroll/VBox/PaletteGrid/Swatch6/HBox"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+color = Color(0.168627, 0.65098, 0.627451, 1)
+
+[node name="Lbl" type="Label" parent="Margin/Scroll/VBox/PaletteGrid/Swatch6/HBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.105882, 0.105882, 0.121569, 1)
+theme_override_font_sizes/font_size = 13
+text = "Sky Teal (#2BA6A0)\nRole: Energy / Accent"
+
+[node name="Swatch7" type="PanelContainer" parent="Margin/Scroll/VBox/PaletteGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_chip")
+
+[node name="HBox" type="HBoxContainer" parent="Margin/Scroll/VBox/PaletteGrid/Swatch7"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Color" type="ColorRect" parent="Margin/Scroll/VBox/PaletteGrid/Swatch7/HBox"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+color = Color(0.419608, 0.290196, 0.184314, 1)
+
+[node name="Lbl" type="Label" parent="Margin/Scroll/VBox/PaletteGrid/Swatch7/HBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.105882, 0.105882, 0.121569, 1)
+theme_override_font_sizes/font_size = 13
+text = "Mud Brown (#6B4A2F)\nRole: Border / Wood"
+
+[node name="Divider2" type="ColorRect" parent="Margin/Scroll/VBox"]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+color = Color(0.105882, 0.105882, 0.121569, 1)
+
+[node name="Section2Label" type="Label" parent="Margin/Scroll/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.105882, 0.105882, 0.121569, 1)
+theme_override_font_sizes/font_size = 20
+text = "2. POSTER CARDS & TYPOGRAPHY"
+
+[node name="LightCard" type="PanelContainer" parent="Margin/Scroll/VBox"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_card_light")
+
+[node name="VBox" type="VBoxContainer" parent="Margin/Scroll/VBox/LightCard"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Badge" type="Label" parent="Margin/Scroll/VBox/LightCard/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.847059, 0.25098, 0.184314, 1)
+theme_override_font_sizes/font_size = 14
+text = "POSTER CARD (LIGHT SURFACE)"
+
+[node name="Title" type="Label" parent="Margin/Scroll/VBox/LightCard/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.105882, 0.105882, 0.121569, 1)
+theme_override_font_sizes/font_size = 22
+text = "OSHODI MARKET DISPATCH"
+
+[node name="Body" type="Label" parent="Margin/Scroll/VBox/LightCard/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.105882, 0.105882, 0.121569, 1)
+theme_override_font_sizes/font_size = 16
+text = "Body text is kept in high-contrast Chalk White surfaces with solid Asphalt Black ink. The font size is at 16 minimum for easy readability under bright tropical daylight."
+autowrap_mode = 2
+
+[node name="DarkCard" type="PanelContainer" parent="Margin/Scroll/VBox"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_card_dark")
+
+[node name="VBox" type="VBoxContainer" parent="Margin/Scroll/VBox/DarkCard"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Badge" type="Label" parent="Margin/Scroll/VBox/DarkCard/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.968627, 0.709804, 0, 1)
+theme_override_font_sizes/font_size = 14
+text = "POSTER CARD (DARK ASPHALT SURFACE)"
+
+[node name="Title" type="Label" parent="Margin/Scroll/VBox/DarkCard/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.960784, 0.945098, 0.909804, 1)
+theme_override_font_sizes/font_size = 22
+text = "NIGHT CONFLICT NOTICE"
+
+[node name="Body" type="Label" parent="Margin/Scroll/VBox/DarkCard/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.960784, 0.945098, 0.909804, 1)
+theme_override_font_sizes/font_size = 16
+text = "Dark cards use Asphalt Black (#1B1B1F) with Danfo Yellow 3px borders and Chalk White text for dialogue, event alerts, and nighttime encounters."
+autowrap_mode = 2
+
+[node name="Divider3" type="ColorRect" parent="Margin/Scroll/VBox"]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+color = Color(0.105882, 0.105882, 0.121569, 1)
+
+[node name="Section3Label" type="Label" parent="Margin/Scroll/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.105882, 0.105882, 0.121569, 1)
+theme_override_font_sizes/font_size = 20
+text = "3. BUTTON SYSTEM (THICK OUTLINES)"
+
+[node name="BtnPrimary" type="Button" parent="Margin/Scroll/VBox"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.105882, 0.105882, 0.121569, 1)
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_primary")
+text = "Primary Danfo Button (e.g. Work Shift)"
+
+[node name="BtnGreen" type="Button" parent="Margin/Scroll/VBox"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.960784, 0.945098, 0.909804, 1)
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_green")
+text = "Naija Green Button (e.g. Collect Cash +₦5,000)"
+
+[node name="BtnTeal" type="Button" parent="Margin/Scroll/VBox"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.960784, 0.945098, 0.909804, 1)
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_teal")
+text = "Sky Teal Button (e.g. Rest & Energy +35)"
+
+[node name="BtnRed" type="Button" parent="Margin/Scroll/VBox"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.960784, 0.945098, 0.909804, 1)
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_red")
+text = "Signal Red Button (e.g. Flee / Dangerous Check)"
+
+[node name="Divider4" type="ColorRect" parent="Margin/Scroll/VBox"]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+color = Color(0.105882, 0.105882, 0.121569, 1)
+
+[node name="Section4Label" type="Label" parent="Margin/Scroll/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.105882, 0.105882, 0.121569, 1)
+theme_override_font_sizes/font_size = 20
+text = "4. RESOURCE CHIPS (ICON + LABEL)"
+
+[node name="ChipsHBox" type="HBoxContainer" parent="Margin/Scroll/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="NairaChip" type="PanelContainer" parent="Margin/Scroll/VBox/ChipsHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_chip")
+
+[node name="Lbl" type="Label" parent="Margin/Scroll/VBox/ChipsHBox/NairaChip"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.117647, 0.556863, 0.305882, 1)
+theme_override_font_sizes/font_size = 14
+text = "₦ 12,000"
+horizontal_alignment = 1
+
+[node name="EnergyChip" type="PanelContainer" parent="Margin/Scroll/VBox/ChipsHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_chip")
+
+[node name="Lbl" type="Label" parent="Margin/Scroll/VBox/ChipsHBox/EnergyChip"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.168627, 0.65098, 0.627451, 1)
+theme_override_font_sizes/font_size = 14
+text = "⚡ 85/100"
+horizontal_alignment = 1
+
+[node name="RespectChip" type="PanelContainer" parent="Margin/Scroll/VBox/ChipsHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_chip")
+
+[node name="Lbl" type="Label" parent="Margin/Scroll/VBox/ChipsHBox/RespectChip"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.968627, 0.709804, 0, 1)
+theme_override_font_sizes/font_size = 14
+text = "★ 12"
+horizontal_alignment = 1
+
+[node name="HeatChip" type="PanelContainer" parent="Margin/Scroll/VBox/ChipsHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_chip")
+
+[node name="Lbl" type="Label" parent="Margin/Scroll/VBox/ChipsHBox/HeatChip"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.847059, 0.25098, 0.184314, 1)
+theme_override_font_sizes/font_size = 14
+text = "🔥 0"
+horizontal_alignment = 1
+
+[node name="NavMargin" type="MarginContainer" parent="Margin/Scroll/VBox"]
+layout_mode = 2
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_bottom = 20
+
+[node name="BackButton" type="Button" parent="Margin/Scroll/VBox/NavMargin"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.960784, 0.945098, 0.909804, 1)
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_red")
+text = "← Back to Main Menu"
