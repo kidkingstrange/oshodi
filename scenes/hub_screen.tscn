@@ -1,0 +1,352 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/hub_screen.gd" id="1_hub"]
+
+[node name="HubScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hub")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.96, 0.95, 0.91, 1)
+
+[node name="DanfoTopStripe" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+color = Color(0.96, 0.76, 0.17, 1)
+
+[node name="DanfoSubStripe" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 12.0
+offset_bottom = 15.0
+grow_horizontal = 2
+color = Color(0.12, 0.13, 0.16, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 20
+
+[node name="VBox" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="HeaderCard" type="PanelContainer" parent="MarginContainer/VBox"]
+layout_mode = 2
+
+[node name="HeaderMargin" type="MarginContainer" parent="MarginContainer/VBox/HeaderCard"]
+layout_mode = 2
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 14
+theme_override_constants/margin_bottom = 10
+
+[node name="HeaderVBox" type="VBoxContainer" parent="MarginContainer/VBox/HeaderCard/HeaderMargin"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="TopRow" type="HBoxContainer" parent="MarginContainer/VBox/HeaderCard/HeaderMargin/HeaderVBox"]
+layout_mode = 2
+
+[node name="DayLabel" type="Label" parent="MarginContainer/VBox/HeaderCard/HeaderMargin/HeaderVBox/TopRow"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.45, 0.05, 1)
+theme_override_font_sizes/font_size = 18
+text = "Day 1"
+
+[node name="Spacer" type="Control" parent="MarginContainer/VBox/HeaderCard/HeaderMargin/HeaderVBox/TopRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TimeBadgeLabel" type="Label" parent="MarginContainer/VBox/HeaderCard/HeaderMargin/HeaderVBox/TopRow"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.1, 0.45, 0.75, 1)
+theme_override_font_sizes/font_size = 14
+text = "Morning (Rush Hour)"
+
+[node name="LocationTitleLabel" type="Label" parent="MarginContainer/VBox/HeaderCard/HeaderMargin/HeaderVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.1, 0.12, 0.16, 1)
+theme_override_font_sizes/font_size = 20
+text = "OSHODI CENTRAL MARKET"
+horizontal_alignment = 1
+
+[node name="ResourcesCard" type="PanelContainer" parent="MarginContainer/VBox"]
+layout_mode = 2
+
+[node name="ResourcesMargin" type="MarginContainer" parent="MarginContainer/VBox/ResourcesCard"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 8
+
+[node name="Grid" type="GridContainer" parent="MarginContainer/VBox/ResourcesCard/ResourcesMargin"]
+layout_mode = 2
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 4
+columns = 4
+
+[node name="NairaBox" type="VBoxContainer" parent="MarginContainer/VBox/ResourcesCard/ResourcesMargin/Grid"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Lbl" type="Label" parent="MarginContainer/VBox/ResourcesCard/ResourcesMargin/Grid/NairaBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.45, 0.48, 0.52, 1)
+theme_override_font_sizes/font_size = 11
+text = "NAIRA"
+horizontal_alignment = 1
+
+[node name="NairaLabel" type="Label" parent="MarginContainer/VBox/ResourcesCard/ResourcesMargin/Grid/NairaBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.12, 0.58, 0.28, 1)
+theme_override_font_sizes/font_size = 14
+text = "₦12,000"
+horizontal_alignment = 1
+
+[node name="EnergyBox" type="VBoxContainer" parent="MarginContainer/VBox/ResourcesCard/ResourcesMargin/Grid"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Lbl" type="Label" parent="MarginContainer/VBox/ResourcesCard/ResourcesMargin/Grid/EnergyBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.45, 0.48, 0.52, 1)
+theme_override_font_sizes/font_size = 11
+text = "ENERGY"
+horizontal_alignment = 1
+
+[node name="EnergyLabel" type="Label" parent="MarginContainer/VBox/ResourcesCard/ResourcesMargin/Grid/EnergyBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.45, 0.05, 1)
+theme_override_font_sizes/font_size = 14
+text = "100 / 100"
+horizontal_alignment = 1
+
+[node name="RespectBox" type="VBoxContainer" parent="MarginContainer/VBox/ResourcesCard/ResourcesMargin/Grid"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Lbl" type="Label" parent="MarginContainer/VBox/ResourcesCard/ResourcesMargin/Grid/RespectBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.45, 0.48, 0.52, 1)
+theme_override_font_sizes/font_size = 11
+text = "RESPECT"
+horizontal_alignment = 1
+
+[node name="RespectLabel" type="Label" parent="MarginContainer/VBox/ResourcesCard/ResourcesMargin/Grid/RespectBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.12, 0.48, 0.85, 1)
+theme_override_font_sizes/font_size = 14
+text = "10"
+horizontal_alignment = 1
+
+[node name="HeatBox" type="VBoxContainer" parent="MarginContainer/VBox/ResourcesCard/ResourcesMargin/Grid"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Lbl" type="Label" parent="MarginContainer/VBox/ResourcesCard/ResourcesMargin/Grid/HeatBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.45, 0.48, 0.52, 1)
+theme_override_font_sizes/font_size = 11
+text = "HEAT"
+horizontal_alignment = 1
+
+[node name="HeatLabel" type="Label" parent="MarginContainer/VBox/ResourcesCard/ResourcesMargin/Grid/HeatBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.22, 0.22, 1)
+theme_override_font_sizes/font_size = 14
+text = "0"
+horizontal_alignment = 1
+
+[node name="LocationCard" type="PanelContainer" parent="MarginContainer/VBox"]
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="MarginContainer/VBox/LocationCard"]
+layout_mode = 2
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 14
+theme_override_constants/margin_bottom = 10
+
+[node name="VBox" type="VBoxContainer" parent="MarginContainer/VBox/LocationCard/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="LocationDescLabel" type="Label" parent="MarginContainer/VBox/LocationCard/Margin/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.25, 0.28, 0.33, 1)
+theme_override_font_sizes/font_size = 13
+text = "Rows of vibrant umbrella stalls selling food, accessories, and snacks."
+autowrap_mode = 2
+
+[node name="StreetNewsLabel" type="Label" parent="MarginContainer/VBox/LocationCard/Margin/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.65, 0.4, 0.05, 1)
+theme_override_font_sizes/font_size = 12
+text = "Morning Street News: Traffic alert along Agege Motor Road."
+autowrap_mode = 2
+
+[node name="FeedCard" type="PanelContainer" parent="MarginContainer/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Margin" type="MarginContainer" parent="MarginContainer/VBox/FeedCard"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 14
+theme_override_constants/margin_bottom = 10
+
+[node name="Scroll" type="ScrollContainer" parent="MarginContainer/VBox/FeedCard/Margin"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="FeedLabel" type="Label" parent="MarginContainer/VBox/FeedCard/Margin/Scroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.18, 0.2, 0.25, 1)
+theme_override_font_sizes/font_size = 13
+text = "Activity feed will appear here..."
+autowrap_mode = 2
+
+[node name="ActionsCard" type="PanelContainer" parent="MarginContainer/VBox"]
+layout_mode = 2
+
+[node name="ActionsMargin" type="MarginContainer" parent="MarginContainer/VBox/ActionsCard"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 10
+
+[node name="Grid" type="GridContainer" parent="MarginContainer/VBox/ActionsCard/ActionsMargin"]
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 8
+columns = 2
+
+[node name="WorkButton" type="Button" parent="MarginContainer/VBox/ActionsCard/ActionsMargin/Grid"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 13
+text = "Work (+₦3,200)"
+
+[node name="RestButton" type="Button" parent="MarginContainer/VBox/ActionsCard/ActionsMargin/Grid"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 13
+text = "Rest (+35 Energy)"
+
+[node name="TravelButton" type="Button" parent="MarginContainer/VBox/ActionsCard/ActionsMargin/Grid"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 13
+text = "Travel / Bus"
+
+[node name="SocialiseButton" type="Button" parent="MarginContainer/VBox/ActionsCard/ActionsMargin/Grid"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 13
+text = "Socialise (-₦500)"
+
+[node name="NavRow" type="HBoxContainer" parent="MarginContainer/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="StatsButton" type="Button" parent="MarginContainer/VBox/NavRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 14
+text = "View Character / Stats"
+
+[node name="MenuButton" type="Button" parent="MarginContainer/VBox/NavRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 14
+text = "Main Menu"
+
+[node name="TravelDialog" type="ConfirmationDialog" parent="."]
+unique_name_in_owner = true
+title = "Choose Destination"
+initial_position = 2
+size = Vector2i(340, 240)
+ok_button_text = "Board Transit"
+
+[node name="Margin" type="MarginContainer" parent="TravelDialog"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -49.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TravelOptionsList" type="ItemList" parent="TravelDialog/Margin"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+
+[node name="EventDialog" type="AcceptDialog" parent="."]
+unique_name_in_owner = true
+title = "Street Event"
+initial_position = 2
+size = Vector2i(340, 190)
+dialog_autowrap = true
+
+[node name="MorningDialog" type="AcceptDialog" parent="."]
+unique_name_in_owner = true
+title = "Dawn in Oshodi"
+initial_position = 2
+size = Vector2i(340, 220)
+dialog_autowrap = true

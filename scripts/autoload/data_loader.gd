@@ -10,6 +10,8 @@ signal data_validation_failed(errors: Array[String])
 var classes: Dictionary = {}
 var subclasses: Dictionary = {}
 var economy: Dictionary = {}
+var locations: Dictionary = {}
+var events: Dictionary = {}
 
 var is_loaded: bool = false
 var load_errors: Array[String] = []
@@ -25,6 +27,8 @@ func load_and_validate_all(data_dir: String = "res://data") -> bool:
 	classes.clear()
 	subclasses.clear()
 	economy.clear()
+	locations.clear()
+	events.clear()
 	
 	# 1. Load Classes
 	var classes_raw = _load_json_file(data_dir + "/classes.json")
@@ -47,9 +51,25 @@ func load_and_validate_all(data_dir: String = "res://data") -> bool:
 	else:
 		_validate_economy(economy_raw)
 	
+	# 4. Load Locations
+	var locations_raw = _load_json_file(data_dir + "/locations.json")
+	if locations_raw == null:
+		load_errors.append("locations.json: Failed to read or parse JSON file.")
+	else:
+		_validate_locations(locations_raw)
+	
+	# 5. Load Events
+	var events_raw = _load_json_file(data_dir + "/events.json")
+	if events_raw == null:
+		load_errors.append("events.json: Failed to read or parse JSON file.")
+	else:
+		_validate_events(events_raw)
+	
 	is_loaded = (load_errors.is_empty())
 	if is_loaded:
-		print("[DataLoader] Successfully loaded and validated %d classes, %d subclasses." % [classes.size(), subclasses.size()])
+		print("[DataLoader] Successfully loaded and validated %d classes, %d subclasses, %d locations, %d events." % [
+			classes.size(), subclasses.size(), locations.size(), events.size()
+		])
 		data_loaded.emit(true)
 		return true
 	else:
@@ -87,13 +107,11 @@ func _validate_classes(raw_data: Variant) -> void:
 			load_errors.append("%s: Duplicate class id detected." % ctx)
 		seen_ids[id_val] = true
 		
-		# Validate required string fields
 		for str_field in ["name", "tagline", "signature_mechanic"]:
 			var val = item.get(str_field, "")
 			if not (val is String) or val.strip_edges().is_empty():
 				load_errors.append("%s: Missing or empty required field '%s'." % [ctx, str_field])
 		
-		# Validate base_stats
 		var stats = item.get("base_stats", null)
 		if not (stats is Dictionary):
 			load_errors.append("%s: Missing or invalid 'base_stats' dictionary." % ctx)
@@ -103,7 +121,6 @@ func _validate_classes(raw_data: Variant) -> void:
 				if stat_val == null or not (stat_val is int or stat_val is float) or stat_val < 1:
 					load_errors.append("%s: 'base_stats.%s' must be an integer >= 1." % [ctx, stat_name])
 		
-		# Validate passive_perk
 		var perk = item.get("passive_perk", null)
 		if not (perk is Dictionary):
 			load_errors.append("%s: Missing or invalid 'passive_perk' dictionary." % ctx)
@@ -113,7 +130,6 @@ func _validate_classes(raw_data: Variant) -> void:
 			if not (perk.get("text", "") is String) or perk.get("text", "").is_empty():
 				load_errors.append("%s: 'passive_perk.text' must be non-empty string." % ctx)
 		
-		# Validate subclasses array
 		var sub_list = item.get("subclasses", null)
 		if not (sub_list is Array):
 			load_errors.append("%s: Missing or invalid 'subclasses' array." % ctx)
@@ -147,20 +163,17 @@ func _validate_subclasses(raw_data: Variant) -> void:
 			load_errors.append("%s: Duplicate subclass id detected." % ctx)
 		seen_ids[id_val] = true
 		
-		# Validate class_id reference
 		var class_id = item.get("class_id", "")
 		if not (class_id is String) or class_id.is_empty():
 			load_errors.append("%s: Missing or empty 'class_id' reference." % ctx)
 		elif not classes.has(class_id):
 			load_errors.append("%s: Referenced class_id '%s' does not exist in classes.json." % [ctx, class_id])
 		
-		# Validate required string fields
 		for str_field in ["name", "fantasy", "weakness"]:
 			var val = item.get(str_field, "")
 			if not (val is String) or val.strip_edges().is_empty():
 				load_errors.append("%s: Missing or empty required field '%s'." % [ctx, str_field])
 		
-		# Validate perks array
 		var perks = item.get("perks", null)
 		if not (perks is Array) or perks.is_empty():
 			load_errors.append("%s: 'perks' must be a non-empty array of perks." % ctx)
@@ -170,12 +183,99 @@ func _validate_subclasses(raw_data: Variant) -> void:
 				if not (p is Dictionary) or not (p.get("id", "") is String) or not (p.get("text", "") is String):
 					load_errors.append("%s: perks[%d] must have non-empty 'id' and 'text'." % [ctx, p_idx])
 		
-		# Validate situation_sets
 		var sit_sets = item.get("situation_sets", null)
 		if not (sit_sets is Array):
 			load_errors.append("%s: 'situation_sets' must be an array of strings." % ctx)
 		
 		subclasses[id_val] = item
+
+## Validates locations array against schema
+func _validate_locations(raw_data: Variant) -> void:
+	if not (raw_data is Array):
+		load_errors.append("locations.json: Root must be a JSON Array of location objects.")
+		return
+	
+	var seen_ids: Dictionary = {}
+	for idx in range(raw_data.size()):
+		var item = raw_data[idx]
+		var ctx = "locations.json[%d]" % idx
+		if not (item is Dictionary):
+			load_errors.append("%s: Expected JSON Object." % ctx)
+			continue
+		
+		var id_val = item.get("id", "")
+		if not (id_val is String) or id_val.strip_edges().is_empty():
+			load_errors.append("%s: Missing or empty 'id' field." % ctx)
+			continue
+		
+		ctx = "locations.json (id: '%s')" % id_val
+		if not _is_valid_id(id_val):
+			load_errors.append("%s: ID must be lowercase alphanumeric with underscores." % ctx)
+		
+		if seen_ids.has(id_val):
+			load_errors.append("%s: Duplicate location id detected." % ctx)
+		seen_ids[id_val] = true
+		
+		for str_field in ["name", "district", "description"]:
+			var val = item.get(str_field, "")
+			if not (val is String) or val.strip_edges().is_empty():
+				load_errors.append("%s: Missing or empty required field '%s'." % [ctx, str_field])
+		
+		var act_list = item.get("activities", null)
+		if not (act_list is Array) or act_list.is_empty():
+			load_errors.append("%s: 'activities' must be a non-empty array." % ctx)
+		
+		var travel_list = item.get("travel", null)
+		if not (travel_list is Array):
+			load_errors.append("%s: 'travel' must be an array of destinations." % ctx)
+		
+		locations[id_val] = item
+
+## Validates events array against schema
+func _validate_events(raw_data: Variant) -> void:
+	if not (raw_data is Array):
+		load_errors.append("events.json: Root must be a JSON Array of event objects.")
+		return
+	
+	var seen_ids: Dictionary = {}
+	for idx in range(raw_data.size()):
+		var item = raw_data[idx]
+		var ctx = "events.json[%d]" % idx
+		if not (item is Dictionary):
+			load_errors.append("%s: Expected JSON Object." % ctx)
+			continue
+		
+		var id_val = item.get("id", "")
+		if not (id_val is String) or id_val.strip_edges().is_empty():
+			load_errors.append("%s: Missing or empty 'id' field." % ctx)
+			continue
+		
+		ctx = "events.json (id: '%s')" % id_val
+		if not _is_valid_id(id_val):
+			load_errors.append("%s: ID must be lowercase alphanumeric with underscores." % ctx)
+		
+		if seen_ids.has(id_val):
+			load_errors.append("%s: Duplicate event id detected." % ctx)
+		seen_ids[id_val] = true
+		
+		for str_field in ["title", "description"]:
+			var val = item.get(str_field, "")
+			if not (val is String) or val.strip_edges().is_empty():
+				load_errors.append("%s: Missing or empty required field '%s'." % [ctx, str_field])
+		
+		var weight = item.get("weight", null)
+		if weight == null or not (weight is int or weight is float) or weight < 1:
+			load_errors.append("%s: 'weight' must be an integer >= 1." % ctx)
+		
+		var conditions = item.get("conditions", null)
+		if not (conditions is Dictionary):
+			load_errors.append("%s: 'conditions' must be a dictionary." % ctx)
+		
+		var effects = item.get("effects", null)
+		if not (effects is Dictionary):
+			load_errors.append("%s: 'effects' must be a dictionary." % ctx)
+		
+		events[id_val] = item
 
 ## Validates economy dictionary
 func _validate_economy(raw_data: Variant) -> void:
@@ -211,7 +311,6 @@ func _load_json_file(file_path: String) -> Variant:
 		return null
 	return json.data
 
-## Validates snake_case identifier: lowercase letters, digits, and underscores
 func _is_valid_id(id_string: String) -> bool:
 	var regex = RegEx.new()
 	regex.compile("^[a-z0-9_]+$")
@@ -238,6 +337,24 @@ func get_subclasses_for_class(class_id: String) -> Array[Dictionary]:
 func get_subclass_by_id(subclass_id: String) -> Dictionary:
 	return subclasses.get(subclass_id, {})
 
+func get_all_locations() -> Array[Dictionary]:
+	var list: Array[Dictionary] = []
+	for l_id in locations:
+		list.append(locations[l_id])
+	return list
+
+func get_location_by_id(loc_id: String) -> Dictionary:
+	return locations.get(loc_id, {})
+
+func get_all_events() -> Array[Dictionary]:
+	var list: Array[Dictionary] = []
+	for e_id in events:
+		list.append(events[e_id])
+	return list
+
+func get_event_by_id(event_id: String) -> Dictionary:
+	return events.get(event_id, {})
+
 func get_starting_naira(class_id: String) -> int:
 	var starting_dict = economy.get("starting_naira_by_class", {})
 	return starting_dict.get(class_id, 5000)
@@ -249,3 +366,33 @@ func get_starting_resources() -> Dictionary:
 		"respect": 10,
 		"heat": 0
 	})
+
+func get_work_income(class_id: String) -> int:
+	var income_dict = economy.get("work_income_by_class", {})
+	return income_dict.get(class_id, 2500)
+
+func get_activity_costs() -> Dictionary:
+	return economy.get("activity_costs", {
+		"work_energy": 20,
+		"work_xp": 15,
+		"rest_energy_gain": 35,
+		"socialise_naira": 500,
+		"socialise_energy_gain": 10,
+		"socialise_respect": 2,
+		"socialise_xp": 8
+	})
+
+func get_daily_food_cost() -> int:
+	var costs = economy.get("daily_costs", {})
+	return costs.get("food_standard", 1500)
+
+func get_random_morning_news(rng: RandomNumberGenerator = null) -> String:
+	var news_list = economy.get("morning_street_news", [])
+	if news_list.is_empty():
+		return "Another busy day begins in the bustling commercial heart of Oshodi."
+	var idx = 0
+	if rng:
+		idx = rng.randi_range(0, news_list.size() - 1)
+	else:
+		idx = randi() % news_list.size()
+	return news_list[idx]

@@ -22,11 +22,20 @@ func _ready() -> void:
 		test_button.pressed.connect(_on_test_pressed)
 	
 	if status_label:
-		status_label.text = "Select 'Start Game' to create character, or 'Run Tests' to verify logic."
+		status_label.text = "Select 'Start Game' to play, or 'Run Tests' to verify logic."
+	
+	if GameState.has_character():
+		play_button.text = "Continue Game (%s - Day %d)" % [GameState.player_name, GameState.day]
+	else:
+		play_button.text = "Start Game"
 
 func _on_play_pressed() -> void:
-	print("[MainMenu] Starting character creation.")
-	get_tree().change_scene_to_file("res://scenes/character_creation.tscn")
+	if GameState.has_character():
+		print("[MainMenu] Continuing game to Hub.")
+		get_tree().change_scene_to_file("res://scenes/hub_screen.tscn")
+	else:
+		print("[MainMenu] Starting character creation.")
+		get_tree().change_scene_to_file("res://scenes/character_creation.tscn")
 
 func _on_test_pressed() -> void:
 	print("[MainMenu] Opening test runner.")

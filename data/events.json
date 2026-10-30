@@ -1,0 +1,165 @@
+[
+  {
+    "id": "sudden_gridlock",
+    "title": "Sudden Expressway Gridlock",
+    "description": "A heavy container trailer develops a flat tyre along the corridor. Traffic crawls to an absolute standstill as horns echo under the bridge.",
+    "weight": 15,
+    "conditions": {
+      "time_blocks": [
+        "morning",
+        "evening"
+      ]
+    },
+    "effects": {
+      "energy": -10,
+      "naira": 0,
+      "respect": 0,
+      "heat": 0,
+      "xp": 5,
+      "message": "The unbearable delay drains 10 Energy, but you gain 5 XP enduring the heat."
+    }
+  },
+  {
+    "id": "customer_rush",
+    "title": "Bumper Passenger Rush",
+    "description": "Three fully loaded commercial buses discharge waves of thirsty, hungry commuters right in front of your spot.",
+    "weight": 12,
+    "conditions": {
+      "time_blocks": [
+        "morning",
+        "afternoon"
+      ]
+    },
+    "effects": {
+      "energy": -5,
+      "naira": 2500,
+      "respect": 1,
+      "heat": 0,
+      "xp": 10,
+      "message": "Fast sales earn you ₦2,500 and boost local Respect by +1!"
+    }
+  },
+  {
+    "id": "generator_cut",
+    "title": "Light Cut & Genset Scramble",
+    "description": "The national grid suddenly snaps off. In seconds, the entire block erupts in the synchronized roar of small tiger generators.",
+    "weight": 10,
+    "conditions": {
+      "time_blocks": [
+        "afternoon",
+        "evening",
+        "night"
+      ]
+    },
+    "effects": {
+      "energy": -5,
+      "naira": -800,
+      "respect": 0,
+      "heat": 0,
+      "xp": 5,
+      "message": "You chip in ₦800 for fuel to keep the evening lights and fans running."
+    }
+  },
+  {
+    "id": "heavy_downpour",
+    "title": "Sudden Tropical Downpour",
+    "description": "A swift torrential rain pours across Oshodi. People pack under shop verandas and bridge walkways while gutters roar with stormwater.",
+    "weight": 10,
+    "conditions": {
+      "time_blocks": [
+        "afternoon",
+        "evening"
+      ]
+    },
+    "effects": {
+      "energy": -10,
+      "naira": 0,
+      "respect": 0,
+      "heat": 0,
+      "xp": 5,
+      "message": "Soaked sandals and puddles cost you 10 Energy waiting out the storm."
+    }
+  },
+  {
+    "id": "good_neighbour_banter",
+    "title": "Warm Street Banter & Snack",
+    "description": "A respected elder from the street hails you warmly, sharing fresh fried puff-puff and encouraging your honest hustle.",
+    "weight": 14,
+    "conditions": {
+      "time_blocks": [
+        "morning",
+        "afternoon",
+        "evening"
+      ]
+    },
+    "effects": {
+      "energy": 15,
+      "naira": 0,
+      "respect": 2,
+      "heat": 0,
+      "xp": 5,
+      "message": "Fresh food and hearty laughter restore +15 Energy and raise Respect by +2."
+    }
+  },
+  {
+    "id": "taskforce_patrol",
+    "title": "Task Force Routine Sweep",
+    "description": "A municipal monitoring vehicle drives past the corridor at snail pace. Hawkers step onto walkways and drivers double-check their permits.",
+    "weight": 8,
+    "conditions": {
+      "time_blocks": [
+        "morning",
+        "afternoon"
+      ]
+    },
+    "effects": {
+      "energy": -5,
+      "naira": 0,
+      "respect": 0,
+      "heat": 1,
+      "xp": 5,
+      "message": "Tense moments raise street Heat by +1 as everyone keeps a low profile."
+    }
+  },
+  {
+    "id": "generous_tipper",
+    "title": "Generous Patron Tip",
+    "description": "A hurried business commuter appreciates your sharp, courteous service and hands you crisp currency notes with a warm smile.",
+    "weight": 8,
+    "conditions": {
+      "time_blocks": [
+        "morning",
+        "afternoon",
+        "evening"
+      ]
+    },
+    "effects": {
+      "energy": 0,
+      "naira": 3000,
+      "respect": 1,
+      "heat": 0,
+      "xp": 10,
+      "message": "You receive a handsome ₦3,000 tip and gain +1 Respect!"
+    }
+  },
+  {
+    "id": "street_gossip_gist",
+    "title": "Newspaper Stand Debate",
+    "description": "A crowd of impassioned citizens debates football and current affairs around a roadside newsstand.",
+    "weight": 12,
+    "conditions": {
+      "time_blocks": [
+        "morning",
+        "evening"
+      ]
+    },
+    "effects": {
+      "energy": 5,
+      "naira": 0,
+      "respect": 1,
+      "heat": 0,
+      "xp": 10,
+      "message": "Engaging street analysis earns you +1 Respect and +10 XP in local knowledge."
+    }
+  }
+]

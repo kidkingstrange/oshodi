@@ -1,0 +1,147 @@
+[
+  {
+    "id": "oshodi_underbridge",
+    "district": "oshodi",
+    "name": "Oshodi Underbridge",
+    "description": "The bustling transit heartbeat where yellow danfo buses rumble, conductors shout destinations, and pure-water hawkers weave between lanes.",
+    "activities": [
+      "work",
+      "travel",
+      "socialise",
+      "rest"
+    ],
+    "event_pool": [
+      "transport_events",
+      "general_events"
+    ],
+    "travel": [
+      {
+        "to": "oshodi_market",
+        "name": "Oshodi Central Market",
+        "cost_naira": 200,
+        "time_blocks": 1
+      },
+      {
+        "to": "oshodi_bus_terminal",
+        "name": "Transport Interchange",
+        "cost_naira": 250,
+        "time_blocks": 1
+      },
+      {
+        "to": "bolade_junction",
+        "name": "Bolade Junction",
+        "cost_naira": 300,
+        "time_blocks": 1
+      }
+    ]
+  },
+  {
+    "id": "oshodi_market",
+    "district": "oshodi",
+    "name": "Oshodi Central Market",
+    "description": "Rows of vibrant umbrella stalls and crowded alleys selling textiles, fresh foodstuff, phone accessories, and piping hot snacks.",
+    "activities": [
+      "work",
+      "shop",
+      "socialise",
+      "travel"
+    ],
+    "event_pool": [
+      "market_events",
+      "general_events"
+    ],
+    "travel": [
+      {
+        "to": "oshodi_underbridge",
+        "name": "Oshodi Underbridge",
+        "cost_naira": 200,
+        "time_blocks": 1
+      },
+      {
+        "to": "oshodi_bus_terminal",
+        "name": "Transport Interchange",
+        "cost_naira": 200,
+        "time_blocks": 1
+      },
+      {
+        "to": "bolade_junction",
+        "name": "Bolade Junction",
+        "cost_naira": 350,
+        "time_blocks": 1
+      }
+    ]
+  },
+  {
+    "id": "oshodi_bus_terminal",
+    "district": "oshodi",
+    "name": "Oshodi Transport Interchange",
+    "description": "The modern multi-level transit terminal bustling with commuters boarding intra-city buses, airport express shuttles, and long-distance coaches.",
+    "activities": [
+      "work",
+      "travel",
+      "rest",
+      "socialise"
+    ],
+    "event_pool": [
+      "terminal_events",
+      "transport_events",
+      "general_events"
+    ],
+    "travel": [
+      {
+        "to": "oshodi_underbridge",
+        "name": "Oshodi Underbridge",
+        "cost_naira": 250,
+        "time_blocks": 1
+      },
+      {
+        "to": "oshodi_market",
+        "name": "Oshodi Central Market",
+        "cost_naira": 200,
+        "time_blocks": 1
+      },
+      {
+        "to": "bolade_junction",
+        "name": "Bolade Junction",
+        "cost_naira": 300,
+        "time_blocks": 1
+      }
+    ]
+  },
+  {
+    "id": "bolade_junction",
+    "district": "oshodi",
+    "name": "Bolade Junction",
+    "description": "A lively neighbourhood hub lined with chemist shops, mama-put canteens, evening football debates, and the persistent hum of generators.",
+    "activities": [
+      "rest",
+      "socialise",
+      "shop",
+      "travel"
+    ],
+    "event_pool": [
+      "neighbourhood_events",
+      "general_events"
+    ],
+    "travel": [
+      {
+        "to": "oshodi_underbridge",
+        "name": "Oshodi Underbridge",
+        "cost_naira": 300,
+        "time_blocks": 1
+      },
+      {
+        "to": "oshodi_market",
+        "name": "Oshodi Central Market",
+        "cost_naira": 350,
+        "time_blocks": 1
+      },
+      {
+        "to": "oshodi_bus_terminal",
+        "name": "Transport Interchange",
+        "cost_naira": 300,
+        "time_blocks": 1
+      }
+    ]
+  }
+]

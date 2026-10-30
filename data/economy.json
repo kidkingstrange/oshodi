@@ -20,6 +20,30 @@
     "power_fuel": 2500,
     "room_rent_weekly": 15000
   },
+  "work_income_by_class": {
+    "trader": 3200,
+    "transporter": 2800,
+    "area_boy": 2200,
+    "working_class": 3500,
+    "road_official": 3000,
+    "faith_leader": 2500
+  },
+  "activity_costs": {
+    "work_energy": 20,
+    "work_xp": 15,
+    "rest_energy_gain": 35,
+    "socialise_naira": 500,
+    "socialise_energy_gain": 10,
+    "socialise_respect": 2,
+    "socialise_xp": 8
+  },
+  "morning_street_news": [
+    "Traffic alert: Expressway free flowing after early morning road sweep.",
+    "Market union announces general sanitation this Thursday before noon.",
+    "Power authorities promise improved supply as offshore gas pipeline repair finishes.",
+    "Commuters celebrate introduction of additional rapid transport buses.",
+    "Road officials reiterate zero tolerance for unauthorized street parking."
+  ],
   "level_xp_requirements": [
     0,
     100,

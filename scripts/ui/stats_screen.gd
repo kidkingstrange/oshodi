@@ -71,7 +71,4 @@ func _on_menu_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
 func _on_next_phase_pressed() -> void:
-	if info_dialog:
-		info_dialog.title = "Phase 1 Complete!"
-		info_dialog.dialog_text = "Character creation and GameState verified!\n\nIn Phase 2, we will implement the 4 Oshodi locations, activity time blocks, daily costs, and random street events."
-		info_dialog.popup_centered()
+	get_tree().change_scene_to_file("res://scenes/hub_screen.tscn")
