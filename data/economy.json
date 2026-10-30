@@ -1,0 +1,35 @@
+{
+  "starting_naira_by_class": {
+    "trader": 12000,
+    "transporter": 8000,
+    "area_boy": 3000,
+    "working_class": 15000,
+    "road_official": 10000,
+    "faith_leader": 6000
+  },
+  "starting_resources": {
+    "energy": 100,
+    "max_energy": 100,
+    "respect": 10,
+    "heat": 0
+  },
+  "daily_costs": {
+    "food_standard": 1500,
+    "food_cheap": 800,
+    "transport_baseline": 600,
+    "power_fuel": 2500,
+    "room_rent_weekly": 15000
+  },
+  "level_xp_requirements": [
+    0,
+    100,
+    250,
+    450,
+    700,
+    1000,
+    1400,
+    1900,
+    2500,
+    3200
+  ]
+}

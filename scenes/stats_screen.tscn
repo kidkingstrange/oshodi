@@ -1,0 +1,343 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/stats_screen.gd" id="1_stats"]
+
+[node name="StatsScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_stats")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.08, 0.09, 0.12, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="HeaderCard" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="MarginContainer/VBoxContainer/HeaderCard"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 12
+
+[node name="VBox" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HeaderCard/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="CharNameLabel" type="Label" parent="MarginContainer/VBoxContainer/HeaderCard/Margin/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.96, 0.76, 0.17, 1)
+theme_override_font_sizes/font_size = 28
+text = "AYO"
+horizontal_alignment = 1
+
+[node name="ClassTitleLabel" type="Label" parent="MarginContainer/VBoxContainer/HeaderCard/Margin/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "Trader"
+horizontal_alignment = 1
+
+[node name="LevelXpLabel" type="Label" parent="MarginContainer/VBoxContainer/HeaderCard/Margin/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.73, 0.8, 1)
+theme_override_font_sizes/font_size = 14
+text = "Level 1 • 0 XP"
+horizontal_alignment = 1
+
+[node name="LocationTimeLabel" type="Label" parent="MarginContainer/VBoxContainer/HeaderCard/Margin/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5, 0.85, 0.95, 1)
+theme_override_font_sizes/font_size = 13
+text = "Oshodi Market • Day 1 (Morning)"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="ScrollContent" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 16
+
+[node name="ResourcesCard" type="PanelContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/ScrollContent"]
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/ScrollContent/ResourcesCard"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 12
+
+[node name="VBox" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/ScrollContent/ResourcesCard/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Header" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/ScrollContent/ResourcesCard/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.96, 0.76, 0.17, 1)
+theme_override_font_sizes/font_size = 15
+text = "DAILY RESOURCES"
+
+[node name="Grid" type="GridContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/ScrollContent/ResourcesCard/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 8
+columns = 2
+
+[node name="NairaBox" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/ScrollContent/ResourcesCard/Margin/VBox/Grid"]
+layout_mode = 2
+
+[node name="Lbl" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/ScrollContent/ResourcesCard/Margin/VBox/Grid/NairaBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+theme_override_font_sizes/font_size = 14
+text = "Naira:"
+
+[node name="NairaValLabel" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/ScrollContent/ResourcesCard/Margin/VBox/Grid/NairaBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.95, 0.5, 1)
+theme_override_font_sizes/font_size = 15
+text = "₦12,000"
+
+[node name="EnergyBox" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/ScrollContent/ResourcesCard/Margin/VBox/Grid"]
+layout_mode = 2
+
+[node name="Lbl" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/ScrollContent/ResourcesCard/Margin/VBox/Grid/EnergyBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+theme_override_font_sizes/font_size = 14
+text = "Energy:"
+
+[node name="EnergyValLabel" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/ScrollContent/ResourcesCard/Margin/VBox/Grid/EnergyBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.85, 0.3, 1)
+theme_override_font_sizes/font_size = 15
+text = "100 / 100"
+
+[node name="RespectBox" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/ScrollContent/ResourcesCard/Margin/VBox/Grid"]
+layout_mode = 2
+
+[node name="Lbl" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/ScrollContent/ResourcesCard/Margin/VBox/Grid/RespectBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+theme_override_font_sizes/font_size = 14
+text = "Respect:"
+
+[node name="RespectValLabel" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/ScrollContent/ResourcesCard/Margin/VBox/Grid/RespectBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.8, 1, 1)
+theme_override_font_sizes/font_size = 15
+text = "10"
+
+[node name="HeatBox" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/ScrollContent/ResourcesCard/Margin/VBox/Grid"]
+layout_mode = 2
+
+[node name="Lbl" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/ScrollContent/ResourcesCard/Margin/VBox/Grid/HeatBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+theme_override_font_sizes/font_size = 14
+text = "Heat:"
+
+[node name="HeatValLabel" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/ScrollContent/ResourcesCard/Margin/VBox/Grid/HeatBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.45, 0.45, 1)
+theme_override_font_sizes/font_size = 15
+text = "0"
+
+[node name="StatsCard" type="PanelContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/ScrollContent"]
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/ScrollContent/StatsCard"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 12
+
+[node name="VBox" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/ScrollContent/StatsCard/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Header" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/ScrollContent/StatsCard/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.96, 0.76, 0.17, 1)
+theme_override_font_sizes/font_size = 15
+text = "PRIMARY STATS"
+
+[node name="Grid" type="GridContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/ScrollContent/StatsCard/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 8
+columns = 2
+
+[node name="HBox1" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/ScrollContent/StatsCard/Margin/VBox/Grid"]
+layout_mode = 2
+
+[node name="Lbl" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/ScrollContent/StatsCard/Margin/VBox/Grid/HBox1"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+theme_override_font_sizes/font_size = 13
+text = "Hustle:"
+
+[node name="HustleLabel" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/ScrollContent/StatsCard/Margin/VBox/Grid/HBox1"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 14
+text = "5"
+
+[node name="HBox2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/ScrollContent/StatsCard/Margin/VBox/Grid"]
+layout_mode = 2
+
+[node name="Lbl" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/ScrollContent/StatsCard/Margin/VBox/Grid/HBox2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+theme_override_font_sizes/font_size = 13
+text = "Street Smarts:"
+
+[node name="SmartsLabel" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/ScrollContent/StatsCard/Margin/VBox/Grid/HBox2"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 14
+text = "4"
+
+[node name="HBox3" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/ScrollContent/StatsCard/Margin/VBox/Grid"]
+layout_mode = 2
+
+[node name="Lbl" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/ScrollContent/StatsCard/Margin/VBox/Grid/HBox3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+theme_override_font_sizes/font_size = 13
+text = "Charisma:"
+
+[node name="CharismaLabel" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/ScrollContent/StatsCard/Margin/VBox/Grid/HBox3"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 14
+text = "4"
+
+[node name="HBox4" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/ScrollContent/StatsCard/Margin/VBox/Grid"]
+layout_mode = 2
+
+[node name="Lbl" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/ScrollContent/StatsCard/Margin/VBox/Grid/HBox4"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+theme_override_font_sizes/font_size = 13
+text = "Stamina:"
+
+[node name="StaminaLabel" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/ScrollContent/StatsCard/Margin/VBox/Grid/HBox4"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 14
+text = "3"
+
+[node name="HBox5" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/ScrollContent/StatsCard/Margin/VBox/Grid"]
+layout_mode = 2
+
+[node name="Lbl" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/ScrollContent/StatsCard/Margin/VBox/Grid/HBox5"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+theme_override_font_sizes/font_size = 13
+text = "Grit:"
+
+[node name="GritLabel" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/ScrollContent/StatsCard/Margin/VBox/Grid/HBox5"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 14
+text = "3"
+
+[node name="FeaturesCard" type="PanelContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/ScrollContent"]
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/ScrollContent/FeaturesCard"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 12
+
+[node name="VBox" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/ScrollContent/FeaturesCard/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="MechanicLabel" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/ScrollContent/FeaturesCard/Margin/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.96, 0.76, 0.17, 1)
+theme_override_font_sizes/font_size = 13
+text = "Stock & Price: Source merchandise low and haggle."
+autowrap_mode = 2
+
+[node name="PerkLabel" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/ScrollContent/FeaturesCard/Margin/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5, 0.8, 0.95, 1)
+theme_override_font_sizes/font_size = 13
+text = "Good Eye: Better chance to spot cheap stock."
+autowrap_mode = 2
+
+[node name="ActionButtonsBox" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="NextPhaseButton" type="Button" parent="MarginContainer/VBoxContainer/ActionButtonsBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+theme_override_font_sizes/font_size = 17
+text = "Ready for Phase 2"
+
+[node name="MenuButton" type="Button" parent="MarginContainer/VBoxContainer/ActionButtonsBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "Return to Main Menu"
+
+[node name="InfoDialog" type="AcceptDialog" parent="."]
+unique_name_in_owner = true
+initial_position = 2
+size = Vector2i(320, 160)
+dialog_autowrap = true

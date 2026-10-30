@@ -1,0 +1,309 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/character_creation.gd" id="1_char"]
+
+[node name="CharacterCreation" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_char")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.08, 0.09, 0.12, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 32
+
+[node name="MainVBox" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="HeaderContainer" type="VBoxContainer" parent="MarginContainer/MainVBox"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/MainVBox/HeaderContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.96, 0.76, 0.17, 1)
+theme_override_font_sizes/font_size = 28
+text = "CREATE YOUR CHARACTER"
+horizontal_alignment = 1
+
+[node name="SubtitleLabel" type="Label" parent="MarginContainer/MainVBox/HeaderContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.72, 0.78, 1)
+theme_override_font_sizes/font_size = 14
+text = "Choose your identity and daily hustle in Oshodi"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/MainVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="ScrollContent" type="VBoxContainer" parent="MarginContainer/MainVBox/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 18
+
+[node name="NameSection" type="VBoxContainer" parent="MarginContainer/MainVBox/ScrollContainer/ScrollContent"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="NameLabel" type="Label" parent="MarginContainer/MainVBox/ScrollContainer/ScrollContent/NameSection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 15
+text = "Your Street Name:"
+
+[node name="NameInput" type="LineEdit" parent="MarginContainer/MainVBox/ScrollContainer/ScrollContent/NameSection"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Ayo"
+placeholder_text = "e.g. Ayo, Chidi, Folake..."
+
+[node name="ClassSection" type="VBoxContainer" parent="MarginContainer/MainVBox/ScrollContainer/ScrollContent"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="ClassLabel" type="Label" parent="MarginContainer/MainVBox/ScrollContainer/ScrollContent/ClassSection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 15
+text = "Select Starting Class:"
+
+[node name="ClassOptionButton" type="OptionButton" parent="MarginContainer/MainVBox/ScrollContainer/ScrollContent/ClassSection"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+
+[node name="TaglineLabel" type="Label" parent="MarginContainer/MainVBox/ScrollContainer/ScrollContent"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.96, 0.76, 0.17, 1)
+theme_override_font_sizes/font_size = 15
+text = "\"Buy low, sell high, greet everybody.\""
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="FantasyLabel" type="Label" parent="MarginContainer/MainVBox/ScrollContainer/ScrollContent"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.82, 0.86, 1)
+theme_override_font_sizes/font_size = 13
+text = "Master of markets, stalls, and street haggling across Lagos."
+autowrap_mode = 2
+
+[node name="StartingCashLabel" type="Label" parent="MarginContainer/MainVBox/ScrollContainer/ScrollContent"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5, 0.9, 0.6, 1)
+theme_override_font_sizes/font_size = 15
+text = "Starting Capital: ₦12,000"
+
+[node name="StatsPanel" type="PanelContainer" parent="MarginContainer/MainVBox/ScrollContainer/ScrollContent"]
+layout_mode = 2
+
+[node name="StatsMargin" type="MarginContainer" parent="MarginContainer/MainVBox/ScrollContainer/ScrollContent/StatsPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 10
+
+[node name="StatsVBox" type="VBoxContainer" parent="MarginContainer/MainVBox/ScrollContainer/ScrollContent/StatsPanel/StatsMargin"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="StatsHeader" type="Label" parent="MarginContainer/MainVBox/ScrollContainer/ScrollContent/StatsPanel/StatsMargin/StatsVBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_font_sizes/font_size = 14
+text = "BASE STATS"
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/MainVBox/ScrollContainer/ScrollContent/StatsPanel/StatsMargin/StatsVBox"]
+layout_mode = 2
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 6
+columns = 2
+
+[node name="HustleBox" type="HBoxContainer" parent="MarginContainer/MainVBox/ScrollContainer/ScrollContent/StatsPanel/StatsMargin/StatsVBox/GridContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/MainVBox/ScrollContainer/ScrollContent/StatsPanel/StatsMargin/StatsVBox/GridContainer/HustleBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.75, 1)
+theme_override_font_sizes/font_size = 13
+text = "Hustle:"
+
+[node name="HustleValLabel" type="Label" parent="MarginContainer/MainVBox/ScrollContainer/ScrollContent/StatsPanel/StatsMargin/StatsVBox/GridContainer/HustleBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.96, 0.76, 0.17, 1)
+theme_override_font_sizes/font_size = 14
+text = "5"
+
+[node name="SmartsBox" type="HBoxContainer" parent="MarginContainer/MainVBox/ScrollContainer/ScrollContent/StatsPanel/StatsMargin/StatsVBox/GridContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/MainVBox/ScrollContainer/ScrollContent/StatsPanel/StatsMargin/StatsVBox/GridContainer/SmartsBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.75, 1)
+theme_override_font_sizes/font_size = 13
+text = "Street Smarts:"
+
+[node name="SmartsValLabel" type="Label" parent="MarginContainer/MainVBox/ScrollContainer/ScrollContent/StatsPanel/StatsMargin/StatsVBox/GridContainer/SmartsBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.96, 0.76, 0.17, 1)
+theme_override_font_sizes/font_size = 14
+text = "4"
+
+[node name="CharismaBox" type="HBoxContainer" parent="MarginContainer/MainVBox/ScrollContainer/ScrollContent/StatsPanel/StatsMargin/StatsVBox/GridContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/MainVBox/ScrollContainer/ScrollContent/StatsPanel/StatsMargin/StatsVBox/GridContainer/CharismaBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.75, 1)
+theme_override_font_sizes/font_size = 13
+text = "Charisma:"
+
+[node name="CharismaValLabel" type="Label" parent="MarginContainer/MainVBox/ScrollContainer/ScrollContent/StatsPanel/StatsMargin/StatsVBox/GridContainer/CharismaBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.96, 0.76, 0.17, 1)
+theme_override_font_sizes/font_size = 14
+text = "4"
+
+[node name="StaminaBox" type="HBoxContainer" parent="MarginContainer/MainVBox/ScrollContainer/ScrollContent/StatsPanel/StatsMargin/StatsVBox/GridContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/MainVBox/ScrollContainer/ScrollContent/StatsPanel/StatsMargin/StatsVBox/GridContainer/StaminaBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.75, 1)
+theme_override_font_sizes/font_size = 13
+text = "Stamina:"
+
+[node name="StaminaValLabel" type="Label" parent="MarginContainer/MainVBox/ScrollContainer/ScrollContent/StatsPanel/StatsMargin/StatsVBox/GridContainer/StaminaBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.96, 0.76, 0.17, 1)
+theme_override_font_sizes/font_size = 14
+text = "3"
+
+[node name="GritBox" type="HBoxContainer" parent="MarginContainer/MainVBox/ScrollContainer/ScrollContent/StatsPanel/StatsMargin/StatsVBox/GridContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/MainVBox/ScrollContainer/ScrollContent/StatsPanel/StatsMargin/StatsVBox/GridContainer/GritBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.75, 1)
+theme_override_font_sizes/font_size = 13
+text = "Grit:"
+
+[node name="GritValLabel" type="Label" parent="MarginContainer/MainVBox/ScrollContainer/ScrollContent/StatsPanel/StatsMargin/StatsVBox/GridContainer/GritBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.96, 0.76, 0.17, 1)
+theme_override_font_sizes/font_size = 14
+text = "3"
+
+[node name="PerkPanel" type="PanelContainer" parent="MarginContainer/MainVBox/ScrollContainer/ScrollContent"]
+layout_mode = 2
+
+[node name="PerkMargin" type="MarginContainer" parent="MarginContainer/MainVBox/ScrollContainer/ScrollContent/PerkPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 10
+
+[node name="PerkVBox" type="VBoxContainer" parent="MarginContainer/MainVBox/ScrollContainer/ScrollContent/PerkPanel/PerkMargin"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="MechanicTitleLabel" type="Label" parent="MarginContainer/MainVBox/ScrollContainer/ScrollContent/PerkPanel/PerkMargin/PerkVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.96, 0.76, 0.17, 1)
+theme_override_font_sizes/font_size = 14
+text = "Signature Mechanic: Stock & Price"
+
+[node name="MechanicDescLabel" type="Label" parent="MarginContainer/MainVBox/ScrollContainer/ScrollContent/PerkPanel/PerkMargin/PerkVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.82, 0.86, 1)
+theme_override_font_sizes/font_size = 13
+text = "Buy cheap stock and time market shortages."
+autowrap_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/MainVBox/ScrollContainer/ScrollContent/PerkPanel/PerkMargin/PerkVBox"]
+layout_mode = 2
+
+[node name="PerkTitleLabel" type="Label" parent="MarginContainer/MainVBox/ScrollContainer/ScrollContent/PerkPanel/PerkMargin/PerkVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5, 0.8, 0.95, 1)
+theme_override_font_sizes/font_size = 14
+text = "Passive Perk: Good Eye"
+
+[node name="PerkDescLabel" type="Label" parent="MarginContainer/MainVBox/ScrollContainer/ScrollContent/PerkPanel/PerkMargin/PerkVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.82, 0.86, 1)
+theme_override_font_sizes/font_size = 13
+text = "Better chance to spot cheap stock and bargains."
+autowrap_mode = 2
+
+[node name="SubclassesPreviewLabel" type="Label" parent="MarginContainer/MainVBox/ScrollContainer/ScrollContent"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.65, 0.68, 0.72, 1)
+theme_override_font_sizes/font_size = 12
+text = "Subclasses (Unlock at Lvl 5):\nMarket Woman, Pure-Water Seller, Traffic Hawker, Phone Accessories Dealer, Foodstuff Wholesaler, Mama Put"
+autowrap_mode = 2
+
+[node name="ActionButtonsBox" type="VBoxContainer" parent="MarginContainer/MainVBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="ConfirmButton" type="Button" parent="MarginContainer/MainVBox/ActionButtonsBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 56)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Confirm & Begin Hustle"
+
+[node name="BackButton" type="Button" parent="MarginContainer/MainVBox/ActionButtonsBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Back to Main Menu"
+
+[node name="ErrorDialog" type="AcceptDialog" parent="."]
+unique_name_in_owner = true
+title = "Creation Notice"
+initial_position = 2
+size = Vector2i(320, 140)
+dialog_autowrap = true

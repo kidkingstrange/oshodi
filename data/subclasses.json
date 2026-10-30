@@ -1,0 +1,314 @@
+[
+  {
+    "id": "market_woman",
+    "class_id": "trader",
+    "name": "Market Woman",
+    "fantasy": "Queen of her stall, knows every price and wholesaler in town.",
+    "perks": [
+      {
+        "id": "price_memory",
+        "name": "Price Memory",
+        "text": "Spot price trends one day ahead to buy stock at optimal rates."
+      },
+      {
+        "id": "regular_customers",
+        "name": "Regular Customers",
+        "text": "Repeat buyers pay 5% above standard street margins."
+      }
+    ],
+    "weakness": "Physical fatigue sets in quickly on lengthy market days.",
+    "situation_sets": [
+      "market_haggling",
+      "market_disputes"
+    ],
+    "unlock": {
+      "min_class_level": 5
+    }
+  },
+  {
+    "id": "pure_water_seller",
+    "class_id": "trader",
+    "name": "Pure-Water Seller",
+    "fantasy": "Fast on foot, carrying ice-cold sachets through humid Oshodi traffic.",
+    "perks": [
+      {
+        "id": "cold_rush",
+        "name": "Afternoon Rush",
+        "text": "Peak pure-water sales during sweltering afternoon blocks."
+      },
+      {
+        "id": "light_load",
+        "name": "Agile Steps",
+        "text": "Sprinting between danfo queues consumes 20% less Energy."
+      }
+    ],
+    "weakness": "Rainy blocks decimate demand and chill sales figures.",
+    "situation_sets": [
+      "traffic_rush",
+      "water_suppliers"
+    ],
+    "unlock": {
+      "min_class_level": 5
+    }
+  },
+  {
+    "id": "traffic_hawker",
+    "class_id": "trader",
+    "name": "Traffic Hawker",
+    "fantasy": "Weaving between idling bumpers with plantain chips, biscuits, and bottled drinks.",
+    "perks": [
+      {
+        "id": "gridlock_profit",
+        "name": "Gridlock Radar",
+        "text": "Earn bonus profit when severe traffic jams stall the expressway."
+      },
+      {
+        "id": "exact_change",
+        "name": "Pocket Change",
+        "text": "Never short on change; rapid transactions prevent missed car sales."
+      }
+    ],
+    "weakness": "Draws heightened Heat from environmental enforcement task forces.",
+    "situation_sets": [
+      "expressway_run",
+      "taskforce_sweep"
+    ],
+    "unlock": {
+      "min_class_level": 5
+    }
+  },
+  {
+    "id": "phone_accessories_dealer",
+    "class_id": "trader",
+    "name": "Phone Accessories Dealer",
+    "fantasy": "Chargers, powerbanks, tempered glass, and sharp electronic bargaining.",
+    "perks": [
+      {
+        "id": "tech_margin",
+        "name": "Accessory Margin",
+        "text": "Small portable items offer massive 40% retail markup."
+      },
+      {
+        "id": "screen_guard_craft",
+        "name": "Flawless Fitting",
+        "text": "Free installation service builds fast customer Respect."
+      }
+    ],
+    "weakness": "Delicate inventory easily damaged during unexpected downpours or scuffles.",
+    "situation_sets": [
+      "faulty_goods",
+      "customer_warranty"
+    ],
+    "unlock": {
+      "min_class_level": 5
+    }
+  },
+  {
+    "id": "foodstuff_wholesaler",
+    "class_id": "trader",
+    "name": "Foodstuff Wholesaler",
+    "fantasy": "Bags of rice, beans, garri, and tubers moving in dependable bulk shipments.",
+    "perks": [
+      {
+        "id": "bulk_contract",
+        "name": "Bulk Supplier",
+        "text": "Purchase wholesale sacks at a 15% discount directly from depot trucks."
+      },
+      {
+        "id": "staple_demand",
+        "name": "Essential Commodity",
+        "text": "Food items never lose demand regardless of economic hardship."
+      }
+    ],
+    "weakness": "High warehouse storage overhead and transport freight fees.",
+    "situation_sets": [
+      "supply_chain",
+      "storage_spoilage"
+    ],
+    "unlock": {
+      "min_class_level": 5
+    }
+  },
+  {
+    "id": "mama_put",
+    "class_id": "trader",
+    "name": "Mama Put",
+    "fantasy": "Steaming pots of jollof, amala, and pepper soup drawing loyal neighbourhood queues.",
+    "perks": [
+      {
+        "id": "secret_recipe",
+        "name": "Aroma Magnet",
+        "text": "Satisfied patrons tip extra and boost neighbourhood Respect."
+      },
+      {
+        "id": "staff_pot",
+        "name": "Free Sustenance",
+        "text": "Personal daily food expenses are completely eliminated."
+      }
+    ],
+    "weakness": "Requires daily gas/kerosene fuel and grueling pre-dawn market trips.",
+    "situation_sets": [
+      "kitchen_fire",
+      "rush_hour_orders"
+    ],
+    "unlock": {
+      "min_class_level": 5
+    }
+  },
+  {
+    "id": "danfo_driver",
+    "class_id": "transporter",
+    "name": "Danfo Driver",
+    "fantasy": "Master of the iconic yellow bus, reigning over the fast lane and bus parks.",
+    "perks": [
+      {
+        "id": "express_run",
+        "name": "Yellow Rush",
+        "text": "Completes passenger routes 1 time block faster during peak hours."
+      },
+      {
+        "id": "iron_engine",
+        "name": "Rugged Chassis",
+        "text": "Danfo resists engine breakdown damage from rough potholed roads."
+      }
+    ],
+    "weakness": "Primary magnet for union ticket levies and checkpoint inspections.",
+    "situation_sets": [
+      "park_dispute",
+      "engine_trouble"
+    ],
+    "unlock": {
+      "min_class_level": 5
+    }
+  },
+  {
+    "id": "conductor",
+    "class_id": "transporter",
+    "name": "Conductor",
+    "fantasy": "Door-hanging voice of the bus, calling destinations and collecting fares on the fly.",
+    "perks": [
+      {
+        "id": "crowd_shout",
+        "name": "Resonant Call",
+        "text": "Fills empty passenger seats twice as fast at crowded bus stops."
+      },
+      {
+        "id": "sharp_eyes",
+        "name": "Fare Tracker",
+        "text": "Zero fare loss from passengers attempting to slip away without paying."
+      }
+    ],
+    "weakness": "High physical stamina drain and minimal baseline capital.",
+    "situation_sets": [
+      "fare_argument",
+      "door_hang"
+    ],
+    "unlock": {
+      "min_class_level": 5
+    }
+  },
+  {
+    "id": "okada_rider",
+    "class_id": "transporter",
+    "name": "Okada Rider",
+    "fantasy": "Two-wheeled navigator squeezing through impossible traffic gridlocks.",
+    "perks": [
+      {
+        "id": "shortcut_sense",
+        "name": "Alleyway King",
+        "text": "Bypasses traffic penalties and gridlock delays entirely."
+      },
+      {
+        "id": "rush_premium",
+        "name": "Emergency Fare",
+        "text": "Stranded commuters gladly pay double fares during downpours."
+      }
+    ],
+    "weakness": "High road hazard risk and restricted expressway zones.",
+    "situation_sets": [
+      "curfew_rush",
+      "pothole_dodge"
+    ],
+    "unlock": {
+      "min_class_level": 5
+    }
+  },
+  {
+    "id": "keke_driver",
+    "class_id": "transporter",
+    "name": "Keke Driver",
+    "fantasy": "Steering the yellow tricycle through inner street routes and quiet estates.",
+    "perks": [
+      {
+        "id": "neighbourhood_routes",
+        "name": "Inner Street Charm",
+        "text": "Earns higher Respect and safer travel in residential zones."
+      },
+      {
+        "id": "efficient_tank",
+        "name": "Fuel Sipper",
+        "text": "Consumes 30% less fuel per run compared to full-sized buses."
+      }
+    ],
+    "weakness": "Cannot carry heavy freight or access restricted highways.",
+    "situation_sets": [
+      "rainy_lane",
+      "passenger_quarrel"
+    ],
+    "unlock": {
+      "min_class_level": 5
+    }
+  },
+  {
+    "id": "bus_park_chairman",
+    "class_id": "transporter",
+    "name": "Bus Park Chairman",
+    "fantasy": "Commanding loading bays, arbitrating route schedules, and leading driver unions.",
+    "perks": [
+      {
+        "id": "loading_dues",
+        "name": "Daily Union Dues",
+        "text": "Collects passive morning revenue from active loading bays."
+      },
+      {
+        "id": "park_authority",
+        "name": "Chairman Respect",
+        "text": "Commands commanding Respect among all commercial drivers and touts."
+      }
+    ],
+    "weakness": "High Heat accumulation from municipal regulators and union competitors.",
+    "situation_sets": [
+      "union_politics",
+      "loading_turn"
+    ],
+    "unlock": {
+      "min_class_level": 5
+    }
+  },
+  {
+    "id": "dispatch_rider",
+    "class_id": "transporter",
+    "name": "Dispatch Rider",
+    "fantasy": "Cargo box mounted, delivering urgent packages and online orders across the metropolis.",
+    "perks": [
+      {
+        "id": "express_order",
+        "name": "Priority Orders",
+        "text": "Consistent stream of guaranteed parcel delivery gigs."
+      },
+      {
+        "id": "gps_intuition",
+        "name": "Street Navigator",
+        "text": "Minimal chance of getting lost or held up looking for tricky addresses."
+      }
+    ],
+    "weakness": "Hefty financial penalties for damaged parcels or late deliveries.",
+    "situation_sets": [
+      "package_delay",
+      "address_hunt"
+    ],
+    "unlock": {
+      "min_class_level": 5
+    }
+  }
+]

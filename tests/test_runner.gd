@@ -1,0 +1,70 @@
+extends Control
+
+## TestRunner
+## Executes all unit test suites (TestDataLoader, TestGameState) and displays the results.
+
+const TestDataLoader = preload("res://tests/test_data_loader.gd")
+const TestGameState = preload("res://tests/test_game_state.gd")
+
+@onready var output_label: Label = %OutputLabel
+@onready var summary_label: Label = %SummaryLabel
+@onready var run_again_button: Button = %RunAgainButton
+@onready var back_button: Button = %BackButton
+
+func _ready() -> void:
+	run_again_button.pressed.connect(_run_all_tests)
+	back_button.pressed.connect(_on_back_pressed)
+	_run_all_tests()
+
+func _run_all_tests() -> void:
+	var total_passed = 0
+	var total_failed = 0
+	var all_messages: Array[String] = []
+	
+	all_messages.append("=== RUNNING TEST SUITES ===")
+	
+	# Suite 1: DataLoader tests
+	all_messages.append("\n[Suite: DataLoader Validation]")
+	var dl_res = TestDataLoader.run_tests()
+	total_passed += dl_res.passed
+	total_failed += dl_res.failed
+	for msg in dl_res.messages:
+		all_messages.append(msg)
+	
+	# Suite 2: GameState tests
+	all_messages.append("\n[Suite: GameState Initialization & Resources]")
+	var gs_res = TestGameState.run_tests()
+	total_passed += gs_res.passed
+	total_failed += gs_res.failed
+	for msg in gs_res.messages:
+		all_messages.append(msg)
+	
+	# Summary
+	all_messages.append("\n===========================")
+	var summary_text = "Results: %d Passed, %d Failed" % [total_passed, total_failed]
+	all_messages.append(summary_text)
+	
+	for line in all_messages:
+		print(line)
+	
+	var file = FileAccess.open("res://tests/test_results.txt", FileAccess.WRITE)
+	if file:
+		file.store_string("\n".join(all_messages))
+		file.close()
+	
+	if output_label:
+		output_label.text = "\n".join(all_messages)
+	
+	if summary_label:
+		if total_failed == 0:
+			summary_label.text = "ALL TESTS PASSED (%d/%d)" % [total_passed, total_passed]
+			summary_label.add_theme_color_override("font_color", Color(0.4, 0.9, 0.4, 1))
+		else:
+			summary_label.text = "TEST FAILURES DETECTED: %d failed" % total_failed
+			summary_label.add_theme_color_override("font_color", Color(1, 0.4, 0.4, 1))
+	
+	if DisplayServer.get_name() == "headless":
+		get_tree().quit(total_failed)
+
+func _on_back_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")

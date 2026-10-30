@@ -1,0 +1,182 @@
+[
+  {
+    "id": "trader",
+    "name": "Trader",
+    "tagline": "Buy low, sell high, greet everybody.",
+    "fantasy": "Master of markets, stalls, and street haggling across Lagos.",
+    "base_stats": {
+      "hustle": 5,
+      "street_smarts": 4,
+      "charisma": 4,
+      "stamina": 3,
+      "grit": 3
+    },
+    "signature_mechanic": "stock_and_price",
+    "signature_mechanic_name": "Stock & Price",
+    "signature_mechanic_desc": "Source merchandise low, time market shortages, and haggle for top margins.",
+    "passive_perk": {
+      "id": "good_eye",
+      "name": "Good Eye",
+      "text": "Better chance to spot cheap stock, discounts, and genuine goods."
+    },
+    "subclass_unlock_level": 5,
+    "subclasses": [
+      "market_woman",
+      "pure_water_seller",
+      "traffic_hawker",
+      "phone_accessories_dealer",
+      "foodstuff_wholesaler",
+      "mama_put"
+    ]
+  },
+  {
+    "id": "transporter",
+    "name": "Transporter",
+    "tagline": "Moving Lagos, one traffic jam at a time.",
+    "fantasy": "Navigating the veins of Lagos through yellow buses, kekes, and bikes.",
+    "base_stats": {
+      "hustle": 4,
+      "street_smarts": 4,
+      "charisma": 2,
+      "stamina": 5,
+      "grit": 4
+    },
+    "signature_mechanic": "route",
+    "signature_mechanic_name": "Route & Momentum",
+    "signature_mechanic_desc": "Balance route selection, vehicle fuel, passenger moods, and park dues.",
+    "passive_perk": {
+      "id": "traffic_instinct",
+      "name": "Traffic Instinct",
+      "text": "Navigates gridlocks with lower fuel consumption and faster trip completion."
+    },
+    "subclass_unlock_level": 5,
+    "subclasses": [
+      "danfo_driver",
+      "conductor",
+      "okada_rider",
+      "keke_driver",
+      "bus_park_chairman",
+      "dispatch_rider"
+    ]
+  },
+  {
+    "id": "area_boy",
+    "name": "Area Boy",
+    "tagline": "Street muscle, local respect, and territory eyes.",
+    "fantasy": "Street-level influence, territory navigation, and survival muscle.",
+    "base_stats": {
+      "hustle": 4,
+      "street_smarts": 4,
+      "charisma": 2,
+      "stamina": 4,
+      "grit": 5
+    },
+    "signature_mechanic": "turf",
+    "signature_mechanic_name": "Turf Influence",
+    "signature_mechanic_desc": "Control neighbourhood spots to collect dues, but manage rising Heat.",
+    "passive_perk": {
+      "id": "street_respect",
+      "name": "Street Presence",
+      "text": "Rival street hustlers think twice before challenging your moves."
+    },
+    "subclass_unlock_level": 5,
+    "subclasses": [
+      "agbero",
+      "vigilante",
+      "one_chance_operator",
+      "landlords_enforcer",
+      "pickpocket",
+      "politicians_youth_wing"
+    ]
+  },
+  {
+    "id": "working_class",
+    "name": "Working Class",
+    "tagline": "Daily salary grind, steady skills, and perseverance.",
+    "fantasy": "The skilled workers, technicians, and salaried backbones of the district.",
+    "base_stats": {
+      "hustle": 4,
+      "street_smarts": 3,
+      "charisma": 3,
+      "stamina": 5,
+      "grit": 4
+    },
+    "signature_mechanic": "overtime",
+    "signature_mechanic_name": "Overtime & Focus",
+    "signature_mechanic_desc": "Earn dependable wages through overtime shifts while managing boss relationships.",
+    "passive_perk": {
+      "id": "steady_hands",
+      "name": "Steady Grind",
+      "text": "Guaranteed daily baseline earnings and lower Energy drain during routine work."
+    },
+    "subclass_unlock_level": 5,
+    "subclasses": [
+      "mechanic",
+      "factory_hand",
+      "bank_clerk",
+      "security_guard",
+      "generator_repairer",
+      "teacher_nurse"
+    ]
+  },
+  {
+    "id": "road_official",
+    "name": "Road Official",
+    "tagline": "Uniform on the road, balancing duty and street pressure.",
+    "fantasy": "Traffic authority, regulatory enforcement, and balancing integrity against compromise.",
+    "base_stats": {
+      "hustle": 3,
+      "street_smarts": 4,
+      "charisma": 5,
+      "stamina": 3,
+      "grit": 4
+    },
+    "signature_mechanic": "checkpoint",
+    "signature_mechanic_name": "Checkpoint Enforcement",
+    "signature_mechanic_desc": "Stop vehicles, inspect documentation, and maintain your integrity balance.",
+    "passive_perk": {
+      "id": "official_command",
+      "name": "Official Authority",
+      "text": "Drivers and pedestrians hesitate to contest your street instructions."
+    },
+    "subclass_unlock_level": 5,
+    "subclasses": [
+      "lastma_officer",
+      "traffic_warden",
+      "police_checkpoint_officer",
+      "vehicle_inspector",
+      "tow_truck_operator",
+      "road_safety_volunteer"
+    ]
+  },
+  {
+    "id": "faith_leader",
+    "name": "Faith Leader",
+    "tagline": "Community sanctuary, inspiring words, and pastoral trust.",
+    "fantasy": "Guiding local congregations, building communal trust, and mediating neighborhood crises.",
+    "base_stats": {
+      "hustle": 4,
+      "street_smarts": 4,
+      "charisma": 5,
+      "stamina": 3,
+      "grit": 3
+    },
+    "signature_mechanic": "congregation",
+    "signature_mechanic_name": "Congregation Trust",
+    "signature_mechanic_desc": "Grow your followers, organize community outreach, and steward donations.",
+    "passive_perk": {
+      "id": "blessed_words",
+      "name": "Inspiring Voice",
+      "text": "Significantly higher chance to resolve tense community arguments peacefully."
+    },
+    "subclass_unlock_level": 5,
+    "subclasses": [
+      "pastor",
+      "imam",
+      "prophet_prayer_warrior",
+      "evangelist",
+      "usher_choirmaster",
+      "traditional_priest"
+    ]
+  }
+]
