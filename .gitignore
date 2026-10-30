@@ -1,0 +1,18 @@
+# Godot 4 engine files
+.godot/
+*.translation
+
+# Godot export credentials & keystores (CRITICAL FOR SECURITY)
+*.keystore
+*.jks
+export_credentials.cfg
+
+# Android export build folders
+.gradle/
+build/
+android/
+
+# OS specific files
+.DS_Store
+Thumbs.db
+desktop.ini

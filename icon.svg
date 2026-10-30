@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <rect width="128" height="128" rx="24" fill="#0f1115"/>
+  <!-- Danfo Yellow Card Accent -->
+  <rect x="12" y="12" width="104" height="104" rx="16" fill="#f5c22b"/>
+  <!-- Lagos Black Stripes -->
+  <rect x="12" y="44" width="104" height="8" fill="#1b1d22"/>
+  <rect x="12" y="60" width="104" height="8" fill="#1b1d22"/>
+  <!-- Central Emblem / Typography -->
+  <rect x="22" y="22" width="84" height="84" rx="12" fill="#14171d"/>
+  <text x="64" y="62" font-family="sans-serif" font-weight="900" font-size="28" fill="#f5c22b" text-anchor="middle" letter-spacing="1">OSH</text>
+  <text x="64" y="86" font-family="sans-serif" font-weight="700" font-size="16" fill="#ffffff" text-anchor="middle" letter-spacing="3">RPG</text>
+</svg>
