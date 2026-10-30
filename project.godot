@@ -39,6 +39,10 @@ window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 window/handheld/orientation=1
 
+[gui]
+
+theme/custom="res://assets/themes/vibrant_theme.tres"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

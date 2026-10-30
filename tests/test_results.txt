@@ -1,0 +1,35 @@
+=== RUNNING TEST SUITES ===
+
+[Suite: DataLoader Validation]
+  [PASS] Production JSON in res://data loads with 0 errors
+  [PASS] At least 6 classes loaded
+  [PASS] At least 12 subclasses loaded
+  [PASS] JSON parser catches malformed JSON syntax
+  [PASS] Validator catches missing required fields in class object
+  [PASS] Validator rejects non-snake_case uppercase ID
+  [PASS] Validator detects and rejects duplicate class IDs
+  [PASS] Validator catches broken foreign key reference in subclass
+  [PASS] Validator catches invalid stat value (< 1)
+
+[Suite: GameState Initialization & Resources]
+  [PASS] Character creation returns true for valid inputs
+  [PASS] Player name is set correctly
+  [PASS] Class ID is set to trader
+  [PASS] Initial level is 1
+  [PASS] Initial XP is 0
+  [PASS] Trader base hustle is 5
+  [PASS] Initial energy is 100
+  [PASS] Trader starting cash is ₦12,000
+  [PASS] Initial respect is 10
+  [PASS] Initial heat is 0
+  [PASS] GameState.has_character() returns true
+  [PASS] Energy does not exceed max_energy (100)
+  [PASS] Energy clamps at 0 on massive drain
+  [PASS] Heat clamps at 0 minimum
+  [PASS] Naira cannot drop below 0
+  [PASS] modify_stat increases stat value
+  [PASS] Stats cannot be reduced below 1
+  [PASS] create_character rejects unknown class ID
+
+===========================
+Results: 27 Passed, 0 Failed

@@ -18,7 +18,25 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.08, 0.09, 0.12, 1)
+color = Color(0.96, 0.95, 0.91, 1)
+
+[node name="DanfoTopStripe" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+color = Color(0.96, 0.76, 0.17, 1)
+
+[node name="DanfoSubStripe" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 16.0
+offset_bottom = 20.0
+grow_horizontal = 2
+color = Color(0.12, 0.13, 0.16, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -27,87 +45,109 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 32
-theme_override_constants/margin_top = 80
-theme_override_constants/margin_right = 32
-theme_override_constants/margin_bottom = 60
+theme_override_constants/margin_left = 28
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 28
+theme_override_constants/margin_bottom = 48
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 28
+theme_override_constants/separation = 24
 alignment = 1
 
-[node name="HeaderBox" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="HeaderCard" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 12
 
-[node name="TitleLabel" type="Label" parent="MarginContainer/VBoxContainer/HeaderBox"]
+[node name="HeaderMargin" type="MarginContainer" parent="MarginContainer/VBoxContainer/HeaderCard"]
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 40
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HeaderBox" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HeaderCard/HeaderMargin"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/VBoxContainer/HeaderCard/HeaderMargin/HeaderBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.1, 0.12, 0.16, 1)
+theme_override_font_sizes/font_size = 38
 text = "OSHODIMUSHIN"
 horizontal_alignment = 1
 
-[node name="BadgeLabel" type="Label" parent="MarginContainer/VBoxContainer/HeaderBox"]
+[node name="BadgeLabel" type="Label" parent="MarginContainer/VBoxContainer/HeaderCard/HeaderMargin/HeaderBox"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.96, 0.76, 0.17, 1)
-theme_override_font_sizes/font_size = 22
-text = "LAGOS STREET RPG"
+theme_override_colors/font_color = Color(0.85, 0.45, 0.05, 1)
+theme_override_font_sizes/font_size = 18
+text = "★ LAGOS STREET RPG ★"
 horizontal_alignment = 1
 
-[node name="TaglineLabel" type="Label" parent="MarginContainer/VBoxContainer/HeaderBox"]
+[node name="TaglineLabel" type="Label" parent="MarginContainer/VBoxContainer/HeaderCard/HeaderMargin/HeaderBox"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.72, 0.75, 0.8, 1)
-theme_override_font_sizes/font_size = 16
+theme_override_colors/font_color = Color(0.35, 0.38, 0.44, 1)
+theme_override_font_sizes/font_size = 15
 text = "Survive, Earn, and Rise in the City"
 horizontal_alignment = 1
 
-[node name="SpacerTop" type="Control" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 40)
+[node name="ButtonsCard" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="ButtonsBox" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="ButtonsMargin" type="MarginContainer" parent="MarginContainer/VBoxContainer/ButtonsCard"]
 layout_mode = 2
-theme_override_constants/separation = 18
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 22
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 22
 
-[node name="PlayButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsBox"]
+[node name="ButtonsBox" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ButtonsCard/ButtonsMargin"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="PlayButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsCard/ButtonsMargin/ButtonsBox"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 60)
+custom_minimum_size = Vector2(0, 58)
 layout_mode = 2
-theme_override_font_sizes/font_size = 22
+theme_override_font_sizes/font_size = 20
 text = "Start Game"
 
-[node name="SettingsButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsBox"]
+[node name="SettingsButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsCard/ButtonsMargin/ButtonsBox"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 56)
+custom_minimum_size = Vector2(0, 52)
 layout_mode = 2
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 17
 text = "Settings"
 
-[node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsBox"]
+[node name="TestButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsCard/ButtonsMargin/ButtonsBox"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 56)
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-theme_override_font_sizes/font_size = 18
-text = "Quit Game"
-
-[node name="TestButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsBox"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 48)
-layout_mode = 2
-theme_override_font_sizes/font_size = 15
+theme_override_font_sizes/font_size = 16
 text = "Run Tests (Core Logic)"
 
-[node name="SpacerBottom" type="Control" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 20)
+[node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsCard/ButtonsMargin/ButtonsBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Quit Game"
+
+[node name="StatusCard" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="StatusLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="StatusMargin" type="MarginContainer" parent="MarginContainer/VBoxContainer/StatusCard"]
+layout_mode = 2
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 14
+theme_override_constants/margin_bottom = 10
+
+[node name="StatusLabel" type="Label" parent="MarginContainer/VBoxContainer/StatusCard/StatusMargin"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_colors/font_color = Color(0.6, 0.85, 0.65, 1)
-theme_override_font_sizes/font_size = 15
-text = "Phase 0 Setup: Project Initialized"
+theme_override_colors/font_color = Color(0.15, 0.45, 0.2, 1)
+theme_override_font_sizes/font_size = 14
+text = "Select 'Start Game' to create character, or 'Run Tests' to verify logic."
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -115,12 +155,12 @@ autowrap_mode = 2
 layout_mode = 2
 theme_override_colors/font_color = Color(0.45, 0.48, 0.52, 1)
 theme_override_font_sizes/font_size = 13
-text = "v0.1.0 • Phase 0 (Setup) • Godot 4"
+text = "v0.1.0 • Phase 1 Ready • Godot 4"
 horizontal_alignment = 1
 
 [node name="InfoDialog" type="AcceptDialog" parent="."]
 unique_name_in_owner = true
-title = "Phase 0 Status"
+title = "Info"
 initial_position = 2
 size = Vector2i(340, 180)
 dialog_autowrap = true
