@@ -97,6 +97,14 @@ theme_override_font_sizes/font_size = 20
 text = "OSHODI CENTRAL MARKET"
 horizontal_alignment = 1
 
+[node name="LevelBadgeLabel" type="Label" parent="MarginContainer/VBox/HeaderCard/HeaderMargin/HeaderVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.45, 0.05, 1)
+theme_override_font_sizes/font_size = 13
+text = "Level 1 Trader • XP: 0/100"
+horizontal_alignment = 1
+
 [node name="ResourcesCard" type="PanelContainer" parent="MarginContainer/VBox"]
 layout_mode = 2
 
@@ -304,6 +312,22 @@ custom_minimum_size = Vector2(0, 46)
 layout_mode = 2
 theme_override_font_sizes/font_size = 14
 text = "⚡ Encounter Street Situation"
+
+[node name="ShopButton" type="Button" parent="MarginContainer/VBox/ActionsCard/ActionsMargin/ActionsVBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 46)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "🛒 Market Stall / Shop & Goods"
+
+[node name="SubclassButton" type="Button" parent="MarginContainer/VBox/ActionsCard/ActionsMargin/ActionsVBox"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(0, 46)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.96, 0.76, 0.17, 1)
+theme_override_font_sizes/font_size = 14
+text = "★ Choose Specialization Subclass ★"
 
 [node name="NavRow" type="HBoxContainer" parent="MarginContainer/VBox"]
 layout_mode = 2

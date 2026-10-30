@@ -19,6 +19,8 @@ You are the lead developer agent for **Oshodimushin RPG**, a single-player, offl
 - Every user-facing string goes through a text file/JSON key so it can be edited or translated later.
 - Target: **low-end Android phones** (about 2 GB RAM, small storage, slow data). Keep the build small, avoid heavy shaders and huge textures, and make the game work fully offline.
 
+- Before building any screen, follow `docs/07_UI_UX_GUIDE.md`. Use only the shared Theme and components; the owner has chosen the **Danfo Poster** art direction (see section 1 of that file).
+
 ## 3. Content and safety rules
 - The tone is **affectionate humour about everyday Lagos life**, not mockery. Portray no ethnic, religious or other group as a joke. Religious leader classes must be shown respectfully (satire of situations, not of faith).
 - No real people, real businesses, real brands, logos or trademarks. Invent fictional names (e.g. "Danfo 'Speed Wonder'").

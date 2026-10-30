@@ -7,6 +7,7 @@ const TestDataLoader = preload("res://tests/test_data_loader.gd")
 const TestGameState = preload("res://tests/test_game_state.gd")
 const TestWorldAndTime = preload("res://tests/test_world_and_time.gd")
 const TestSituations = preload("res://tests/test_situations.gd")
+const TestClassMechanics = preload("res://tests/test_class_mechanics.gd")
 
 @onready var output_label: Label = %OutputLabel
 @onready var summary_label: Label = %SummaryLabel
@@ -55,6 +56,14 @@ func _run_all_tests() -> void:
 	total_passed += sit_res.passed
 	total_failed += sit_res.failed
 	for msg in sit_res.messages:
+		all_messages.append(msg)
+	
+	# Suite 5: Class Mechanics, Progression & Shop (Phase 4)
+	all_messages.append("\n[Suite: Class Mechanics, Progression & Shop (Phase 4)]")
+	var cm_res = TestClassMechanics.run_tests()
+	total_passed += cm_res.passed
+	total_failed += cm_res.failed
+	for msg in cm_res.messages:
 		all_messages.append(msg)
 	
 	# Summary

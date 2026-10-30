@@ -13,6 +13,7 @@ var economy: Dictionary = {}
 var locations: Dictionary = {}
 var events: Dictionary = {}
 var situations: Dictionary = {}
+var items: Dictionary = {}
 
 var is_loaded: bool = false
 var load_errors: Array[String] = []
@@ -31,6 +32,7 @@ func load_and_validate_all(data_dir: String = "res://data") -> bool:
 	locations.clear()
 	events.clear()
 	situations.clear()
+	items.clear()
 	
 	# 1. Load Classes
 	var classes_raw = _load_json_file(data_dir + "/classes.json")
@@ -74,10 +76,17 @@ func load_and_validate_all(data_dir: String = "res://data") -> bool:
 	else:
 		_validate_situations(situations_raw)
 	
+	# 7. Load Items
+	var items_raw = _load_json_file(data_dir + "/items.json")
+	if items_raw == null:
+		load_errors.append("items.json: Failed to read or parse JSON file.")
+	else:
+		_validate_items(items_raw)
+	
 	is_loaded = (load_errors.is_empty())
 	if is_loaded:
-		print("[DataLoader] Successfully loaded and validated %d classes, %d subclasses, %d locations, %d events, %d situations." % [
-			classes.size(), subclasses.size(), locations.size(), events.size(), situations.size()
+		print("[DataLoader] Successfully loaded and validated %d classes, %d subclasses, %d locations, %d events, %d situations, %d items." % [
+			classes.size(), subclasses.size(), locations.size(), events.size(), situations.size(), items.size()
 		])
 		data_loaded.emit(true)
 		return true
@@ -369,6 +378,42 @@ func _validate_economy(raw_data: Variant) -> void:
 	
 	economy = raw_data
 
+## Validates items array against schema
+func _validate_items(raw_data: Variant) -> void:
+	if not (raw_data is Array):
+		load_errors.append("items.json: Root must be a JSON Array.")
+		return
+	
+	var seen_ids: Dictionary = {}
+	for idx in range(raw_data.size()):
+		var item = raw_data[idx]
+		var ctx = "items.json[%d]" % idx
+		if not (item is Dictionary):
+			load_errors.append("%s: Expected JSON Object." % ctx)
+			continue
+		
+		var id_val = item.get("id", "")
+		if not (id_val is String) or id_val.strip_edges().is_empty():
+			load_errors.append("%s: Missing or empty 'id'." % ctx)
+			continue
+		
+		ctx = "items.json (id: '%s')" % id_val
+		if not _is_valid_id(id_val):
+			load_errors.append("%s: ID must be lowercase alphanumeric with underscores." % ctx)
+		
+		if seen_ids.has(id_val):
+			load_errors.append("%s: Duplicate item id detected." % ctx)
+		seen_ids[id_val] = true
+		
+		for req_field in ["name", "type", "description"]:
+			if not (item.get(req_field, "") is String) or item.get(req_field, "").strip_edges().is_empty():
+				load_errors.append("%s: Missing or empty '%s'." % [ctx, req_field])
+		
+		if int(item.get("buy_price", -1)) < 0:
+			load_errors.append("%s: 'buy_price' must be non-negative integer." % ctx)
+		
+		items[id_val] = item
+
 ## Helper to load and parse a JSON file safely
 func _load_json_file(file_path: String) -> Variant:
 	if not FileAccess.file_exists(file_path):
@@ -499,3 +544,15 @@ func get_random_morning_news(rng: RandomNumberGenerator = null) -> String:
 	else:
 		idx = randi() % news_list.size()
 	return news_list[idx]
+
+func get_all_items() -> Array[Dictionary]:
+	var list: Array[Dictionary] = []
+	for i_id in items:
+		list.append(items[i_id])
+	return list
+
+func get_item_by_id(item_id: String) -> Dictionary:
+	return items.get(item_id, {})
+
+func get_xp_table() -> Array:
+	return economy.get("level_xp_requirements", [0, 100, 250, 450, 700, 1000, 1400, 1900, 2500, 3200])

@@ -47,7 +47,7 @@
   [PASS] Daily food expense (₦1,500) deducted overnight
   [PASS] Morning news headline generated
   [PASS] Work activity succeeds with sufficient energy
-  [PASS] Trader receives ₦3,200 work income
+  [PASS] Trader receives scaled work income
   [PASS] Work consumes 20 energy
   [PASS] Work grants +15 XP
   [PASS] Work fails when Energy is below 10
@@ -91,5 +91,50 @@
   [PASS] Player revived at clinic with 30 Energy
   [PASS] Clinic medicine fee was deducted
 
+[Suite: Class Mechanics, Progression & Shop (Phase 4)]
+  [PASS] At least 12 items loaded in items.json
+  [PASS] tomato_crate item exists
+  [PASS] tomato_crate is trade_good
+  [PASS] Item has positive buy price
+  [PASS] energy_drink item exists
+  [PASS] energy_drink is consumable
+  [PASS] Added 2 tomato crates to inventory
+  [PASS] has_item returns true for 2 crates
+  [PASS] has_item returns false for 5 crates
+  [PASS] Successfully removed 1 crate
+  [PASS] 1 crate remains in inventory
+  [PASS] Total inventory weight calculates correctly (3 kg)
+  [PASS] Consumable used successfully
+  [PASS] Energy drink restored +20 energy (50 -> 70)
+  [PASS] Consumed item removed from inventory
+  [PASS] Market has available items for sale
+  [PASS] Successfully bought tomato crate
+  [PASS] 10000 - 2500 = 7500 Naira remaining
+  [PASS] Bought item added to inventory
+  [PASS] Successfully sold tomato crate
+  [PASS] Trader receives +15% trade margin bonus (4,370 Naira)
+  [PASS] Naira updated with sale revenue
+  [PASS] Sold item deducted from inventory
+  [PASS] Buy fails gracefully with insufficient funds
+  [PASS] Trader with 5 Hustle earns more than base 3200 income
+  [PASS] Work multiplier is greater than 1.0
+  [PASS] Trader report tracks Good Eye bargain status
+  [PASS] Transporter work succeeds with sufficient fuel
+  [PASS] Traffic Instinct perk burns only 8L fuel (down from 10L)
+  [PASS] Fuel reduced by 8L (40 -> 32)
+  [PASS] Standard 500 Naira union park dues deducted
+  [PASS] Transporter work halted when fuel is insufficient
+  [PASS] Refuel succeeds
+  [PASS] Fuel level increased by 20L (3 -> 23)
+  [PASS] Refuel cost deducted from Naira
+  [PASS] Player levelled up when XP passed threshold
+  [PASS] Player reached Level 2
+  [PASS] Stat boost awarded on level-up
+  [PASS] Player reached Level 5
+  [PASS] Subclass unlocked at Level 5
+  [PASS] Applied market_woman subclass at Level 5
+  [PASS] GameState subclass_id set to market_woman
+  [PASS] Trader cannot select transporter subclass danfo_driver
+
 ===========================
-Results: 83 Passed, 0 Failed
+Results: 126 Passed, 0 Failed

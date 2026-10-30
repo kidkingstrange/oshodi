@@ -1,0 +1,110 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/subclass_select.gd" id="1_subclass"]
+
+[node name="SubclassSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_subclass")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.96, 0.95, 0.91, 1)
+
+[node name="DanfoTopStripe" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+color = Color(0.96, 0.76, 0.17, 1)
+
+[node name="DanfoSubStripe" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 12.0
+offset_bottom = 15.0
+grow_horizontal = 2
+color = Color(0.12, 0.13, 0.16, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 28
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 20
+
+[node name="VBox" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="HeaderCard" type="PanelContainer" parent="MarginContainer/VBox"]
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="MarginContainer/VBox/HeaderCard"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 12
+
+[node name="VBox" type="VBoxContainer" parent="MarginContainer/VBox/HeaderCard/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/VBox/HeaderCard/Margin/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.1, 0.12, 0.16, 1)
+theme_override_font_sizes/font_size = 20
+text = "LEVEL 5 SUBCLASS SELECTION"
+horizontal_alignment = 1
+
+[node name="DescLabel" type="Label" parent="MarginContainer/VBox/HeaderCard/Margin/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.35, 0.38, 0.44, 1)
+theme_override_font_sizes/font_size = 13
+text = "Select your street specialization:"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Scroll" type="ScrollContainer" parent="MarginContainer/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="SubclassesVBox" type="VBoxContainer" parent="MarginContainer/VBox/Scroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 12
+
+[node name="BackButton" type="Button" parent="MarginContainer/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+text = "← Decide Later / Return to Hub"
+
+[node name="ConfirmDialog" type="ConfirmationDialog" parent="."]
+unique_name_in_owner = true
+title = "Confirm Subclass Choice"
+initial_position = 2
+size = Vector2i(320, 180)
+dialog_autowrap = true

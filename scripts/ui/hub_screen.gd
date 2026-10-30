@@ -7,11 +7,13 @@ extends Control
 const TimeManager = preload("res://scripts/core/time_manager.gd")
 const EventManager = preload("res://scripts/core/event_manager.gd")
 const ActivityManager = preload("res://scripts/core/activity_manager.gd")
+const Levelling = preload("res://scripts/core/levelling.gd")
 
 # Header Nodes
 @onready var day_label: Label = %DayLabel
 @onready var time_badge_label: Label = %TimeBadgeLabel
 @onready var location_title_label: Label = %LocationTitleLabel
+@onready var level_badge_label: Label = %LevelBadgeLabel
 
 # Resource Nodes
 @onready var naira_label: Label = %NairaLabel
@@ -30,6 +32,8 @@ const ActivityManager = preload("res://scripts/core/activity_manager.gd")
 @onready var travel_button: Button = %TravelButton
 @onready var socialise_button: Button = %SocialiseButton
 @onready var situation_button: Button = %SituationButton
+@onready var shop_button: Button = %ShopButton
+@onready var subclass_button: Button = %SubclassButton
 @onready var stats_button: Button = %StatsButton
 @onready var menu_button: Button = %MenuButton
 
@@ -48,6 +52,8 @@ func _ready() -> void:
 	travel_button.pressed.connect(_on_travel_pressed)
 	socialise_button.pressed.connect(_on_socialise_pressed)
 	situation_button.pressed.connect(_on_situation_pressed)
+	shop_button.pressed.connect(_on_shop_pressed)
+	subclass_button.pressed.connect(_on_subclass_pressed)
 	stats_button.pressed.connect(_on_stats_pressed)
 	menu_button.pressed.connect(_on_menu_pressed)
 	travel_dialog.confirmed.connect(_on_travel_confirmed)
@@ -76,8 +82,24 @@ func _refresh_display() -> void:
 	heat_label.text = str(GameState.resources.heat)
 	
 	# Dynamic button labels with preview info
-	var income = DataLoader.get_work_income(GameState.class_id)
-	work_button.text = "Work Shift (+%s, -20 Energy)" % GameState.format_naira(income)
+	var class_info = GameState.get_class_data().get("name", "Hustler")
+	var sc_info = GameState.get_subclass_data().get("name", "")
+	var role_title = ("%s (%s)" % [class_info, sc_info]) if not sc_info.is_empty() else class_info
+	var xp_to_next = Levelling.xp_to_next_level()
+	level_badge_label.text = "Level %d %s • XP: %d (Next: %d XP)" % [
+		GameState.level, role_title, GameState.xp, xp_to_next
+	]
+	
+	subclass_button.visible = (GameState.level >= 5 and GameState.subclass_id.is_empty())
+	
+	if GameState.class_id == "transporter":
+		var fuel = int(GameState.flags.get("fuel", 50))
+		work_button.text = "Drive Route (Fuel: %dL, -20 Energy)" % fuel
+	elif GameState.class_id == "trader":
+		work_button.text = "Trade & Stock Market (-20 Energy)"
+	else:
+		var income = DataLoader.get_work_income(GameState.class_id)
+		work_button.text = "Work Shift (+%s, -20 Energy)" % GameState.format_naira(income)
 	
 	# Low energy alert
 	if GameState.resources.energy < 15:
@@ -211,6 +233,12 @@ func _on_situation_pressed() -> void:
 
 func _on_stats_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/stats_screen.tscn")
+
+func _on_shop_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/shop_screen.tscn")
+
+func _on_subclass_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/subclass_select.tscn")
 
 func _on_menu_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")

@@ -8,6 +8,9 @@ extends RefCounted
 
 const TimeManager = preload("res://scripts/core/time_manager.gd")
 const EventManager = preload("res://scripts/core/event_manager.gd")
+const TraderMechanic = preload("res://scripts/core/trader_mechanic.gd")
+const TransporterMechanic = preload("res://scripts/core/transporter_mechanic.gd")
+const Levelling = preload("res://scripts/core/levelling.gd")
 
 ## Performs class-specific work/hustle
 static func perform_work(rng: RandomNumberGenerator = null) -> Dictionary:
@@ -20,15 +23,64 @@ static func perform_work(rng: RandomNumberGenerator = null) -> Dictionary:
 			"message": "Too exhausted to work! You need at least 10 Energy. Rest first."
 		}
 	
-	# Apply work effort
-	GameState.modify_resource("energy", -energy_cost)
-	var income = DataLoader.get_work_income(GameState.class_id)
-	GameState.modify_resource("naira", income)
+	var income = 0
+	var work_msg = ""
 	var xp_gain = int(costs.get("work_xp", 15))
+	
+	# Class signature mechanics
+	if GameState.class_id == "trader":
+		var trader_res = TraderMechanic.perform_trader_work(rng)
+		income = trader_res.income
+		work_msg = trader_res.flavour
+	elif GameState.class_id == "transporter":
+		var trans_res = TransporterMechanic.perform_transporter_work(rng)
+		if not trans_res.get("success", false):
+			return {
+				"success": false,
+				"message": trans_res.get("message", "Cannot drive route.")
+			}
+		income = trans_res.income
+		work_msg = trans_res.flavour
+		xp_gain = trans_res.get("xp_gain", xp_gain)
+	else:
+		income = DataLoader.get_work_income(GameState.class_id)
+		work_msg = "You completed your work shift in Oshodi"
+	
+	# Respect Reputation bonus (+10% if Respect >= 20)
+	var respect_bonus = false
+	if GameState.resources.respect >= 20:
+		income = int(income * 1.10)
+		respect_bonus = true
+	
+	# Apply work effort and rewards
+	GameState.modify_resource("energy", -energy_cost)
+	GameState.modify_resource("naira", income)
 	GameState.xp += xp_gain
+	
+	# Level up check
+	var levelup_report = Levelling.check_and_apply_levelups()
+	
+	# High Heat consequence check (Heat >= 5 draws taskforce scrutiny)
+	var heat_penalty_triggered = false
+	if GameState.resources.heat >= 5:
+		var heat_roll = rng.randf() if rng != null else randf()
+		if heat_roll < 0.40:
+			var fine = mini(GameState.resources.naira, 800)
+			GameState.modify_resource("naira", -fine)
+			GameState.modify_resource("heat", -2)
+			heat_penalty_triggered = true
+			work_msg += " (Task force patrol spotted you! Paid %s spot fine, Heat cooled by -2)." % GameState.format_naira(fine)
 	
 	var time_report = TimeManager.advance_time(1, rng)
 	var event_result = EventManager.maybe_trigger_event(GameState.time_block, GameState.location_id, 0.65, rng)
+	
+	var full_msg = "%s! Earned %s and +%d XP (-%d Energy)." % [
+		work_msg, GameState.format_naira(income), xp_gain, energy_cost
+	]
+	if respect_bonus:
+		full_msg += " High Respect gave +10% bonus!"
+	if levelup_report.get("levelled_up", false):
+		full_msg += " ★ LEVEL UP! Reached Level %d! ★" % levelup_report.get("new_level", GameState.level)
 	
 	return {
 		"success": true,
@@ -36,11 +88,11 @@ static func perform_work(rng: RandomNumberGenerator = null) -> Dictionary:
 		"income": income,
 		"energy_spent": energy_cost,
 		"xp_gained": xp_gain,
+		"levelup_report": levelup_report,
+		"heat_penalty_triggered": heat_penalty_triggered,
 		"time_report": time_report,
 		"event_result": event_result,
-		"message": "You completed your work shift! Earned %s and +%d XP (-%d Energy)." % [
-			GameState.format_naira(income), xp_gain, energy_cost
-		]
+		"message": full_msg
 	}
 
 ## Performs rest and recovery
@@ -130,6 +182,7 @@ static func perform_socialise(rng: RandomNumberGenerator = null) -> Dictionary:
 	GameState.modify_resource("respect", respect_gain)
 	var xp_gain = int(costs.get("socialise_xp", 8))
 	GameState.xp += xp_gain
+	var levelup_report = Levelling.check_and_apply_levelups()
 	
 	# Chance to cool down street heat
 	var heat_reduced = false
@@ -146,6 +199,8 @@ static func perform_socialise(rng: RandomNumberGenerator = null) -> Dictionary:
 	]
 	if heat_reduced:
 		msg += " Good word from neighbours cooled down Heat by -1!"
+	if levelup_report.get("levelled_up", false):
+		msg += " ★ LEVEL UP! Reached Level %d! ★" % levelup_report.get("new_level", GameState.level)
 	
 	return {
 		"success": true,
@@ -153,6 +208,7 @@ static func perform_socialise(rng: RandomNumberGenerator = null) -> Dictionary:
 		"fee_paid": fee,
 		"respect_gained": respect_gain,
 		"heat_reduced": heat_reduced,
+		"levelup_report": levelup_report,
 		"time_report": time_report,
 		"event_result": event_result,
 		"message": msg

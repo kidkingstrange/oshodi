@@ -82,7 +82,7 @@ static func _test_work_activity(results: Dictionary) -> void:
 	
 	var res = ActivityManager.perform_work(rng)
 	_assert_true(res.success == true, "Work activity succeeds with sufficient energy", results)
-	_assert_true(GameState.resources.naira == old_naira + 3200, "Trader receives ₦3,200 work income", results)
+	_assert_true(GameState.resources.naira == old_naira + res.income, "Trader receives scaled work income", results)
 	_assert_true(res.energy_spent == 20, "Work consumes 20 energy", results)
 	_assert_true(res.xp_gained == 15, "Work grants +15 XP", results)
 	
