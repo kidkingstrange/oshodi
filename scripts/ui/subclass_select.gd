@@ -59,14 +59,14 @@ func _render_subclasses() -> void:
 		var perks = sc.get("perks", [])
 		for p in perks:
 			var p_lbl = Label.new()
-			p_lbl.text = "★ Perk: %s — %s" % [p.get("name", ""), p.get("text", "")]
+			p_lbl.text = "Perk: %s — %s" % [p.get("name", ""), p.get("text", "")]
 			p_lbl.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 			p_lbl.theme_override_font_sizes.font_size = 12
 			p_lbl.theme_override_colors.font_color = Color(0.12, 0.52, 0.25, 1)
 			vbox.add_child(p_lbl)
 		
 		var weakness_lbl = Label.new()
-		weakness_lbl.text = "⚠ Weakness: %s" % sc.get("weakness", "None")
+		weakness_lbl.text = "Weakness: %s" % sc.get("weakness", "None")
 		weakness_lbl.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		weakness_lbl.theme_override_font_sizes.font_size = 12
 		weakness_lbl.theme_override_colors.font_color = Color(0.75, 0.2, 0.2, 1)

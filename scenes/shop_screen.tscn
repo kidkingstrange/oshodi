@@ -113,14 +113,14 @@ custom_minimum_size = Vector2(0, 46)
 layout_mode = 2
 size_flags_horizontal = 3
 disabled = true
-text = "🛒 Buy Goods"
+text = "Buy Goods"
 
 [node name="SellTabButton" type="Button" parent="MarginContainer/VBox/TabsRow"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 46)
 layout_mode = 2
 size_flags_horizontal = 3
-text = "💰 Sell Inventory"
+text = "Sell Inventory"
 
 [node name="Scroll" type="ScrollContainer" parent="MarginContainer/VBox"]
 layout_mode = 2

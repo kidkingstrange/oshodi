@@ -311,14 +311,14 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 46)
 layout_mode = 2
 theme_override_font_sizes/font_size = 14
-text = "⚡ Encounter Street Situation"
+text = "Encounter Street Situation"
 
 [node name="ShopButton" type="Button" parent="MarginContainer/VBox/ActionsCard/ActionsMargin/ActionsVBox"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 46)
 layout_mode = 2
 theme_override_font_sizes/font_size = 14
-text = "🛒 Market Stall / Shop & Goods"
+text = "Market Stall / Shop & Goods"
 
 [node name="SubclassButton" type="Button" parent="MarginContainer/VBox/ActionsCard/ActionsMargin/ActionsVBox"]
 unique_name_in_owner = true
@@ -327,7 +327,7 @@ custom_minimum_size = Vector2(0, 46)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.96, 0.76, 0.17, 1)
 theme_override_font_sizes/font_size = 14
-text = "★ Choose Specialization Subclass ★"
+text = "Choose Specialization Subclass"
 
 [node name="NavRow" type="HBoxContainer" parent="MarginContainer/VBox"]
 layout_mode = 2

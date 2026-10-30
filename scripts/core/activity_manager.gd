@@ -80,7 +80,7 @@ static func perform_work(rng: RandomNumberGenerator = null) -> Dictionary:
 	if respect_bonus:
 		full_msg += " High Respect gave +10% bonus!"
 	if levelup_report.get("levelled_up", false):
-		full_msg += " ★ LEVEL UP! Reached Level %d! ★" % levelup_report.get("new_level", GameState.level)
+		full_msg += " [LEVEL UP] Reached Level %d!" % levelup_report.get("new_level", GameState.level)
 	
 	return {
 		"success": true,
@@ -200,7 +200,7 @@ static func perform_socialise(rng: RandomNumberGenerator = null) -> Dictionary:
 	if heat_reduced:
 		msg += " Good word from neighbours cooled down Heat by -1!"
 	if levelup_report.get("levelled_up", false):
-		msg += " ★ LEVEL UP! Reached Level %d! ★" % levelup_report.get("new_level", GameState.level)
+		msg += " [LEVEL UP] Reached Level %d!" % levelup_report.get("new_level", GameState.level)
 	
 	return {
 		"success": true,

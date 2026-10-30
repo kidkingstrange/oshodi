@@ -510,7 +510,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_chip")
 layout_mode = 2
 theme_override_colors/font_color = Color(0.168627, 0.65098, 0.627451, 1)
 theme_override_font_sizes/font_size = 14
-text = "⚡ 85/100"
+text = "Energy: 85/100"
 horizontal_alignment = 1
 
 [node name="RespectChip" type="PanelContainer" parent="Margin/Scroll/VBox/ChipsHBox"]
@@ -522,7 +522,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_chip")
 layout_mode = 2
 theme_override_colors/font_color = Color(0.968627, 0.709804, 0, 1)
 theme_override_font_sizes/font_size = 14
-text = "★ 12"
+text = "Respect: 12"
 horizontal_alignment = 1
 
 [node name="HeatChip" type="PanelContainer" parent="Margin/Scroll/VBox/ChipsHBox"]
@@ -534,7 +534,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_chip")
 layout_mode = 2
 theme_override_colors/font_color = Color(0.847059, 0.25098, 0.184314, 1)
 theme_override_font_sizes/font_size = 14
-text = "🔥 0"
+text = "Heat: 0"
 horizontal_alignment = 1
 
 [node name="NavMargin" type="MarginContainer" parent="Margin/Scroll/VBox"]

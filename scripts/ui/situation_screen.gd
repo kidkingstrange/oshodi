@@ -94,17 +94,17 @@ func _display_outcome(outcome: Dictionary) -> void:
 		var diff = outcome.get("difficulty", 0)
 		
 		if is_success:
-			outcome_badge_label.text = "★ SUCCESS! ★"
+			outcome_badge_label.text = "SUCCESS"
 			outcome_badge_label.add_theme_color_override("font_color", Color(0.12, 0.58, 0.28, 1))
 		else:
-			outcome_badge_label.text = "✖ CHALLENGE FAILED ✖"
+			outcome_badge_label.text = "CHALLENGE FAILED"
 			outcome_badge_label.add_theme_color_override("font_color", Color(0.85, 0.22, 0.22, 1))
 		
-		roll_breakdown_label.text = "Roll Breakdown: %s (%d) + Roll (⚂ %d) = %d vs Target Difficulty %d" % [
+		roll_breakdown_label.text = "Roll Breakdown: %s (%d) + Roll (%d) = %d vs Target Difficulty %d" % [
 			stat_name, stat_val, roll, total, diff
 		]
 	else:
-		outcome_badge_label.text = "✔ RESOLVED"
+		outcome_badge_label.text = "RESOLVED"
 		outcome_badge_label.add_theme_color_override("font_color", Color(0.1, 0.45, 0.75, 1))
 		roll_breakdown_label.text = "No stat check required."
 	
@@ -137,7 +137,7 @@ func _display_outcome(outcome: Dictionary) -> void:
 	
 	# Exhaustion alert
 	if outcome.get("exhaustion_triggered", false):
-		exhaustion_alert_label.text = "⚠ " + outcome.get("exhaustion_message", "")
+		exhaustion_alert_label.text = outcome.get("exhaustion_message", "")
 		exhaustion_alert_label.visible = true
 	else:
 		exhaustion_alert_label.visible = false
