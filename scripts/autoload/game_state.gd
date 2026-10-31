@@ -106,6 +106,20 @@ func get_subclass_data() -> Dictionary:
 		return {}
 	return DataLoader.get_subclass_by_id(subclass_id)
 
+## Checks whether the player currently has the specified perk (from class or subclass)
+func has_perk(perk_id: String) -> bool:
+	var c_data = get_class_data()
+	var class_perk = c_data.get("passive_perk", {})
+	if class_perk.get("id", "") == perk_id:
+		return true
+	
+	var sc_data = get_subclass_data()
+	var perks = sc_data.get("perks", [])
+	for p in perks:
+		if p.get("id", "") == perk_id:
+			return true
+	return false
+
 ## Safely modify a resource (energy, naira, respect, heat)
 func modify_resource(res_key: String, delta: int) -> void:
 	if not resources.has(res_key):

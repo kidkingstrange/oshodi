@@ -310,5 +310,161 @@
     "unlock": {
       "min_class_level": 5
     }
+  },
+  {
+    "id": "agbero",
+    "class_id": "area_boy",
+    "name": "Agbero",
+    "fantasy": "Park and loading bay coordinator, commanding street levies with bold presence.",
+    "perks": [
+      {
+        "id": "bay_command",
+        "name": "Bay Command",
+        "text": "Loading levies pay 20% more during peak transit morning rush."
+      },
+      {
+        "id": "whistle_call",
+        "name": "Street Whistle",
+        "text": "Rallies street boys quickly to back your word in transit disputes."
+      }
+    ],
+    "weakness": "High exposure to transport task force crackdowns and union clashes.",
+    "situation_sets": [
+      "loading_dues",
+      "park_rivalry"
+    ],
+    "unlock": {
+      "min_class_level": 5
+    }
+  },
+  {
+    "id": "vigilante",
+    "class_id": "area_boy",
+    "name": "Vigilante",
+    "fantasy": "Night watchman guarding residential gates and street compounds against burglars.",
+    "perks": [
+      {
+        "id": "compound_guardian",
+        "name": "Night Watch",
+        "text": "Earns steady weekly community security stipends from grateful landlords."
+      },
+      {
+        "id": "deterrent_whistle",
+        "name": "Street Shield",
+        "text": "Reduces district Heat accumulation by maintaining peaceful streets."
+      }
+    ],
+    "weakness": "Sleep deficit drains maximum daytime Energy by 10 points.",
+    "situation_sets": [
+      "night_patrol",
+      "gate_inspection"
+    ],
+    "unlock": {
+      "min_class_level": 5
+    }
+  },
+  {
+    "id": "one_chance_operator",
+    "class_id": "area_boy",
+    "name": "One Chance Operator",
+    "fantasy": "A high-risk street hustler running deceptive schemes with severe moral consequences.",
+    "perks": [
+      {
+        "id": "quick_take",
+        "name": "Deceptive Hustle",
+        "text": "Generates bursts of high illicit cash on risky transit runs."
+      },
+      {
+        "id": "fast_exit",
+        "name": "Disappearing Act",
+        "text": "Higher agility when slipping through dense crowds during pursuit."
+      }
+    ],
+    "weakness": "Severe Heat multiplier; massive Respect loss and heavy legal fines if exposed.",
+    "situation_sets": [
+      "decoy_bus",
+      "highway_evasion"
+    ],
+    "unlock": {
+      "min_class_level": 5
+    }
+  },
+  {
+    "id": "landlords_enforcer",
+    "class_id": "area_boy",
+    "name": "Landlord's Enforcer",
+    "fantasy": "Tough compound bailiff recovering overdue rent arrears and enforcing eviction notices.",
+    "perks": [
+      {
+        "id": "debt_recovery",
+        "name": "Arrears Recovery",
+        "text": "Takes a 10% cash commission on all overdue compound rent collected."
+      },
+      {
+        "id": "stern_visage",
+        "name": "Iron Demeanour",
+        "text": "Bonus +2 Grit on all physical confrontation and door-step checks."
+      }
+    ],
+    "weakness": "Despised by struggling compound tenants, reducing socialise Respect gains.",
+    "situation_sets": [
+      "arrears_collection",
+      "padlock_lockout"
+    ],
+    "unlock": {
+      "min_class_level": 5
+    }
+  },
+  {
+    "id": "pickpocket",
+    "class_id": "area_boy",
+    "name": "Pickpocket",
+    "fantasy": "Fleet-fingered street runner navigating crowded terminal bottlenecks.",
+    "perks": [
+      {
+        "id": "light_fingers",
+        "name": "Slick Fingers",
+        "text": "Extracts small opportunistic coins and bills in packed pedestrian queues."
+      },
+      {
+        "id": "alley_scramble",
+        "name": "Alley Knowledge",
+        "text": "Escapes foot pursuit through narrow market drainage paths effortlessly."
+      }
+    ],
+    "weakness": "Zero street trust; public outcry and instant clinic injury if caught in the act.",
+    "situation_sets": [
+      "crowded_turnstile",
+      "bus_stop_scramble"
+    ],
+    "unlock": {
+      "min_class_level": 5
+    }
+  },
+  {
+    "id": "politicians_youth_wing",
+    "class_id": "area_boy",
+    "name": "Politician's Youth Wing",
+    "fantasy": "Grassroots campaign organizer coordinating party rallies, posters, and ward influence.",
+    "perks": [
+      {
+        "id": "rally_stipend",
+        "name": "Mobilization Allowance",
+        "text": "Receives substantial party mobilization allowances before public rallies."
+      },
+      {
+        "id": "godfather_protection",
+        "name": "Ward Connection",
+        "text": "Local party patronage shields you from low-level street fines."
+      }
+    ],
+    "weakness": "Vulnerable to fierce rival party clashes and sudden abandonment after election season.",
+    "situation_sets": [
+      "campaign_rally",
+      "poster_turf"
+    ],
+    "unlock": {
+      "min_class_level": 5
+    }
   }
 ]

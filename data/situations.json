@@ -2407,5 +2407,381 @@
         }
       }
     ]
+  },
+  {
+    "id": "turf_boundary_clash",
+    "title": "Boundary Dispute Under the Flyover",
+    "location_tags": [
+      "oshodi_underbridge"
+    ],
+    "required_class": "area_boy",
+    "time_blocks": [
+      "morning",
+      "afternoon"
+    ],
+    "setup_text": "A rival street crew from Bolade is attempting to collect park dues from the morning commercial buses on your side of the flyover pillars.",
+    "options": [
+      {
+        "id": "assert_turf_dominance",
+        "label": "Step up with cold authority and assert territorial boundaries",
+        "check": {
+          "stat": "grit",
+          "difficulty": 6
+        },
+        "on_success": {
+          "text": "Your sheer presence and unflinching glare back them down! They retreat to their side, leaving dues in your hands.",
+          "effects": {
+            "naira": 3500,
+            "respect": 2,
+            "xp": 20
+          }
+        },
+        "on_fail": {
+          "text": "A heated shouting match ensues that draws traffic wardens, forcing everyone to scatter empty-handed.",
+          "effects": {
+            "energy": -15,
+            "heat": 1,
+            "xp": 5
+          }
+        }
+      },
+      {
+        "id": "negotiate_demarcation",
+        "label": "Negotiate a peaceful daily loading schedule demarcation",
+        "check": {
+          "stat": "charisma",
+          "difficulty": 5
+        },
+        "on_success": {
+          "text": "You broker a clean compromise: they take afternoon off-peak, you keep prime morning rush. Mutual peace secured!",
+          "effects": {
+            "naira": 2000,
+            "respect": 2,
+            "xp": 15
+          }
+        },
+        "on_fail": {
+          "text": "They scoff at your proposal and murmur disrespectfully as they linger on the edge.",
+          "effects": {
+            "energy": -10,
+            "respect": -1,
+            "xp": 4
+          }
+        }
+      },
+      {
+        "id": "report_to_chairman",
+        "label": "Refer the boundary dispute directly to Chairman Goke",
+        "check": null,
+        "on_success": {
+          "text": "Chairman Goke sends his marshals to restore proper park protocol. Order is maintained.",
+          "effects": {
+            "respect": 1,
+            "xp": 8
+          }
+        },
+        "on_fail": {
+          "text": "",
+          "effects": {}
+        }
+      }
+    ]
+  },
+  {
+    "id": "task_force_raid",
+    "title": "The Blue Van Siren",
+    "location_tags": [
+      "oshodi_underbridge",
+      "oshodi_bus_terminal"
+    ],
+    "required_class": "area_boy",
+    "time_blocks": [
+      "afternoon",
+      "evening"
+    ],
+    "setup_text": "A municipal environmental raid van rolls up with sirens blaring, rounding up unauthorized street touts along the loading curb.",
+    "options": [
+      {
+        "id": "slip_through_market_alleys",
+        "label": "Sprint through the narrow textile alleys to escape the sweep",
+        "check": {
+          "stat": "stamina",
+          "difficulty": 6
+        },
+        "on_success": {
+          "text": "You know every shortcut! You glide through the market maze and emerge safely on the far side without a scratch.",
+          "effects": {
+            "energy": -5,
+            "xp": 18
+          }
+        },
+        "on_fail": {
+          "text": "You get snagged on a clothesline! You spend an exhausting hour sorting out clearance and release.",
+          "effects": {
+            "naira": -2500,
+            "energy": -15,
+            "heat": 1,
+            "xp": 5
+          }
+        }
+      },
+      {
+        "id": "blend_as_passerby",
+        "label": "Casually grab a daily newspaper and pretend to be an innocent commuter",
+        "check": {
+          "stat": "street_smarts",
+          "difficulty": 5
+        },
+        "on_success": {
+          "text": "Flawless acting! The marshals sweep past you while you calmly browse headlines. Masterclass in street camouflage.",
+          "effects": {
+            "respect": 1,
+            "xp": 15
+          }
+        },
+        "on_fail": {
+          "text": "An officer notices your nervous foot tapping and demands your national ID.",
+          "effects": {
+            "energy": -10,
+            "xp": 5
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "vigilante_night_chase",
+    "title": "Footsteps Behind the Compound Wall",
+    "location_tags": [
+      "bolade_junction"
+    ],
+    "required_class": "area_boy",
+    "time_blocks": [
+      "night"
+    ],
+    "setup_text": "At 2:00 AM, you spot a shadowy prowler attempting to pry open an elderly resident's parked Peugeot 504.",
+    "options": [
+      {
+        "id": "blow_guard_whistle",
+        "label": "Sound the high-pitched vigilante security whistle with all your lungs",
+        "check": {
+          "stat": "charisma",
+          "difficulty": 4
+        },
+        "on_success": {
+          "text": "Compound security floodlights snap on across the street! The startled thief drops his crowbar and flees in terror.",
+          "effects": {
+            "respect": 3,
+            "xp": 20
+          }
+        },
+        "on_fail": {
+          "text": "The whistle clogs with dust, producing only a weak squeak. You have to give chase on foot.",
+          "effects": {
+            "energy": -12,
+            "xp": 5
+          }
+        }
+      },
+      {
+        "id": "corner_and_detain",
+        "label": "Sprint quietly across the concrete drainage and tackle the suspect",
+        "check": {
+          "stat": "grit",
+          "difficulty": 6
+        },
+        "on_success": {
+          "text": "You pin the suspect cleanly! Grateful compound elders rush out, praise your bravery, and reward you with cash!",
+          "effects": {
+            "naira": 5000,
+            "respect": 4,
+            "xp": 28
+          }
+        },
+        "on_fail": {
+          "text": "He wrestles free and jumps over a low fence, leaving you with bruised elbows and scraped knees.",
+          "effects": {
+            "energy": -18,
+            "xp": 6
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "rival_tout_dispute",
+    "title": "The Disputed Transit Ticket",
+    "location_tags": [
+      "oshodi_bus_terminal"
+    ],
+    "required_class": "area_boy",
+    "time_blocks": [
+      "morning",
+      "evening"
+    ],
+    "setup_text": "A stubborn bus conductor refuses to pay the morning terminal ticket, brandishing a crumpled receipt from a rival union faction.",
+    "options": [
+      {
+        "id": "audit_union_receipts",
+        "label": "Inspect the serial number and expose the outdated counterfeit date",
+        "check": {
+          "stat": "street_smarts",
+          "difficulty": 5
+        },
+        "on_success": {
+          "text": "You catch the expired date stamp instantly! Caught red-handed, the conductor pays full dues plus apology surcharge.",
+          "effects": {
+            "naira": 2800,
+            "respect": 2,
+            "xp": 18
+          }
+        },
+        "on_fail": {
+          "text": "You get bogged down in technical arguments while other buses slip away without paying.",
+          "effects": {
+            "energy": -10,
+            "xp": 5
+          }
+        }
+      },
+      {
+        "id": "firm_park_ultimatum",
+        "label": "Stand before the front tyre: No clearance, no exit from this loading bay",
+        "check": {
+          "stat": "grit",
+          "difficulty": 6
+        },
+        "on_success": {
+          "text": "He tries revving the engine, but your unblinking stare proves you won't budge. The driver pays up immediately!",
+          "effects": {
+            "naira": 3200,
+            "respect": 2,
+            "xp": 22
+          }
+        },
+        "on_fail": {
+          "text": "The bus inches forward recklessly, forcing you to step aside in annoyance.",
+          "effects": {
+            "energy": -14,
+            "respect": -1,
+            "xp": 5
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "campaign_rally_muster",
+    "title": "The Ward Mobilization Call",
+    "location_tags": [
+      "oshodi_underbridge",
+      "bolade_junction"
+    ],
+    "required_class": "area_boy",
+    "time_blocks": [
+      "afternoon"
+    ],
+    "setup_text": "A prominent political ward coordinator arrives in an open-top pickup distributing printed rally caps and mobilization stipends.",
+    "options": [
+      {
+        "id": "coordinate_the_boys",
+        "label": "Step up as the lead street marshal to organize the crowd peacefully",
+        "check": {
+          "stat": "charisma",
+          "difficulty": 6
+        },
+        "on_success": {
+          "text": "Outstanding crowd control! The coordinator is thoroughly impressed and hands you a fat lead organizer allowance!",
+          "effects": {
+            "naira": 8500,
+            "respect": 3,
+            "xp": 30
+          }
+        },
+        "on_fail": {
+          "text": "A minor push-and-shove over caps causes chaos, cutting your share of the payout.",
+          "effects": {
+            "naira": 2000,
+            "energy": -12,
+            "xp": 8
+          }
+        }
+      },
+      {
+        "id": "take_standard_stipend",
+        "label": "Collect the standard participant stipend without taking on extra liability",
+        "check": null,
+        "on_success": {
+          "text": "You collect your cash stipend, wave a flag, and return to your street spot quietly.",
+          "effects": {
+            "naira": 2500,
+            "xp": 8
+          }
+        },
+        "on_fail": {
+          "text": "",
+          "effects": {}
+        }
+      }
+    ]
+  },
+  {
+    "id": "crowd_confusion_slip",
+    "title": "The Dropped Bank Envelope",
+    "location_tags": [
+      "oshodi_bus_terminal",
+      "oshodi_market"
+    ],
+    "required_class": "area_boy",
+    "time_blocks": [
+      "morning",
+      "afternoon"
+    ],
+    "setup_text": "In the chaotic rush of a bus boarding queue, a distressed elderly teacher drops a thick brown bank envelope on the pavement without noticing.",
+    "options": [
+      {
+        "id": "return_to_owner",
+        "label": "Pick up the envelope and call out immediately to return it intact",
+        "check": null,
+        "on_success": {
+          "text": "The teacher bursts into tears of gratitude and hugs you in front of the whole bus stop! Your name is blessed across the avenue.",
+          "effects": {
+            "respect": 5,
+            "heat": -1,
+            "xp": 35
+          }
+        },
+        "on_fail": {
+          "text": "",
+          "effects": {}
+        }
+      },
+      {
+        "id": "pocket_in_crowd",
+        "label": "Slide the envelope into your denim jacket and melt into the crowd",
+        "check": {
+          "stat": "street_smarts",
+          "difficulty": 6
+        },
+        "on_success": {
+          "text": "You slip away unnoticed with thick stacks of cash. But guilt weighs heavy, and watchful eyes were taking notes.",
+          "effects": {
+            "naira": 14000,
+            "heat": 3,
+            "respect": -2,
+            "xp": 15
+          }
+        },
+        "on_fail": {
+          "text": "A vendor shouts: Thief! Drop am! You are mobbed, forced to return the money, and chased down the avenue in disgrace.",
+          "effects": {
+            "energy": -25,
+            "respect": -5,
+            "heat": 4,
+            "xp": 5
+          }
+        }
+      }
+    ]
   }
 ]

@@ -67,7 +67,7 @@
   [PASS] Event adheres to morning time_block condition
 
 [Suite: Situations & Conflict System (Phase 3)]
-  [PASS] At least 20 Situations authored and loaded (got 40)
+  [PASS] At least 20 Situations authored and loaded (got 46)
   [PASS] At least 10 general Oshodi street situations authored (got 18)
   [PASS] At least 5 Trader-specific situations authored (got 11)
   [PASS] At least 5 Transporter-specific situations authored (got 11)
@@ -180,7 +180,7 @@
 
 [Suite: Content Expansion, Quests, NPCs, Dialogue & Audio (Phase 6)]
   [PASS] DataLoader has 0 validation errors with Phase 6 content
-  [PASS] Exactly 40 situations loaded in DataLoader (got 40)
+  [PASS] At least 40 situations loaded in DataLoader (got 46)
   [PASS] At least 10 quests loaded in DataLoader (got 10)
   [PASS] At least 8 NPCs loaded in DataLoader (got 8)
   [PASS] At least 15 dialogue trees loaded (got 25)
@@ -216,5 +216,38 @@
   [PASS] SFX event stream loaded
   [PASS] BGM stream loaded
 
+[Suite: Area Boy Class & Turf Mechanics (Phase 7A)]
+  [PASS] Area Boy character created successfully
+  [PASS] Starting cash is ₦3,000
+  [PASS] Base Grit is 5
+  [PASS] Base Hustle is 4
+  [PASS] Initial Heat is 0
+  [PASS] Initial Respect is 10
+  [PASS] Area Boy work shift performed successfully
+  [PASS] Energy reduced by 20 (100 -> 80)
+  [PASS] Naira increased from turf levies
+  [PASS] Heat increased from street levy collection
+  [PASS] Heat raised to 6 for lay low test
+  [PASS] Lay low action succeeded
+  [PASS] Heat reduced from 6 to 3
+  [PASS] Energy reduced by 10 (100 -> 90)
+  [PASS] Heat reduced to 0 and clamps at 0
+  [PASS] Exactly 6 Area Boy subclasses loaded in DataLoader (got 6)
+  [PASS] Subclass 'agbero' exists
+  [PASS] Subclass 'agbero' belongs to area_boy
+  [PASS] Subclass 'vigilante' exists
+  [PASS] Subclass 'vigilante' belongs to area_boy
+  [PASS] Subclass 'one_chance_operator' exists
+  [PASS] Subclass 'one_chance_operator' belongs to area_boy
+  [PASS] Subclass 'landlords_enforcer' exists
+  [PASS] Subclass 'landlords_enforcer' belongs to area_boy
+  [PASS] Subclass 'pickpocket' exists
+  [PASS] Subclass 'pickpocket' belongs to area_boy
+  [PASS] Subclass 'politicians_youth_wing' exists
+  [PASS] Subclass 'politicians_youth_wing' belongs to area_boy
+  [PASS] Situation 'turf_boundary_clash' exists
+  [PASS] Situation requires area_boy class
+  [PASS] Trader is excluded from Area Boy turf situation
+
 ===========================
-Results: 202 Passed, 0 Failed
+Results: 233 Passed, 0 Failed

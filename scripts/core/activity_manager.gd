@@ -42,6 +42,10 @@ static func perform_work(rng: RandomNumberGenerator = null) -> Dictionary:
 		income = trans_res.income
 		work_msg = trans_res.flavour
 		xp_gain = trans_res.get("xp_gain", xp_gain)
+	elif GameState.class_id == "area_boy":
+		var ab_res = AreaBoyMechanic.perform_areaboy_work(rng)
+		income = ab_res.income
+		work_msg = ab_res.flavour
 	else:
 		income = DataLoader.get_work_income(GameState.class_id)
 		work_msg = "You completed your work shift in Oshodi"

@@ -33,7 +33,7 @@ func test_data_loader_content_counts() -> void:
 	var dl = DataLoader
 	dl.load_and_validate_all()
 	_assert_true(dl.load_errors.is_empty(), "DataLoader has 0 validation errors with Phase 6 content")
-	_assert_true(dl.situations.size() == 40, "Exactly 40 situations loaded in DataLoader (got %d)" % dl.situations.size())
+	_assert_true(dl.situations.size() >= 40, "At least 40 situations loaded in DataLoader (got %d)" % dl.situations.size())
 	_assert_true(dl.quests.size() >= 10, "At least 10 quests loaded in DataLoader (got %d)" % dl.quests.size())
 	_assert_true(dl.npcs.size() >= 8, "At least 8 NPCs loaded in DataLoader (got %d)" % dl.npcs.size())
 	_assert_true(dl.dialogue.size() >= 15, "At least 15 dialogue trees loaded (got %d)" % dl.dialogue.size())

@@ -110,6 +110,8 @@ func _refresh_display() -> void:
 		work_button.text = "Drive Route (Fuel: %dL, -20 Energy)" % fuel
 	elif GameState.class_id == "trader":
 		work_button.text = "Trade & Stock Market (-20 Energy)"
+	elif GameState.class_id == "area_boy":
+		work_button.text = "Control Turf & Dues (-20 Energy)"
 	else:
 		var income = DataLoader.get_work_income(GameState.class_id)
 		work_button.text = "Work Shift (+%s, -20 Energy)" % GameState.format_naira(income)
