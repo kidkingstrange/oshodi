@@ -622,5 +622,161 @@
     "unlock": {
       "min_class_level": 5
     }
+  },
+  {
+    "id": "lastma_officer",
+    "class_id": "road_official",
+    "name": "Traffic Operations Officer",
+    "fantasy": "Active corridor traffic commander managing choke points and clearing expressway lane blockages.",
+    "perks": [
+      {
+        "id": "corridor_flow",
+        "name": "Corridor Decongestion",
+        "text": "Clears traffic bottlenecks rapidly, earning 20% higher operational performance bonuses."
+      },
+      {
+        "id": "firm_whistle",
+        "name": "Commanding Whistle",
+        "text": "Halts reckless commercial maneuvers instantly, keeping street order intact."
+      }
+    ],
+    "weakness": "Constant sun exposure and hostile commuter confrontations drain stamina.",
+    "situation_sets": [
+      "one_way_driver",
+      "bus_stop_obstruction"
+    ],
+    "unlock": {
+      "min_class_level": 5
+    }
+  },
+  {
+    "id": "traffic_warden",
+    "class_id": "road_official",
+    "name": "Junction Warden",
+    "fantasy": "Rhythmic junction director whose gestures keep gridlocked crossroads moving in harmony.",
+    "perks": [
+      {
+        "id": "junction_choreography",
+        "name": "Intersection Flow",
+        "text": "Earns +2 Respect from commuters and traders for keeping intersections free-flowing."
+      },
+      {
+        "id": "pedestrian_guardian",
+        "name": "Crosswalk Shield",
+        "text": "Ensures safe passage for vulnerable elderly and school pupils at major crossings."
+      }
+    ],
+    "weakness": "Physical fatigue from standing eight continuous hours at exhaust-heavy intersections.",
+    "situation_sets": [
+      "junction_gridlock",
+      "pedestrian_surge"
+    ],
+    "unlock": {
+      "min_class_level": 5
+    }
+  },
+  {
+    "id": "police_checkpoint_officer",
+    "class_id": "road_official",
+    "name": "Corridor Security Patrol",
+    "fantasy": "Uniformed corridor security officer checking vehicle documentation and deterring street crime.",
+    "perks": [
+      {
+        "id": "contraband_detection",
+        "name": "Sharp Verification",
+        "text": "Spots forged vehicle documents and contraband, securing departmental citations."
+      },
+      {
+        "id": "night_security",
+        "name": "Dusk Surveillance",
+        "text": "Maintains high area safety during late night shifts, suppressing neighborhood Heat."
+      }
+    ],
+    "weakness": "High public scrutiny and street tension during vehicle document verifications.",
+    "situation_sets": [
+      "suspicious_boot",
+      "expired_registration"
+    ],
+    "unlock": {
+      "min_class_level": 5
+    }
+  },
+  {
+    "id": "vehicle_inspector",
+    "class_id": "road_official",
+    "name": "Vehicle Inspection Officer",
+    "fantasy": "Technical inspector certifying commercial vehicles for roadworthiness and safety compliance.",
+    "perks": [
+      {
+        "id": "mechanical_audit",
+        "name": "Roadworthiness Audit",
+        "text": "Detects faulty brake systems and bald tyres, earning safety compliance incentives."
+      },
+      {
+        "id": "emission_testing",
+        "name": "Exhaust Standard",
+        "text": "Impounds excessively smoking commercial vehicles, winning public health commendation."
+      }
+    ],
+    "weakness": "Administrative paperwork and hostile fleet mechanics challenging inspection notices.",
+    "situation_sets": [
+      "bald_tyres",
+      "emission_violation"
+    ],
+    "unlock": {
+      "min_class_level": 5
+    }
+  },
+  {
+    "id": "tow_truck_operator",
+    "class_id": "road_official",
+    "name": "Heavy Recovery Specialist",
+    "fantasy": "Heavy recovery driver clearing broken-down trailers and disabled articulated trucks.",
+    "perks": [
+      {
+        "id": "rapid_clearance",
+        "name": "Heavy Tow Logistics",
+        "text": "Earns 30% bonus fees for clearing stranded articulated vehicles off expressway lanes."
+      },
+      {
+        "id": "winch_mastery",
+        "name": "Rigging Precision",
+        "text": "Recovers overturned containers safely without spilling commercial goods or cargo."
+      }
+    ],
+    "weakness": "Heavy machinery wear, hydraulic maintenance costs, and midnight emergency calls.",
+    "situation_sets": [
+      "overturned_truck",
+      "expressway_breakdown"
+    ],
+    "unlock": {
+      "min_class_level": 5
+    }
+  },
+  {
+    "id": "road_safety_volunteer",
+    "class_id": "road_official",
+    "name": "Civic Safety Marshal",
+    "fantasy": "Passionate civic volunteer advocating highway safety, speed moderation, and first response.",
+    "perks": [
+      {
+        "id": "civic_integrity",
+        "name": "Uncompromising Honor",
+        "text": "Commands high moral authority, boosting Respect gains across all road interactions."
+      },
+      {
+        "id": "first_aid_dispatch",
+        "name": "First-Hour Triage",
+        "text": "Provides immediate first response assistance at roadside accident scenes."
+      }
+    ],
+    "weakness": "Modest financial stipends compensated primarily by community goodwill and honor.",
+    "situation_sets": [
+      "speeding_caution",
+      "school_crossing_rush"
+    ],
+    "unlock": {
+      "min_class_level": 5
+    }
   }
 ]

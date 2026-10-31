@@ -12,6 +12,7 @@ const TestSaveSystem = preload("res://tests/test_save_system.gd")
 const TestContentAndQuests = preload("res://tests/test_content_and_quests.gd")
 const TestAreaBoyMechanic = preload("res://tests/test_areaboy_mechanic.gd")
 const TestWorkingClassMechanic = preload("res://tests/test_workingclass_mechanic.gd")
+const TestRoadOfficialMechanic = preload("res://tests/test_roadofficial_mechanic.gd")
 
 @onready var output_label: Label = %OutputLabel
 @onready var summary_label: Label = %SummaryLabel
@@ -103,6 +104,15 @@ func _run_all_tests() -> void:
 	total_passed += wc_test.passed_count
 	total_failed += wc_test.failed_count
 	for msg in wc_test.messages:
+		all_messages.append(msg)
+	
+	# Suite 10: Road Official Class & Checkpoint Mechanics (Phase 7C)
+	all_messages.append("\n[Suite: Road Official Class & Checkpoint Mechanics (Phase 7C)]")
+	var ro_test = TestRoadOfficialMechanic.new()
+	ro_test.run_all()
+	total_passed += ro_test.passed_count
+	total_failed += ro_test.failed_count
+	for msg in ro_test.messages:
 		all_messages.append(msg)
 	
 	# Summary

@@ -3156,5 +3156,380 @@
         }
       }
     ]
+  },
+  {
+    "id": "one_way_contravention",
+    "title": "One-Way Expressway Contravention",
+    "location_tags": [
+      "all"
+    ],
+    "required_class": "road_official",
+    "time_blocks": [
+      "morning",
+      "afternoon"
+    ],
+    "setup_text": "A loaded yellow danfo minibus swerves into the wrong direction against oncoming expressway traffic to beat a jam. Passengers scream in distress as oncoming vehicles brake hard.",
+    "options": [
+      {
+        "id": "flag_and_impound",
+        "label": "Stand firmly in the median, blow your whistle, and order the bus into the holding bay",
+        "check": {
+          "stat": "grit",
+          "difficulty": 5
+        },
+        "on_success": {
+          "text": "You halt the reckless driver in their tracks, guide passengers to safe debarkation, and issue a formal contravention notice.",
+          "effects": {
+            "naira": 4500,
+            "respect": 3,
+            "xp": 25,
+            "heat": -1
+          }
+        },
+        "on_fail": {
+          "text": "The aggressive driver mounts the kerb, grazing your traffic reflector vest as they flee into an alley.",
+          "effects": {
+            "energy": -15,
+            "respect": -1,
+            "xp": 10
+          }
+        }
+      },
+      {
+        "id": "order_immediate_reversal",
+        "label": "Direct oncoming traffic to freeze while ordering the violator to reverse safely",
+        "check": {
+          "stat": "charisma",
+          "difficulty": 5
+        },
+        "on_success": {
+          "text": "Your commanding hand signals bring order to chaos. The sheepish driver reverses back into proper lane alignment.",
+          "effects": {
+            "respect": 2,
+            "naira": 2000,
+            "xp": 15
+          }
+        },
+        "on_fail": {
+          "text": "Motorists honk furiously, blaming you for freezing the entire intersection.",
+          "effects": {
+            "energy": -10,
+            "xp": 5
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "overloaded_timber_truck",
+    "title": "Overloaded Timber Truck Leaning",
+    "location_tags": [
+      "all"
+    ],
+    "required_class": "road_official",
+    "time_blocks": [
+      "morning",
+      "afternoon"
+    ],
+    "setup_text": "An ancient flatbed truck stacked with heavy mahogany logs tilts precariously towards the pedestrian walkway near Oshodi Market. A snapping rope threatens disaster.",
+    "options": [
+      {
+        "id": "cordon_and_brace",
+        "label": "Immediately evacuate pedestrians and guide the driver onto flat ground",
+        "check": {
+          "stat": "street_smarts",
+          "difficulty": 5
+        },
+        "on_success": {
+          "text": "You clear the walkway seconds before a secondary rope snaps. Your quick intervention averts a catastrophe, earning heartfelt praise from market stallholders.",
+          "effects": {
+            "respect": 5,
+            "naira": 3000,
+            "xp": 30
+          }
+        },
+        "on_fail": {
+          "text": "Pedestrians scramble in panic; you twist your ankle clearing fruit vendors off the kerb.",
+          "effects": {
+            "energy": -15,
+            "respect": 2,
+            "xp": 15
+          }
+        }
+      },
+      {
+        "id": "summon_recovery_tow",
+        "label": "Escort the truck slowly to a heavy vehicle holding yard",
+        "check": {
+          "stat": "hustle",
+          "difficulty": 5
+        },
+        "on_success": {
+          "text": "You guide the creaking truck safely off the main artery and log an emergency safety levy.",
+          "effects": {
+            "naira": 6000,
+            "respect": 2,
+            "xp": 20
+          }
+        },
+        "on_fail": {
+          "text": "The truck breaks an axle mid-turn, creating an hour-long traffic bottleneck.",
+          "effects": {
+            "energy": -10,
+            "respect": -1,
+            "xp": 10
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "expired_tinted_permit",
+    "title": "VIP Tinted Glass Dispute",
+    "location_tags": [
+      "all"
+    ],
+    "required_class": "road_official",
+    "time_blocks": [
+      "morning",
+      "afternoon",
+      "evening"
+    ],
+    "setup_text": "You flag down an unregistered luxury SUV with pitch-black tinted windows. An arrogant aide steps out, waving a phone and shouting: Do you know who is inside?",
+    "options": [
+      {
+        "id": "firm_procedural_inspection",
+        "label": "Stand by official protocols calmly and request vehicle registration papers",
+        "check": {
+          "stat": "charisma",
+          "difficulty": 6
+        },
+        "on_success": {
+          "text": "Your unflinching, polite professional dignity disarms the aide. The VIP rolls down the window, apologizes, and pays standard administrative clearance.",
+          "effects": {
+            "naira": 8000,
+            "respect": 4,
+            "xp": 30
+          }
+        },
+        "on_fail": {
+          "text": "The aide takes your badge number and threatens to phone the state commissioner, leaving you stressed.",
+          "effects": {
+            "energy": -10,
+            "respect": -1,
+            "xp": 10
+          }
+        }
+      },
+      {
+        "id": "verify_chassis_number",
+        "label": "Cross-check the engine chassis number against the central transit database",
+        "check": {
+          "stat": "street_smarts",
+          "difficulty": 6
+        },
+        "on_success": {
+          "text": "You discover the number plates were swapped from an impounded vehicle! Departmental commendation and reward granted.",
+          "effects": {
+            "naira": 10000,
+            "respect": 3,
+            "xp": 35
+          }
+        },
+        "on_fail": {
+          "text": "The numbers match valid executive fleet records, wasting your post shift.",
+          "effects": {
+            "energy": -5,
+            "xp": 10
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "junction_gridlock_choreography",
+    "title": "Four-Way Junction Gridlock",
+    "location_tags": [
+      "all"
+    ],
+    "required_class": "road_official",
+    "time_blocks": [
+      "afternoon",
+      "evening"
+    ],
+    "setup_text": "Sudden afternoon torrential rain shuts down traffic lights at Bolade Junction. Four streams of danfos, private cars, and tankers lock horns in a complete standstill.",
+    "options": [
+      {
+        "id": "dance_the_junction",
+        "label": "Step into the center circle in your neon raincoat and rhythmically choreograph traffic flow",
+        "check": {
+          "stat": "stamina",
+          "difficulty": 6
+        },
+        "on_success": {
+          "text": "With whistle trills and theatrical gestures, you unlock the four-way lockup block by block. Motorists tap horns in salute!",
+          "effects": {
+            "respect": 4,
+            "naira": 5000,
+            "xp": 30
+          }
+        },
+        "on_fail": {
+          "text": "Exhaust fumes and splashing stormwater soak you to the bone as stubborn drivers ignore your signals.",
+          "effects": {
+            "energy": -20,
+            "respect": 1,
+            "xp": 10
+          }
+        }
+      },
+      {
+        "id": "unblock_choke_point",
+        "label": "Identify and move the single obstructive minibus causing the tailback",
+        "check": {
+          "stat": "street_smarts",
+          "difficulty": 5
+        },
+        "on_success": {
+          "text": "Targeting the root cause unlocks the entire knot in five minutes.",
+          "effects": {
+            "respect": 2,
+            "naira": 3000,
+            "xp": 20
+          }
+        },
+        "on_fail": {
+          "text": "The minibus driver has locked the brakes and vanished into the crowd.",
+          "effects": {
+            "energy": -10,
+            "xp": 5
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "abandoned_breakdown_towing",
+    "title": "Expressway Breakdown Clearance",
+    "location_tags": [
+      "all"
+    ],
+    "required_class": "road_official",
+    "time_blocks": [
+      "morning",
+      "night"
+    ],
+    "setup_text": "A disabled 40-foot container truck stalls dead on the approach flyover during early morning commute hours, threatening citywide tailbacks.",
+    "options": [
+      {
+        "id": "coordinate_heavy_tow",
+        "label": "Rig heavy winch cables and tow the trailer to the bypass apron",
+        "check": {
+          "stat": "grit",
+          "difficulty": 6
+        },
+        "on_success": {
+          "text": "The heavy tow engine strains, pulling the massive container safely off the active lanes. Corridor traffic flows freely.",
+          "effects": {
+            "naira": 11000,
+            "respect": 3,
+            "xp": 35
+          }
+        },
+        "on_fail": {
+          "text": "A winch tow hook snaps, demanding an hour of manual re-rigging in the humid heat.",
+          "effects": {
+            "energy": -20,
+            "naira": 3000,
+            "xp": 15
+          }
+        }
+      },
+      {
+        "id": "divert_corridor_lanes",
+        "label": "Rapidly set safety cones and flare markers to funnel traffic around the obstacle",
+        "check": {
+          "stat": "hustle",
+          "difficulty": 4
+        },
+        "on_success": {
+          "text": "Proper lane channeling keeps flow moving safely until daytime mechanics arrive.",
+          "effects": {
+            "respect": 1,
+            "naira": 2500,
+            "xp": 15
+          }
+        },
+        "on_fail": {
+          "text": "A speeding okada knocks down your cones, requiring continuous manual repositioning.",
+          "effects": {
+            "energy": -10,
+            "xp": 5
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "school_crossing_rush",
+    "title": "Morning School Crossing Rush",
+    "location_tags": [
+      "all"
+    ],
+    "required_class": "road_official",
+    "time_blocks": [
+      "morning"
+    ],
+    "setup_text": "Dozens of young primary school pupils in crisp uniforms stand anxiously at the edge of the busy multi-lane highway, trying to cross to their school gate.",
+    "options": [
+      {
+        "id": "raise_stop_sign",
+        "label": "Walk into the center lane with an authoritative stop sign, halting all four lanes of traffic",
+        "check": {
+          "stat": "charisma",
+          "difficulty": 4
+        },
+        "on_success": {
+          "text": "Every vehicle screeches to an obedient stop. The schoolchildren skip safely across, smiling and waving. Parents and teachers offer heartfelt gratitude.",
+          "effects": {
+            "respect": 5,
+            "naira": 2000,
+            "xp": 25
+          }
+        },
+        "on_fail": {
+          "text": "An impatient okada rider tries to swerve past, forcing you to shout sharply to protect the line.",
+          "effects": {
+            "energy": -10,
+            "respect": 2,
+            "xp": 10
+          }
+        }
+      },
+      {
+        "id": "organize_walking_groups",
+        "label": "Group the children into single-file batches and time gaps in the traffic pulses",
+        "check": {
+          "stat": "street_smarts",
+          "difficulty": 5
+        },
+        "on_success": {
+          "text": "Disciplined timing gets all sixty pupils across without a single disruption.",
+          "effects": {
+            "respect": 3,
+            "naira": 1500,
+            "xp": 20
+          }
+        },
+        "on_fail": {
+          "text": "Fidgety pupils stray outside the crosswalk boundaries, making for a nerve-wracking crossing.",
+          "effects": {
+            "energy": -10,
+            "respect": 1,
+            "xp": 10
+          }
+        }
+      }
+    ]
   }
 ]
