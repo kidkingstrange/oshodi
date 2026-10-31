@@ -27,12 +27,12 @@ extends Control
 
 # Buttons & Dialog
 @onready var menu_button: Button = %MenuButton
-@onready var next_phase_button: Button = %NextPhaseButton
+@onready var enter_hub_button: Button = %EnterHubButton
 @onready var info_dialog: AcceptDialog = %InfoDialog
 
 func _ready() -> void:
 	menu_button.pressed.connect(_on_menu_pressed)
-	next_phase_button.pressed.connect(_on_next_phase_pressed)
+	enter_hub_button.pressed.connect(_on_enter_hub_pressed)
 	
 	_render_character_data()
 
@@ -70,5 +70,5 @@ func _render_character_data() -> void:
 func _on_menu_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
-func _on_next_phase_pressed() -> void:
+func _on_enter_hub_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/hub_screen.tscn")

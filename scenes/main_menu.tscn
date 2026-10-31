@@ -104,12 +104,20 @@ theme_override_constants/margin_bottom = 22
 layout_mode = 2
 theme_override_constants/separation = 14
 
-[node name="PlayButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsCard/ButtonsMargin/ButtonsBox"]
+[node name="ContinueButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsCard/ButtonsMargin/ButtonsBox"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(0, 58)
+layout_mode = 2
+theme_override_font_sizes/font_size = 19
+text = "Continue Game"
+
+[node name="NewGameButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsCard/ButtonsMargin/ButtonsBox"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 58)
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Start Game"
+theme_override_font_sizes/font_size = 19
+text = "New Game"
 
 [node name="SettingsButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsCard/ButtonsMargin/ButtonsBox"]
 unique_name_in_owner = true
@@ -118,20 +126,6 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 17
 text = "Settings"
 
-[node name="TestButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsCard/ButtonsMargin/ButtonsBox"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-theme_override_font_sizes/font_size = 16
-text = "Run Tests (Core Logic)"
-
-[node name="StyleGuideButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsCard/ButtonsMargin/ButtonsBox"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-theme_override_font_sizes/font_size = 16
-text = "View Danfo Style Guide"
-
 [node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsCard/ButtonsMargin/ButtonsBox"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 50)
@@ -139,30 +133,11 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 16
 text = "Quit Game"
 
-[node name="StatusCard" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="StatusMargin" type="MarginContainer" parent="MarginContainer/VBoxContainer/StatusCard"]
-layout_mode = 2
-theme_override_constants/margin_left = 14
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 14
-theme_override_constants/margin_bottom = 10
-
-[node name="StatusLabel" type="Label" parent="MarginContainer/VBoxContainer/StatusCard/StatusMargin"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_colors/font_color = Color(0.15, 0.45, 0.2, 1)
-theme_override_font_sizes/font_size = 14
-text = "Select 'Start Game' to create character, or 'Run Tests' to verify logic."
-horizontal_alignment = 1
-autowrap_mode = 2
-
 [node name="FooterLabel" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.45, 0.48, 0.52, 1)
 theme_override_font_sizes/font_size = 13
-text = "v0.1.0 • Phase 1 Ready • Godot 4"
+text = "v0.1.0 • Oshodi-Isolo, Lagos"
 horizontal_alignment = 1
 
 [node name="InfoDialog" type="AcceptDialog" parent="."]
