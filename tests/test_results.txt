@@ -67,7 +67,7 @@
   [PASS] Event adheres to morning time_block condition
 
 [Suite: Situations & Conflict System (Phase 3)]
-  [PASS] At least 20 Situations authored and loaded (got 46)
+  [PASS] At least 20 Situations authored and loaded (got 52)
   [PASS] At least 10 general Oshodi street situations authored (got 18)
   [PASS] At least 5 Trader-specific situations authored (got 11)
   [PASS] At least 5 Transporter-specific situations authored (got 11)
@@ -180,7 +180,7 @@
 
 [Suite: Content Expansion, Quests, NPCs, Dialogue & Audio (Phase 6)]
   [PASS] DataLoader has 0 validation errors with Phase 6 content
-  [PASS] At least 40 situations loaded in DataLoader (got 46)
+  [PASS] At least 40 situations loaded in DataLoader (got 52)
   [PASS] At least 10 quests loaded in DataLoader (got 10)
   [PASS] At least 8 NPCs loaded in DataLoader (got 8)
   [PASS] At least 15 dialogue trees loaded (got 25)
@@ -224,7 +224,7 @@
   [PASS] Initial Heat is 0
   [PASS] Initial Respect is 10
   [PASS] Area Boy work shift performed successfully
-  [PASS] Energy reduced by 20 (100 -> 80)
+  [PASS] Energy spent on Area Boy work was 20
   [PASS] Naira increased from turf levies
   [PASS] Heat increased from street levy collection
   [PASS] Heat raised to 6 for lay low test
@@ -249,5 +249,38 @@
   [PASS] Situation requires area_boy class
   [PASS] Trader is excluded from Area Boy turf situation
 
+[Suite: Working Class & Overtime Mechanics (Phase 7B)]
+  [PASS] Working Class character created successfully
+  [PASS] Starting cash is ₦15,000
+  [PASS] Base Stamina is 5
+  [PASS] Base Grit is 4
+  [PASS] Base Hustle is 4
+  [PASS] Possesses 'steady_hands' perk
+  [PASS] Working Class shift performed successfully
+  [PASS] Energy spent on shift was 16 via Steady Hands perk
+  [PASS] Naira increased by at least base ₦3,500
+  [PASS] Respect increased from honest shift
+  [PASS] Overtime shift completed successfully
+  [PASS] Overtime yields substantial payout (got 7166)
+  [PASS] Overtime energy cost is 25 with Steady Hands (100 -> 75)
+  [PASS] Overtime grants bonus XP
+  [PASS] Overtime rejected when energy is too low
+  [PASS] Exactly 6 Working Class subclasses loaded (got 6)
+  [PASS] Subclass 'mechanic' exists
+  [PASS] Subclass 'mechanic' belongs to working_class
+  [PASS] Subclass 'factory_hand' exists
+  [PASS] Subclass 'factory_hand' belongs to working_class
+  [PASS] Subclass 'bank_clerk' exists
+  [PASS] Subclass 'bank_clerk' belongs to working_class
+  [PASS] Subclass 'security_guard' exists
+  [PASS] Subclass 'security_guard' belongs to working_class
+  [PASS] Subclass 'generator_repairer' exists
+  [PASS] Subclass 'generator_repairer' belongs to working_class
+  [PASS] Subclass 'teacher_nurse' exists
+  [PASS] Subclass 'teacher_nurse' belongs to working_class
+  [PASS] Situation 'emergency_generator_repair' exists
+  [PASS] Situation requires working_class
+  [PASS] Trader excluded from Working Class situation
+
 ===========================
-Results: 233 Passed, 0 Failed
+Results: 264 Passed, 0 Failed

@@ -466,5 +466,161 @@
     "unlock": {
       "min_class_level": 5
     }
+  },
+  {
+    "id": "mechanic",
+    "class_id": "working_class",
+    "name": "Auto Mechanic",
+    "fantasy": "Master of engines, clutches, and leaf springs along the Bolade auto strip.",
+    "perks": [
+      {
+        "id": "engine_whisperer",
+        "name": "Engine Diagnostics",
+        "text": "Detects mechanical failures instantly, earning 20% bonus on diagnostic jobs."
+      },
+      {
+        "id": "spare_part_discount",
+        "name": "Trade Discount",
+        "text": "Buys vehicle replacement parts and oil at wholesale trade prices."
+      }
+    ],
+    "weakness": "Grease and physical exertion rapidly deplete Stamina during afternoon sun.",
+    "situation_sets": [
+      "gearbox_trouble",
+      "workshop_deadline"
+    ],
+    "unlock": {
+      "min_class_level": 5
+    }
+  },
+  {
+    "id": "factory_hand",
+    "class_id": "working_class",
+    "name": "Factory Hand",
+    "fantasy": "Disciplined assembly and packaging specialist in the Isolo industrial zone.",
+    "perks": [
+      {
+        "id": "industrial_stamina",
+        "name": "Shift Stamina",
+        "text": "Overtime shifts yield 25% higher wage bonuses on manufacturing quotas."
+      },
+      {
+        "id": "safety_first",
+        "name": "Industrial Safety",
+        "text": "Reduces chances of fatigue-induced accidents on the factory floor."
+      }
+    ],
+    "weakness": "Rigid clock-in schedules; penalty deductions for late arrivals.",
+    "situation_sets": [
+      "conveyor_malfunction",
+      "production_target"
+    ],
+    "unlock": {
+      "min_class_level": 5
+    }
+  },
+  {
+    "id": "bank_clerk",
+    "class_id": "working_class",
+    "name": "Bank Clerk",
+    "fantasy": "Crisp-shirted cashier and accounts handler managing high-volume cash flows.",
+    "perks": [
+      {
+        "id": "audit_precision",
+        "name": "Ledger Balance",
+        "text": "Zero errors on financial balances, earning performance bonuses."
+      },
+      {
+        "id": "corporate_image",
+        "name": "Professional Demeanour",
+        "text": "Commands +2 Charisma in formal business and administrative dealings."
+      }
+    ],
+    "weakness": "High stress from end-of-day ledger reconciliation and audit pressure.",
+    "situation_sets": [
+      "teller_rush",
+      "branch_inspection"
+    ],
+    "unlock": {
+      "min_class_level": 5
+    }
+  },
+  {
+    "id": "security_guard",
+    "class_id": "working_class",
+    "name": "Security Guard",
+    "fantasy": "Uniformed corporate and warehouse protector keeping commercial premises secure.",
+    "perks": [
+      {
+        "id": "gate_vigilance",
+        "name": "Perimeter Watch",
+        "text": "Earns reliable hazard bonuses for incident-free night surveillance."
+      },
+      {
+        "id": "calm_posture",
+        "name": "Authoritative Presence",
+        "text": "Defuses rowdy visitors at gate entrances without physical confrontation."
+      }
+    ],
+    "weakness": "Monotony and extended standing shifts reduce recovery efficiency.",
+    "situation_sets": [
+      "unauthorized_entry",
+      "loading_dock_inspection"
+    ],
+    "unlock": {
+      "min_class_level": 5
+    }
+  },
+  {
+    "id": "generator_repairer",
+    "class_id": "working_class",
+    "name": "Generator Technician",
+    "fantasy": "Emergency power technician keeping private generators and commercial dynamos running.",
+    "perks": [
+      {
+        "id": "blackout_callout",
+        "name": "Emergency Callout",
+        "text": "Callout rates surge by 30% during neighbourhood grid power cuts."
+      },
+      {
+        "id": "carburetor_wizard",
+        "name": "Fuel Saver Tuning",
+        "text": "Tuned generators run with higher fuel efficiency, winning repeat client referrals."
+      }
+    ],
+    "weakness": "Urgent night callouts frequently disrupt evening rest blocks.",
+    "situation_sets": [
+      "dynamo_burnout",
+      "compound_blackout"
+    ],
+    "unlock": {
+      "min_class_level": 5
+    }
+  },
+  {
+    "id": "teacher_nurse",
+    "class_id": "working_class",
+    "name": "Essential Worker",
+    "fantasy": "Community pillar teaching neighbourhood children or nursing the clinic wards.",
+    "perks": [
+      {
+        "id": "community_blessing",
+        "name": "Public Esteem",
+        "text": "Commands universal neighbourhood Respect across all social classes."
+      },
+      {
+        "id": "evening_tutoring",
+        "name": "Private Consultations",
+        "text": "Earns supplemental evening stipends from private tutoring and home healthcare."
+      }
+    ],
+    "weakness": "Modest baseline salary requires consistent supplemental hustle.",
+    "situation_sets": [
+      "clinic_emergency",
+      "exam_season"
+    ],
+    "unlock": {
+      "min_class_level": 5
+    }
   }
 ]

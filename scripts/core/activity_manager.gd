@@ -11,6 +11,7 @@ const EventManager = preload("res://scripts/core/event_manager.gd")
 const TraderMechanic = preload("res://scripts/core/trader_mechanic.gd")
 const TransporterMechanic = preload("res://scripts/core/transporter_mechanic.gd")
 const Levelling = preload("res://scripts/core/levelling.gd")
+const WorkingClassMechanic = preload("res://scripts/core/workingclass_mechanic.gd")
 
 ## Performs class-specific work/hustle
 static func perform_work(rng: RandomNumberGenerator = null) -> Dictionary:
@@ -46,6 +47,12 @@ static func perform_work(rng: RandomNumberGenerator = null) -> Dictionary:
 		var ab_res = AreaBoyMechanic.perform_areaboy_work(rng)
 		income = ab_res.income
 		work_msg = ab_res.flavour
+	elif GameState.class_id == "working_class":
+		var wc_res = WorkingClassMechanic.perform_workingclass_work(rng)
+		income = wc_res.income
+		work_msg = wc_res.flavour
+		if wc_res.get("energy_discount", false):
+			energy_cost = wc_res.energy_cost
 	else:
 		income = DataLoader.get_work_income(GameState.class_id)
 		work_msg = "You completed your work shift in Oshodi"

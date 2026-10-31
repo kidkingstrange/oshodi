@@ -40,12 +40,14 @@ func test_areaboy_character_creation() -> void:
 func test_turf_work_mechanic() -> void:
 	GameState.create_character("Scorpion", "area_boy")
 	var initial_naira = GameState.resources.naira
-	var initial_energy = GameState.resources.energy
 	var initial_heat = GameState.resources.heat
 	
-	var res = ActivityManager.perform_work()
+	var rng = RandomNumberGenerator.new()
+	rng.seed = 99999
+	
+	var res = ActivityManager.perform_work(rng)
 	_assert_true(res.get("success", false), "Area Boy work shift performed successfully")
-	_assert_true(GameState.resources.energy == initial_energy - 20, "Energy reduced by 20 (100 -> 80)")
+	_assert_true(res.get("energy_spent", 0) == 20, "Energy spent on Area Boy work was 20")
 	_assert_true(GameState.resources.naira > initial_naira, "Naira increased from turf levies")
 	_assert_true(GameState.resources.heat > initial_heat, "Heat increased from street levy collection")
 

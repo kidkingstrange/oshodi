@@ -11,6 +11,7 @@ const TestClassMechanics = preload("res://tests/test_class_mechanics.gd")
 const TestSaveSystem = preload("res://tests/test_save_system.gd")
 const TestContentAndQuests = preload("res://tests/test_content_and_quests.gd")
 const TestAreaBoyMechanic = preload("res://tests/test_areaboy_mechanic.gd")
+const TestWorkingClassMechanic = preload("res://tests/test_workingclass_mechanic.gd")
 
 @onready var output_label: Label = %OutputLabel
 @onready var summary_label: Label = %SummaryLabel
@@ -93,6 +94,15 @@ func _run_all_tests() -> void:
 	total_passed += ab_test.passed_count
 	total_failed += ab_test.failed_count
 	for msg in ab_test.messages:
+		all_messages.append(msg)
+	
+	# Suite 9: Working Class & Overtime Mechanics (Phase 7B)
+	all_messages.append("\n[Suite: Working Class & Overtime Mechanics (Phase 7B)]")
+	var wc_test = TestWorkingClassMechanic.new()
+	wc_test.run_all()
+	total_passed += wc_test.passed_count
+	total_failed += wc_test.failed_count
+	for msg in wc_test.messages:
 		all_messages.append(msg)
 	
 	# Summary

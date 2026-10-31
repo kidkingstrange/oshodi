@@ -2783,5 +2783,378 @@
         }
       }
     ]
+  },
+  {
+    "id": "industrial_line_breakdown",
+    "title": "Industrial Line Breakdown",
+    "location_tags": [
+      "all"
+    ],
+    "required_class": "working_class",
+    "time_blocks": [
+      "morning",
+      "afternoon"
+    ],
+    "setup_text": "A high-speed packaging conveyor motor at the factory locks up during peak shift hours. The shift supervisor is frantic as assembly line crates pile up.",
+    "options": [
+      {
+        "id": "trace_circuit",
+        "label": "Trace the electrical relay and lubricate the bearing",
+        "check": {
+          "stat": "stamina",
+          "difficulty": 5
+        },
+        "on_success": {
+          "text": "You crawl beneath the housing, bypass the burnt fuse, and restart the rollers. The plant manager applauds your quick diagnostic.",
+          "effects": {
+            "naira": 6000,
+            "respect": 2,
+            "xp": 20
+          }
+        },
+        "on_fail": {
+          "text": "You burn your fingertips on the heated casing and short another breaker before resetting it.",
+          "effects": {
+            "energy": -10,
+            "naira": 2000,
+            "xp": 10
+          }
+        }
+      },
+      {
+        "id": "call_shift_break",
+        "label": "Advise an orderly temporary halt while components cool down",
+        "check": {
+          "stat": "street_smarts",
+          "difficulty": 5
+        },
+        "on_success": {
+          "text": "Taking the heat off avoids an engine burnout. The crew cleans the line in the interim.",
+          "effects": {
+            "respect": 1,
+            "xp": 15
+          }
+        },
+        "on_fail": {
+          "text": "Supervisor grumbles about lost quotas and docks twenty minutes from the shift.",
+          "effects": {
+            "naira": -1500,
+            "xp": 5
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "emergency_generator_repair",
+    "title": "Emergency Generator Callout",
+    "location_tags": [
+      "all"
+    ],
+    "required_class": "working_class",
+    "time_blocks": [
+      "morning",
+      "afternoon",
+      "evening"
+    ],
+    "setup_text": "A massive power surge cuts electricity across a commercial block. A business centre owner runs out pleading for anyone who can service their 25kVA generator.",
+    "options": [
+      {
+        "id": "service_carburetor",
+        "label": "Flush contaminated diesel and clear the clogged injector nozzle",
+        "check": {
+          "stat": "grit",
+          "difficulty": 5
+        },
+        "on_success": {
+          "text": "The heavy diesel engine coughs, roars to life, and lights up the arcade. The grateful shopkeepers pool together emergency cash.",
+          "effects": {
+            "naira": 9500,
+            "respect": 2,
+            "xp": 25
+          }
+        },
+        "on_fail": {
+          "text": "Diesel fumes sting your eyes and the starter cord snaps, leaving you smelling of fuel.",
+          "effects": {
+            "energy": -15,
+            "naira": 1500,
+            "xp": 5
+          }
+        }
+      },
+      {
+        "id": "negotiate_callout",
+        "label": "Agree on a fixed professional callout fee before starting",
+        "check": {
+          "stat": "hustle",
+          "difficulty": 6
+        },
+        "on_success": {
+          "text": "You firm up professional terms beforehand. They pay a handsome emergency retainer.",
+          "effects": {
+            "naira": 7000,
+            "respect": 1,
+            "xp": 15
+          }
+        },
+        "on_fail": {
+          "text": "Another street technician underbids you while you haggle, snatching the contract.",
+          "effects": {
+            "energy": -5,
+            "xp": 5
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "auditor_inspection_rush",
+    "title": "Auditor Inspection Rush",
+    "location_tags": [
+      "all"
+    ],
+    "required_class": "working_class",
+    "time_blocks": [
+      "morning",
+      "afternoon"
+    ],
+    "setup_text": "External corporate auditors arrive unannounced at the branch. The head of operations demands every receipt, voucher, and ledger balanced before close of business.",
+    "options": [
+      {
+        "id": "night_reconciliation",
+        "label": "Methodically audit and reconcile accounts voucher by voucher",
+        "check": {
+          "stat": "street_smarts",
+          "difficulty": 6
+        },
+        "on_success": {
+          "text": "Every ledger balances to the exact kobo. The visiting audit team notes your flawless discipline in the inspection log.",
+          "effects": {
+            "naira": 8000,
+            "respect": 3,
+            "xp": 30
+          }
+        },
+        "on_fail": {
+          "text": "Your tired eyes overlook a mismatch in petty cash vouchers, drawing sharp administrative queries.",
+          "effects": {
+            "energy": -15,
+            "respect": -1,
+            "xp": 10
+          }
+        }
+      },
+      {
+        "id": "rally_colleagues",
+        "label": "Organize junior clerks to divide and cross-check records in teams",
+        "check": {
+          "stat": "charisma",
+          "difficulty": 5
+        },
+        "on_success": {
+          "text": "Teamwork speeds up the verification. The team finishes an hour early with smiles.",
+          "effects": {
+            "respect": 2,
+            "naira": 4000,
+            "xp": 20
+          }
+        },
+        "on_fail": {
+          "text": "Chaos ensues as mixed files get swapped, forcing late evening overtime.",
+          "effects": {
+            "energy": -10,
+            "xp": 10
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "salary_delay_protest",
+    "title": "Salary Delay Stand-Off",
+    "location_tags": [
+      "all"
+    ],
+    "required_class": "working_class",
+    "time_blocks": [
+      "afternoon",
+      "evening"
+    ],
+    "setup_text": "End of month arrives, but management announces salary payouts are delayed by two weeks due to banking transfers. Angry workers gather at the courtyard.",
+    "options": [
+      {
+        "id": "mediate_dialogue",
+        "label": "Step forward to represent worker concerns peacefully to the director",
+        "check": {
+          "stat": "charisma",
+          "difficulty": 6
+        },
+        "on_success": {
+          "text": "Your balanced presentation convinces the director to release half cash advances today. The workforce hails your leadership!",
+          "effects": {
+            "respect": 4,
+            "naira": 5000,
+            "xp": 25
+          }
+        },
+        "on_fail": {
+          "text": "The director feels threatened and threatens disciplinary suspension.",
+          "effects": {
+            "respect": -1,
+            "energy": -5,
+            "xp": 5
+          }
+        }
+      },
+      {
+        "id": "endure_and_budget",
+        "label": "Tighten your personal belt and focus quietly on your tasks",
+        "check": {
+          "stat": "grit",
+          "difficulty": 4
+        },
+        "on_success": {
+          "text": "Your calm endurance keeps you focused and prevents friction with company security.",
+          "effects": {
+            "respect": 1,
+            "xp": 10
+          }
+        },
+        "on_fail": {
+          "text": "Financial anxiety distracts your shift, leaving you drained and frustrated.",
+          "effects": {
+            "energy": -10,
+            "xp": 5
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "late_night_overtime_call",
+    "title": "Late Night Overtime Call",
+    "location_tags": [
+      "all"
+    ],
+    "required_class": "working_class",
+    "time_blocks": [
+      "evening",
+      "night"
+    ],
+    "setup_text": "A priority commercial dispatch is scheduled for sunrise. The workshop supervisor offers generous overtime pay for anyone willing to stay through the midnight shift.",
+    "options": [
+      {
+        "id": "accept_night_shift",
+        "label": "Put on safety boots and power through the midnight shift",
+        "check": {
+          "stat": "stamina",
+          "difficulty": 6
+        },
+        "on_success": {
+          "text": "You power through the cool night breeze, delivering the order ahead of sunrise. The supervisor counts out heavy overtime cash.",
+          "effects": {
+            "naira": 12000,
+            "respect": 2,
+            "energy": -20,
+            "xp": 30
+          }
+        },
+        "on_fail": {
+          "text": "Exhaustion overwhelms you at 3 AM; you doze off against the tool bench and sprain your wrist.",
+          "effects": {
+            "energy": -25,
+            "naira": 3000,
+            "xp": 10
+          }
+        }
+      },
+      {
+        "id": "respectfully_decline",
+        "label": "Politely decline to protect your rest and family time",
+        "check": {
+          "stat": "charisma",
+          "difficulty": 4
+        },
+        "on_success": {
+          "text": "The supervisor respects your boundaries and promises you priority morning slots.",
+          "effects": {
+            "respect": 1,
+            "energy": 10,
+            "xp": 10
+          }
+        },
+        "on_fail": {
+          "text": "The foreman shakes his head and assigns your favorite workbench to another hand.",
+          "effects": {
+            "respect": -1,
+            "xp": 5
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "patient_clinic_triage",
+    "title": "Emergency Clinic Triage",
+    "location_tags": [
+      "all"
+    ],
+    "required_class": "working_class",
+    "time_blocks": [
+      "morning",
+      "afternoon"
+    ],
+    "setup_text": "A commuter collapses from heat exhaustion near your workplace. Bystanders panic and shout conflicting remedies as a crowd forms.",
+    "options": [
+      {
+        "id": "administer_first_aid",
+        "label": "Disperse the crowd, elevate legs, and provide rehydration fluids",
+        "check": {
+          "stat": "street_smarts",
+          "difficulty": 5
+        },
+        "on_success": {
+          "text": "Your disciplined calm restores breathing and consciousness. The commuter recovers safely and community bystanders offer heartfelt blessings.",
+          "effects": {
+            "respect": 4,
+            "naira": 3000,
+            "xp": 25
+          }
+        },
+        "on_fail": {
+          "text": "Crowd jostling makes it difficult to administer aid before clinic medics take over.",
+          "effects": {
+            "energy": -10,
+            "respect": 1,
+            "xp": 10
+          }
+        }
+      },
+      {
+        "id": "secure_transport",
+        "label": "Flag down an honest keke and escort them to the nearest public health centre",
+        "check": {
+          "stat": "hustle",
+          "difficulty": 5
+        },
+        "on_success": {
+          "text": "You rush through traffic bottlenecks to the emergency ward just in time.",
+          "effects": {
+            "respect": 3,
+            "naira": 1000,
+            "xp": 20
+          }
+        },
+        "on_fail": {
+          "text": "Gridlock slows the tricycle, forcing you to carry them on foot the last hundred metres.",
+          "effects": {
+            "energy": -15,
+            "respect": 2,
+            "xp": 10
+          }
+        }
+      }
+    ]
   }
 ]
