@@ -353,5 +353,24 @@
   [PASS] Situation requires faith_leader
   [PASS] Trader excluded from Faith Leader situation
 
+[Suite: Mobile Platform, Lifecycle & Back Navigation (Phase 8)]
+  [PASS] MobileManager autoload singleton is registered and active
+  [PASS] Dummy modal registered in modal stack
+  [PASS] Dummy modal popped cleanly from modal stack
+  [PASS] Safe area margins contain top and bottom fields
+  [PASS] Top (0) and bottom (0) margins are non-negative
+  [PASS] Applied top margin is at least base value (20 >= 20)
+  [PASS] Applied bottom margin is at least base value (20 >= 20)
+  [PASS] Back action closed the topmost open modal
+  [PASS] Autosave file created on app pause
+  [PASS] Autosave preserved character data on pause
+  [PASS] res://export_presets.cfg exists
+  [PASS] Preset targets Android platform
+  [PASS] Package name matches standard convention
+  [PASS] Min SDK is set to 24 (Android 7.0+)
+  [PASS] Target SDK is set to 34 (Play Store requirement)
+  [PASS] Touch from mouse emulation is enabled for responsive mobile gestures
+  [PASS] Mouse from touch emulation is enabled for UI controls
+
 ===========================
-Results: 331 Passed, 0 Failed
+Results: 348 Passed, 0 Failed

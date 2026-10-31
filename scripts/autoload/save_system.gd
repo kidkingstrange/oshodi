@@ -121,6 +121,30 @@ func load_autosave() -> bool:
 func has_autosave() -> bool:
 	return FileAccess.file_exists(_get_autosave_path())
 
+## Returns metadata preview for the autosave file
+func get_autosave_metadata() -> Dictionary:
+	var path = _get_autosave_path()
+	if not FileAccess.file_exists(path):
+		return { "is_empty": true }
+	
+	var raw = _read_json_file(path)
+	if raw.is_empty():
+		return { "is_empty": true, "corrupted": true }
+	
+	var state_data = raw.get("game_state", {})
+	return {
+		"is_empty": false,
+		"player_name": state_data.get("player_name", "Unknown"),
+		"class_id": state_data.get("class_id", "trader"),
+		"subclass_id": state_data.get("subclass_id", ""),
+		"level": int(state_data.get("level", 1)),
+		"day": int(state_data.get("day", 1)),
+		"time_block": state_data.get("time_block", "morning"),
+		"naira": int(state_data.get("resources", {}).get("naira", 0)),
+		"timestamp": raw.get("timestamp", ""),
+		"save_version": int(raw.get("save_version", 1))
+	}
+
 ## Migrates old save versions forward to CURRENT_SAVE_VERSION
 func migrate_save(data: Dictionary) -> Dictionary:
 	var ver = int(data.get("save_version", 1))

@@ -29,6 +29,7 @@ SaveSystem="*res://scripts/autoload/save_system.gd"
 SoundManager="*res://scripts/autoload/sound_manager.gd"
 EventBus="*res://scripts/autoload/event_bus.gd"
 Monetization="*res://scripts/autoload/monetization.gd"
+MobileManager="*res://scripts/autoload/mobile_manager.gd"
 
 [display]
 
@@ -43,6 +44,11 @@ window/handheld/orientation=1
 [gui]
 
 theme/custom="res://assets/themes/vibrant_theme.tres"
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+pointing/emulate_mouse_from_touch=true
 
 [rendering]
 

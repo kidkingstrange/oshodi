@@ -71,6 +71,9 @@ func _ready() -> void:
 	if npc_dialog:
 		npc_dialog.confirmed.connect(_on_npc_dialog_confirmed)
 	
+	if has_node("MarginContainer"):
+		MobileManager.apply_safe_area_to_margin($MarginContainer, 24, 18)
+	
 	GameState.resources_changed.connect(_on_resources_changed)
 	GameState.time_advanced.connect(_on_time_advanced)
 	
@@ -189,6 +192,7 @@ func _on_travel_pressed() -> void:
 	
 	travel_options_list.select(0)
 	travel_dialog.popup_centered()
+	MobileManager.push_modal(travel_dialog)
 
 func _on_travel_confirmed() -> void:
 	var selected_items = travel_options_list.get_selected_items()
@@ -227,6 +231,7 @@ func _process_activity_outcome(res: Dictionary) -> void:
 		
 		morning_dialog.dialog_text = summary
 		morning_dialog.popup_centered()
+		MobileManager.push_modal(morning_dialog)
 		return
 	
 	# Check for triggered random event
@@ -241,6 +246,7 @@ func _process_activity_outcome(res: Dictionary) -> void:
 		event_dialog.title = "Street Event: " + ev.get("title", "Notice")
 		event_dialog.dialog_text = "%s\n\nOutcome: %s" % [ev.get("description", ""), ev_msg]
 		event_dialog.popup_centered()
+		MobileManager.push_modal(event_dialog)
 	else:
 		# If no daily event occurred, 25% chance of encountering an active street situation
 		var sit_check = ActivityManager.maybe_trigger_situation(0.25)
@@ -278,7 +284,11 @@ func _on_settings_pressed() -> void:
 
 func _on_menu_pressed() -> void:
 	SoundManager.play_click()
+	SaveSystem.save_autosave()
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+
+func on_back_pressed() -> void:
+	_on_menu_pressed()
 
 func _on_quest_pressed() -> void:
 	SoundManager.play_click()
@@ -305,6 +315,7 @@ func _on_talk_pressed() -> void:
 			npc_list.add_item(label)
 		if npc_dialog:
 			npc_dialog.popup_centered()
+			MobileManager.push_modal(npc_dialog)
 
 func _on_npc_dialog_confirmed() -> void:
 	var selected = npc_list.get_selected_items()
@@ -333,3 +344,4 @@ func _show_notice(msg: String) -> void:
 	event_dialog.title = "Action Notice"
 	event_dialog.dialog_text = msg
 	event_dialog.popup_centered()
+	MobileManager.push_modal(event_dialog)

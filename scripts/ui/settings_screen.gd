@@ -47,6 +47,9 @@ func _ready() -> void:
 	back_button.pressed.connect(_on_back_pressed)
 	confirm_dialog.confirmed.connect(_on_confirm_dialog_confirmed)
 	
+	if has_node("MarginContainer"):
+		MobileManager.apply_safe_area_to_margin($MarginContainer, 24, 24)
+	
 	_wire_slot_buttons(1, slot1_save_btn, slot1_load_btn, slot1_del_btn)
 	_wire_slot_buttons(2, slot2_save_btn, slot2_load_btn, slot2_del_btn)
 	_wire_slot_buttons(3, slot3_save_btn, slot3_load_btn, slot3_del_btn)
@@ -162,6 +165,7 @@ func _on_load_slot_pressed(slot: int) -> void:
 	
 	confirm_dialog.dialog_text = "Load save from Slot %d? Any unsaved progress in your current session will be lost." % slot
 	confirm_dialog.popup_centered()
+	MobileManager.push_modal(confirm_dialog)
 
 func _on_del_slot_pressed(slot: int) -> void:
 	pending_action = func():
@@ -171,6 +175,7 @@ func _on_del_slot_pressed(slot: int) -> void:
 	
 	confirm_dialog.dialog_text = "Are you sure you want to permanently delete Slot %d save?" % slot
 	confirm_dialog.popup_centered()
+	MobileManager.push_modal(confirm_dialog)
 
 func _on_confirm_dialog_confirmed() -> void:
 	if pending_action.is_valid():
@@ -179,6 +184,7 @@ func _on_confirm_dialog_confirmed() -> void:
 func _show_notice(msg: String) -> void:
 	notice_dialog.dialog_text = msg
 	notice_dialog.popup_centered()
+	MobileManager.push_modal(notice_dialog)
 
 func _on_back_pressed() -> void:
 	if GameState.has_character():

@@ -20,6 +20,9 @@ func _ready() -> void:
 	if quit_button:
 		quit_button.pressed.connect(_on_quit_pressed)
 	
+	if has_node("MarginContainer"):
+		MobileManager.apply_safe_area_to_margin($MarginContainer, 64, 48)
+	
 	_update_menu_state()
 
 func _update_menu_state() -> void:
