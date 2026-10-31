@@ -49,6 +49,9 @@ static func advance_time(blocks: int = 1, rng: RandomNumberGenerator = null) -> 
 			
 			# Generate morning street news
 			rollover_report.morning_news = DataLoader.get_random_morning_news(rng)
+			
+			# Trigger day-end autosave
+			SaveSystem.save_autosave()
 	
 	GameState.time_block = TIME_BLOCKS[current_idx]
 	rollover_report.time_block = GameState.time_block

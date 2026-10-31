@@ -339,7 +339,15 @@ custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 14
-text = "View Character / Stats"
+text = "Stats / Profile"
+
+[node name="SettingsButton" type="Button" parent="MarginContainer/VBox/NavRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 14
+text = "Settings / Save"
 
 [node name="MenuButton" type="Button" parent="MarginContainer/VBox/NavRow"]
 unique_name_in_owner = true

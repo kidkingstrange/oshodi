@@ -144,3 +144,56 @@ static func _format_number_with_commas(num: int) -> String:
 		if count % 3 == 0 and i > 0 and s[i-1] != "-":
 			result = "," + result
 	return result
+
+## Serializes the entire GameState to a Dictionary
+func to_dict() -> Dictionary:
+	return {
+		"player_name": player_name,
+		"class_id": class_id,
+		"subclass_id": subclass_id,
+		"level": level,
+		"xp": xp,
+		"stats": stats.duplicate(true),
+		"resources": resources.duplicate(true),
+		"inventory": inventory.duplicate(true),
+		"flags": flags.duplicate(true),
+		"day": day,
+		"time_block": time_block,
+		"location_id": location_id,
+		"quest_progress": quest_progress.duplicate(true)
+	}
+
+## Deserializes GameState from a Dictionary, restoring state and notifying listeners
+func from_dict(data: Dictionary) -> bool:
+	if data.is_empty() or not data.has("player_name") or not data.has("class_id"):
+		return false
+	
+	player_name = data.get("player_name", "Ayo")
+	class_id = data.get("class_id", "trader")
+	subclass_id = data.get("subclass_id", "")
+	level = int(data.get("level", 1))
+	xp = int(data.get("xp", 0))
+	
+	stats = data.get("stats", {}).duplicate(true)
+	resources = data.get("resources", {}).duplicate(true)
+	
+	inventory.clear()
+	var raw_inv = data.get("inventory", [])
+	if raw_inv is Array:
+		for it in raw_inv:
+			if it is Dictionary:
+				inventory.append(it.duplicate(true))
+	
+	flags = data.get("flags", {}).duplicate(true)
+	
+	day = int(data.get("day", 1))
+	time_block = data.get("time_block", "morning")
+	location_id = data.get("location_id", "oshodi_market")
+	quest_progress = data.get("quest_progress", {}).duplicate(true)
+	
+	player_data_changed.emit()
+	resources_changed.emit(resources)
+	stats_changed.emit(stats)
+	time_advanced.emit(day, time_block)
+	location_changed.emit(location_id)
+	return true

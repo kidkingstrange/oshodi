@@ -35,6 +35,7 @@ const Levelling = preload("res://scripts/core/levelling.gd")
 @onready var shop_button: Button = %ShopButton
 @onready var subclass_button: Button = %SubclassButton
 @onready var stats_button: Button = %StatsButton
+@onready var settings_button: Button = %SettingsButton
 @onready var menu_button: Button = %MenuButton
 
 # Dialogs
@@ -55,6 +56,7 @@ func _ready() -> void:
 	shop_button.pressed.connect(_on_shop_pressed)
 	subclass_button.pressed.connect(_on_subclass_pressed)
 	stats_button.pressed.connect(_on_stats_pressed)
+	settings_button.pressed.connect(_on_settings_pressed)
 	menu_button.pressed.connect(_on_menu_pressed)
 	travel_dialog.confirmed.connect(_on_travel_confirmed)
 	
@@ -239,6 +241,9 @@ func _on_shop_pressed() -> void:
 
 func _on_subclass_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/subclass_select.tscn")
+
+func _on_settings_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/settings_screen.tscn")
 
 func _on_menu_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")

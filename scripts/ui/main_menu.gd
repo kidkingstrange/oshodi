@@ -45,13 +45,8 @@ func _on_test_pressed() -> void:
 	get_tree().change_scene_to_file("res://tests/test_runner.tscn")
 
 func _on_settings_pressed() -> void:
-	print("[MainMenu] Settings pressed.")
-	if status_label:
-		status_label.text = "Settings panel will be implemented in Phase 5."
-	if info_dialog:
-		info_dialog.title = "Settings"
-		info_dialog.dialog_text = "The Settings panel (audio, text size, save management) will be built in Phase 5 per docs/04_ROADMAP.md."
-		info_dialog.popup_centered()
+	print("[MainMenu] Opening Settings screen.")
+	get_tree().change_scene_to_file("res://scenes/settings_screen.tscn")
 
 func _on_quit_pressed() -> void:
 	print("[MainMenu] Quit pressed.")

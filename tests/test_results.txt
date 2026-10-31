@@ -136,5 +136,47 @@
   [PASS] GameState subclass_id set to market_woman
   [PASS] Trader cannot select transporter subclass danfo_driver
 
+[Suite: SaveSystem, Settings & Migrations (Phase 5)]
+  [PASS] GameState serialized to non-empty dictionary
+  [PASS] Serialized player_name matches
+  [PASS] Serialized level matches 3
+  [PASS] Serialized naira matches 45,000
+  [PASS] GameState wiped to temporary character
+  [PASS] GameState successfully deserialized
+  [PASS] Restored player_name is Ibrahim
+  [PASS] Restored class_id is trader
+  [PASS] Restored level is 3
+  [PASS] Restored naira is 45,000
+  [PASS] Restored day 5 evening
+  [PASS] Restored location is bolade_junction
+  [PASS] Restored 2 inventory item types
+  [PASS] SaveSystem successfully saved to Slot 1
+  [PASS] has_save(1) confirms file exists
+  [PASS] Slot 1 metadata confirms slot is not empty
+  [PASS] Slot 1 metadata player_name is Bimpe
+  [PASS] Slot 1 metadata level is 2
+  [PASS] Slot 1 metadata naira is 18,500
+  [PASS] Save version matches current version
+  [PASS] GameState mutated before load test
+  [PASS] SaveSystem successfully loaded from Slot 1
+  [PASS] Loaded player name is Bimpe
+  [PASS] Loaded naira restored to 18,500
+  [PASS] Loaded fuel restored to 45
+  [PASS] Autosave saved successfully
+  [PASS] has_autosave confirms autosave file exists
+  [PASS] Autosave loaded successfully
+  [PASS] Autosave restored naira to 32,000
+  [PASS] Slot 3 saved before deletion test
+  [PASS] SaveSystem successfully deleted Slot 3
+  [PASS] has_save(3) reports false after deletion
+  [PASS] Metadata confirms slot 3 is empty after deletion
+  [PASS] Settings saved to user://settings.json
+  [PASS] Loaded sfx_volume matches 0.65
+  [PASS] Loaded music_volume matches 0.40
+  [PASS] Loaded text_size matches 'large'
+  [PASS] Loaded reduce_motion is true
+  [PASS] Legacy save migrated to CURRENT_SAVE_VERSION
+  [PASS] Migrated save preserved player_name
+
 ===========================
-Results: 126 Passed, 0 Failed
+Results: 166 Passed, 0 Failed

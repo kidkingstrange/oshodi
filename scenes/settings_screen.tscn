@@ -1,0 +1,395 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/settings_screen.gd" id="1_settings"]
+
+[node name="SettingsScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_settings")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.96, 0.95, 0.91, 1)
+
+[node name="DanfoTopStripe" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+color = Color(0.96, 0.76, 0.17, 1)
+
+[node name="DanfoSubStripe" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 12.0
+offset_bottom = 15.0
+grow_horizontal = 2
+color = Color(0.12, 0.13, 0.16, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 28
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 20
+
+[node name="Scroll" type="ScrollContainer" parent="MarginContainer"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="VBox" type="VBoxContainer" parent="MarginContainer/Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 14
+
+[node name="HeaderCard" type="PanelContainer" parent="MarginContainer/Scroll/VBox"]
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="MarginContainer/Scroll/VBox/HeaderCard"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 12
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/Scroll/VBox/HeaderCard/Margin"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.1, 0.12, 0.16, 1)
+theme_override_font_sizes/font_size = 22
+text = "SETTINGS & SAVE MANAGEMENT"
+horizontal_alignment = 1
+
+[node name="AudioCard" type="PanelContainer" parent="MarginContainer/Scroll/VBox"]
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="MarginContainer/Scroll/VBox/AudioCard"]
+layout_mode = 2
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 14
+theme_override_constants/margin_bottom = 12
+
+[node name="VBox" type="VBoxContainer" parent="MarginContainer/Scroll/VBox/AudioCard/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="AudioTitle" type="Label" parent="MarginContainer/Scroll/VBox/AudioCard/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.45, 0.05, 1)
+theme_override_font_sizes/font_size = 15
+text = "AUDIO CONTROLS"
+
+[node name="SfxRow" type="HBoxContainer" parent="MarginContainer/Scroll/VBox/AudioCard/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Lbl" type="Label" parent="MarginContainer/Scroll/VBox/AudioCard/Margin/VBox/SfxRow"]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Sound Effects:"
+
+[node name="SfxSlider" type="HSlider" parent="MarginContainer/Scroll/VBox/AudioCard/Margin/VBox/SfxRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+value = 80.0
+
+[node name="SfxValueLabel" type="Label" parent="MarginContainer/Scroll/VBox/AudioCard/Margin/VBox/SfxRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(45, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "80%"
+horizontal_alignment = 2
+
+[node name="MusicRow" type="HBoxContainer" parent="MarginContainer/Scroll/VBox/AudioCard/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Lbl" type="Label" parent="MarginContainer/Scroll/VBox/AudioCard/Margin/VBox/MusicRow"]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Music Volume:"
+
+[node name="MusicSlider" type="HSlider" parent="MarginContainer/Scroll/VBox/AudioCard/Margin/VBox/MusicRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+value = 80.0
+
+[node name="MusicValueLabel" type="Label" parent="MarginContainer/Scroll/VBox/AudioCard/Margin/VBox/MusicRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(45, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "80%"
+horizontal_alignment = 2
+
+[node name="PrefsCard" type="PanelContainer" parent="MarginContainer/Scroll/VBox"]
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="MarginContainer/Scroll/VBox/PrefsCard"]
+layout_mode = 2
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 14
+theme_override_constants/margin_bottom = 12
+
+[node name="VBox" type="VBoxContainer" parent="MarginContainer/Scroll/VBox/PrefsCard/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="PrefsTitle" type="Label" parent="MarginContainer/Scroll/VBox/PrefsCard/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.45, 0.05, 1)
+theme_override_font_sizes/font_size = 15
+text = "PREFERENCES & ACCESSIBILITY"
+
+[node name="TextSizeRow" type="HBoxContainer" parent="MarginContainer/Scroll/VBox/PrefsCard/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Lbl" type="Label" parent="MarginContainer/Scroll/VBox/PrefsCard/Margin/VBox/TextSizeRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 14
+text = "UI Text Scaling:"
+
+[node name="TextSizeOption" type="OptionButton" parent="MarginContainer/Scroll/VBox/PrefsCard/Margin/VBox/TextSizeRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(160, 40)
+layout_mode = 2
+selected = 0
+item_count = 3
+popup/item_0/text = "Standard (100%)"
+popup/item_0/id = 0
+popup/item_1/text = "Large (120%)"
+popup/item_1/id = 1
+popup/item_2/text = "Extra Large (140%)"
+popup/item_2/id = 2
+
+[node name="LanguageRow" type="HBoxContainer" parent="MarginContainer/Scroll/VBox/PrefsCard/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Lbl" type="Label" parent="MarginContainer/Scroll/VBox/PrefsCard/Margin/VBox/LanguageRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 14
+text = "Game Language:"
+
+[node name="LanguageOption" type="OptionButton" parent="MarginContainer/Scroll/VBox/PrefsCard/Margin/VBox/LanguageRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(160, 40)
+layout_mode = 2
+selected = 0
+item_count = 2
+popup/item_0/text = "English"
+popup/item_0/id = 0
+popup/item_1/text = "Pidgin English"
+popup/item_1/id = 1
+
+[node name="ReduceMotionCheck" type="CheckBox" parent="MarginContainer/Scroll/VBox/PrefsCard/Margin/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Reduce motion & transition animations"
+
+[node name="SavesCard" type="PanelContainer" parent="MarginContainer/Scroll/VBox"]
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="MarginContainer/Scroll/VBox/SavesCard"]
+layout_mode = 2
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 14
+theme_override_constants/margin_bottom = 12
+
+[node name="VBox" type="VBoxContainer" parent="MarginContainer/Scroll/VBox/SavesCard/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="SavesTitle" type="Label" parent="MarginContainer/Scroll/VBox/SavesCard/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.45, 0.05, 1)
+theme_override_font_sizes/font_size = 15
+text = "SAVE SLOTS MANAGEMENT"
+
+[node name="Slot1Card" type="PanelContainer" parent="MarginContainer/Scroll/VBox/SavesCard/Margin/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="MarginContainer/Scroll/VBox/SavesCard/Margin/VBox/Slot1Card"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 8
+
+[node name="VBox" type="VBoxContainer" parent="MarginContainer/Scroll/VBox/SavesCard/Margin/VBox/Slot1Card/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Slot1Info" type="Label" parent="MarginContainer/Scroll/VBox/SavesCard/Margin/VBox/Slot1Card/Margin/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "Slot 1: Empty"
+
+[node name="BtnRow" type="HBoxContainer" parent="MarginContainer/Scroll/VBox/SavesCard/Margin/VBox/Slot1Card/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Slot1SaveBtn" type="Button" parent="MarginContainer/Scroll/VBox/SavesCard/Margin/VBox/Slot1Card/Margin/VBox/BtnRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 38)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Save"
+
+[node name="Slot1LoadBtn" type="Button" parent="MarginContainer/Scroll/VBox/SavesCard/Margin/VBox/Slot1Card/Margin/VBox/BtnRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 38)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Load"
+
+[node name="Slot1DelBtn" type="Button" parent="MarginContainer/Scroll/VBox/SavesCard/Margin/VBox/Slot1Card/Margin/VBox/BtnRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 38)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Delete"
+
+[node name="Slot2Card" type="PanelContainer" parent="MarginContainer/Scroll/VBox/SavesCard/Margin/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="MarginContainer/Scroll/VBox/SavesCard/Margin/VBox/Slot2Card"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 8
+
+[node name="VBox" type="VBoxContainer" parent="MarginContainer/Scroll/VBox/SavesCard/Margin/VBox/Slot2Card/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Slot2Info" type="Label" parent="MarginContainer/Scroll/VBox/SavesCard/Margin/VBox/Slot2Card/Margin/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "Slot 2: Empty"
+
+[node name="BtnRow" type="HBoxContainer" parent="MarginContainer/Scroll/VBox/SavesCard/Margin/VBox/Slot2Card/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Slot2SaveBtn" type="Button" parent="MarginContainer/Scroll/VBox/SavesCard/Margin/VBox/Slot2Card/Margin/VBox/BtnRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 38)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Save"
+
+[node name="Slot2LoadBtn" type="Button" parent="MarginContainer/Scroll/VBox/SavesCard/Margin/VBox/Slot2Card/Margin/VBox/BtnRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 38)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Load"
+
+[node name="Slot2DelBtn" type="Button" parent="MarginContainer/Scroll/VBox/SavesCard/Margin/VBox/Slot2Card/Margin/VBox/BtnRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 38)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Delete"
+
+[node name="Slot3Card" type="PanelContainer" parent="MarginContainer/Scroll/VBox/SavesCard/Margin/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="MarginContainer/Scroll/VBox/SavesCard/Margin/VBox/Slot3Card"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 8
+
+[node name="VBox" type="VBoxContainer" parent="MarginContainer/Scroll/VBox/SavesCard/Margin/VBox/Slot3Card/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Slot3Info" type="Label" parent="MarginContainer/Scroll/VBox/SavesCard/Margin/VBox/Slot3Card/Margin/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "Slot 3: Empty"
+
+[node name="BtnRow" type="HBoxContainer" parent="MarginContainer/Scroll/VBox/SavesCard/Margin/VBox/Slot3Card/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Slot3SaveBtn" type="Button" parent="MarginContainer/Scroll/VBox/SavesCard/Margin/VBox/Slot3Card/Margin/VBox/BtnRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 38)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Save"
+
+[node name="Slot3LoadBtn" type="Button" parent="MarginContainer/Scroll/VBox/SavesCard/Margin/VBox/Slot3Card/Margin/VBox/BtnRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 38)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Load"
+
+[node name="Slot3DelBtn" type="Button" parent="MarginContainer/Scroll/VBox/SavesCard/Margin/VBox/Slot3Card/Margin/VBox/BtnRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 38)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Delete"
+
+[node name="BackButton" type="Button" parent="MarginContainer/Scroll/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+text = "Return"
+
+[node name="NoticeDialog" type="AcceptDialog" parent="."]
+unique_name_in_owner = true
+title = "Notice"
+initial_position = 2
+size = Vector2i(320, 150)
+dialog_autowrap = true
+
+[node name="ConfirmDialog" type="ConfirmationDialog" parent="."]
+unique_name_in_owner = true
+title = "Confirm Action"
+initial_position = 2
+size = Vector2i(320, 160)
+dialog_autowrap = true
