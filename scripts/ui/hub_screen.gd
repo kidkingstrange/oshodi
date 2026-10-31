@@ -35,6 +35,7 @@ const Levelling = preload("res://scripts/core/levelling.gd")
 @onready var talk_button: Button = %TalkButton
 @onready var quest_button: Button = %QuestButton
 @onready var shop_button: Button = %ShopButton
+@onready var ad_recharge_button: Button = %AdRechargeButton
 @onready var subclass_button: Button = %SubclassButton
 @onready var stats_button: Button = %StatsButton
 @onready var settings_button: Button = %SettingsButton
@@ -63,6 +64,10 @@ func _ready() -> void:
 	if quest_button:
 		quest_button.pressed.connect(_on_quest_pressed)
 	shop_button.pressed.connect(_on_shop_pressed)
+	if ad_recharge_button:
+		ad_recharge_button.pressed.connect(_on_ad_recharge_pressed)
+	Monetization.ad_reward_granted.connect(_on_ad_reward_granted)
+	Monetization.ad_failed_to_load.connect(_on_ad_failed_to_load)
 	subclass_button.pressed.connect(_on_subclass_pressed)
 	stats_button.pressed.connect(_on_stats_pressed)
 	settings_button.pressed.connect(_on_settings_pressed)
@@ -126,7 +131,17 @@ func _refresh_display() -> void:
 		var income = DataLoader.get_work_income(GameState.class_id)
 		work_button.text = "Work Shift (+%s, -20 Energy)" % GameState.format_naira(income)
 	
-	# Low energy alert
+	# Low energy alert and optional recharge button
+	if ad_recharge_button:
+		if GameState.resources.energy < 25 and (Monetization.can_show_rewarded_ad("energy_boost") or Monetization.ads_removed()):
+			ad_recharge_button.visible = true
+			if Monetization.ads_removed():
+				ad_recharge_button.text = "Claim Supporter Boost (+35 Energy)"
+			else:
+				ad_recharge_button.text = "Watch Quick Ad (+35 Energy)"
+		else:
+			ad_recharge_button.visible = false
+	
 	if GameState.resources.energy < 15:
 		energy_label.add_theme_color_override("font_color", Color(0.9, 0.2, 0.2, 1))
 	else:
@@ -345,3 +360,17 @@ func _show_notice(msg: String) -> void:
 	event_dialog.dialog_text = msg
 	event_dialog.popup_centered()
 	MobileManager.push_modal(event_dialog)
+
+func _on_ad_recharge_pressed() -> void:
+	SoundManager.play_click()
+	Monetization.show_rewarded_ad("energy_boost")
+
+func _on_ad_reward_granted(_reward_id: String, reward_data: Dictionary) -> void:
+	SoundManager.play_success()
+	_show_notice(reward_data.get("message", "Reward received!"))
+	_refresh_display()
+
+func _on_ad_failed_to_load(reason: String) -> void:
+	SoundManager.play_fail()
+	_show_notice(reason)
+	_refresh_display()

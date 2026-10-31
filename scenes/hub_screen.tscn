@@ -334,6 +334,14 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 14
 text = "Market Stall / Shop & Goods"
 
+[node name="AdRechargeButton" type="Button" parent="MarginContainer/VBox/ActionsCard/ActionsMargin/ActionsVBox"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(0, 46)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Watch Quick Ad (+35 Energy)"
+
 [node name="SubclassButton" type="Button" parent="MarginContainer/VBox/ActionsCard/ActionsMargin/ActionsVBox"]
 unique_name_in_owner = true
 visible = false

@@ -122,6 +122,13 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "Sell Inventory"
 
+[node name="SpecialTabButton" type="Button" parent="MarginContainer/VBox/TabsRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 46)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Special Store"
+
 [node name="Scroll" type="ScrollContainer" parent="MarginContainer/VBox"]
 layout_mode = 2
 size_flags_vertical = 3

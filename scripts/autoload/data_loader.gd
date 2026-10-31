@@ -17,6 +17,7 @@ var items: Dictionary = {}
 var quests: Dictionary = {}
 var npcs: Dictionary = {}
 var dialogue: Dictionary = {}
+var products: Array[Dictionary] = []
 
 var is_loaded: bool = false
 var load_errors: Array[String] = []
@@ -39,6 +40,7 @@ func load_and_validate_all(data_dir: String = "res://data") -> bool:
 	quests.clear()
 	npcs.clear()
 	dialogue.clear()
+	products.clear()
 	
 	# 1. Load Classes
 	var classes_raw = _load_json_file(data_dir + "/classes.json")
@@ -109,6 +111,13 @@ func load_and_validate_all(data_dir: String = "res://data") -> bool:
 		load_errors.append("dialogue.json: Failed to read or parse JSON file.")
 	else:
 		_validate_dialogue(dialogue_raw)
+	
+	# 11. Load In-App Products
+	var products_raw = _load_json_file(data_dir + "/products.json")
+	if products_raw != null and products_raw is Array:
+		for p in products_raw:
+			if p is Dictionary and p.has("id"):
+				products.append(p)
 	
 	is_loaded = (load_errors.is_empty())
 	if is_loaded:
@@ -748,3 +757,12 @@ func get_npcs_for_location(loc_id: String) -> Array[Dictionary]:
 
 func get_dialogue_by_id(dialogue_id: String) -> Dictionary:
 	return dialogue.get(dialogue_id, {})
+
+func get_all_products() -> Array[Dictionary]:
+	return products
+
+func get_product_by_id(prod_id: String) -> Dictionary:
+	for p in products:
+		if p.get("id", "") == prod_id:
+			return p
+	return {}

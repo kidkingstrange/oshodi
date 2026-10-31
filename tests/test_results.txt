@@ -372,5 +372,25 @@
   [PASS] Touch from mouse emulation is enabled for responsive mobile gestures
   [PASS] Mouse from touch emulation is enabled for UI controls
 
+[Suite: Fair Monetization, In-App Purchases & Rewarded Ads (Phase 9)]
+  [PASS] At least 4 in-app products loaded from data/products.json (got 4)
+  [PASS] Product 'remove_ads' exists in catalog
+  [PASS] Product 'remove_ads' is non_consumable
+  [PASS] Product 'remove_ads' has valid naira price
+  [PASS] Product 'remove_ads' is marked as owned
+  [PASS] ads_removed() returns true after purchase
+  [PASS] Entitlements file saved locally for offline play
+  [PASS] Starter pack credited ₦10,000 cash bonus
+  [PASS] Starter pack expanded max energy capacity by +20
+  [PASS] Owned products cleared in memory
+  [PASS] restore_purchases() successfully restored 'remove_ads' from entitlements
+  [PASS] ads_removed() remains true after restoration
+  [PASS] Rewarded ad granted +35 Energy boost (20 -> 55)
+  [PASS] Daily ad counter incremented to 1
+  [PASS] can_show_rewarded_ad returns false when daily cap (5) is reached
+  [PASS] is_offline() reports true
+  [PASS] Ads are disabled when offline
+  [PASS] Graceful offline notification emitted without crashing
+
 ===========================
-Results: 348 Passed, 0 Failed
+Results: 366 Passed, 0 Failed

@@ -13,16 +13,25 @@ const InventoryManager = preload("res://scripts/core/inventory_manager.gd")
 @onready var weight_label: Label = %WeightLabel
 @onready var buy_tab_btn: Button = %BuyTabButton
 @onready var sell_tab_btn: Button = %SellTabButton
+@onready var special_tab_btn: Button = %SpecialTabButton
 @onready var items_container: VBoxContainer = %ItemsContainer
 @onready var back_button: Button = %BackButton
 @onready var notice_dialog: AcceptDialog = %NoticeDialog
 
-var is_buy_mode: bool = true
+var current_tab: String = "buy"
 
 func _ready() -> void:
 	buy_tab_btn.pressed.connect(_on_buy_tab_pressed)
 	sell_tab_btn.pressed.connect(_on_sell_tab_pressed)
+	if special_tab_btn:
+		special_tab_btn.pressed.connect(_on_special_tab_pressed)
 	back_button.pressed.connect(_on_back_pressed)
+	
+	if has_node("MarginContainer"):
+		MobileManager.apply_safe_area_to_margin($MarginContainer, 26, 20)
+	
+	Monetization.purchase_completed.connect(_on_purchase_completed)
+	Monetization.purchases_restored.connect(_on_purchases_restored)
 	
 	GameState.resources_changed.connect(func(_r): _update_header())
 	
@@ -38,27 +47,43 @@ func _update_header() -> void:
 	weight_label.text = "Load: %d/%d kg" % [cur_w, max_w]
 
 func _on_buy_tab_pressed() -> void:
-	is_buy_mode = true
+	current_tab = "buy"
 	buy_tab_btn.disabled = true
 	sell_tab_btn.disabled = false
+	if special_tab_btn:
+		special_tab_btn.disabled = false
 	subtitle_label.text = "Available goods for purchase at this location:"
 	_refresh_list()
 
 func _on_sell_tab_pressed() -> void:
-	is_buy_mode = false
+	current_tab = "sell"
 	buy_tab_btn.disabled = false
 	sell_tab_btn.disabled = true
+	if special_tab_btn:
+		special_tab_btn.disabled = false
 	subtitle_label.text = "Your inventory items available for sale:"
+	_refresh_list()
+
+func _on_special_tab_pressed() -> void:
+	current_tab = "special"
+	buy_tab_btn.disabled = false
+	sell_tab_btn.disabled = false
+	if special_tab_btn:
+		special_tab_btn.disabled = true
+	subtitle_label.text = "Fair in-app supporter upgrades (100% offline-friendly):"
 	_refresh_list()
 
 func _refresh_list() -> void:
 	for child in items_container.get_children():
 		child.queue_free()
 	
-	if is_buy_mode:
-		_render_buy_items()
-	else:
-		_render_sell_items()
+	match current_tab:
+		"buy":
+			_render_buy_items()
+		"sell":
+			_render_sell_items()
+		"special":
+			_render_special_items()
 
 func _render_buy_items() -> void:
 	var shop_items = ShopManager.get_shop_inventory(GameState.location_id)
@@ -191,9 +216,100 @@ func _on_consume_clicked(item_id: String) -> void:
 	_update_header()
 	_refresh_list()
 
+func _render_special_items() -> void:
+	var prods = DataLoader.get_all_products()
+	for prod in prods:
+		var card = PanelContainer.new()
+		var margin = MarginContainer.new()
+		margin.add_theme_constant_override("margin_left", 12)
+		margin.add_theme_constant_override("margin_top", 10)
+		margin.add_theme_constant_override("margin_right", 12)
+		margin.add_theme_constant_override("margin_bottom", 10)
+		card.add_child(margin)
+		
+		var vbox = VBoxContainer.new()
+		vbox.add_theme_constant_override("separation", 6)
+		margin.add_child(vbox)
+		
+		# Name and Price
+		var top_row = HBoxContainer.new()
+		var name_lbl = Label.new()
+		name_lbl.text = prod.get("name", "Product")
+		name_lbl.theme_override_font_sizes.font_size = 16
+		name_lbl.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		top_row.add_child(name_lbl)
+		
+		var price_lbl = Label.new()
+		var price_naira = int(prod.get("price_naira", 1000))
+		var price_usd = prod.get("price_usd", "0.99")
+		price_lbl.text = "%s ($%s)" % [GameState.format_naira(price_naira), price_usd]
+		price_lbl.theme_override_font_sizes.font_size = 15
+		price_lbl.theme_override_colors.font_color = Color(0.12, 0.58, 0.28, 1)
+		top_row.add_child(price_lbl)
+		vbox.add_child(top_row)
+		
+		# Description
+		var desc_lbl = Label.new()
+		desc_lbl.text = prod.get("description", "")
+		desc_lbl.theme_override_font_sizes.font_size = 13
+		desc_lbl.theme_override_colors.font_color = Color(0.35, 0.38, 0.44, 1)
+		desc_lbl.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		vbox.add_child(desc_lbl)
+		
+		# Action Button
+		var buy_btn = Button.new()
+		buy_btn.custom_minimum_size = Vector2(0, 44)
+		var p_id = prod.get("id", "")
+		var is_owned = Monetization.is_owned(p_id)
+		if prod.get("type", "") == "non_consumable" and is_owned:
+			buy_btn.text = "Owned (Active)"
+			buy_btn.disabled = true
+		else:
+			buy_btn.text = "Unlock (%s)" % GameState.format_naira(price_naira)
+			buy_btn.pressed.connect(func(): _on_in_app_buy_pressed(p_id))
+		vbox.add_child(buy_btn)
+		
+		items_container.add_child(card)
+	
+	# Restore Purchases Card at bottom
+	var restore_card = PanelContainer.new()
+	var rm = MarginContainer.new()
+	rm.add_theme_constant_override("margin_left", 12)
+	rm.add_theme_constant_override("margin_top", 8)
+	rm.add_theme_constant_override("margin_right", 12)
+	rm.add_theme_constant_override("margin_bottom", 8)
+	restore_card.add_child(rm)
+	
+	var restore_btn = Button.new()
+	restore_btn.custom_minimum_size = Vector2(0, 42)
+	restore_btn.text = "Restore Previous Purchases"
+	restore_btn.pressed.connect(func(): Monetization.restore_purchases())
+	rm.add_child(restore_btn)
+	items_container.add_child(restore_card)
+
+func _on_in_app_buy_pressed(prod_id: String) -> void:
+	SoundManager.play_click()
+	Monetization.purchase(prod_id)
+
+func _on_purchase_completed(product_id: String, success: bool, message: String) -> void:
+	if success:
+		SoundManager.play_cash()
+	else:
+		SoundManager.play_fail()
+	_show_notice(message)
+	_update_header()
+	_refresh_list()
+
+func _on_purchases_restored(restored_count: int) -> void:
+	SoundManager.play_success()
+	_show_notice("Restore check complete! Active entitlements verified: %d." % restored_count)
+	_update_header()
+	_refresh_list()
+
 func _show_notice(msg: String) -> void:
 	notice_dialog.dialog_text = msg
 	notice_dialog.popup_centered()
+	MobileManager.push_modal(notice_dialog)
 
 func _on_back_pressed() -> void:
 	SoundManager.play_click()

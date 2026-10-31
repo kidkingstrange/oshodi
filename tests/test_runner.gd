@@ -15,6 +15,7 @@ const TestWorkingClassMechanic = preload("res://tests/test_workingclass_mechanic
 const TestRoadOfficialMechanic = preload("res://tests/test_roadofficial_mechanic.gd")
 const TestFaithLeaderMechanic = preload("res://tests/test_faithleader_mechanic.gd")
 const TestMobileLifecycle = preload("res://tests/test_mobile_lifecycle.gd")
+const TestMonetization = preload("res://tests/test_monetization.gd")
 
 @onready var output_label: Label = %OutputLabel
 @onready var summary_label: Label = %SummaryLabel
@@ -133,6 +134,15 @@ func _run_all_tests() -> void:
 	total_passed += ml_test.passed_count
 	total_failed += ml_test.failed_count
 	for msg in ml_test.messages:
+		all_messages.append(msg)
+	
+	# Suite 13: Fair Monetization, In-App Purchases & Rewarded Ads (Phase 9)
+	all_messages.append("\n[Suite: Fair Monetization, In-App Purchases & Rewarded Ads (Phase 9)]")
+	var mo_test = TestMonetization.new()
+	mo_test.run_all()
+	total_passed += mo_test.passed_count
+	total_failed += mo_test.failed_count
+	for msg in mo_test.messages:
 		all_messages.append(msg)
 	
 	# Summary

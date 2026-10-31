@@ -1,0 +1,55 @@
+[
+  {
+    "id": "remove_ads",
+    "type": "non_consumable",
+    "name": "Remove Ads & Supporter Pass",
+    "price_naira": 1200,
+    "price_usd": "0.99",
+    "description": "Permanently eliminates all video ads. Unlocks free instant daily energy refills and grants Supporter respect.",
+    "perk_id": "supporter_pass",
+    "benefits": {
+      "ads_removed": true,
+      "daily_free_refills": 3,
+      "respect_bonus": 5
+    }
+  },
+  {
+    "id": "starter_hustle_pack",
+    "type": "consumable",
+    "name": "Oshodi Hustle Starter Pack",
+    "price_naira": 800,
+    "price_usd": "0.79",
+    "description": "An emergency cash injection and endurance boost: +₦10,000 trading capital and +50 max Energy capacity.",
+    "perk_id": "hustle_capital",
+    "benefits": {
+      "naira": 10000,
+      "max_energy_bonus": 20
+    }
+  },
+  {
+    "id": "danfo_golden_skin",
+    "type": "non_consumable",
+    "name": "Golden Danfo Bus Livery",
+    "price_naira": 1500,
+    "price_usd": "1.29",
+    "description": "Exclusive hand-painted golden yellow livery with reflective trim for your commercial transport fleet.",
+    "perk_id": "golden_danfo",
+    "benefits": {
+      "cosmetic_skin": "golden_danfo",
+      "respect_bonus": 3
+    }
+  },
+  {
+    "id": "market_tycoon_banner",
+    "type": "non_consumable",
+    "name": "Market Stall Velvet Canopy",
+    "price_naira": 1500,
+    "price_usd": "1.29",
+    "description": "Vibrant custom merchant canopy distinguishing your market stall from everyday street vendors.",
+    "perk_id": "velvet_canopy",
+    "benefits": {
+      "cosmetic_skin": "velvet_canopy",
+      "respect_bonus": 3
+    }
+  }
+]
