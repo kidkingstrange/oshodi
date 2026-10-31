@@ -6,6 +6,11 @@ extends RefCounted
 ## and subclass unlock eligibility at level 5.
 ## Pure core logic with zero UI code.
 
+## Adds XP to player and automatically checks/applies level-ups.
+static func add_xp(amount: int) -> Dictionary:
+	GameState.xp += amount
+	return check_and_apply_levelups()
+
 ## Checks if the player has enough XP to level up and applies all pending level-ups.
 ## Returns a report dictionary describing what happened.
 static func check_and_apply_levelups() -> Dictionary:

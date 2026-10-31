@@ -163,18 +163,30 @@ func _create_item_card(item: Dictionary, for_buying: bool, owned_qty: int = -1) 
 
 func _on_buy_clicked(item_id: String) -> void:
 	var res = ShopManager.buy_item(item_id, 1)
+	if res.get("success", false):
+		SoundManager.play_cash()
+	else:
+		SoundManager.play_fail()
 	_show_notice(res.get("message", "Purchase complete."))
 	_update_header()
 	_refresh_list()
 
 func _on_sell_clicked(item_id: String) -> void:
 	var res = ShopManager.sell_item(item_id, 1)
+	if res.get("success", false):
+		SoundManager.play_cash()
+	else:
+		SoundManager.play_fail()
 	_show_notice(res.get("message", "Sale complete."))
 	_update_header()
 	_refresh_list()
 
 func _on_consume_clicked(item_id: String) -> void:
 	var res = InventoryManager.use_consumable(item_id)
+	if res.get("success", false):
+		SoundManager.play_success()
+	else:
+		SoundManager.play_fail()
 	_show_notice(res.get("message", "Consumed."))
 	_update_header()
 	_refresh_list()
@@ -184,4 +196,5 @@ func _show_notice(msg: String) -> void:
 	notice_dialog.popup_centered()
 
 func _on_back_pressed() -> void:
+	SoundManager.play_click()
 	get_tree().change_scene_to_file("res://scenes/hub_screen.tscn")

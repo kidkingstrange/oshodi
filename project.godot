@@ -26,6 +26,7 @@ config/icon="res://icon.svg"
 GameState="*res://scripts/autoload/game_state.gd"
 DataLoader="*res://scripts/autoload/data_loader.gd"
 SaveSystem="*res://scripts/autoload/save_system.gd"
+SoundManager="*res://scripts/autoload/sound_manager.gd"
 EventBus="*res://scripts/autoload/event_bus.gd"
 Monetization="*res://scripts/autoload/monetization.gd"
 

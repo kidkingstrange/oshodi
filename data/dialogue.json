@@ -1,0 +1,442 @@
+[
+  {
+    "id": "landlord_greeting",
+    "lines": [
+      {
+        "speaker": "npc_baba_landlord",
+        "text": "Ah, my young tenant! I hope your hustle is moving well today. Don't forget that this compound runs on discipline and punctuality."
+      }
+    ],
+    "options": [
+      {
+        "label": "Pay compound respect and ask about the compound rules",
+        "next_dialogue_id": "landlord_generator_rules",
+        "effects": {"respect": 1}
+      },
+      {
+        "label": "Ask about the upcoming rent schedule",
+        "next_dialogue_id": "landlord_rent_talk",
+        "effects": {}
+      }
+    ]
+  },
+  {
+    "id": "landlord_rent_talk",
+    "lines": [
+      {
+        "speaker": "npc_baba_landlord",
+        "text": "Rent is not something that waits for rain or sunshine! 25,000 Naira by month-end keeps the caretaker smiling and the padlocks off the gate."
+      }
+    ],
+    "options": [
+      {
+        "label": "Promise him timely payment with polite assurances",
+        "next_dialogue_id": null,
+        "effects": {"xp": 10}
+      }
+    ]
+  },
+  {
+    "id": "landlord_generator_rules",
+    "lines": [
+      {
+        "speaker": "npc_baba_landlord",
+        "text": "Rule number one: no generator fumes pointed at Mama Caro's window. Rule number two: switch off by 11:00 PM prompt so working people can sleep!"
+      }
+    ],
+    "options": [
+      {
+        "label": "Nod in full agreement with compound peace",
+        "next_dialogue_id": null,
+        "effects": {"respect": 1}
+      }
+    ]
+  },
+  {
+    "id": "mama_nkechi_greeting",
+    "lines": [
+      {
+        "speaker": "npc_mama_nkechi",
+        "text": "Welcome, my pikin! You look like someone that has been fighting Lagos sun since 6:00 AM. Come sit down, eat hot amala or jollof!"
+      }
+    ],
+    "options": [
+      {
+        "label": "Ask for the latest neighbourhood market gist",
+        "next_dialogue_id": "mama_nkechi_gossip",
+        "effects": {"energy": 5}
+      },
+      {
+        "label": "Ask for trade advice on hungry morning commuters",
+        "next_dialogue_id": "mama_nkechi_food_advice",
+        "effects": {"xp": 10}
+      }
+    ]
+  },
+  {
+    "id": "mama_nkechi_gossip",
+    "lines": [
+      {
+        "speaker": "npc_mama_nkechi",
+        "text": "They say new container loads arrived at the wholesale depot this morning. If you have cash ready, buy early before prices climb by afternoon!"
+      }
+    ],
+    "options": [
+      {
+        "label": "Thank her warmly for the golden insider tip",
+        "next_dialogue_id": null,
+        "effects": {"respect": 1, "xp": 12}
+      }
+    ]
+  },
+  {
+    "id": "mama_nkechi_food_advice",
+    "lines": [
+      {
+        "speaker": "npc_mama_nkechi",
+        "text": "A hungry man has no patience to negotiate. When people come from transit, serve them fast, smile, and make your portion look full. They will always return!"
+      }
+    ],
+    "options": [
+      {
+        "label": "Commit her golden rule of hospitality to memory",
+        "next_dialogue_id": null,
+        "effects": {"xp": 15}
+      }
+    ]
+  },
+  {
+    "id": "chairman_greeting",
+    "lines": [
+      {
+        "speaker": "npc_chairman_goke",
+        "text": "Oshodi moves because we keep order in the loading bays. Whether you are driving danfo or hawking goods, respect the queue and pay your union dues."
+      }
+    ],
+    "options": [
+      {
+        "label": "Inquire about commercial transit route conditions",
+        "next_dialogue_id": "chairman_route_wisdom",
+        "effects": {"respect": 1}
+      },
+      {
+        "label": "Ask how union dues support local park security",
+        "next_dialogue_id": "chairman_park_dues",
+        "effects": {}
+      }
+    ]
+  },
+  {
+    "id": "chairman_route_wisdom",
+    "lines": [
+      {
+        "speaker": "npc_chairman_goke",
+        "text": "The Mile 2 corridor is heavy in the evening, but the turnover is double. If your fuel tank has enough and your tyres are firm, that is where the real money sleeps."
+      }
+    ],
+    "options": [
+      {
+        "label": "Salute his park experience respectfully",
+        "next_dialogue_id": null,
+        "effects": {"xp": 15, "respect": 1}
+      }
+    ]
+  },
+  {
+    "id": "chairman_park_dues",
+    "lines": [
+      {
+        "speaker": "npc_chairman_goke",
+        "text": "Five hundred naira ticket covers task force clearance, tyre pump access, and security against midnight scavengers. Pay clean and drive with your head high."
+      }
+    ],
+    "options": [
+      {
+        "label": "Acknowledge the value of park protection",
+        "next_dialogue_id": null,
+        "effects": {"respect": 1}
+      }
+    ]
+  },
+  {
+    "id": "officer_ade",
+    "lines": [
+      {
+        "speaker": "npc_officer_ade",
+        "text": "Good day! My mandate on this expressway is simple: free-flowing traffic and road safety. Keep your vehicle roadworthy and pick passengers inside designated bus bays."
+      }
+    ],
+    "options": [
+      {
+        "label": "Ask about traffic compliance and inspection standards",
+        "next_dialogue_id": "officer_compliance",
+        "effects": {}
+      },
+      {
+        "label": "Ask how to navigate corridor roadblocks during rush hours",
+        "next_dialogue_id": "officer_road_advice",
+        "effects": {"xp": 10}
+      }
+    ]
+  },
+  {
+    "id": "officer_greeting",
+    "lines": [
+      {
+        "speaker": "npc_officer_ade",
+        "text": "Move with caution. We want everyone to return safely to their families at night."
+      }
+    ],
+    "options": [
+      {
+        "label": "Greet the officer with formal respect",
+        "next_dialogue_id": null,
+        "effects": {"respect": 1, "heat": -1}
+      }
+    ]
+  },
+  {
+    "id": "officer_compliance",
+    "lines": [
+      {
+        "speaker": "npc_officer_ade",
+        "text": "Make sure your side mirrors are intact and your vehicle papers are valid. When a driver respects the law, no enforcement officer will bother them."
+      }
+    ],
+    "options": [
+      {
+        "label": "Thank him for the clear professional guidance",
+        "next_dialogue_id": null,
+        "effects": {"respect": 1, "heat": -1, "xp": 12}
+      }
+    ]
+  },
+  {
+    "id": "officer_road_advice",
+    "lines": [
+      {
+        "speaker": "npc_officer_ade",
+        "text": "Never drive against traffic (one-way). No shortcut is worth impoundment and fines. Patience is the cheapest fuel in Lagos."
+      }
+    ],
+    "options": [
+      {
+        "label": "Take the wisdom to heart",
+        "next_dialogue_id": null,
+        "effects": {"xp": 10}
+      }
+    ]
+  },
+  {
+    "id": "chidi_greeting",
+    "lines": [
+      {
+        "speaker": "npc_chidi_spare_parts",
+        "text": "Nna, welcome! Quality phone chargers, car adaptors, power banks, and fan belts. Straight from genuine suppliers, no counterfeit talk here!"
+      }
+    ],
+    "options": [
+      {
+        "label": "Ask for the secret to spotting fake accessories",
+        "next_dialogue_id": "chidi_bargain_tip",
+        "effects": {"xp": 15}
+      },
+      {
+        "label": "Inquire about upcoming Ladipo wholesale consignments",
+        "next_dialogue_id": "chidi_market_trend",
+        "effects": {}
+      }
+    ]
+  },
+  {
+    "id": "chidi_bargain_tip",
+    "lines": [
+      {
+        "speaker": "npc_chidi_spare_parts",
+        "text": "Feel the copper weight in the cable. Cheap aluminium fakes feel like feathers. And always inspect the holographic seal under daylight."
+      }
+    ],
+    "options": [
+      {
+        "label": "Thank Brother Chidi for the trade secret",
+        "next_dialogue_id": null,
+        "effects": {"respect": 1, "xp": 15}
+      }
+    ]
+  },
+  {
+    "id": "chidi_market_trend",
+    "lines": [
+      {
+        "speaker": "npc_chidi_spare_parts",
+        "text": "Power banks sell like pure water whenever the national grid drops. Stock up on phone accessories before the evening rush!"
+      }
+    ],
+    "options": [
+      {
+        "label": "Note the commercial opportunity",
+        "next_dialogue_id": null,
+        "effects": {"xp": 10}
+      }
+    ]
+  },
+  {
+    "id": "grace_greeting",
+    "lines": [
+      {
+        "speaker": "npc_sister_grace",
+        "text": "Good day my friend! Joy and peace to your hustle today. In this bustling city, we must never lose our compassion for one another."
+      }
+    ],
+    "options": [
+      {
+        "label": "Request an uplifting community prayer blessing",
+        "next_dialogue_id": "grace_prayer_blessing",
+        "effects": {"energy": 10}
+      },
+      {
+        "label": "Ask how the local welfare outreach is assisting elders",
+        "next_dialogue_id": "grace_community_support",
+        "effects": {}
+      }
+    ]
+  },
+  {
+    "id": "grace_prayer_blessing",
+    "lines": [
+      {
+        "speaker": "npc_sister_grace",
+        "text": "May your steps be ordered today. May your pockets not run dry, and may favour meet you in every street corner of Oshodi!"
+      }
+    ],
+    "options": [
+      {
+        "label": "Say a heartfelt Amen",
+        "next_dialogue_id": null,
+        "effects": {"respect": 2, "energy": 15, "xp": 10}
+      }
+    ]
+  },
+  {
+    "id": "grace_community_support",
+    "lines": [
+      {
+        "speaker": "npc_sister_grace",
+        "text": "We organize evening literacy classes and medicine support for retired market elders. When our neighbours thrive, the whole community is secure."
+      }
+    ],
+    "options": [
+      {
+        "label": "Praise the welfare group's dedication",
+        "next_dialogue_id": null,
+        "effects": {"respect": 2, "xp": 15}
+      }
+    ]
+  },
+  {
+    "id": "alabi_greeting",
+    "lines": [
+      {
+        "speaker": "npc_alabi_mechanic",
+        "text": "Tools don't lie, my brother. If an engine is coughing, don't force it: listen to the piston rings and check your oil gauge."
+      }
+    ],
+    "options": [
+      {
+        "label": "Ask for engine maintenance tips to prevent breakdowns",
+        "next_dialogue_id": "alabi_engine_tips",
+        "effects": {"xp": 12}
+      },
+      {
+        "label": "Ask how to tune generator carburettors for fuel economy",
+        "next_dialogue_id": "alabi_fuel_tuning",
+        "effects": {}
+      }
+    ]
+  },
+  {
+    "id": "alabi_engine_tips",
+    "lines": [
+      {
+        "speaker": "npc_alabi_mechanic",
+        "text": "Never mix contaminated roadside petrol into your tank. It gums the carburetor needles and leaves you stranded on the flyover bridge."
+      }
+    ],
+    "options": [
+      {
+        "label": "Thank Master Alabi for the mechanical wisdom",
+        "next_dialogue_id": null,
+        "effects": {"xp": 14}
+      }
+    ]
+  },
+  {
+    "id": "alabi_fuel_tuning",
+    "lines": [
+      {
+        "speaker": "npc_alabi_mechanic",
+        "text": "A quarter turn on the idle air screw leans out the fuel mixture. You save two litres every evening without losing power."
+      }
+    ],
+    "options": [
+      {
+        "label": "Remember the fuel saving adjustment",
+        "next_dialogue_id": null,
+        "effects": {"xp": 16, "respect": 1}
+      }
+    ]
+  },
+  {
+    "id": "kemi_greeting",
+    "lines": [
+      {
+        "speaker": "npc_kemi_pos",
+        "text": "Cash in, cash out, utility tokens! Fast network, receipt guaranteed. What transaction are we handling for you today?"
+      }
+    ],
+    "options": [
+      {
+        "label": "Ask about daily terminal cashflow patterns",
+        "next_dialogue_id": "kemi_cash_flow",
+        "effects": {}
+      },
+      {
+        "label": "Ask what street news commuters are discussing today",
+        "next_dialogue_id": "kemi_street_news",
+        "effects": {"xp": 10}
+      }
+    ]
+  },
+  {
+    "id": "kemi_cash_flow",
+    "lines": [
+      {
+        "speaker": "npc_kemi_pos",
+        "text": "Morning commuters withdraw exact 500 and 1,000 naira bills for transit fare. Evening crowd deposits trade profits. Timing is everything in liquidity."
+      }
+    ],
+    "options": [
+      {
+        "label": "Appreciate her financial insight",
+        "next_dialogue_id": null,
+        "effects": {"xp": 12}
+      }
+    ]
+  },
+  {
+    "id": "kemi_street_news",
+    "lines": [
+      {
+        "speaker": "npc_kemi_pos",
+        "text": "Bank networks have been smooth all morning, but keep cash on hand just in case clouds gather by evening!"
+      }
+    ],
+    "options": [
+      {
+        "label": "Thank Kemi for the update",
+        "next_dialogue_id": null,
+        "effects": {"respect": 1}
+      }
+    ]
+  }
+]

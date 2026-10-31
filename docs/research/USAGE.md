@@ -33,3 +33,41 @@ This log records which research notes inspired each in-game content ID, guarante
 | 2026-10-30 | Phase 3 | `union_ticket_clash` | Situation | `docs/research/transport.md` | Defending against unauthorized park tout levies |
 | 2026-10-30 | Phase 3 | `traffic_diversion_shortcut`| Situation | `docs/research/transport.md` | Residential alleyway navigation during gridlock |
 | 2026-10-30 | Phase 3 | `overheating_radiator` | Situation | `docs/research/transport.md` | Managing steam boil on bridge incline |
+| 2026-10-31 | Phase 6 | `broken_down_trailer` | Situation | `docs/research/transport.md` | Incline jam caused by stalled flatbed trailer |
+| 2026-10-31 | Phase 6 | `street_preacher_prophecy` | Situation | `docs/research/language.md`, `daily_life.md` | Earnest megaphone sermon at transit interchange |
+| 2026-10-31 | Phase 6 | `sudden_rain_flood` | Situation | `docs/research/daily_life.md` | Gutters overflowing during flash tropical downpour |
+| 2026-10-31 | Phase 6 | `mobile_money_pos_down` | Situation | `docs/research/jobs.md` | POS agent experiencing cellular network timeout |
+| 2026-10-31 | Phase 6 | `night_market_rush` | Situation | `docs/research/daily_life.md` | Generator-lit closing hour bargains |
+| 2026-10-31 | Phase 6 | `food_canteen_quarrel` | Situation | `docs/research/jobs.md` | Heated argument over last amala plate at canteen |
+| 2026-10-31 | Phase 6 | `environmental_task_force`| Situation | `docs/research/daily_life.md` | Saturday morning drain sanitation audit |
+| 2026-10-31 | Phase 6 | `missing_phone_shout` | Situation | `docs/research/language.md` | Commuter alerting bus stop crowd to pickpocket |
+| 2026-10-31 | Phase 6 | `damaged_goods_delivery` | Situation | `docs/research/jobs.md` | Negotiating credit for bruised produce delivery |
+| 2026-10-31 | Phase 6 | `credit_customer_plea` | Situation | `docs/research/jobs.md` | Neighbour requesting essential groceries on credit |
+| 2026-10-31 | Phase 6 | `bulk_supply_opportunity`| Situation | `docs/research/jobs.md` | High-volume beverage order for weekend celebration |
+| 2026-10-31 | Phase 6 | `festival_season_demand` | Situation | `docs/research/daily_life.md` | Balancing high festive margins with goodwill |
+| 2026-10-31 | Phase 6 | `generator_spark_scare` | Situation | `docs/research/daily_life.md` | Small stall generator backfiring in evening stall |
+| 2026-10-31 | Phase 6 | `rival_stall_discount` | Situation | `docs/research/jobs.md` | Responding to nearby vendor undercut tactics |
+| 2026-10-31 | Phase 6 | `expressway_lastma_trap` | Situation | `docs/research/transport.md` | Traffic wardens enforcing loading restrictions |
+| 2026-10-31 | Phase 6 | `vip_in_a_hurry` | Situation | `docs/research/transport.md` | Well-dressed passenger urging illegal lane cut |
+| 2026-10-31 | Phase 6 | `conductor_audition` | Situation | `docs/research/transport.md` | Energetic youth applying for evening conductor run |
+| 2026-10-31 | Phase 6 | `cracked_windscreen_stone`| Situation | `docs/research/transport.md` | Gravel projectile causing spiderweb crack on glass |
+| 2026-10-31 | Phase 6 | `fuel_filter_clog` | Situation | `docs/research/transport.md` | Sputtering engine due to contaminated diesel fuel |
+| 2026-10-31 | Phase 6 | `heavy_cargo_overload` | Situation | `docs/research/transport.md` | Market women loading massive produce sacks on roof |
+| 2026-10-31 | Phase 6 | `npc_baba_landlord` | NPC | `docs/research/daily_life.md` | Strict Bolade compound landlord |
+| 2026-10-31 | Phase 6 | `npc_mama_nkechi` | NPC | `docs/research/jobs.md` | Oshodi Market mama-put proprietor and advisor |
+| 2026-10-31 | Phase 6 | `npc_chairman_goke` | NPC | `docs/research/transport.md` | Respected Oshodi park union chairman |
+| 2026-10-31 | Phase 6 | `npc_officer_ade` | NPC | `docs/research/transport.md` | Seasoned road traffic enforcement officer |
+| 2026-10-31 | Phase 6 | `npc_chidi_spare_parts` | NPC | `docs/research/jobs.md` | Resourceful phone and auto electronics merchant |
+| 2026-10-31 | Phase 6 | `npc_sister_grace` | NPC | `docs/research/daily_life.md` | Community church secretary and welfare officer |
+| 2026-10-31 | Phase 6 | `npc_alabi_mechanic` | NPC | `docs/research/jobs.md` | Bolade junction master generator and vehicle mechanic|
+| 2026-10-31 | Phase 6 | `npc_kemi_pos` | NPC | `docs/research/jobs.md` | Terminal mobile money agent and financial reporter |
+| 2026-10-31 | Phase 6 | `rent_is_due` | Quest | `docs/research/daily_life.md` | Essential compound rent payment chain |
+| 2026-10-31 | Phase 6 | `stock_the_stall` | Quest | `docs/research/jobs.md` | Trader inventory expansion objective |
+| 2026-10-31 | Phase 6 | `rush_hour_champion` | Quest | `docs/research/transport.md` | Transporter route endurance challenge |
+| 2026-10-31 | Phase 6 | `market_reputation` | Quest | `docs/research/daily_life.md` | Building street respect to 25 |
+| 2026-10-31 | Phase 6 | `cool_the_heat` | Quest | `docs/research/transport.md` | Laying low to de-escalate law enforcement scrutiny |
+| 2026-10-31 | Phase 6 | `generator_rescue` | Quest | `docs/research/daily_life.md` | Procuring generator supplies during power outage |
+| 2026-10-31 | Phase 6 | `terminal_connection`| Quest | `docs/research/transport.md` | Gaining union chairman endorsement |
+| 2026-10-31 | Phase 6 | `the_honest_finder` | Quest | `docs/research/daily_life.md` | Returning recovered transit credentials |
+| 2026-10-31 | Phase 6 | `business_expansion` | Quest | `docs/research/jobs.md` | Achieving Level 5 subclass and capital target |
+| 2026-10-31 | Phase 6 | `heart_of_oshodi` | Quest | `docs/research/geography.md` | Master community respect and resilience milestone |

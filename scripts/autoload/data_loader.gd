@@ -14,6 +14,9 @@ var locations: Dictionary = {}
 var events: Dictionary = {}
 var situations: Dictionary = {}
 var items: Dictionary = {}
+var quests: Dictionary = {}
+var npcs: Dictionary = {}
+var dialogue: Dictionary = {}
 
 var is_loaded: bool = false
 var load_errors: Array[String] = []
@@ -33,6 +36,9 @@ func load_and_validate_all(data_dir: String = "res://data") -> bool:
 	events.clear()
 	situations.clear()
 	items.clear()
+	quests.clear()
+	npcs.clear()
+	dialogue.clear()
 	
 	# 1. Load Classes
 	var classes_raw = _load_json_file(data_dir + "/classes.json")
@@ -83,10 +89,31 @@ func load_and_validate_all(data_dir: String = "res://data") -> bool:
 	else:
 		_validate_items(items_raw)
 	
+	# 8. Load Quests
+	var quests_raw = _load_json_file(data_dir + "/quests.json")
+	if quests_raw == null:
+		load_errors.append("quests.json: Failed to read or parse JSON file.")
+	else:
+		_validate_quests(quests_raw)
+	
+	# 9. Load NPCs
+	var npcs_raw = _load_json_file(data_dir + "/npcs.json")
+	if npcs_raw == null:
+		load_errors.append("npcs.json: Failed to read or parse JSON file.")
+	else:
+		_validate_npcs(npcs_raw)
+	
+	# 10. Load Dialogue
+	var dialogue_raw = _load_json_file(data_dir + "/dialogue.json")
+	if dialogue_raw == null:
+		load_errors.append("dialogue.json: Failed to read or parse JSON file.")
+	else:
+		_validate_dialogue(dialogue_raw)
+	
 	is_loaded = (load_errors.is_empty())
 	if is_loaded:
-		print("[DataLoader] Successfully loaded and validated %d classes, %d subclasses, %d locations, %d events, %d situations, %d items." % [
-			classes.size(), subclasses.size(), locations.size(), events.size(), situations.size(), items.size()
+		print("[DataLoader] Successfully loaded and validated %d classes, %d subclasses, %d locations, %d events, %d situations, %d items, %d quests, %d npcs, %d dialogue trees." % [
+			classes.size(), subclasses.size(), locations.size(), events.size(), situations.size(), items.size(), quests.size(), npcs.size(), dialogue.size()
 		])
 		data_loaded.emit(true)
 		return true
@@ -414,6 +441,141 @@ func _validate_items(raw_data: Variant) -> void:
 		
 		items[id_val] = item
 
+## Validates quests array against schema
+func _validate_quests(raw_data: Variant) -> void:
+	if not (raw_data is Array):
+		load_errors.append("quests.json: Root must be a JSON Array of quest objects.")
+		return
+	
+	var seen_ids: Dictionary = {}
+	for idx in range(raw_data.size()):
+		var item = raw_data[idx]
+		var ctx = "quests.json[%d]" % idx
+		if not (item is Dictionary):
+			load_errors.append("%s: Item must be a JSON Object." % ctx)
+			continue
+		
+		var id_val = item.get("id", "")
+		if not (id_val is String) or id_val.strip_edges().is_empty():
+			load_errors.append("%s: Missing or empty 'id'." % ctx)
+			continue
+		
+		ctx = "quests.json (id: '%s')" % id_val
+		if not _is_valid_id(id_val):
+			load_errors.append("%s: ID must be lowercase alphanumeric with underscores." % ctx)
+		
+		if seen_ids.has(id_val):
+			load_errors.append("%s: Duplicate quest id detected." % ctx)
+		seen_ids[id_val] = true
+		
+		for req_field in ["title", "giver", "description"]:
+			if not (item.get(req_field, "") is String) or item.get(req_field, "").strip_edges().is_empty():
+				load_errors.append("%s: Missing or empty '%s'." % [ctx, req_field])
+		
+		var steps = item.get("steps", null)
+		if not (steps is Array) or steps.is_empty():
+			load_errors.append("%s: 'steps' must be a non-empty Array." % ctx)
+		else:
+			for s_idx in range(steps.size()):
+				var step = steps[s_idx]
+				var s_ctx = "%s.steps[%d]" % [ctx, s_idx]
+				if not (step is Dictionary):
+					load_errors.append("%s: Step must be an Object." % s_ctx)
+					continue
+				if not (step.get("id", "") is String) or step.get("id", "").is_empty():
+					load_errors.append("%s: Missing 'id'." % s_ctx)
+				if not (step.get("text", "") is String) or step.get("text", "").is_empty():
+					load_errors.append("%s: Missing 'text'." % s_ctx)
+				if not (step.get("condition", null) is Dictionary):
+					load_errors.append("%s: Missing 'condition' object." % s_ctx)
+		
+		if not (item.get("reward", null) is Dictionary):
+			load_errors.append("%s: 'reward' must be a Dictionary." % ctx)
+		
+		quests[id_val] = item
+
+## Validates npcs array against schema
+func _validate_npcs(raw_data: Variant) -> void:
+	if not (raw_data is Array):
+		load_errors.append("npcs.json: Root must be a JSON Array of npc objects.")
+		return
+	
+	var seen_ids: Dictionary = {}
+	for idx in range(raw_data.size()):
+		var item = raw_data[idx]
+		var ctx = "npcs.json[%d]" % idx
+		if not (item is Dictionary):
+			load_errors.append("%s: Item must be a JSON Object." % ctx)
+			continue
+		
+		var id_val = item.get("id", "")
+		if not (id_val is String) or id_val.strip_edges().is_empty():
+			load_errors.append("%s: Missing or empty 'id'." % ctx)
+			continue
+		
+		ctx = "npcs.json (id: '%s')" % id_val
+		if not _is_valid_id(id_val):
+			load_errors.append("%s: ID must be lowercase alphanumeric with underscores." % ctx)
+		
+		if seen_ids.has(id_val):
+			load_errors.append("%s: Duplicate npc id detected." % ctx)
+		seen_ids[id_val] = true
+		
+		for req_field in ["name", "role"]:
+			if not (item.get(req_field, "") is String) or item.get(req_field, "").strip_edges().is_empty():
+				load_errors.append("%s: Missing or empty '%s'." % [ctx, req_field])
+		
+		if not (item.get("location_ids", null) is Array):
+			load_errors.append("%s: 'location_ids' must be an Array." % ctx)
+		if not (item.get("dialogue_ids", null) is Array):
+			load_errors.append("%s: 'dialogue_ids' must be an Array." % ctx)
+		
+		npcs[id_val] = item
+
+## Validates dialogue array against schema
+func _validate_dialogue(raw_data: Variant) -> void:
+	if not (raw_data is Array):
+		load_errors.append("dialogue.json: Root must be a JSON Array of dialogue trees.")
+		return
+	
+	var seen_ids: Dictionary = {}
+	for idx in range(raw_data.size()):
+		var item = raw_data[idx]
+		var ctx = "dialogue.json[%d]" % idx
+		if not (item is Dictionary):
+			load_errors.append("%s: Item must be a JSON Object." % ctx)
+			continue
+		
+		var id_val = item.get("id", "")
+		if not (id_val is String) or id_val.strip_edges().is_empty():
+			load_errors.append("%s: Missing or empty 'id'." % ctx)
+			continue
+		
+		ctx = "dialogue.json (id: '%s')" % id_val
+		if not _is_valid_id(id_val):
+			load_errors.append("%s: ID must be lowercase alphanumeric with underscores." % ctx)
+		
+		if seen_ids.has(id_val):
+			load_errors.append("%s: Duplicate dialogue id detected." % ctx)
+		seen_ids[id_val] = true
+		
+		var lines = item.get("lines", null)
+		if not (lines is Array) or lines.is_empty():
+			load_errors.append("%s: 'lines' must be a non-empty Array." % ctx)
+		else:
+			for l_idx in range(lines.size()):
+				var line_obj = lines[l_idx]
+				var l_ctx = "%s.lines[%d]" % [ctx, l_idx]
+				if not (line_obj is Dictionary):
+					load_errors.append("%s: Line must be an Object." % l_ctx)
+					continue
+				if not (line_obj.get("speaker", "") is String) or line_obj.get("speaker", "").is_empty():
+					load_errors.append("%s: Missing 'speaker'." % l_ctx)
+				if not (line_obj.get("text", "") is String) or line_obj.get("text", "").is_empty():
+					load_errors.append("%s: Missing 'text'." % l_ctx)
+		
+		dialogue[id_val] = item
+
 ## Helper to load and parse a JSON file safely
 func _load_json_file(file_path: String) -> Variant:
 	if not FileAccess.file_exists(file_path):
@@ -556,3 +718,33 @@ func get_item_by_id(item_id: String) -> Dictionary:
 
 func get_xp_table() -> Array:
 	return economy.get("level_xp_requirements", [0, 100, 250, 450, 700, 1000, 1400, 1900, 2500, 3200])
+
+func get_all_quests() -> Array[Dictionary]:
+	var list: Array[Dictionary] = []
+	for q_id in quests:
+		list.append(quests[q_id])
+	return list
+
+func get_quest_by_id(quest_id: String) -> Dictionary:
+	return quests.get(quest_id, {})
+
+func get_all_npcs() -> Array[Dictionary]:
+	var list: Array[Dictionary] = []
+	for n_id in npcs:
+		list.append(npcs[n_id])
+	return list
+
+func get_npc_by_id(npc_id: String) -> Dictionary:
+	return npcs.get(npc_id, {})
+
+func get_npcs_for_location(loc_id: String) -> Array[Dictionary]:
+	var list: Array[Dictionary] = []
+	for n_id in npcs:
+		var n = npcs[n_id]
+		var locs = n.get("location_ids", [])
+		if locs.has(loc_id) or locs.has("all"):
+			list.append(n)
+	return list
+
+func get_dialogue_by_id(dialogue_id: String) -> Dictionary:
+	return dialogue.get(dialogue_id, {})

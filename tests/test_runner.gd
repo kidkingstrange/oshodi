@@ -75,6 +75,15 @@ func _run_all_tests() -> void:
 	for msg in ss_res.messages:
 		all_messages.append(msg)
 	
+	# Suite 7: Content Expansion, Quests, NPCs, Dialogue & Audio (Phase 6)
+	all_messages.append("\n[Suite: Content Expansion, Quests, NPCs, Dialogue & Audio (Phase 6)]")
+	var cq_test = TestContentAndQuests.new()
+	cq_test.run_all()
+	total_passed += cq_test.passed_count
+	total_failed += cq_test.failed_count
+	for msg in cq_test.messages:
+		all_messages.append(msg)
+	
 	# Summary
 	all_messages.append("\n===========================")
 	var summary_text = "Results: %d Passed, %d Failed" % [total_passed, total_failed]

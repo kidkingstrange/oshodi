@@ -94,9 +94,11 @@ func _display_outcome(outcome: Dictionary) -> void:
 		var diff = outcome.get("difficulty", 0)
 		
 		if is_success:
+			SoundManager.play_success()
 			outcome_badge_label.text = "SUCCESS"
 			outcome_badge_label.add_theme_color_override("font_color", Color(0.12, 0.58, 0.28, 1))
 		else:
+			SoundManager.play_fail()
 			outcome_badge_label.text = "CHALLENGE FAILED"
 			outcome_badge_label.add_theme_color_override("font_color", Color(0.85, 0.22, 0.22, 1))
 		
@@ -104,6 +106,7 @@ func _display_outcome(outcome: Dictionary) -> void:
 			stat_name, stat_val, roll, total, diff
 		]
 	else:
+		SoundManager.play_click()
 		outcome_badge_label.text = "RESOLVED"
 		outcome_badge_label.add_theme_color_override("font_color", Color(0.1, 0.45, 0.75, 1))
 		roll_breakdown_label.text = "No stat check required."

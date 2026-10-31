@@ -67,10 +67,10 @@
   [PASS] Event adheres to morning time_block condition
 
 [Suite: Situations & Conflict System (Phase 3)]
-  [PASS] Exact 20 Situations authored and loaded
-  [PASS] 10 general Oshodi street situations authored
-  [PASS] 5 Trader-specific situations authored
-  [PASS] 5 Transporter-specific situations authored
+  [PASS] At least 20 Situations authored and loaded (got 40)
+  [PASS] At least 10 general Oshodi street situations authored (got 18)
+  [PASS] At least 5 Trader-specific situations authored (got 11)
+  [PASS] At least 5 Transporter-specific situations authored (got 11)
   [PASS] All situations have between 2 and 4 options
   [PASS] All option stat checks reference valid stats with valid difficulties
   [PASS] Trader eligibility excludes transporter-only situations
@@ -178,5 +178,43 @@
   [PASS] Legacy save migrated to CURRENT_SAVE_VERSION
   [PASS] Migrated save preserved player_name
 
+[Suite: Content Expansion, Quests, NPCs, Dialogue & Audio (Phase 6)]
+  [PASS] DataLoader has 0 validation errors with Phase 6 content
+  [PASS] Exactly 40 situations loaded in DataLoader (got 40)
+  [PASS] At least 10 quests loaded in DataLoader (got 10)
+  [PASS] At least 8 NPCs loaded in DataLoader (got 8)
+  [PASS] At least 15 dialogue trees loaded (got 25)
+  [PASS] Situation 'broken_down_trailer' exists
+  [PASS] Situation has at least 2 options
+  [PASS] Transporter situation 'heavy_cargo_overload' exists
+  [PASS] Situation requires transporter class
+  [PASS] NPC 'npc_baba_landlord' exists
+  [PASS] Landlord role is Compound Landlord
+  [PASS] Starting dialogue for landlord resolved
+  [PASS] Landlord starting dialogue is 'landlord_greeting'
+  [PASS] Bolade Junction has at least 2 local NPCs
+  [PASS] Quest 'rent_is_due' initially inactive
+  [PASS] Quest 'rent_is_due' initially not completed
+  [PASS] Successfully started quest 'rent_is_due'
+  [PASS] Quest 'rent_is_due' is now active
+  [PASS] Quest condition not yet fulfilled at ₦12,000
+  [PASS] Quest condition fulfilled after reaching ₦26,000
+  [PASS] Quest 'rent_is_due' completed successfully
+  [PASS] Quest 'rent_is_due' marked as completed
+  [PASS] Quest 'rent_is_due' no longer active
+  [PASS] Player respect increased from quest reward
+  [PASS] Player XP increased from quest reward
+  [PASS] Cannot restart already completed quest
+  [PASS] Applied +2 respect from dialogue option
+  [PASS] GameState respect updated correctly
+  [PASS] GameState energy deducted correctly (100 -> 95)
+  [PASS] SoundManager singleton exists
+  [PASS] SFX click stream loaded
+  [PASS] SFX cash stream loaded
+  [PASS] SFX success stream loaded
+  [PASS] SFX fail stream loaded
+  [PASS] SFX event stream loaded
+  [PASS] BGM stream loaded
+
 ===========================
-Results: 166 Passed, 0 Failed
+Results: 202 Passed, 0 Failed

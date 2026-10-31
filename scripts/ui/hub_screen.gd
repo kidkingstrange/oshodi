@@ -32,6 +32,8 @@ const Levelling = preload("res://scripts/core/levelling.gd")
 @onready var travel_button: Button = %TravelButton
 @onready var socialise_button: Button = %SocialiseButton
 @onready var situation_button: Button = %SituationButton
+@onready var talk_button: Button = %TalkButton
+@onready var quest_button: Button = %QuestButton
 @onready var shop_button: Button = %ShopButton
 @onready var subclass_button: Button = %SubclassButton
 @onready var stats_button: Button = %StatsButton
@@ -43,8 +45,11 @@ const Levelling = preload("res://scripts/core/levelling.gd")
 @onready var travel_options_list: ItemList = %TravelOptionsList
 @onready var event_dialog: AcceptDialog = %EventDialog
 @onready var morning_dialog: AcceptDialog = %MorningDialog
+@onready var npc_dialog: ConfirmationDialog = %NpcDialog
+@onready var npc_list: ItemList = %NpcList
 
 var current_connected_routes: Array[Dictionary] = []
+var current_local_npcs: Array[Dictionary] = []
 var activity_feed_history: Array[String] = []
 
 func _ready() -> void:
@@ -53,12 +58,18 @@ func _ready() -> void:
 	travel_button.pressed.connect(_on_travel_pressed)
 	socialise_button.pressed.connect(_on_socialise_pressed)
 	situation_button.pressed.connect(_on_situation_pressed)
+	if talk_button:
+		talk_button.pressed.connect(_on_talk_pressed)
+	if quest_button:
+		quest_button.pressed.connect(_on_quest_pressed)
 	shop_button.pressed.connect(_on_shop_pressed)
 	subclass_button.pressed.connect(_on_subclass_pressed)
 	stats_button.pressed.connect(_on_stats_pressed)
 	settings_button.pressed.connect(_on_settings_pressed)
 	menu_button.pressed.connect(_on_menu_pressed)
 	travel_dialog.confirmed.connect(_on_travel_confirmed)
+	if npc_dialog:
+		npc_dialog.confirmed.connect(_on_npc_dialog_confirmed)
 	
 	GameState.resources_changed.connect(_on_resources_changed)
 	GameState.time_advanced.connect(_on_time_advanced)
@@ -123,25 +134,32 @@ func _add_feed_entry(entry: String) -> void:
 	feed_label.text = "\n\n".join(activity_feed_history)
 
 func _on_work_pressed() -> void:
+	SoundManager.play_click()
 	var res = ActivityManager.perform_work()
 	if not res.get("success", false):
+		SoundManager.play_fail()
 		_show_notice(res.get("message", "Cannot work."))
 		return
 	
+	SoundManager.play_cash()
 	_add_feed_entry(res.get("message", ""))
 	_process_activity_outcome(res)
 
 func _on_rest_pressed() -> void:
+	SoundManager.play_click()
 	var res = ActivityManager.perform_rest()
 	_add_feed_entry(res.get("message", ""))
 	_process_activity_outcome(res)
 
 func _on_socialise_pressed() -> void:
+	SoundManager.play_click()
 	var res = ActivityManager.perform_socialise()
 	if not res.get("success", false):
+		SoundManager.play_fail()
 		_show_notice(res.get("message", "Cannot socialise."))
 		return
 	
+	SoundManager.play_cash()
 	_add_feed_entry(res.get("message", ""))
 	_process_activity_outcome(res)
 
@@ -234,19 +252,73 @@ func _on_situation_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/situation_screen.tscn")
 
 func _on_stats_pressed() -> void:
+	SoundManager.play_click()
 	get_tree().change_scene_to_file("res://scenes/stats_screen.tscn")
 
 func _on_shop_pressed() -> void:
+	SoundManager.play_click()
 	get_tree().change_scene_to_file("res://scenes/shop_screen.tscn")
 
 func _on_subclass_pressed() -> void:
+	SoundManager.play_click()
 	get_tree().change_scene_to_file("res://scenes/subclass_select.tscn")
 
 func _on_settings_pressed() -> void:
+	SoundManager.play_click()
 	get_tree().change_scene_to_file("res://scenes/settings_screen.tscn")
 
 func _on_menu_pressed() -> void:
+	SoundManager.play_click()
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+
+func _on_quest_pressed() -> void:
+	SoundManager.play_click()
+	get_tree().change_scene_to_file("res://scenes/quest_log.tscn")
+
+func _on_talk_pressed() -> void:
+	SoundManager.play_click()
+	current_local_npcs = DataLoader.get_npcs_for_location(GameState.location_id)
+	if current_local_npcs.is_empty():
+		current_local_npcs = DataLoader.get_all_npcs()
+	
+	if current_local_npcs.is_empty():
+		_show_notice("No locals are around right now.")
+		return
+	
+	if current_local_npcs.size() == 1:
+		_open_npc_dialogue(current_local_npcs[0].get("id", ""))
+		return
+	
+	if npc_list:
+		npc_list.clear()
+		for n in current_local_npcs:
+			var label = "%s — %s" % [n.get("name", "Local"), n.get("role", "Resident")]
+			npc_list.add_item(label)
+		if npc_dialog:
+			npc_dialog.popup_centered()
+
+func _on_npc_dialog_confirmed() -> void:
+	var selected = npc_list.get_selected_items()
+	if selected.is_empty():
+		if npc_list.item_count > 0:
+			var n = current_local_npcs[0]
+			_open_npc_dialogue(n.get("id", ""))
+		return
+	var idx = selected[0]
+	if idx >= 0 and idx < current_local_npcs.size():
+		var n = current_local_npcs[idx]
+		_open_npc_dialogue(n.get("id", ""))
+
+func _open_npc_dialogue(npc_id: String) -> void:
+	var dia_scene = load("res://scenes/dialogue_overlay.tscn")
+	if dia_scene:
+		var instance = dia_scene.instantiate()
+		add_child(instance)
+		instance.start_conversation(npc_id)
+		instance.dialogue_finished.connect(_on_dialogue_closed)
+
+func _on_dialogue_closed() -> void:
+	_refresh_display()
 
 func _show_notice(msg: String) -> void:
 	event_dialog.title = "Action Notice"

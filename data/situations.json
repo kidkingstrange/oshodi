@@ -2,35 +2,60 @@
   {
     "id": "checkpoint_stop",
     "title": "Roadside Checkpoint Encounter",
-    "location_tags": ["all"],
+    "location_tags": [
+      "all"
+    ],
     "required_class": null,
-    "time_blocks": ["morning", "afternoon", "evening"],
+    "time_blocks": [
+      "morning",
+      "afternoon",
+      "evening"
+    ],
     "setup_text": "An authoritative road safety patrol stops your movement along the transit corridor, demanding to review compliance and conduct a strict routine inspection.",
     "options": [
       {
         "id": "sweet_talk",
         "label": "Greet respectfully and explain your business",
-        "check": { "stat": "charisma", "difficulty": 6 },
+        "check": {
+          "stat": "charisma",
+          "difficulty": 6
+        },
         "on_success": {
           "text": "Your respectful greetings and warm courtesies win them over. The officer smiles, waves you on, and wishes you good sales!",
-          "effects": { "respect": 1, "xp": 10 }
+          "effects": {
+            "respect": 1,
+            "xp": 10
+          }
         },
         "on_fail": {
           "text": "Your stuttered explanation sounds suspicious. They search your belongings thoroughly, wasting valuable daylight.",
-          "effects": { "energy": -10, "heat": 1, "xp": 5 }
+          "effects": {
+            "energy": -10,
+            "heat": 1,
+            "xp": 5
+          }
         }
       },
       {
         "id": "official_papers",
         "label": "Present valid permits and trade clearance",
-        "check": { "stat": "street_smarts", "difficulty": 5 },
+        "check": {
+          "stat": "street_smarts",
+          "difficulty": 5
+        },
         "on_success": {
           "text": "Your papers are stamped and in order. The inspector nods curtly and gives you immediate clearance.",
-          "effects": { "respect": 1, "xp": 10 }
+          "effects": {
+            "respect": 1,
+            "xp": 10
+          }
         },
         "on_fail": {
           "text": "One photocopy has a folded smudge. You spend twenty minutes explaining yourself in the scorching sun.",
-          "effects": { "energy": -15, "xp": 5 }
+          "effects": {
+            "energy": -15,
+            "xp": 5
+          }
         }
       },
       {
@@ -39,7 +64,10 @@
         "check": null,
         "on_success": {
           "text": "You wait out the slow inspection quietly. No issues found, though you lose some energy in the process.",
-          "effects": { "energy": -8, "xp": 5 }
+          "effects": {
+            "energy": -8,
+            "xp": 5
+          }
         },
         "on_fail": {
           "text": "",
@@ -51,35 +79,61 @@
   {
     "id": "fuel_station_scramble",
     "title": "Filling Station Queue Scramble",
-    "location_tags": ["oshodi_underbridge", "bolade_junction"],
+    "location_tags": [
+      "oshodi_underbridge",
+      "bolade_junction"
+    ],
     "required_class": null,
-    "time_blocks": ["morning", "evening"],
+    "time_blocks": [
+      "morning",
+      "evening"
+    ],
     "setup_text": "Rumours of a fuel scarcity tanker delay trigger a sudden 50-vehicle scramble outside the filling station. Jerry cans and kekes crowd the pump entrance.",
     "options": [
       {
         "id": "hold_queue_ground",
         "label": "Hold your queue position with pure determination",
-        "check": { "stat": "grit", "difficulty": 6 },
+        "check": {
+          "stat": "grit",
+          "difficulty": 6
+        },
         "on_success": {
           "text": "You refuse to be shoved aside. You reach the pump nozzle first and secure your purchase at standard pump price!",
-          "effects": { "energy": -5, "respect": 1, "xp": 12 }
+          "effects": {
+            "energy": -5,
+            "respect": 1,
+            "xp": 12
+          }
         },
         "on_fail": {
           "text": "Aggressive touts push ahead in the confusion, leaving you stranded with empty jerry cans and aching shoulders.",
-          "effects": { "energy": -20, "xp": 5 }
+          "effects": {
+            "energy": -20,
+            "xp": 5
+          }
         }
       },
       {
         "id": "negotiate_attendant",
         "label": "Wave down the attendant with sharp street diplomacy",
-        "check": { "stat": "hustle", "difficulty": 5 },
+        "check": {
+          "stat": "hustle",
+          "difficulty": 5
+        },
         "on_success": {
           "text": "You whisper a sharp tip promise to the pump attendant, who quietly waves you into the VIP bay.",
-          "effects": { "naira": -500, "respect": 1, "xp": 15 }
+          "effects": {
+            "naira": -500,
+            "respect": 1,
+            "xp": 15
+          }
         },
         "on_fail": {
           "text": "The manager catches the move and barks at the attendant to serve the queue in strict order.",
-          "effects": { "energy": -10, "xp": 5 }
+          "effects": {
+            "energy": -10,
+            "xp": 5
+          }
         }
       }
     ]
@@ -87,35 +141,62 @@
   {
     "id": "rainstorm_stall_leak",
     "title": "Sudden Canopy Leak in the Market",
-    "location_tags": ["oshodi_market", "oshodi_underbridge"],
+    "location_tags": [
+      "oshodi_market",
+      "oshodi_underbridge"
+    ],
     "required_class": null,
-    "time_blocks": ["afternoon", "evening"],
+    "time_blocks": [
+      "afternoon",
+      "evening"
+    ],
     "setup_text": "A sudden torrential cloudburst unleashes heavy rain. Water pools on top of your plastic tarpaulin, threatening to collapse onto your goods and customers.",
     "options": [
       {
         "id": "reinforce_tarpaulin",
         "label": "Scramble up with a bamboo pole to reinforce the canopy",
-        "check": { "stat": "stamina", "difficulty": 6 },
+        "check": {
+          "stat": "stamina",
+          "difficulty": 6
+        },
         "on_success": {
           "text": "You prop up the sag and drain the pool harmlessly into the drainage gutter! Your goods and customers stay bone dry.",
-          "effects": { "respect": 2, "xp": 15 }
+          "effects": {
+            "respect": 2,
+            "xp": 15
+          }
         },
         "on_fail": {
           "text": "A gust of wind catches the pole! Cold gutter water splashes your face and dampens your merchandise.",
-          "effects": { "energy": -15, "naira": -600, "xp": 5 }
+          "effects": {
+            "energy": -15,
+            "naira": -600,
+            "xp": 5
+          }
         }
       },
       {
         "id": "rescue_goods_fast",
         "label": "Pack essential merchandise into waterproof plastic sacks",
-        "check": { "stat": "hustle", "difficulty": 5 },
+        "check": {
+          "stat": "hustle",
+          "difficulty": 5
+        },
         "on_success": {
           "text": "Fast hands save every single item before the first drop touches them. Other stall owners applaud your speed.",
-          "effects": { "energy": -8, "respect": 1, "xp": 10 }
+          "effects": {
+            "energy": -8,
+            "respect": 1,
+            "xp": 10
+          }
         },
         "on_fail": {
           "text": "You trip over a crate in the scramble. The sacks tear, spoiling some packaging.",
-          "effects": { "energy": -12, "naira": -400, "xp": 5 }
+          "effects": {
+            "energy": -12,
+            "naira": -400,
+            "xp": 5
+          }
         }
       }
     ]
@@ -123,35 +204,59 @@
   {
     "id": "pickpocket_warning",
     "title": "Slick Fingers in the Crowd",
-    "location_tags": ["all"],
+    "location_tags": [
+      "all"
+    ],
     "required_class": null,
-    "time_blocks": ["morning", "evening"],
+    "time_blocks": [
+      "morning",
+      "evening"
+    ],
     "setup_text": "In the dense crowd pushing past the pedestrian crossing, your sharp eyes catch a youth's hand slipping towards a mother's wrapped handbag.",
     "options": [
       {
         "id": "raise_voice",
         "label": "Raise a loud, timely shout to alert the crowd",
-        "check": { "stat": "street_smarts", "difficulty": 5 },
+        "check": {
+          "stat": "street_smarts",
+          "difficulty": 5
+        },
         "on_success": {
           "text": "\"Madam, hold your bag well!\" you shout. The startled pickpocket pulls back his hand and melts into the crowd.",
-          "effects": { "respect": 3, "xp": 15 }
+          "effects": {
+            "respect": 3,
+            "xp": 15
+          }
         },
         "on_fail": {
           "text": "You shout too late. The culprit darts between two parked danfos and disappears.",
-          "effects": { "energy": -5, "xp": 5 }
+          "effects": {
+            "energy": -5,
+            "xp": 5
+          }
         }
       },
       {
         "id": "subtle_bump",
         "label": "Deliberately bump the suspect to foil the attempt",
-        "check": { "stat": "grit", "difficulty": 6 },
+        "check": {
+          "stat": "grit",
+          "difficulty": 6
+        },
         "on_success": {
           "text": "You step into the youth's path with a firm shoulder. He glares at you, realizes you caught him, and backs away quickly.",
-          "effects": { "respect": 2, "xp": 15 }
+          "effects": {
+            "respect": 2,
+            "xp": 15
+          }
         },
         "on_fail": {
           "text": "The youth's associate nudges you aggressively from behind with harsh words, creating an uncomfortable scene.",
-          "effects": { "energy": -10, "heat": 1, "xp": 5 }
+          "effects": {
+            "energy": -10,
+            "heat": 1,
+            "xp": 5
+          }
         }
       }
     ]
@@ -159,35 +264,60 @@
   {
     "id": "landlord_notice",
     "title": "Landlord's Street Rampage",
-    "location_tags": ["bolade_junction"],
+    "location_tags": [
+      "bolade_junction"
+    ],
     "required_class": null,
-    "time_blocks": ["morning", "afternoon"],
+    "time_blocks": [
+      "morning",
+      "afternoon"
+    ],
     "setup_text": "An irate landlord with a walking stick is shouting outside your building compound, threatening to lock the main security gate over unpaid sanitation dues.",
     "options": [
       {
         "id": "soothe_landlord",
         "label": "Offer elder greetings and soothe his temper",
-        "check": { "stat": "charisma", "difficulty": 6 },
+        "check": {
+          "stat": "charisma",
+          "difficulty": 6
+        },
         "on_success": {
           "text": "You address him as 'Baba', listen to his complaints patiently, and promise to rally the tenants. He calms down and unlocks the gate.",
-          "effects": { "respect": 2, "xp": 15 }
+          "effects": {
+            "respect": 2,
+            "xp": 15
+          }
         },
         "on_fail": {
           "text": "Your words seem to annoy him further. He rants about undisciplined youths before stomping off.",
-          "effects": { "energy": -10, "xp": 5 }
+          "effects": {
+            "energy": -10,
+            "xp": 5
+          }
         }
       },
       {
         "id": "organize_dues",
         "label": "Organize tenants on the spot to clear the dues",
-        "check": { "stat": "hustle", "difficulty": 5 },
+        "check": {
+          "stat": "hustle",
+          "difficulty": 5
+        },
         "on_success": {
           "text": "You collect small contributions from neighbours on the spot and settle the bill cleanly. Everyone hails you as a responsible leader.",
-          "effects": { "naira": -200, "respect": 3, "xp": 20 }
+          "effects": {
+            "naira": -200,
+            "respect": 3,
+            "xp": 20
+          }
         },
         "on_fail": {
           "text": "Two stubborn neighbours refuse to contribute their share, leaving you to cover an embarrassing shortfall.",
-          "effects": { "naira": -800, "energy": -5, "xp": 5 }
+          "effects": {
+            "naira": -800,
+            "energy": -5,
+            "xp": 5
+          }
         }
       }
     ]
@@ -195,35 +325,60 @@
   {
     "id": "bus_park_argument",
     "title": "Loading Bay Deadlock",
-    "location_tags": ["oshodi_underbridge", "oshodi_bus_terminal"],
+    "location_tags": [
+      "oshodi_underbridge",
+      "oshodi_bus_terminal"
+    ],
     "required_class": null,
-    "time_blocks": ["morning", "afternoon", "evening"],
+    "time_blocks": [
+      "morning",
+      "afternoon",
+      "evening"
+    ],
     "setup_text": "Two stubborn commercial drivers lock bumpers at the narrow exit lane. Neither driver agrees to reverse, backing up a queue of twenty honking vehicles.",
     "options": [
       {
         "id": "direct_traffic_flow",
         "label": "Step into the road and direct the reverse flow",
-        "check": { "stat": "charisma", "difficulty": 6 },
+        "check": {
+          "stat": "charisma",
+          "difficulty": 6
+        },
         "on_success": {
           "text": "With clear hand signals and commanding authority, you guide both buses out smoothly. The entire queue cheers as the gridlock melts!",
-          "effects": { "respect": 3, "xp": 20 }
+          "effects": {
+            "respect": 3,
+            "xp": 20
+          }
         },
         "on_fail": {
           "text": "One conductor insults your hand directions. Both drivers refuse to move until union touts arrive with canes.",
-          "effects": { "energy": -10, "xp": 5 }
+          "effects": {
+            "energy": -10,
+            "xp": 5
+          }
         }
       },
       {
         "id": "call_park_chairman",
         "label": "Alert the park chairman's enforcement boys",
-        "check": { "stat": "street_smarts", "difficulty": 4 },
+        "check": {
+          "stat": "street_smarts",
+          "difficulty": 4
+        },
         "on_success": {
           "text": "The park enforcers arrive within two minutes. At first sight of them, both drivers reverse instantly and clear the road.",
-          "effects": { "respect": 1, "xp": 10 }
+          "effects": {
+            "respect": 1,
+            "xp": 10
+          }
         },
         "on_fail": {
           "text": "The enforcers take their sweet time arriving, leaving you stuck inhaling exhaust fumes for forty minutes.",
-          "effects": { "energy": -15, "xp": 5 }
+          "effects": {
+            "energy": -15,
+            "xp": 5
+          }
         }
       }
     ]
@@ -231,35 +386,60 @@
   {
     "id": "fake_bank_alert",
     "title": "Suspicious Electronic Transfer",
-    "location_tags": ["oshodi_market", "bolade_junction"],
+    "location_tags": [
+      "oshodi_market",
+      "bolade_junction"
+    ],
     "required_class": null,
-    "time_blocks": ["afternoon", "evening"],
+    "time_blocks": [
+      "afternoon",
+      "evening"
+    ],
     "setup_text": "A flashily dressed customer shows an SMS notification on his smartphone claiming a ₦15,000 transfer, pressuring you to release items immediately.",
     "options": [
       {
         "id": "verify_mobile_app",
         "label": "Insist on checking your personal banking app balance first",
-        "check": { "stat": "street_smarts", "difficulty": 5 },
+        "check": {
+          "stat": "street_smarts",
+          "difficulty": 5
+        },
         "on_success": {
           "text": "Your banking app shows zero incoming funds. You calmly point it out; the customer mumbles an excuse and hurries away!",
-          "effects": { "respect": 2, "xp": 15 }
+          "effects": {
+            "respect": 2,
+            "xp": 15
+          }
         },
         "on_fail": {
           "text": "Poor telecom network delays your banking app. The customer creates a scene before you finally spot the fake sender header.",
-          "effects": { "energy": -8, "xp": 5 }
+          "effects": {
+            "energy": -8,
+            "xp": 5
+          }
         }
       },
       {
         "id": "demand_cash",
         "label": "Demand hard cash or a physical POS slip",
-        "check": { "stat": "grit", "difficulty": 5 },
+        "check": {
+          "stat": "grit",
+          "difficulty": 5
+        },
         "on_success": {
           "text": "You refuse to budge on payment policy. Realizing you cannot be tricked, the customer sheepishly hands over real banknotes.",
-          "effects": { "naira": 1500, "respect": 1, "xp": 10 }
+          "effects": {
+            "naira": 1500,
+            "respect": 1,
+            "xp": 10
+          }
         },
         "on_fail": {
           "text": "The customer loudly curses your business and stalks off, taking his money elsewhere.",
-          "effects": { "energy": -5, "xp": 5 }
+          "effects": {
+            "energy": -5,
+            "xp": 5
+          }
         }
       }
     ]
@@ -267,35 +447,59 @@
   {
     "id": "street_sweeper_fine",
     "title": "Sanitation Task Force Inspection",
-    "location_tags": ["all"],
+    "location_tags": [
+      "all"
+    ],
     "required_class": null,
-    "time_blocks": ["morning"],
+    "time_blocks": [
+      "morning"
+    ],
     "setup_text": "A municipal sanitation inspector in yellow overalls points a clipboard at paper refuse blown by the wind in front of your spot, threatening a penalty.",
     "options": [
       {
         "id": "banter_inspector",
         "label": "Explain the windblown litter with friendly local banter",
-        "check": { "stat": "charisma", "difficulty": 6 },
+        "check": {
+          "stat": "charisma",
+          "difficulty": 6
+        },
         "on_success": {
           "text": "You sweep the paper into a bin right in front of him with a smile. The inspector appreciates your prompt civic attitude.",
-          "effects": { "respect": 1, "xp": 10 }
+          "effects": {
+            "respect": 1,
+            "xp": 10
+          }
         },
         "on_fail": {
           "text": "The inspector takes your words as disrespect and writes an official warning citation.",
-          "effects": { "naira": -1000, "energy": -5, "xp": 5 }
+          "effects": {
+            "naira": -1000,
+            "energy": -5,
+            "xp": 5
+          }
         }
       },
       {
         "id": "sweep_immediately",
         "label": "Grab a broom and sweep the whole gutter edge clean",
-        "check": { "stat": "stamina", "difficulty": 4 },
+        "check": {
+          "stat": "stamina",
+          "difficulty": 4
+        },
         "on_success": {
           "text": "Your fast broom work leaves the frontage gleaming. Nearby vendors praise your standard of cleanliness.",
-          "effects": { "energy": -10, "respect": 2, "xp": 15 }
+          "effects": {
+            "energy": -10,
+            "respect": 2,
+            "xp": 15
+          }
         },
         "on_fail": {
           "text": "Dust enters your eyes and nose, leaving you coughing while the inspector frowns.",
-          "effects": { "energy": -15, "xp": 5 }
+          "effects": {
+            "energy": -15,
+            "xp": 5
+          }
         }
       }
     ]
@@ -303,35 +507,60 @@
   {
     "id": "sudden_power_restoration",
     "title": "High Voltage Surge at Dusk",
-    "location_tags": ["bolade_junction", "oshodi_market"],
+    "location_tags": [
+      "bolade_junction",
+      "oshodi_market"
+    ],
     "required_class": null,
-    "time_blocks": ["evening", "night"],
+    "time_blocks": [
+      "evening",
+      "night"
+    ],
     "setup_text": "A chorus of 'Up NEPA!' erupts as electricity returns, but the street transformer sparks loudly with dangerously high voltage.",
     "options": [
       {
         "id": "switch_off_main",
         "label": "Sprint to disconnect your breaker switch immediately",
-        "check": { "stat": "street_smarts", "difficulty": 5 },
+        "check": {
+          "stat": "street_smarts",
+          "difficulty": 5
+        },
         "on_success": {
           "text": "You flick off the changeover switch seconds before a power surge pops bulbs across the street. All appliances saved!",
-          "effects": { "respect": 2, "xp": 15 }
+          "effects": {
+            "respect": 2,
+            "xp": 15
+          }
         },
         "on_fail": {
           "text": "You reach the board just as a small surge blows your extension box fuse with a sharp crack.",
-          "effects": { "naira": -1200, "energy": -5, "xp": 5 }
+          "effects": {
+            "naira": -1200,
+            "energy": -5,
+            "xp": 5
+          }
         }
       },
       {
         "id": "alert_neighbours",
         "label": "Shout warnings to alert neighbouring shops and rooms",
-        "check": { "stat": "charisma", "difficulty": 4 },
+        "check": {
+          "stat": "charisma",
+          "difficulty": 4
+        },
         "on_success": {
           "text": "Your urgent shouts alert twenty people who cut their power in time. Neighbours thank you profusely with warm greetings.",
-          "effects": { "respect": 3, "xp": 15 }
+          "effects": {
+            "respect": 3,
+            "xp": 15
+          }
         },
         "on_fail": {
           "text": "Your shouts are drowned out by the roar of generators that haven't been turned off yet.",
-          "effects": { "energy": -5, "xp": 5 }
+          "effects": {
+            "energy": -5,
+            "xp": 5
+          }
         }
       }
     ]
@@ -339,35 +568,61 @@
   {
     "id": "lost_visitor_directions",
     "title": "Confused Traveler at the Interchange",
-    "location_tags": ["oshodi_bus_terminal"],
+    "location_tags": [
+      "oshodi_bus_terminal"
+    ],
     "required_class": null,
-    "time_blocks": ["morning", "afternoon"],
+    "time_blocks": [
+      "morning",
+      "afternoon"
+    ],
     "setup_text": "An elderly passenger holding a heavy traveling box looks utterly bewildered by the sprawling multi-terminal overhead ramps and bus numbers.",
     "options": [
       {
         "id": "direct_accurately",
         "label": "Patiently explain the exact terminal bay and bus route",
-        "check": { "stat": "street_smarts", "difficulty": 4 },
+        "check": {
+          "stat": "street_smarts",
+          "difficulty": 4
+        },
         "on_success": {
           "text": "Your clear instructions guide him straight to the right ticket booth. He blesses your hustle with heartfelt gratitude.",
-          "effects": { "respect": 2, "xp": 10 }
+          "effects": {
+            "respect": 2,
+            "xp": 10
+          }
         },
         "on_fail": {
           "text": "You accidentally mix up Terminal 2 with Terminal 3, sending him up the wrong escalator before having to run after him.",
-          "effects": { "energy": -12, "xp": 5 }
+          "effects": {
+            "energy": -12,
+            "xp": 5
+          }
         }
       },
       {
         "id": "carry_load_guide",
         "label": "Help carry his heavy box directly to his departure bay",
-        "check": { "stat": "stamina", "difficulty": 5 },
+        "check": {
+          "stat": "stamina",
+          "difficulty": 5
+        },
         "on_success": {
           "text": "You haul the luggage safely through the pedestrian gates. Overjoyed by your kindness, the passenger presses a ₦2,000 tip into your hand!",
-          "effects": { "naira": 2000, "energy": -10, "respect": 2, "xp": 20 }
+          "effects": {
+            "naira": 2000,
+            "energy": -10,
+            "respect": 2,
+            "xp": 20
+          }
         },
         "on_fail": {
           "text": "The heavy box strains your back on the concrete stairs. The traveler thanks you warmly, but you feel the ache.",
-          "effects": { "energy": -20, "respect": 1, "xp": 10 }
+          "effects": {
+            "energy": -20,
+            "respect": 1,
+            "xp": 10
+          }
         }
       }
     ]
@@ -375,35 +630,61 @@
   {
     "id": "market_haggle_tomatoes",
     "title": "Tomato Basket Price War",
-    "location_tags": ["oshodi_market"],
+    "location_tags": [
+      "oshodi_market"
+    ],
     "required_class": "trader",
-    "time_blocks": ["morning", "afternoon"],
+    "time_blocks": [
+      "morning",
+      "afternoon"
+    ],
     "setup_text": "A vocal wholesale customer claims your basket of fresh plum tomatoes is far too expensive, pointing aggressively to an inferior basket down the line.",
     "options": [
       {
         "id": "hold_quality_price",
         "label": "Hold your price and showcase superior fresh quality",
-        "check": { "stat": "charisma", "difficulty": 6 },
+        "check": {
+          "stat": "charisma",
+          "difficulty": 6
+        },
         "on_success": {
           "text": "You slice open one tomato to prove its dense, firm flesh. The buyer acknowledges the quality and pays your full asking price!",
-          "effects": { "naira": 3500, "respect": 2, "xp": 20 }
+          "effects": {
+            "naira": 3500,
+            "respect": 2,
+            "xp": 20
+          }
         },
         "on_fail": {
           "text": "The buyer laughs mockingly and walks down the alley, leaving you with unsold perishable stock.",
-          "effects": { "energy": -5, "naira": -500, "xp": 5 }
+          "effects": {
+            "energy": -5,
+            "naira": -500,
+            "xp": 5
+          }
         }
       },
       {
         "id": "package_bundle_deal",
         "label": "Bundle with peppers and onions for an irresistible combo",
-        "check": { "stat": "hustle", "difficulty": 5 },
+        "check": {
+          "stat": "hustle",
+          "difficulty": 5
+        },
         "on_success": {
           "text": "The combo deal moves two extra baskets of peppers at high margin! Both parties walk away grinning.",
-          "effects": { "naira": 4500, "respect": 1, "xp": 20 }
+          "effects": {
+            "naira": 4500,
+            "respect": 1,
+            "xp": 20
+          }
         },
         "on_fail": {
           "text": "You calculate the bundle margin too tightly and barely break even on the transaction.",
-          "effects": { "naira": 1000, "xp": 5 }
+          "effects": {
+            "naira": 1000,
+            "xp": 5
+          }
         }
       }
     ]
@@ -411,35 +692,59 @@
   {
     "id": "wholesale_bargain",
     "title": "Depot Clearance Lot",
-    "location_tags": ["oshodi_market"],
+    "location_tags": [
+      "oshodi_market"
+    ],
     "required_class": "trader",
-    "time_blocks": ["morning"],
+    "time_blocks": [
+      "morning"
+    ],
     "setup_text": "A depot freight driver needs to return to Ogun State and offers you three sealed cartons of premium phone accessories at half standard cost if taken immediately.",
     "options": [
       {
         "id": "strike_wholesale_deal",
         "label": "Bargain aggressively for the entire lot on cash terms",
-        "check": { "stat": "hustle", "difficulty": 6 },
+        "check": {
+          "stat": "hustle",
+          "difficulty": 6
+        },
         "on_success": {
           "text": "You negotiate a jaw-dropping deal and snap up the inventory. Your expected retail profit margin exceeds 200%!",
-          "effects": { "naira": 5000, "respect": 1, "xp": 25 }
+          "effects": {
+            "naira": 5000,
+            "respect": 1,
+            "xp": 25
+          }
         },
         "on_fail": {
           "text": "You hesitate on the price; a rival merchant steps in with cash and buys the lot right out from under you.",
-          "effects": { "energy": -5, "xp": 5 }
+          "effects": {
+            "energy": -5,
+            "xp": 5
+          }
         }
       },
       {
         "id": "inspect_authenticity",
         "label": "Carefully inspect samples for counterfeit seals",
-        "check": { "stat": "street_smarts", "difficulty": 5 },
+        "check": {
+          "stat": "street_smarts",
+          "difficulty": 5
+        },
         "on_success": {
           "text": "Your keen eye confirms the hologram seals are 100% genuine original factory goods. You buy with supreme confidence.",
-          "effects": { "naira": 3000, "respect": 2, "xp": 15 }
+          "effects": {
+            "naira": 3000,
+            "respect": 2,
+            "xp": 15
+          }
         },
         "on_fail": {
           "text": "The driver grows impatient while you squint at serial numbers and drives off to another market.",
-          "effects": { "energy": -5, "xp": 5 }
+          "effects": {
+            "energy": -5,
+            "xp": 5
+          }
         }
       }
     ]
@@ -447,35 +752,59 @@
   {
     "id": "stubborn_haggler",
     "title": "The Never-Ending Bargain",
-    "location_tags": ["oshodi_market"],
+    "location_tags": [
+      "oshodi_market"
+    ],
     "required_class": "trader",
-    "time_blocks": ["afternoon"],
+    "time_blocks": [
+      "afternoon"
+    ],
     "setup_text": "A well-dressed woman has spent twenty-five minutes examining a single silk wrapper, offering barely 40% of its cost price while blocking other shoppers.",
     "options": [
       {
         "id": "charm_sweet_cloth",
         "label": "Flatter her elegance and style to seal the deal",
-        "check": { "stat": "charisma", "difficulty": 5 },
+        "check": {
+          "stat": "charisma",
+          "difficulty": 5
+        },
         "on_success": {
           "text": "You explain how perfectly the cloth complements her status. She beams with pride and happily pays full value!",
-          "effects": { "naira": 3000, "respect": 1, "xp": 15 }
+          "effects": {
+            "naira": 3000,
+            "respect": 1,
+            "xp": 15
+          }
         },
         "on_fail": {
           "text": "She sees right through the flattery and folds her arms stubbornly, wasting another ten minutes.",
-          "effects": { "energy": -10, "xp": 5 }
+          "effects": {
+            "energy": -10,
+            "xp": 5
+          }
         }
       },
       {
         "id": "firm_walk_away",
         "label": "Politely fold the fabric and attend to the next customer",
-        "check": { "stat": "grit", "difficulty": 5 },
+        "check": {
+          "stat": "grit",
+          "difficulty": 5
+        },
         "on_success": {
           "text": "Realizing you won't be bullied on price, she quickly reaches into her purse and agrees to your previous offer.",
-          "effects": { "naira": 2500, "respect": 2, "xp": 15 }
+          "effects": {
+            "naira": 2500,
+            "respect": 2,
+            "xp": 15
+          }
         },
         "on_fail": {
           "text": "She clicks her tongue loudly, makes a dramatic comment about your attitude, and walks away.",
-          "effects": { "energy": -5, "xp": 5 }
+          "effects": {
+            "energy": -5,
+            "xp": 5
+          }
         }
       }
     ]
@@ -483,35 +812,60 @@
   {
     "id": "stall_space_dispute",
     "title": "Frontage Line Encroachment",
-    "location_tags": ["oshodi_market"],
+    "location_tags": [
+      "oshodi_market"
+    ],
     "required_class": "trader",
-    "time_blocks": ["morning", "afternoon"],
+    "time_blocks": [
+      "morning",
+      "afternoon"
+    ],
     "setup_text": "An aggressive hawker sets up a large wooden display table overlapping two feet into your assigned market stall frontage, blocking customer views.",
     "options": [
       {
         "id": "negotiate_shared_boundary",
         "label": "Negotiate a fair cooperative compromise",
-        "check": { "stat": "charisma", "difficulty": 6 },
+        "check": {
+          "stat": "charisma",
+          "difficulty": 6
+        },
         "on_success": {
           "text": "You propose angling both tables so both vendors gain wider visibility. Both of you enjoy booming foot traffic!",
-          "effects": { "respect": 2, "xp": 15 }
+          "effects": {
+            "respect": 2,
+            "xp": 15
+          }
         },
         "on_fail": {
           "text": "He shouts that the street belongs to the government, attracting an unruly crowd of onlookers.",
-          "effects": { "energy": -10, "heat": 1, "xp": 5 }
+          "effects": {
+            "energy": -10,
+            "heat": 1,
+            "xp": 5
+          }
         }
       },
       {
         "id": "assert_market_rights",
         "label": "Produce your official stall allocation ticket",
-        "check": { "stat": "street_smarts", "difficulty": 5 },
+        "check": {
+          "stat": "street_smarts",
+          "difficulty": 5
+        },
         "on_success": {
           "text": "You flash your official union receipt. A nearby market elder nods and orders the intruder to pull his table back.",
-          "effects": { "respect": 2, "xp": 15 }
+          "effects": {
+            "respect": 2,
+            "xp": 15
+          }
         },
         "on_fail": {
           "text": "He claims your receipt is from last quarter. You have to call the union secretary to settle the dispute.",
-          "effects": { "energy": -15, "naira": -300, "xp": 5 }
+          "effects": {
+            "energy": -15,
+            "naira": -300,
+            "xp": 5
+          }
         }
       }
     ]
@@ -519,35 +873,60 @@
   {
     "id": "counterfeit_currency",
     "title": "Crisp Paper Mystery",
-    "location_tags": ["oshodi_market"],
+    "location_tags": [
+      "oshodi_market"
+    ],
     "required_class": "trader",
-    "time_blocks": ["afternoon", "evening"],
+    "time_blocks": [
+      "afternoon",
+      "evening"
+    ],
     "setup_text": "A customer hands you two crisp ₦1,000 notes for bulk provisions. The paper feels unusually smooth and the watermark looks slightly off-center.",
     "options": [
       {
         "id": "scratch_and_water_test",
         "label": "Discreetly test the ink texture and security thread",
-        "check": { "stat": "street_smarts", "difficulty": 5 },
+        "check": {
+          "stat": "street_smarts",
+          "difficulty": 5
+        },
         "on_success": {
           "text": "Your fingers immediately detect the fake raised ink. You quietly return it; the embarrassed buyer swaps it for authentic notes.",
-          "effects": { "respect": 2, "xp": 15 }
+          "effects": {
+            "respect": 2,
+            "xp": 15
+          }
         },
         "on_fail": {
           "text": "You hesitate too long. The customer snatches the provisions and melts into the crowded evening rush.",
-          "effects": { "naira": -2000, "energy": -5, "xp": 5 }
+          "effects": {
+            "naira": -2000,
+            "energy": -5,
+            "xp": 5
+          }
         }
       },
       {
         "id": "direct_challenge",
         "label": "Hold the note up to the sunlight and challenge the authenticity",
-        "check": { "stat": "grit", "difficulty": 6 },
+        "check": {
+          "stat": "grit",
+          "difficulty": 6
+        },
         "on_success": {
           "text": "You expose the absence of the silver thread in broad daylight. Nearby traders surround the fraudster until valid money is produced.",
-          "effects": { "respect": 3, "xp": 20 }
+          "effects": {
+            "respect": 3,
+            "xp": 20
+          }
         },
         "on_fail": {
           "text": "The customer vehemently accuses you of trying to defame him, creating an uncomfortable market shouting match.",
-          "effects": { "energy": -10, "heat": 1, "xp": 5 }
+          "effects": {
+            "energy": -10,
+            "heat": 1,
+            "xp": 5
+          }
         }
       }
     ]
@@ -555,35 +934,64 @@
   {
     "id": "flat_tyre_rush",
     "title": "Blowout on the Expressway",
-    "location_tags": ["oshodi_underbridge"],
+    "location_tags": [
+      "oshodi_underbridge"
+    ],
     "required_class": "transporter",
-    "time_blocks": ["morning", "afternoon", "evening"],
+    "time_blocks": [
+      "morning",
+      "afternoon",
+      "evening"
+    ],
     "setup_text": "A sudden loud pop shakes your vehicle! Your front right tyre goes completely flat in the middle of a packed highway transit run.",
     "options": [
       {
         "id": "rapid_jack_swap",
         "label": "Whip out the hydraulic jack and swap the spare in record time",
-        "check": { "stat": "stamina", "difficulty": 6 },
+        "check": {
+          "stat": "stamina",
+          "difficulty": 6
+        },
         "on_success": {
           "text": "You change the wheel in under eight minutes flat! Impressed passengers stay aboard and tip you for rapid rescue.",
-          "effects": { "naira": 1500, "energy": -10, "respect": 2, "xp": 20 }
+          "effects": {
+            "naira": 1500,
+            "energy": -10,
+            "respect": 2,
+            "xp": 20
+          }
         },
         "on_fail": {
           "text": "A rusted wheel nut refuses to turn! Passengers grow frustrated, demand fare refunds, and board another bus.",
-          "effects": { "naira": -1200, "energy": -20, "xp": 5 }
+          "effects": {
+            "naira": -1200,
+            "energy": -20,
+            "xp": 5
+          }
         }
       },
       {
         "id": "roadside_vulcanizer",
         "label": "Limp slowly into a nearby roadside vulcanizer bay",
-        "check": { "stat": "street_smarts", "difficulty": 4 },
+        "check": {
+          "stat": "street_smarts",
+          "difficulty": 4
+        },
         "on_success": {
           "text": "The vulcanizer patches the puncture with burning rubber in ten minutes for a fair fee. You rejoin the route promptly.",
-          "effects": { "naira": -600, "energy": -5, "xp": 10 }
+          "effects": {
+            "naira": -600,
+            "energy": -5,
+            "xp": 10
+          }
         },
         "on_fail": {
           "text": "The vulcanizer's compressor has no power! You waste thirty minutes waiting for him to pull his generator cord.",
-          "effects": { "naira": -800, "energy": -15, "xp": 5 }
+          "effects": {
+            "naira": -800,
+            "energy": -15,
+            "xp": 5
+          }
         }
       }
     ]
@@ -591,35 +999,59 @@
   {
     "id": "no_change_passenger",
     "title": "Big Money, Small Fare",
-    "location_tags": ["oshodi_underbridge", "oshodi_bus_terminal"],
+    "location_tags": [
+      "oshodi_underbridge",
+      "oshodi_bus_terminal"
+    ],
     "required_class": "transporter",
-    "time_blocks": ["morning", "evening"],
+    "time_blocks": [
+      "morning",
+      "evening"
+    ],
     "setup_text": "A commuter hands you a crisp high-denomination banknote for a short ₦200 hop, claiming with a shrug that he has zero smaller denominations.",
     "options": [
       {
         "id": "pair_passenger_fares",
         "label": "Cleverly pair him with other passengers needing change",
-        "check": { "stat": "street_smarts", "difficulty": 5 },
+        "check": {
+          "stat": "street_smarts",
+          "difficulty": 5
+        },
         "on_success": {
           "text": "You orchestrate a quick change exchange between three passengers before the next stop. Every fare accounted for!",
-          "effects": { "respect": 1, "xp": 15 }
+          "effects": {
+            "respect": 1,
+            "xp": 15
+          }
         },
         "on_fail": {
           "text": "The math gets muddled, creating a noisy argument inside the bus that slows down your route.",
-          "effects": { "energy": -10, "xp": 5 }
+          "effects": {
+            "energy": -10,
+            "xp": 5
+          }
         }
       },
       {
         "id": "insist_pure_water",
         "label": "Demand he buy cold pure water from a hawker to break the note",
-        "check": { "stat": "charisma", "difficulty": 5 },
+        "check": {
+          "stat": "charisma",
+          "difficulty": 5
+        },
         "on_success": {
           "text": "The passenger leans out the window, buys two sachets of pure water, and hands you the exact change with a laugh.",
-          "effects": { "respect": 1, "xp": 10 }
+          "effects": {
+            "respect": 1,
+            "xp": 10
+          }
         },
         "on_fail": {
           "text": "The passenger stubbornly refuses and causes an argument at the bus door.",
-          "effects": { "energy": -5, "xp": 5 }
+          "effects": {
+            "energy": -5,
+            "xp": 5
+          }
         }
       }
     ]
@@ -627,35 +1059,62 @@
   {
     "id": "union_ticket_clash",
     "title": "Aggressive Park Ticket Agbero",
-    "location_tags": ["oshodi_underbridge"],
+    "location_tags": [
+      "oshodi_underbridge"
+    ],
     "required_class": "transporter",
-    "time_blocks": ["morning", "afternoon"],
+    "time_blocks": [
+      "morning",
+      "afternoon"
+    ],
     "setup_text": "An aggressive park tout grabs hold of your side mirror, violently demanding an unauthorized afternoon 'loading development ticket'.",
     "options": [
       {
         "id": "stand_down_tout",
         "label": "Slap his hand away from the mirror and assert park seniority",
-        "check": { "stat": "grit", "difficulty": 6 },
+        "check": {
+          "stat": "grit",
+          "difficulty": 6
+        },
         "on_success": {
           "text": "You lock eyes with him and bark his senior union boss's name. Realizing you know the hierarchy, he lets go and scuttles away.",
-          "effects": { "respect": 3, "xp": 25 }
+          "effects": {
+            "respect": 3,
+            "xp": 25
+          }
         },
         "on_fail": {
           "text": "He whistles for his crew, kicking your wheel rim and demanding double payment before letting you leave.",
-          "effects": { "naira": -1000, "energy": -10, "heat": 1, "xp": 5 }
+          "effects": {
+            "naira": -1000,
+            "energy": -10,
+            "heat": 1,
+            "xp": 5
+          }
         }
       },
       {
         "id": "negotiate_small_kola",
         "label": "Calm him down with smooth street greeting and minor tip",
-        "check": { "stat": "charisma", "difficulty": 5 },
+        "check": {
+          "stat": "charisma",
+          "difficulty": 5
+        },
         "on_success": {
           "text": "You hand him a small ₦200 tip with a warm fist bump. He salutes you as 'Chairman' and clears the way.",
-          "effects": { "naira": -200, "respect": 1, "xp": 10 }
+          "effects": {
+            "naira": -200,
+            "respect": 1,
+            "xp": 10
+          }
         },
         "on_fail": {
           "text": "He insults your small tip and demands full ticket money anyway.",
-          "effects": { "naira": -600, "energy": -5, "xp": 5 }
+          "effects": {
+            "naira": -600,
+            "energy": -5,
+            "xp": 5
+          }
         }
       }
     ]
@@ -663,35 +1122,61 @@
   {
     "id": "traffic_diversion_shortcut",
     "title": "Unpaved Alleyway Bypass",
-    "location_tags": ["oshodi_underbridge", "bolade_junction"],
+    "location_tags": [
+      "oshodi_underbridge",
+      "bolade_junction"
+    ],
     "required_class": "transporter",
-    "time_blocks": ["evening"],
+    "time_blocks": [
+      "evening"
+    ],
     "setup_text": "The main artery is deadlocked by a broken-down oil tanker. Impatient passengers urge you to take a narrow unpaved residential alleyway shortcut.",
     "options": [
       {
         "id": "navigate_potholes",
         "label": "Masterfully maneuver the craters and drainage ditches",
-        "check": { "stat": "street_smarts", "difficulty": 6 },
+        "check": {
+          "stat": "street_smarts",
+          "difficulty": 6
+        },
         "on_success": {
           "text": "You glide across the backstreets with precision, bypassing two kilometres of gridlock! Passengers cheer and tip generously.",
-          "effects": { "naira": 2500, "respect": 3, "xp": 25 }
+          "effects": {
+            "naira": 2500,
+            "respect": 3,
+            "xp": 25
+          }
         },
         "on_fail": {
           "text": "Your undercarriage scrapes heavily against a raised drainage slab with a sickening crunch.",
-          "effects": { "naira": -1500, "energy": -15, "xp": 5 }
+          "effects": {
+            "naira": -1500,
+            "energy": -15,
+            "xp": 5
+          }
         }
       },
       {
         "id": "patient_expressway",
         "label": "Stay firmly on the paved highway and ride out the jam",
-        "check": { "stat": "grit", "difficulty": 4 },
+        "check": {
+          "stat": "grit",
+          "difficulty": 4
+        },
         "on_success": {
           "text": "The tanker is towed ten minutes later. You safely stay on smooth asphalt with zero vehicle damage.",
-          "effects": { "energy": -8, "xp": 10 }
+          "effects": {
+            "energy": -8,
+            "xp": 10
+          }
         },
         "on_fail": {
           "text": "The jam drags on for an hour. Impatient passengers grumble continuously about your lack of adventure.",
-          "effects": { "energy": -18, "respect": -1, "xp": 5 }
+          "effects": {
+            "energy": -18,
+            "respect": -1,
+            "xp": 5
+          }
         }
       }
     ]
@@ -699,35 +1184,1226 @@
   {
     "id": "overheating_radiator",
     "title": "Steam Rising on the Bridge Climb",
-    "location_tags": ["oshodi_underbridge"],
+    "location_tags": [
+      "oshodi_underbridge"
+    ],
     "required_class": "transporter",
-    "time_blocks": ["afternoon"],
+    "time_blocks": [
+      "afternoon"
+    ],
     "setup_text": "Ascending the steep bridge incline in hot afternoon traffic, thick white steam suddenly hisses from under the passenger bench—the radiator is boiling!",
     "options": [
       {
         "id": "nurse_to_crest",
         "label": "Carefully nurse the throttle to crest the bridge safely",
-        "check": { "stat": "grit", "difficulty": 6 },
+        "check": {
+          "stat": "grit",
+          "difficulty": 6
+        },
         "on_success": {
           "text": "With delicate throttle control, you crest the bridge and coast safely into an emergency lay-by without blowing the head gasket!",
-          "effects": { "respect": 2, "xp": 20 }
+          "effects": {
+            "respect": 2,
+            "xp": 20
+          }
         },
         "on_fail": {
           "text": "The engine cuts out on the incline with a loud wheeze, forcing passengers to help push you to the side.",
-          "effects": { "energy": -20, "naira": -1000, "xp": 5 }
+          "effects": {
+            "energy": -20,
+            "naira": -1000,
+            "xp": 5
+          }
         }
       },
       {
         "id": "buy_cold_water",
         "label": "Hail pure-water sellers to cool the radiator immediately",
-        "check": { "stat": "hustle", "difficulty": 4 },
+        "check": {
+          "stat": "hustle",
+          "difficulty": 4
+        },
         "on_success": {
           "text": "You buy four bags of ice-cold pure water, carefully pour them over the core, and restore normal temperature in minutes.",
-          "effects": { "naira": -300, "energy": -5, "xp": 10 }
+          "effects": {
+            "naira": -300,
+            "energy": -5,
+            "xp": 10
+          }
         },
         "on_fail": {
           "text": "You open the cap a second too soon! Steam scalds your thumb and wastes the water.",
-          "effects": { "energy": -15, "naira": -500, "xp": 5 }
+          "effects": {
+            "energy": -15,
+            "naira": -500,
+            "xp": 5
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "broken_down_trailer",
+    "title": "Articulated Lorry Across the Lane",
+    "location_tags": [
+      "oshodi_underbridge",
+      "oshodi_bus_terminal"
+    ],
+    "required_class": null,
+    "time_blocks": [
+      "morning",
+      "afternoon",
+      "evening"
+    ],
+    "setup_text": "A container trailer has stalled across two lanes right at the terminal incline, causing instant total gridlock. Hawkers and commuters are squeezing through a two-foot gap.",
+    "options": [
+      {
+        "id": "guide_traffic",
+        "label": "Step forward with confidence and direct the snarl-up",
+        "check": {
+          "stat": "charisma",
+          "difficulty": 6
+        },
+        "on_success": {
+          "text": "Your loud commands and authoritative hand gestures untangle the knot. Drivers honk in gratitude!",
+          "effects": {
+            "respect": 3,
+            "xp": 20
+          }
+        },
+        "on_fail": {
+          "text": "An impatient tanker driver ignores your hand signals and nearly backs into you, sending you scrambling.",
+          "effects": {
+            "energy": -12,
+            "respect": -1,
+            "xp": 5
+          }
+        }
+      },
+      {
+        "id": "squeeze_pedestrian",
+        "label": "Squeeze through the narrow median quietly",
+        "check": {
+          "stat": "stamina",
+          "difficulty": 4
+        },
+        "on_success": {
+          "text": "You slip through the narrow crevice between bumpers and bypass the delay cleanly.",
+          "effects": {
+            "energy": -4,
+            "xp": 10
+          }
+        },
+        "on_fail": {
+          "text": "You scrape your leg against a rusty exhaust pipe while dodging between vehicles.",
+          "effects": {
+            "energy": -15,
+            "xp": 5
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "street_preacher_prophecy",
+    "title": "The Interchange Prophet",
+    "location_tags": [
+      "oshodi_underbridge",
+      "bolade_junction"
+    ],
+    "required_class": null,
+    "time_blocks": [
+      "morning",
+      "evening"
+    ],
+    "setup_text": "A fiery itinerant evangelist holding a megaphone and a wooden bell stops directly in your path, announcing that prosperity awaits the humble, but warns of deceptive deals today.",
+    "options": [
+      {
+        "id": "receive_blessing",
+        "label": "Listen respectfully and offer a humble donation",
+        "check": null,
+        "on_success": {
+          "text": "The preacher lays a blessing upon your trade for the week. The solemn prayer uplifts your spirit.",
+          "effects": {
+            "naira": -200,
+            "energy": 10,
+            "respect": 1,
+            "xp": 10
+          }
+        },
+        "on_fail": {
+          "text": "",
+          "effects": {}
+        }
+      },
+      {
+        "id": "polite_courtesy",
+        "label": "Nod with warm courtesy and hurry along to your business",
+        "check": {
+          "stat": "street_smarts",
+          "difficulty": 4
+        },
+        "on_success": {
+          "text": "You greet politely: Good morning sir, God bless you! You maintain social grace without losing a minute.",
+          "effects": {
+            "respect": 1,
+            "xp": 8
+          }
+        },
+        "on_fail": {
+          "text": "The preacher points the megaphone at your ear, delivering a prolonged sermon while crowd members smile.",
+          "effects": {
+            "energy": -8,
+            "xp": 4
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "sudden_rain_flood",
+    "title": "Flash Rain and Swollen Gutters",
+    "location_tags": [
+      "oshodi_market",
+      "bolade_junction"
+    ],
+    "required_class": null,
+    "time_blocks": [
+      "afternoon",
+      "evening"
+    ],
+    "setup_text": "A sudden 30-minute tropical thunderstorm turns the roadside gutters into rushing muddy torrents. A wide channel blocks your path across the street.",
+    "options": [
+      {
+        "id": "wooden_plank_bridge",
+        "label": "Cross via the precarious wooden plank laid across the stream",
+        "check": {
+          "stat": "stamina",
+          "difficulty": 5
+        },
+        "on_success": {
+          "text": "With dancer-like balance, you glide across the slick board without soaking your sandals!",
+          "effects": {
+            "energy": -5,
+            "respect": 1,
+            "xp": 12
+          }
+        },
+        "on_fail": {
+          "text": "The plank shifts! You slip knee-deep into murky rainwater, drenching your clothes and shoes.",
+          "effects": {
+            "energy": -18,
+            "respect": -1,
+            "xp": 5
+          }
+        }
+      },
+      {
+        "id": "hire_wheelbarrow_lift",
+        "label": "Pay an agile wheelbarrow pusher for dry transport across",
+        "check": null,
+        "on_success": {
+          "text": "You hop into the clean crate. The muscular youth ferries you safely across like royalty.",
+          "effects": {
+            "naira": -300,
+            "energy": -2,
+            "xp": 6
+          }
+        },
+        "on_fail": {
+          "text": "",
+          "effects": {}
+        }
+      }
+    ]
+  },
+  {
+    "id": "mobile_money_pos_down",
+    "title": "POS Network Timeout",
+    "location_tags": [
+      "oshodi_bus_terminal",
+      "bolade_junction"
+    ],
+    "required_class": null,
+    "time_blocks": [
+      "morning",
+      "afternoon",
+      "evening"
+    ],
+    "setup_text": "You reach a mobile money POS umbrella to collect cash, but the terminal prints Transaction Failed: Network Timeout while the debit alert hits your phone!",
+    "options": [
+      {
+        "id": "calm_statement_reversal",
+        "label": "Engage the agent calmly and log the session reference ID",
+        "check": {
+          "stat": "street_smarts",
+          "difficulty": 6
+        },
+        "on_success": {
+          "text": "You verify the error slip and reference code calmly. The agent cross-checks her backend app and issues the cash!",
+          "effects": {
+            "respect": 1,
+            "xp": 15
+          }
+        },
+        "on_fail": {
+          "text": "You argue loudly in frustration. A crowd gathers, but no cash is released until your bank opens tomorrow.",
+          "effects": {
+            "energy": -15,
+            "heat": 1,
+            "xp": 5
+          }
+        }
+      },
+      {
+        "id": "wait_for_autoreversal",
+        "label": "Step aside patiently and wait for the bank auto-reversal",
+        "check": null,
+        "on_success": {
+          "text": "Within ten minutes, the bank sends an automated reversal SMS. Safe, though you lost precious time.",
+          "effects": {
+            "energy": -6,
+            "xp": 5
+          }
+        },
+        "on_fail": {
+          "text": "",
+          "effects": {}
+        }
+      }
+    ]
+  },
+  {
+    "id": "night_market_rush",
+    "title": "Night Market Generator Glow",
+    "location_tags": [
+      "oshodi_market"
+    ],
+    "required_class": null,
+    "time_blocks": [
+      "evening",
+      "night"
+    ],
+    "setup_text": "As darkness settles, dozens of small gasoline generators roar to life, illuminating fruit stacks and fried delicacies under yellow bulb strings. Bargain hunters flood the corridors.",
+    "options": [
+      {
+        "id": "scout_closing_deals",
+        "label": "Hunt aggressively for end-of-day discounted stock",
+        "check": {
+          "stat": "hustle",
+          "difficulty": 5
+        },
+        "on_success": {
+          "text": "You spot a weary wholesaler eager to clear inventory before midnight, snapping up quality goods at half price!",
+          "effects": {
+            "naira": 2500,
+            "energy": -8,
+            "xp": 15
+          }
+        },
+        "on_fail": {
+          "text": "In the dim shadows, you buy a package that turns out to be bruised and unsold discards.",
+          "effects": {
+            "naira": -800,
+            "energy": -10,
+            "xp": 5
+          }
+        }
+      },
+      {
+        "id": "enjoy_canteen_suya",
+        "label": "Sit at a wooden bench and enjoy spicy suya and cold malt",
+        "check": null,
+        "on_success": {
+          "text": "The aromatic beef and spicy pepper warm your spirits after a long day of Lagos hustle.",
+          "effects": {
+            "naira": -1200,
+            "energy": 25,
+            "xp": 8
+          }
+        },
+        "on_fail": {
+          "text": "",
+          "effects": {}
+        }
+      }
+    ]
+  },
+  {
+    "id": "food_canteen_quarrel",
+    "title": "The Last Portion of Amala",
+    "location_tags": [
+      "bolade_junction"
+    ],
+    "required_class": null,
+    "time_blocks": [
+      "afternoon",
+      "evening"
+    ],
+    "setup_text": "Inside Mama Nkechi's bustling canteen, two burly logistics drivers are shouting over who placed the final order for hot amala and goat meat with gbegiri soup.",
+    "options": [
+      {
+        "id": "broker_food_peace",
+        "label": "Step between them and propose sharing a divided combo plate",
+        "check": {
+          "stat": "charisma",
+          "difficulty": 5
+        },
+        "on_success": {
+          "text": "Your witty compromise defuses the tension! They laugh, shake hands, split the bill, and buy you a cold soda.",
+          "effects": {
+            "respect": 2,
+            "energy": 10,
+            "xp": 16
+          }
+        },
+        "on_fail": {
+          "text": "Both hungry men turn on you: Oga, who make you judge over our belly?! You retreat quickly.",
+          "effects": {
+            "energy": -10,
+            "respect": -1,
+            "xp": 4
+          }
+        }
+      },
+      {
+        "id": "order_pounded_yam",
+        "label": "Mind your business and order hot pounded yam instead",
+        "check": null,
+        "on_success": {
+          "text": "You eat your meal in peace while they sort out their quarrel.",
+          "effects": {
+            "naira": -1500,
+            "energy": 20,
+            "xp": 6
+          }
+        },
+        "on_fail": {
+          "text": "",
+          "effects": {}
+        }
+      }
+    ]
+  },
+  {
+    "id": "environmental_task_force",
+    "title": "Saturday Sanitation Inspection",
+    "location_tags": [
+      "oshodi_market",
+      "bolade_junction"
+    ],
+    "required_class": null,
+    "time_blocks": [
+      "morning"
+    ],
+    "setup_text": "State environmental task force marshals with clipboards and boots are checking shop frontages for cleared drainage gutters and refuse disposal bins.",
+    "options": [
+      {
+        "id": "display_swept_front",
+        "label": "Present an immaculate swept frontage and clear concrete gutter",
+        "check": {
+          "stat": "grit",
+          "difficulty": 5
+        },
+        "on_success": {
+          "text": "The lead inspector inspects your drainage, stamps your sanitation card, and commends your civic discipline!",
+          "effects": {
+            "respect": 2,
+            "xp": 14
+          }
+        },
+        "on_fail": {
+          "text": "They spot trapped plastic bottles in the drain corner and issue a stern verbal warning.",
+          "effects": {
+            "energy": -8,
+            "respect": -1,
+            "xp": 5
+          }
+        }
+      },
+      {
+        "id": "sanitation_levy",
+        "label": "Pay the official community sanitation clearance levy",
+        "check": null,
+        "on_success": {
+          "text": "You pay the verified treasury fee and receive an official receipt with zero fuss.",
+          "effects": {
+            "naira": -1000,
+            "respect": 1,
+            "xp": 6
+          }
+        },
+        "on_fail": {
+          "text": "",
+          "effects": {}
+        }
+      }
+    ]
+  },
+  {
+    "id": "missing_phone_shout",
+    "title": "Alarm at the Bus Stop",
+    "location_tags": [
+      "oshodi_underbridge",
+      "oshodi_bus_terminal"
+    ],
+    "required_class": null,
+    "time_blocks": [
+      "morning",
+      "afternoon",
+      "evening"
+    ],
+    "setup_text": "A young nurse screams in distress as she boards a bus—someone has slipped her handbag zipper! A suspicious youth is scurrying towards the flyover stairway.",
+    "options": [
+      {
+        "id": "cut_off_escape",
+        "label": "Sprint ahead and block the stairway exit with authority",
+        "check": {
+          "stat": "stamina",
+          "difficulty": 6
+        },
+        "on_success": {
+          "text": "You intercept the runner! Cornered, he drops the purse and vanishes into the crowd. The woman blesses you with tears of joy!",
+          "effects": {
+            "respect": 4,
+            "energy": -15,
+            "xp": 25
+          }
+        },
+        "on_fail": {
+          "text": "He dodges around a fruit cart, leaving you out of breath with bruised shins.",
+          "effects": {
+            "energy": -20,
+            "xp": 6
+          }
+        }
+      },
+      {
+        "id": "raise_the_hue_cry",
+        "label": "Shout a clear directional alarm to alert terminal security guards",
+        "check": {
+          "stat": "street_smarts",
+          "difficulty": 5
+        },
+        "on_success": {
+          "text": "Your sharp cry directs the nearby union patrol, who intercept the suspect and recover the bag.",
+          "effects": {
+            "respect": 2,
+            "xp": 15
+          }
+        },
+        "on_fail": {
+          "text": "The crowd stampedes in confusion, allowing the suspect to slip away.",
+          "effects": {
+            "energy": -5,
+            "xp": 4
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "damaged_goods_delivery",
+    "title": "The Bruised Yam Consignment",
+    "location_tags": [
+      "oshodi_market"
+    ],
+    "required_class": "trader",
+    "time_blocks": [
+      "morning"
+    ],
+    "setup_text": "Your morning wholesale shipment of sweet potatoes and yams has arrived from the northern logistics depot, but three sacks got soaked and bruised by grease.",
+    "options": [
+      {
+        "id": "demand_credit_note",
+        "label": "Negotiate firmly with the dispatch driver for an instant credit note",
+        "check": {
+          "stat": "hustle",
+          "difficulty": 6
+        },
+        "on_success": {
+          "text": "You pull out your signed delivery receipt and prove improper stacking. The depot driver yields and credits your account!",
+          "effects": {
+            "naira": 3500,
+            "respect": 1,
+            "xp": 18
+          }
+        },
+        "on_fail": {
+          "text": "The driver shrugs and drives off, insisting: Once e leave warehouse, no refund o!",
+          "effects": {
+            "naira": -2000,
+            "energy": -10,
+            "xp": 5
+          }
+        }
+      },
+      {
+        "id": "salvage_and_repack",
+        "label": "Wash, trim, and repack the undamaged tubers into retail heaps",
+        "check": {
+          "stat": "stamina",
+          "difficulty": 4
+        },
+        "on_success": {
+          "text": "Hard work saves the day! You salvage 80 percent of the tubers and sell them quickly as discount stew packs.",
+          "effects": {
+            "naira": 1500,
+            "energy": -14,
+            "xp": 12
+          }
+        },
+        "on_fail": {
+          "text": "The tubers continue spoiling in the humid afternoon heat, cutting your profits.",
+          "effects": {
+            "naira": -1000,
+            "energy": -15,
+            "xp": 5
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "credit_customer_plea",
+    "title": "The Faithful Neighbour's Plea",
+    "location_tags": [
+      "oshodi_market",
+      "bolade_junction"
+    ],
+    "required_class": "trader",
+    "time_blocks": [
+      "evening"
+    ],
+    "setup_text": "Mama Bolu, a dependable elderly neighbour whose daughter has fever, pleads softly to take cooking oil and rice on credit until civil service salaries drop next Friday.",
+    "options": [
+      {
+        "id": "grant_neighbour_credit",
+        "label": "Grant the goods graciously and log the debt in your pocket ledger",
+        "check": null,
+        "on_success": {
+          "text": "She prays heartfelt blessings on your shop. Your local community reputation rises tremendously!",
+          "effects": {
+            "naira": -1500,
+            "respect": 3,
+            "xp": 15
+          }
+        },
+        "on_fail": {
+          "text": "",
+          "effects": {}
+        }
+      },
+      {
+        "id": "negotiate_partial_deposit",
+        "label": "Gently request a small token deposit to protect your working cashflow",
+        "check": {
+          "stat": "charisma",
+          "difficulty": 5
+        },
+        "on_success": {
+          "text": "She understands business reality, pays what she has in her purse, and pledges the rest with full gratitude.",
+          "effects": {
+            "naira": -500,
+            "respect": 1,
+            "xp": 10
+          }
+        },
+        "on_fail": {
+          "text": "She leaves crestfallen, murmuring that the street is losing its human touch.",
+          "effects": {
+            "respect": -1,
+            "xp": 4
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "bulk_supply_opportunity",
+    "title": "The Emergency Wedding Order",
+    "location_tags": [
+      "oshodi_market"
+    ],
+    "required_class": "trader",
+    "time_blocks": [
+      "afternoon"
+    ],
+    "setup_text": "A panicked wedding caterer arrives in an SUV: their beverage supplier cancelled at the last minute! She needs 10 cartons of cold malt and soft drinks in 20 minutes.",
+    "options": [
+      {
+        "id": "mobilize_neighbour_stalls",
+        "label": "Coordinate with three neighboring stalls to pool the drinks instantly",
+        "check": {
+          "stat": "hustle",
+          "difficulty": 7
+        },
+        "on_success": {
+          "text": "Flawless execution! You coordinate the supply chain in record time. The caterer pays a fat premium plus handsome broker commission!",
+          "effects": {
+            "naira": 8500,
+            "respect": 3,
+            "xp": 30
+          }
+        },
+        "on_fail": {
+          "text": "One stallholder misplaces his carton count, causing a delay. The caterer drives away in frustration.",
+          "effects": {
+            "energy": -15,
+            "xp": 8
+          }
+        }
+      },
+      {
+        "id": "sell_own_stock_only",
+        "label": "Supply whatever you currently have on hand without overpromising",
+        "check": null,
+        "on_success": {
+          "text": "You sell your available cartons cleanly at regular price, securing dependable revenue with zero drama.",
+          "effects": {
+            "naira": 3200,
+            "energy": -5,
+            "xp": 10
+          }
+        },
+        "on_fail": {
+          "text": "",
+          "effects": {}
+        }
+      }
+    ]
+  },
+  {
+    "id": "festival_season_demand",
+    "title": "The Public Holiday Surge",
+    "location_tags": [
+      "oshodi_market"
+    ],
+    "required_class": "trader",
+    "time_blocks": [
+      "morning",
+      "afternoon"
+    ],
+    "setup_text": "An upcoming long weekend triggers intense panic buying across the market. Customers are frantically purchasing staple foodstuffs and ingredients.",
+    "options": [
+      {
+        "id": "hold_fair_reputation_price",
+        "label": "Maintain steady, fair prices to win long-term customer loyalty",
+        "check": {
+          "stat": "charisma",
+          "difficulty": 5
+        },
+        "on_success": {
+          "text": "Your honest pricing becomes the talk of the avenue! Word spreads and a massive queue forms at your stall.",
+          "effects": {
+            "naira": 5000,
+            "respect": 3,
+            "xp": 22
+          }
+        },
+        "on_fail": {
+          "text": "You sell out too fast without making maximum margin on the rush.",
+          "effects": {
+            "naira": 2500,
+            "xp": 8
+          }
+        }
+      },
+      {
+        "id": "maximize_holiday_margin",
+        "label": "Adjust prices upwards by twenty percent to capitalize on the surge",
+        "check": {
+          "stat": "street_smarts",
+          "difficulty": 6
+        },
+        "on_success": {
+          "text": "High demand swallows the price hike with zero complaints! Cash fills your wooden till to the brim.",
+          "effects": {
+            "naira": 7200,
+            "xp": 20
+          }
+        },
+        "on_fail": {
+          "text": "Shoppers murmur angrily about exploitation and buy from stalls three doors down.",
+          "effects": {
+            "respect": -2,
+            "naira": 1200,
+            "xp": 6
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "generator_spark_scare",
+    "title": "Backfire in the Night Stall",
+    "location_tags": [
+      "oshodi_market",
+      "bolade_junction"
+    ],
+    "required_class": "trader",
+    "time_blocks": [
+      "night"
+    ],
+    "setup_text": "Your small portable generator suddenly lets out a deafening bang and spews black sparks near stacked textile rolls! Customers jump in fright.",
+    "options": [
+      {
+        "id": "smother_and_kill_choke",
+        "label": "Instantly hit the kill switch and smother the sparks with heavy jute sack",
+        "check": {
+          "stat": "grit",
+          "difficulty": 5
+        },
+        "on_success": {
+          "text": "Lightning reflexes prevent any blaze! You calm the customers and restart the unit with fresh spark plug.",
+          "effects": {
+            "respect": 2,
+            "energy": -8,
+            "xp": 16
+          }
+        },
+        "on_fail": {
+          "text": "You burn your fingers on the exhaust manifold while struggling with the switch.",
+          "effects": {
+            "energy": -20,
+            "naira": -800,
+            "xp": 5
+          }
+        }
+      },
+      {
+        "id": "call_mechanic_alabi",
+        "label": "Unplug the cords immediately and call Alabi the generator mechanic",
+        "check": null,
+        "on_success": {
+          "text": "Alabi arrives with his toolbox, tunes the carburettor, and restores safe power.",
+          "effects": {
+            "naira": -1500,
+            "xp": 8
+          }
+        },
+        "on_fail": {
+          "text": "",
+          "effects": {}
+        }
+      }
+    ]
+  },
+  {
+    "id": "rival_stall_discount",
+    "title": "The Price War Across the Alley",
+    "location_tags": [
+      "oshodi_market"
+    ],
+    "required_class": "trader",
+    "time_blocks": [
+      "afternoon"
+    ],
+    "setup_text": "Iya Moria has placed a bold hand-painted cardboard sign across the alley: TOMATO AND PEPPER SLASHED 200 NAIRA! Her aggressive undercutting is diverting your foot traffic.",
+    "options": [
+      {
+        "id": "bundle_with_curry",
+        "label": "Create premium combo baskets bundled with fragrant thyme and seasoning cubes",
+        "check": {
+          "stat": "hustle",
+          "difficulty": 5
+        },
+        "on_success": {
+          "text": "Brilliant merchandising! Shoppers realize your combo basket saves them a trip to the spice stall. You outsell her easily!",
+          "effects": {
+            "naira": 4000,
+            "respect": 1,
+            "xp": 18
+          }
+        },
+        "on_fail": {
+          "text": "Your bundle pricing is confusing to passers-by, leaving excess stock unpurchased.",
+          "effects": {
+            "naira": -500,
+            "energy": -8,
+            "xp": 5
+          }
+        }
+      },
+      {
+        "id": "peaceful_pact",
+        "label": "Cross the alley with two cold drinks and propose a cooperative price floor",
+        "check": {
+          "stat": "charisma",
+          "difficulty": 6
+        },
+        "on_success": {
+          "text": "She smiles, accepts the cold drink, and agrees to stop the race to the bottom. Both stalls profit in harmony.",
+          "effects": {
+            "respect": 3,
+            "xp": 20
+          }
+        },
+        "on_fail": {
+          "text": "She snaps: In this Oshodi market, dog eat dog o! The price war continues.",
+          "effects": {
+            "respect": -1,
+            "energy": -10,
+            "xp": 5
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "expressway_lastma_trap",
+    "title": "The Express Lane Ambush",
+    "location_tags": [
+      "oshodi_underbridge",
+      "oshodi_bus_terminal"
+    ],
+    "required_class": "transporter",
+    "time_blocks": [
+      "morning",
+      "afternoon"
+    ],
+    "setup_text": "Three traffic enforcement marshals with yellow reflective jackets are stationed behind the pedestrian bridge pillar, watching for commercial buses picking passengers outside designated bays.",
+    "options": [
+      {
+        "id": "strictly_designated_bay",
+        "label": "Insist on pulling all the way into the marked legal bus stop",
+        "check": null,
+        "on_success": {
+          "text": "You comply strictly with the traffic codes. The officers watch you pass with approval.",
+          "effects": {
+            "respect": 1,
+            "heat": -1,
+            "xp": 10
+          }
+        },
+        "on_fail": {
+          "text": "",
+          "effects": {}
+        }
+      },
+      {
+        "id": "deft_slip_stream",
+        "label": "Time your merge into the centre express lane to bypass their sightline cleanly",
+        "check": {
+          "stat": "street_smarts",
+          "difficulty": 6
+        },
+        "on_success": {
+          "text": "You spot their positioning early, feather the accelerator, and blend smoothly with moving expressway traffic!",
+          "effects": {
+            "xp": 18,
+            "respect": 1
+          }
+        },
+        "on_fail": {
+          "text": "A whistle blares! An officer flags you down, demanding your vehicle papers and driver clearance.",
+          "effects": {
+            "naira": -2500,
+            "heat": 2,
+            "energy": -15,
+            "xp": 5
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "vip_in_a_hurry",
+    "title": "The Airport Express Passenger",
+    "location_tags": [
+      "oshodi_bus_terminal"
+    ],
+    "required_class": "transporter",
+    "time_blocks": [
+      "afternoon",
+      "evening"
+    ],
+    "setup_text": "A sweating businessman holding a leather briefcase and boarding pass jumps into your front seat: Oga, my flight to Abuja dey leave in one hour! Drop me at airport gate and double your fare!",
+    "options": [
+      {
+        "id": "navigate_backstreets",
+        "label": "Take the secret Mafoluku backstreets to beat the expressway gridlock",
+        "check": {
+          "stat": "street_smarts",
+          "difficulty": 6
+        },
+        "on_success": {
+          "text": "You thread through residential turns and bypass the gridlock completely! He catches his flight and tips you handsome cash!",
+          "effects": {
+            "naira": 6000,
+            "respect": 2,
+            "xp": 25
+          }
+        },
+        "on_fail": {
+          "text": "You hit a locked street barrier gate in Mafoluku and lose twenty minutes reversing out.",
+          "effects": {
+            "energy": -15,
+            "respect": -1,
+            "xp": 6
+          }
+        }
+      },
+      {
+        "id": "express_regular_route",
+        "label": "Drive via the standard service lane at maximum safe speed",
+        "check": {
+          "stat": "grit",
+          "difficulty": 5
+        },
+        "on_success": {
+          "text": "Steady, resolute driving gets him to the departure terminal with ten minutes to spare.",
+          "effects": {
+            "naira": 3500,
+            "xp": 15
+          }
+        },
+        "on_fail": {
+          "text": "Traffic stalls at the junction. He grumbles all the way, paying only standard fare.",
+          "effects": {
+            "naira": 1500,
+            "energy": -10,
+            "xp": 5
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "conductor_audition",
+    "title": "The Keen Conductor Apprentice",
+    "location_tags": [
+      "oshodi_underbridge"
+    ],
+    "required_class": "transporter",
+    "time_blocks": [
+      "afternoon"
+    ],
+    "setup_text": "Tunde, an energetic 19-year-old with a booming voice and sharp arithmetic, begs to conduct your danfo bus for the afternoon rush: Oga, I go load your bus full within two minutes!",
+    "options": [
+      {
+        "id": "hire_keen_lad",
+        "label": "Test his voice and bus-loading hustle on a trial run to Mile 2",
+        "check": {
+          "stat": "charisma",
+          "difficulty": 5
+        },
+        "on_success": {
+          "text": "He is phenomenal! His loud, rhythmically chanted stops draw passengers like a magnet. You fill every seat in record time!",
+          "effects": {
+            "naira": 4500,
+            "respect": 1,
+            "energy": 10,
+            "xp": 20
+          }
+        },
+        "on_fail": {
+          "text": "He drops change on the floor and gets into an unnecessary quarrel with an elderly passenger.",
+          "effects": {
+            "energy": -12,
+            "respect": -1,
+            "naira": -500,
+            "xp": 5
+          }
+        }
+      },
+      {
+        "id": "drive_solo_today",
+        "label": "Decline politely and operate conductor-free with exact fare board",
+        "check": null,
+        "on_success": {
+          "text": "You manage the doors yourself. Slower loading, but you keep all fare money in your pocket.",
+          "effects": {
+            "energy": -10,
+            "naira": 1800,
+            "xp": 8
+          }
+        },
+        "on_fail": {
+          "text": "",
+          "effects": {}
+        }
+      }
+    ]
+  },
+  {
+    "id": "cracked_windscreen_stone",
+    "title": "The Flying Gravel Pebble",
+    "location_tags": [
+      "oshodi_underbridge",
+      "oshodi_bus_terminal"
+    ],
+    "required_class": "transporter",
+    "time_blocks": [
+      "morning",
+      "afternoon"
+    ],
+    "setup_text": "A heavy tipper truck kicks up a sharp granite pebble at 60 km/h—CRACK! A star-shaped fracture spreads across your driver windscreen.",
+    "options": [
+      {
+        "id": "immediate_resin_stop",
+        "label": "Stop at Bolade auto row and apply instant acrylic resin to arrest the crack",
+        "check": {
+          "stat": "street_smarts",
+          "difficulty": 5
+        },
+        "on_success": {
+          "text": "You stop the spiderweb fracture in its tracks before it spreads! You save yourself thirty thousand naira in full glass replacement.",
+          "effects": {
+            "naira": -1500,
+            "energy": -5,
+            "xp": 15
+          }
+        },
+        "on_fail": {
+          "text": "The vibration spreads the crack across your entire sightline, requiring emergency tape.",
+          "effects": {
+            "naira": -3000,
+            "energy": -12,
+            "xp": 5
+          }
+        }
+      },
+      {
+        "id": "press_on_carefully",
+        "label": "Reduce speed and complete the current trip before repairing",
+        "check": {
+          "stat": "grit",
+          "difficulty": 5
+        },
+        "on_success": {
+          "text": "You nurse the bus safely back to the park without further damage and discharge all passengers.",
+          "effects": {
+            "energy": -8,
+            "xp": 10
+          }
+        },
+        "on_fail": {
+          "text": "The glare off the fractured glass causes severe eye strain and slows your reaction time.",
+          "effects": {
+            "energy": -18,
+            "xp": 4
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "fuel_filter_clog",
+    "title": "Choking Fuel Line",
+    "location_tags": [
+      "oshodi_underbridge",
+      "bolade_junction"
+    ],
+    "required_class": "transporter",
+    "time_blocks": [
+      "afternoon",
+      "evening"
+    ],
+    "setup_text": "The engine starts hiccuping and sputtering violently on the flyover descent. Impurities from cheap roadside black-market fuel have clogged your inline fuel filter.",
+    "options": [
+      {
+        "id": "blow_out_filter_jet",
+        "label": "Pull to the shoulder, detach the filter cartridge, and clean the jet nozzle",
+        "check": {
+          "stat": "grit",
+          "difficulty": 5
+        },
+        "on_success": {
+          "text": "With oily hands and sheer mechanical grit, you blow out the debris, re-prime the fuel pump, and hear the engine purr!",
+          "effects": {
+            "energy": -10,
+            "respect": 1,
+            "xp": 18
+          }
+        },
+        "on_fail": {
+          "text": "You strip a plastic fitting while unscrewing the hose, spilling diesel onto your shirt.",
+          "effects": {
+            "energy": -20,
+            "naira": -1200,
+            "xp": 5
+          }
+        }
+      },
+      {
+        "id": "flag_towing_or_mechanic",
+        "label": "Coast down to Alabi's workshop near Bolade for professional servicing",
+        "check": null,
+        "on_success": {
+          "text": "Alabi installs a brand new ceramic fuel filter and tunes the idling jets.",
+          "effects": {
+            "naira": -2200,
+            "xp": 10
+          }
+        },
+        "on_fail": {
+          "text": "",
+          "effects": {}
+        }
+      }
+    ]
+  },
+  {
+    "id": "heavy_cargo_overload",
+    "title": "The Mountain of Pepper Sacks",
+    "location_tags": [
+      "oshodi_market",
+      "oshodi_underbridge"
+    ],
+    "required_class": "transporter",
+    "time_blocks": [
+      "morning"
+    ],
+    "setup_text": "Four influential market matrons want to charter your bus to transport 16 massive sacks of dried pepper and onions. The roof rack will be groaning under the weight.",
+    "options": [
+      {
+        "id": "reinforce_and_haul",
+        "label": "Lash the cargo with industrial nylon straps and balance the axle weight",
+        "check": {
+          "stat": "hustle",
+          "difficulty": 6
+        },
+        "on_success": {
+          "text": "Masterful loading! The weight is distributed perfectly over the leaf springs. You deliver the cargo and earn a huge charter payment!",
+          "effects": {
+            "naira": 9000,
+            "respect": 2,
+            "energy": -15,
+            "xp": 28
+          }
+        },
+        "on_fail": {
+          "text": "The top-heavy load makes cornering terrifying, and a strap snaps at a speed bump, dumping a sack onto the road.",
+          "effects": {
+            "naira": -3000,
+            "respect": -2,
+            "energy": -20,
+            "xp": 6
+          }
+        }
+      },
+      {
+        "id": "refuse_overload_politely",
+        "label": "Explain that safety limits protect their goods and agree to carry half for half fare",
+        "check": {
+          "stat": "charisma",
+          "difficulty": 5
+        },
+        "on_success": {
+          "text": "They respect your professional prudence, agree to the split charter, and praise your reliability.",
+          "effects": {
+            "naira": 4500,
+            "respect": 1,
+            "xp": 16
+          }
+        },
+        "on_fail": {
+          "text": "They mock your hesitation and hire an older, rickety danfo that takes the full load.",
+          "effects": {
+            "energy": -5,
+            "xp": 4
+          }
         }
       }
     ]

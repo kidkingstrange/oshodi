@@ -1,0 +1,58 @@
+[
+  {
+    "id": "npc_baba_landlord",
+    "name": "Baba Landlord",
+    "role": "Compound Landlord",
+    "location_ids": ["bolade_junction"],
+    "dialogue_ids": ["landlord_greeting", "landlord_rent_talk", "landlord_generator_rules"]
+  },
+  {
+    "id": "npc_mama_nkechi",
+    "name": "Mama Nkechi",
+    "role": "Mama-Put Caterer",
+    "location_ids": ["oshodi_market", "bolade_junction"],
+    "dialogue_ids": ["mama_nkechi_greeting", "mama_nkechi_gossip", "mama_nkechi_food_advice"]
+  },
+  {
+    "id": "npc_chairman_goke",
+    "name": "Chairman Goke",
+    "role": "Park Union Chairman",
+    "location_ids": ["oshodi_bus_terminal", "oshodi_underbridge"],
+    "dialogue_ids": ["chairman_greeting", "chairman_route_wisdom", "chairman_park_dues"]
+  },
+  {
+    "id": "npc_officer_ade",
+    "name": "Officer Ade",
+    "role": "Traffic Safety Marshal",
+    "location_ids": ["oshodi_underbridge", "oshodi_bus_terminal"],
+    "dialogue_ids": ["officer_greeting", "officer_compliance", "officer_road_advice"]
+  },
+  {
+    "id": "npc_chidi_spare_parts",
+    "name": "Brother Chidi",
+    "role": "Electronics & Parts Merchant",
+    "location_ids": ["oshodi_market"],
+    "dialogue_ids": ["chidi_greeting", "chidi_bargain_tip", "chidi_market_trend"]
+  },
+  {
+    "id": "npc_sister_grace",
+    "name": "Sister Grace",
+    "role": "Community Welfare Officer",
+    "location_ids": ["bolade_junction"],
+    "dialogue_ids": ["grace_greeting", "grace_prayer_blessing", "grace_community_support"]
+  },
+  {
+    "id": "npc_alabi_mechanic",
+    "name": "Master Alabi",
+    "role": "Master Generator Mechanic",
+    "location_ids": ["bolade_junction", "oshodi_underbridge"],
+    "dialogue_ids": ["alabi_greeting", "alabi_engine_tips", "alabi_fuel_tuning"]
+  },
+  {
+    "id": "npc_kemi_pos",
+    "name": "Kemi POS",
+    "role": "Mobile Money Operator",
+    "location_ids": ["oshodi_bus_terminal", "oshodi_market"],
+    "dialogue_ids": ["kemi_greeting", "kemi_cash_flow", "kemi_street_news"]
+  }
+]

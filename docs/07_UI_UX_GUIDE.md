@@ -37,6 +37,7 @@ The agent builds a style-guide scene in Godot showing the Danfo Poster palette, 
 5. **Icons:** one consistent set (original, or CC0/commercial-licensed) for Energy, Naira, Respect, Heat, XP, Time, Location. Always pair icons with a label or number. *Why: never rely on colour alone.*
 6. **Theme resource:** `res://assets/ui/main_theme.tres` applied at the root; screens must not hand-style controls.
 7. **NO EMOJIS (LOCKED RULE):** Never use emoji characters anywhere in UI buttons, labels, dialogue, or data files. Emojis make the game look cheap and break the authentic hand-painted Danfo sign-writer aesthetic. Always use clean typography, bold sign lettering, or dedicated vector/sprite assets.
+8. **NO DEVELOPER SCAFFOLDING OR ENGINE TAGS (LOCKED RULE):** Never display internal phase names ('Phase 1 Ready'), engine versions ('Godot 4'), test runner buttons, or prototype debug status text on player-facing screens. Version strings must be clean (e.g. `v0.1.0 • Oshodi-Isolo, Lagos`), and tests must be run via the headless CLI test harness.
 
 ## 3. Reusable components (each a scene in `scenes/ui/components/`)
 `AppButton` (primary/secondary/danger, press feedback), `Card`, `DialogueBox`, `StatBar`, `ResourceChip`, `ChoiceButton` (big, thumb-friendly), `Popup`, `Toast`, `TopBar` (day, time, Naira, Energy), `ScreenHeader`.

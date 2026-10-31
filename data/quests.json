@@ -1,0 +1,222 @@
+[
+  {
+    "id": "rent_is_due",
+    "title": "Rent Is Due",
+    "giver": "npc_baba_landlord",
+    "description": "Baba Landlord needs his compound rent paid. Accumulate 25,000 Naira to secure your room.",
+    "required_class": null,
+    "steps": [
+      {
+        "id": "s1",
+        "text": "Raise at least 25,000 Naira in your cash reserves.",
+        "condition": {
+          "type": "naira_at_least",
+          "value": 25000
+        }
+      }
+    ],
+    "reward": {
+      "xp": 60,
+      "respect": 3,
+      "naira": 0
+    }
+  },
+  {
+    "id": "stock_the_stall",
+    "title": "Stock Your Stall",
+    "giver": "npc_mama_nkechi",
+    "description": "Demonstrate retail readiness by keeping at least 3 trade items in your inventory.",
+    "required_class": "trader",
+    "steps": [
+      {
+        "id": "s1",
+        "text": "Hold at least 3 items in your inventory.",
+        "condition": {
+          "type": "inventory_count_at_least",
+          "value": 3
+        }
+      }
+    ],
+    "reward": {
+      "xp": 50,
+      "respect": 2,
+      "naira": 1500
+    }
+  },
+  {
+    "id": "rush_hour_champion",
+    "title": "Rush Hour Run",
+    "giver": "npc_chairman_goke",
+    "description": "Prove your route stamina across the expressway corridor by reaching Level 2.",
+    "required_class": "transporter",
+    "steps": [
+      {
+        "id": "s1",
+        "text": "Reach class Level 2 through hard road hustle.",
+        "condition": {
+          "type": "level_at_least",
+          "value": 2
+        }
+      }
+    ],
+    "reward": {
+      "xp": 60,
+      "respect": 3,
+      "naira": 2000
+    }
+  },
+  {
+    "id": "market_reputation",
+    "title": "Earning Street Respect",
+    "giver": "npc_mama_nkechi",
+    "description": "In Oshodi, your name is your capital. Build your community Respect to 20.",
+    "required_class": null,
+    "steps": [
+      {
+        "id": "s1",
+        "text": "Achieve a Respect score of at least 20.",
+        "condition": {
+          "type": "respect_at_least",
+          "value": 20
+        }
+      }
+    ],
+    "reward": {
+      "xp": 80,
+      "respect": 4,
+      "naira": 3000
+    }
+  },
+  {
+    "id": "cool_the_heat",
+    "title": "Clear Your Standing",
+    "giver": "npc_officer_ade",
+    "description": "Maintain a calm, lawful presence on the streets by keeping Heat down to 0.",
+    "required_class": null,
+    "steps": [
+      {
+        "id": "s1",
+        "text": "Maintain total compliance with zero Heat.",
+        "condition": {
+          "type": "heat_at_most",
+          "value": 0
+        }
+      }
+    ],
+    "reward": {
+      "xp": 40,
+      "respect": 2,
+      "naira": 0
+    }
+  },
+  {
+    "id": "generator_rescue",
+    "title": "Light Up the Junction",
+    "giver": "npc_alabi_mechanic",
+    "description": "Power cuts threaten evening commerce. Keep emergency cash ready to fund power supplies.",
+    "required_class": null,
+    "steps": [
+      {
+        "id": "s1",
+        "text": "Hold at least 15,000 Naira to fund emergency power supplies.",
+        "condition": {
+          "type": "naira_at_least",
+          "value": 15000
+        }
+      }
+    ],
+    "reward": {
+      "xp": 70,
+      "respect": 3,
+      "naira": 0
+    }
+  },
+  {
+    "id": "terminal_connection",
+    "title": "Union Recognition",
+    "giver": "npc_chairman_goke",
+    "description": "Win the full respect of the bus park leaders by reaching Level 3.",
+    "required_class": null,
+    "steps": [
+      {
+        "id": "s1",
+        "text": "Reach Level 3 to gain senior recognition in the park.",
+        "condition": {
+          "type": "level_at_least",
+          "value": 3
+        }
+      }
+    ],
+    "reward": {
+      "xp": 100,
+      "respect": 5,
+      "naira": 4000
+    }
+  },
+  {
+    "id": "the_honest_finder",
+    "title": "Community Trust",
+    "giver": "npc_kemi_pos",
+    "description": "Build high goodwill with local financial agents by holding 30,000 Naira in working funds.",
+    "required_class": null,
+    "steps": [
+      {
+        "id": "s1",
+        "text": "Hold 30,000 Naira cash balance demonstrating liquidity and prudence.",
+        "condition": {
+          "type": "naira_at_least",
+          "value": 30000
+        }
+      }
+    ],
+    "reward": {
+      "xp": 80,
+      "respect": 4,
+      "naira": 2500
+    }
+  },
+  {
+    "id": "business_expansion",
+    "title": "Master Your Craft",
+    "giver": "npc_chidi_spare_parts",
+    "description": "Achieve class Level 5 and unlock your chosen subclass specialization.",
+    "required_class": null,
+    "steps": [
+      {
+        "id": "s1",
+        "text": "Advance to Level 5 and select your subclass.",
+        "condition": {
+          "type": "level_at_least",
+          "value": 5
+        }
+      }
+    ],
+    "reward": {
+      "xp": 150,
+      "respect": 6,
+      "naira": 8000
+    }
+  },
+  {
+    "id": "heart_of_oshodi",
+    "title": "Heart of Oshodi",
+    "giver": "npc_sister_grace",
+    "description": "The ultimate neighbourhood milestone: reach 35 Respect across the district.",
+    "required_class": null,
+    "steps": [
+      {
+        "id": "s1",
+        "text": "Reach at least 35 Respect across the district.",
+        "condition": {
+          "type": "respect_at_least",
+          "value": 35
+        }
+      }
+    ],
+    "reward": {
+      "xp": 200,
+      "respect": 10,
+      "naira": 10000
+    }
+  }
+]

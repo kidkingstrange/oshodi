@@ -29,7 +29,7 @@ static func _assert_true(condition: bool, test_name: String, results: Dictionary
 static func _test_situations_data(results: Dictionary) -> void:
 	DataLoader.load_and_validate_all("res://data")
 	var situations = DataLoader.get_all_situations()
-	_assert_true(situations.size() == 20, "Exact 20 Situations authored and loaded", results)
+	_assert_true(situations.size() >= 20, "At least 20 Situations authored and loaded (got %d)" % situations.size(), results)
 	
 	var general_count = 0
 	var trader_count = 0
@@ -60,9 +60,9 @@ static func _test_situations_data(results: Dictionary) -> void:
 				if not valid_stats.has(stat) or diff <= 0:
 					all_valid = false
 	
-	_assert_true(general_count == 10, "10 general Oshodi street situations authored", results)
-	_assert_true(trader_count == 5, "5 Trader-specific situations authored", results)
-	_assert_true(transporter_count == 5, "5 Transporter-specific situations authored", results)
+	_assert_true(general_count >= 10, "At least 10 general Oshodi street situations authored (got %d)" % general_count, results)
+	_assert_true(trader_count >= 5, "At least 5 Trader-specific situations authored (got %d)" % trader_count, results)
+	_assert_true(transporter_count >= 5, "At least 5 Transporter-specific situations authored (got %d)" % transporter_count, results)
 	_assert_true(options_valid, "All situations have between 2 and 4 options", results)
 	_assert_true(all_valid, "All option stat checks reference valid stats with valid difficulties", results)
 
