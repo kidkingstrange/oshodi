@@ -13,6 +13,7 @@ const TestContentAndQuests = preload("res://tests/test_content_and_quests.gd")
 const TestAreaBoyMechanic = preload("res://tests/test_areaboy_mechanic.gd")
 const TestWorkingClassMechanic = preload("res://tests/test_workingclass_mechanic.gd")
 const TestRoadOfficialMechanic = preload("res://tests/test_roadofficial_mechanic.gd")
+const TestFaithLeaderMechanic = preload("res://tests/test_faithleader_mechanic.gd")
 
 @onready var output_label: Label = %OutputLabel
 @onready var summary_label: Label = %SummaryLabel
@@ -113,6 +114,15 @@ func _run_all_tests() -> void:
 	total_passed += ro_test.passed_count
 	total_failed += ro_test.failed_count
 	for msg in ro_test.messages:
+		all_messages.append(msg)
+	
+	# Suite 11: Faith Leader Class & Congregation Mechanics (Phase 7D)
+	all_messages.append("\n[Suite: Faith Leader Class & Congregation Mechanics (Phase 7D)]")
+	var fl_test = TestFaithLeaderMechanic.new()
+	fl_test.run_all()
+	total_passed += fl_test.passed_count
+	total_failed += fl_test.failed_count
+	for msg in fl_test.messages:
 		all_messages.append(msg)
 	
 	# Summary

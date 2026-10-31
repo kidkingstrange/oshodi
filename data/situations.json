@@ -3531,5 +3531,377 @@
         }
       }
     ]
+  },
+  {
+    "id": "tenement_dispute_mediation",
+    "title": "Tenement Yard Dispute Mediation",
+    "location_tags": [
+      "all"
+    ],
+    "required_class": "faith_leader",
+    "time_blocks": [
+      "morning",
+      "afternoon",
+      "evening"
+    ],
+    "setup_text": "Two neighboring families in a face-me-I-face-you tenement compound are on the verge of blows over a shared rainwater drainage gutter. Compound residents plead for your intervention.",
+    "options": [
+      {
+        "id": "counsel_patience_and_mutual_aid",
+        "label": "Sit both families down on the veranda, quote proverbs of neighbourliness, and draft a shared cleaning roster",
+        "check": {
+          "stat": "charisma",
+          "difficulty": 5
+        },
+        "on_success": {
+          "text": "Both compound heads shake hands, embrace in reconciliation, and present you a gift of fresh plantains and gratitude.",
+          "effects": {
+            "respect": 5,
+            "naira": 3500,
+            "xp": 30,
+            "heat": -1
+          }
+        },
+        "on_fail": {
+          "text": "High tempers flare again as mutual accusations derail the peace meeting.",
+          "effects": {
+            "energy": -15,
+            "respect": 1,
+            "xp": 10
+          }
+        }
+      },
+      {
+        "id": "offer_symbolic_mediation_fund",
+        "label": "Donate a modest contribution to cover the pipe repair materials",
+        "check": {
+          "stat": "street_smarts",
+          "difficulty": 4
+        },
+        "on_success": {
+          "text": "Resolving the physical issue removes the friction entirely. Both sides thank your practical wisdom.",
+          "effects": {
+            "naira": -1000,
+            "respect": 4,
+            "xp": 25
+          }
+        },
+        "on_fail": {
+          "text": "One neighbour complains the plumbing fix favors the other side.",
+          "effects": {
+            "energy": -5,
+            "xp": 5
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "midnight_vigil_power_cut",
+    "title": "Midnight Vigil Power Cut",
+    "location_tags": [
+      "all"
+    ],
+    "required_class": "faith_leader",
+    "time_blocks": [
+      "night"
+    ],
+    "setup_text": "During an all-night community prayer vigil, the local transformer trips with a loud pop, plunging the sanctuary into pitch darkness. The congregation sighs in disappointment.",
+    "options": [
+      {
+        "id": "lead_acapella_harmonies",
+        "label": "Step into the aisle, strike up an inspiring acapella hymn, and sustain the spiritual energy without amplification",
+        "check": {
+          "stat": "charisma",
+          "difficulty": 5
+        },
+        "on_success": {
+          "text": "Hundreds of voices join together in glorious acoustic harmony in the candlelit darkness. The atmosphere becomes unforgettable!",
+          "effects": {
+            "respect": 5,
+            "naira": 4000,
+            "xp": 30
+          }
+        },
+        "on_fail": {
+          "text": "Your voice tires over the murmuring darkness before candles can be distributed.",
+          "effects": {
+            "energy": -15,
+            "respect": 1,
+            "xp": 10
+          }
+        }
+      },
+      {
+        "id": "troubleshoot_generator_line",
+        "label": "Guide youth ushers to switch safely to backup emergency lanterns",
+        "check": {
+          "stat": "street_smarts",
+          "difficulty": 4
+        },
+        "on_success": {
+          "text": "Orderly lantern lighting preserves calm and reverence.",
+          "effects": {
+            "respect": 2,
+            "naira": 2000,
+            "xp": 20
+          }
+        },
+        "on_fail": {
+          "text": "Kerosene spills in the aisle, creating a brief smoke disturbance.",
+          "effects": {
+            "energy": -10,
+            "xp": 5
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "friday_jumah_overflow",
+    "title": "Friday Jumah Street Overflow",
+    "location_tags": [
+      "all"
+    ],
+    "required_class": "faith_leader",
+    "time_blocks": [
+      "afternoon"
+    ],
+    "setup_text": "A huge crowd of faithful gather for Friday prayers, spilling prayer mats onto the roadside pedestrian pavement. Impatient commercial drivers begin blaring horns.",
+    "options": [
+      {
+        "id": "coordinate_orderly_mats",
+        "label": "Deploy volunteer ushers to keep a clear pedestrian channel while leading prayers with serene dignity",
+        "check": {
+          "stat": "charisma",
+          "difficulty": 6
+        },
+        "on_success": {
+          "text": "Pedestrians pass smoothly and motorists respectfully quiet their horns. The sermon on communal empathy touches everyone.",
+          "effects": {
+            "respect": 5,
+            "naira": 5000,
+            "xp": 35
+          }
+        },
+        "on_fail": {
+          "text": "Crowd congestion spills into the roadway, drawing complaints from road wardens.",
+          "effects": {
+            "energy": -10,
+            "respect": -1,
+            "xp": 10
+          }
+        }
+      },
+      {
+        "id": "shorten_commute_exhortation",
+        "label": "Deliver a concise, powerful message on civic kindness and quickly dismiss the line",
+        "check": {
+          "stat": "street_smarts",
+          "difficulty": 5
+        },
+        "on_success": {
+          "text": "Praising punctual consideration leaves worshippers energized for their afternoon trade.",
+          "effects": {
+            "respect": 3,
+            "naira": 3000,
+            "xp": 20
+          }
+        },
+        "on_fail": {
+          "text": "A few elders complain that the benediction felt slightly rushed.",
+          "effects": {
+            "energy": -5,
+            "respect": 1,
+            "xp": 10
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "distressed_trader_counseling",
+    "title": "Distressed Market Trader Counseling",
+    "location_tags": [
+      "all"
+    ],
+    "required_class": "faith_leader",
+    "time_blocks": [
+      "morning",
+      "afternoon"
+    ],
+    "setup_text": "A veteran fabric merchant breaks down in tears in your sanctuary after goods were stolen in transit. They feel completely hopeless and ready to give up.",
+    "options": [
+      {
+        "id": "minister_hope_and_clarity",
+        "label": "Offer compassionate counseling, remind them of past trials overcome, and pray for their restoration",
+        "check": {
+          "stat": "charisma",
+          "difficulty": 5
+        },
+        "on_success": {
+          "text": "Your comforting words rekindle their hope and courage. Wiping away tears, they resolve to rebuild with newfound determination.",
+          "effects": {
+            "respect": 4,
+            "naira": 2500,
+            "xp": 25
+          }
+        },
+        "on_fail": {
+          "text": "Grief and anxiety remain heavy, requiring prolonged pastoral visits.",
+          "effects": {
+            "energy": -15,
+            "respect": 1,
+            "xp": 10
+          }
+        }
+      },
+      {
+        "id": "connect_community_solidarity",
+        "label": "Quietly mobilize fellow guild traders to contribute seed stock to restart their stall",
+        "check": {
+          "stat": "street_smarts",
+          "difficulty": 6
+        },
+        "on_success": {
+          "text": "The community rallies generously, providing two bolts of lace to get the shop running again.",
+          "effects": {
+            "respect": 6,
+            "xp": 35
+          }
+        },
+        "on_fail": {
+          "text": "Other traders express sympathy but claim tight budgets prevent contributions.",
+          "effects": {
+            "energy": -10,
+            "xp": 10
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "youth_football_reconciliation",
+    "title": "Street Football Rivalry Mediation",
+    "location_tags": [
+      "all"
+    ],
+    "required_class": "faith_leader",
+    "time_blocks": [
+      "afternoon",
+      "evening"
+    ],
+    "setup_text": "Two neighborhood street football teams from adjacent streets have a bitter argument over a disallowed goal on the sandy primary school pitch. Shouting threatens to escalate.",
+    "options": [
+      {
+        "id": "referee_with_moral_authority",
+        "label": "Walk onto the pitch with calm presence, gather both captains, and propose a sudden-death penalty shootout with sportsmanship",
+        "check": {
+          "stat": "charisma",
+          "difficulty": 4
+        },
+        "on_success": {
+          "text": "Both teams laugh, respect your fair judgment, and conclude the match with handshakes. The youth hail your mentorship!",
+          "effects": {
+            "respect": 4,
+            "naira": 2000,
+            "xp": 25
+          }
+        },
+        "on_fail": {
+          "text": "One hot-tempered defender boots the ball into a gutter and storms off.",
+          "effects": {
+            "energy": -10,
+            "respect": 1,
+            "xp": 10
+          }
+        }
+      },
+      {
+        "id": "sponsor_cold_water_treat",
+        "label": "Buy sachets of chilled water and oranges to cool down the heated players",
+        "check": {
+          "stat": "hustle",
+          "difficulty": 4
+        },
+        "on_success": {
+          "text": "Refreshing cold water calms the heat instantly. The youth help clean up the pitch.",
+          "effects": {
+            "naira": -500,
+            "respect": 3,
+            "xp": 20
+          }
+        },
+        "on_fail": {
+          "text": "Players continue grumbling while drinking.",
+          "effects": {
+            "energy": -5,
+            "xp": 5
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "ancestral_heritage_consultation",
+    "title": "Customary Boundary Arbitration",
+    "location_tags": [
+      "all"
+    ],
+    "required_class": "faith_leader",
+    "time_blocks": [
+      "morning",
+      "afternoon"
+    ],
+    "setup_text": "A property developer wants to uproot a century-old sacred iroko tree in an ancient family compound. Community elders and modern contractors are at loggerheads.",
+    "options": [
+      {
+        "id": "invoke_customary_covenant",
+        "label": "Recite traditional history and proverbs of environmental stewardship, suggesting an architectural redesign around the tree",
+        "check": {
+          "stat": "street_smarts",
+          "difficulty": 6
+        },
+        "on_success": {
+          "text": "The developer agrees that incorporating the majestic tree creates a landmark courtyard! Both elders and contractors celebrate your mediation.",
+          "effects": {
+            "respect": 6,
+            "naira": 7000,
+            "xp": 40
+          }
+        },
+        "on_fail": {
+          "text": "Contractors dismiss traditional pleas as outdated, creating lingering bitter resentment.",
+          "effects": {
+            "energy": -15,
+            "respect": -1,
+            "xp": 10
+          }
+        }
+      },
+      {
+        "id": "convene_elder_council",
+        "label": "Gather both sides with customary kola nut hospitality for open dialogue",
+        "check": {
+          "stat": "charisma",
+          "difficulty": 5
+        },
+        "on_success": {
+          "text": "Orderly protocol allows reasonable compromise to emerge.",
+          "effects": {
+            "respect": 3,
+            "naira": 3000,
+            "xp": 20
+          }
+        },
+        "on_fail": {
+          "text": "Discussions drag past sunset without resolving the survey line.",
+          "effects": {
+            "energy": -10,
+            "xp": 10
+          }
+        }
+      }
+    ]
   }
 ]

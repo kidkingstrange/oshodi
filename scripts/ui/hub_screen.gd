@@ -117,6 +117,8 @@ func _refresh_display() -> void:
 		work_button.text = "Work Shift (+%s, -%d Energy)" % [GameState.format_naira(3500), energy_cost]
 	elif GameState.class_id == "road_official":
 		work_button.text = "Enforce Checkpoint (-20 Energy)"
+	elif GameState.class_id == "faith_leader":
+		work_button.text = "Sanctuary & Community (-20 Energy)"
 	else:
 		var income = DataLoader.get_work_income(GameState.class_id)
 		work_button.text = "Work Shift (+%s, -20 Energy)" % GameState.format_naira(income)

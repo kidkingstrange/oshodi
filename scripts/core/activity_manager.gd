@@ -13,6 +13,7 @@ const TransporterMechanic = preload("res://scripts/core/transporter_mechanic.gd"
 const Levelling = preload("res://scripts/core/levelling.gd")
 const WorkingClassMechanic = preload("res://scripts/core/workingclass_mechanic.gd")
 const RoadOfficialMechanic = preload("res://scripts/core/roadofficial_mechanic.gd")
+const FaithLeaderMechanic = preload("res://scripts/core/faithleader_mechanic.gd")
 
 ## Performs class-specific work/hustle
 static func perform_work(rng: RandomNumberGenerator = null) -> Dictionary:
@@ -58,6 +59,11 @@ static func perform_work(rng: RandomNumberGenerator = null) -> Dictionary:
 		var ro_res = RoadOfficialMechanic.perform_roadofficial_work(rng)
 		income = ro_res.income
 		work_msg = ro_res.flavour
+	elif GameState.class_id == "faith_leader":
+		var fl_res = FaithLeaderMechanic.perform_faithleader_work(rng)
+		income = fl_res.income
+		work_msg = fl_res.flavour
+		xp_gain += fl_res.get("xp_bonus", 0)
 	else:
 		income = DataLoader.get_work_income(GameState.class_id)
 		work_msg = "You completed your work shift in Oshodi"

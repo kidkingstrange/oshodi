@@ -778,5 +778,161 @@
     "unlock": {
       "min_class_level": 5
     }
+  },
+  {
+    "id": "pastor",
+    "class_id": "faith_leader",
+    "name": "Parish Pastor",
+    "fantasy": "Community sanctuary leader offering pastoral guidance, youth mentorship, and welfare support.",
+    "perks": [
+      {
+        "id": "pastoral_counsel",
+        "name": "Pastoral Guidance",
+        "text": "Reconciles domestic disputes and community friction, boosting neighborhood Respect by +2."
+      },
+      {
+        "id": "welfare_distribution",
+        "name": "Benevolence Outreach",
+        "text": "Organizes food and medical aid drives for vulnerable district families."
+      }
+    ],
+    "weakness": "Continuous demands from struggling congregants leave little personal rest.",
+    "situation_sets": [
+      "family_reconciliation",
+      "church_welfare_drive"
+    ],
+    "unlock": {
+      "min_class_level": 5
+    }
+  },
+  {
+    "id": "imam",
+    "class_id": "faith_leader",
+    "name": "Mosque Scholar & Imam",
+    "fantasy": "Revered scholar guiding daily prayers, Friday Jumah sermons on peace, and community zakat.",
+    "perks": [
+      {
+        "id": "jumah_exhortation",
+        "name": "Sermon of Harmony",
+        "text": "Promotes civic harmony and peace, reducing district tension and street Heat."
+      },
+      {
+        "id": "zakat_stewardship",
+        "name": "Charity Distribution",
+        "text": "Fairly distributes benevolent aid to orphans, widows, and elderly residents."
+      }
+    ],
+    "weakness": "Rigid dawn and evening prayer schedules require disciplined time management.",
+    "situation_sets": [
+      "jumah_assembly",
+      "dispute_arbitration"
+    ],
+    "unlock": {
+      "min_class_level": 5
+    }
+  },
+  {
+    "id": "prophet_prayer_warrior",
+    "class_id": "faith_leader",
+    "name": "Vigil Intercessor",
+    "fantasy": "Devoted night intercessor organizing mountain prayers, dawn vigils, and uplifting weary souls.",
+    "perks": [
+      {
+        "id": "night_vigil_stamina",
+        "name": "Spiritual Fortitude",
+        "text": "Sustains congregation morale during midnight prayer vigils, granting +25% bonus XP."
+      },
+      {
+        "id": "uplifting_blessing",
+        "name": "Encouraging Word",
+        "text": "Restores hope to distressed traders facing business losses."
+      }
+    ],
+    "weakness": "Midnight prayer schedules cause afternoon sleepiness and fatigue.",
+    "situation_sets": [
+      "midnight_vigil",
+      "trader_breakdown"
+    ],
+    "unlock": {
+      "min_class_level": 5
+    }
+  },
+  {
+    "id": "evangelist",
+    "class_id": "faith_leader",
+    "name": "Transit Herald",
+    "fantasy": "Mobile herald sharing inspiring messages of hope, compassion, and patience on morning buses.",
+    "perks": [
+      {
+        "id": "bus_commuter_calm",
+        "name": "Commuter Peace",
+        "text": "Diffuses traffic aggression inside crowded danfo buses with calming parables."
+      },
+      {
+        "id": "voluntary_offering",
+        "name": "Modest Gratitude",
+        "text": "Receives voluntary tokens of gratitude from inspired commuters."
+      }
+    ],
+    "weakness": "Vocal strain and physical fatigue from speaking above engine noise.",
+    "situation_sets": [
+      "bus_sermon",
+      "rainstorm_shelter"
+    ],
+    "unlock": {
+      "min_class_level": 5
+    }
+  },
+  {
+    "id": "usher_choirmaster",
+    "class_id": "faith_leader",
+    "name": "Choir Director",
+    "fantasy": "Sanctuary hospitality and choral harmony leader directing youth voices and uplifting hymns.",
+    "perks": [
+      {
+        "id": "choral_harmony",
+        "name": "Choir Logistics",
+        "text": "Organizes youth harmony rehearsals, earning high parental respect and donations."
+      },
+      {
+        "id": "welcoming_smile",
+        "name": "Sanctuary Hospitality",
+        "text": "Warm greeting demeanor gives +1 Charisma during community gatherings."
+      }
+    ],
+    "weakness": "Keyboard generator fuel and choir robe dry-cleaning expenses.",
+    "situation_sets": [
+      "sunday_orchestra",
+      "choir_practice"
+    ],
+    "unlock": {
+      "min_class_level": 5
+    }
+  },
+  {
+    "id": "traditional_priest",
+    "class_id": "faith_leader",
+    "name": "Cultural Heritage Custodian",
+    "fantasy": "Community elder and botanical heritage custodian preserving Yoruba proverbs and ancestral mediation.",
+    "perks": [
+      {
+        "id": "herbal_remedy",
+        "name": "Botanical Wisdom",
+        "text": "Prepares natural herbal root remedies that restore Energy efficiently."
+      },
+      {
+        "id": "ancestral_arbitration",
+        "name": "Ancient Mediation",
+        "text": "Resolves boundary and family heritage disputes through customary law."
+      }
+    ],
+    "weakness": "Misunderstood by younger urban modernists; requires patience to explain tradition.",
+    "situation_sets": [
+      "ancestral_sanctuary",
+      "herbal_apothecary"
+    ],
+    "unlock": {
+      "min_class_level": 5
+    }
   }
 ]

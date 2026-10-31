@@ -67,7 +67,7 @@
   [PASS] Event adheres to morning time_block condition
 
 [Suite: Situations & Conflict System (Phase 3)]
-  [PASS] At least 20 Situations authored and loaded (got 58)
+  [PASS] At least 20 Situations authored and loaded (got 64)
   [PASS] At least 10 general Oshodi street situations authored (got 18)
   [PASS] At least 5 Trader-specific situations authored (got 11)
   [PASS] At least 5 Transporter-specific situations authored (got 11)
@@ -180,7 +180,7 @@
 
 [Suite: Content Expansion, Quests, NPCs, Dialogue & Audio (Phase 6)]
   [PASS] DataLoader has 0 validation errors with Phase 6 content
-  [PASS] At least 40 situations loaded in DataLoader (got 58)
+  [PASS] At least 40 situations loaded in DataLoader (got 64)
   [PASS] At least 10 quests loaded in DataLoader (got 10)
   [PASS] At least 8 NPCs loaded in DataLoader (got 8)
   [PASS] At least 15 dialogue trees loaded (got 25)
@@ -317,5 +317,41 @@
   [PASS] Situation requires road_official
   [PASS] Trader excluded from Road Official situation
 
+[Suite: Faith Leader Class & Congregation Mechanics (Phase 7D)]
+  [PASS] Faith Leader character created successfully
+  [PASS] Starting cash is ₦6,000
+  [PASS] Base Charisma is 5
+  [PASS] Base Street Smarts is 4
+  [PASS] Base Hustle is 4
+  [PASS] Base Stamina is 3
+  [PASS] Base Grit is 3
+  [PASS] Possesses 'blessed_words' perk
+  [PASS] Sanctuary shift performed successfully
+  [PASS] Work consumes standard 20 Energy
+  [PASS] Naira increased by at least base ₦2,500
+  [PASS] Respect increased from pastoral sanctuary service
+  [PASS] Welfare outreach succeeded
+  [PASS] Outreach consumes 15 Energy (100 -> 85)
+  [PASS] Benevolence budget (₦1,000) deducted
+  [PASS] Respect increased by at least +4
+  [PASS] Outreach grants bonus XP
+  [PASS] Outreach rejected when funds below ₦1,000
+  [PASS] Exactly 6 Faith Leader subclasses loaded (got 6)
+  [PASS] Subclass 'pastor' exists
+  [PASS] Subclass 'pastor' belongs to faith_leader
+  [PASS] Subclass 'imam' exists
+  [PASS] Subclass 'imam' belongs to faith_leader
+  [PASS] Subclass 'prophet_prayer_warrior' exists
+  [PASS] Subclass 'prophet_prayer_warrior' belongs to faith_leader
+  [PASS] Subclass 'evangelist' exists
+  [PASS] Subclass 'evangelist' belongs to faith_leader
+  [PASS] Subclass 'usher_choirmaster' exists
+  [PASS] Subclass 'usher_choirmaster' belongs to faith_leader
+  [PASS] Subclass 'traditional_priest' exists
+  [PASS] Subclass 'traditional_priest' belongs to faith_leader
+  [PASS] Situation 'tenement_dispute_mediation' exists
+  [PASS] Situation requires faith_leader
+  [PASS] Trader excluded from Faith Leader situation
+
 ===========================
-Results: 297 Passed, 0 Failed
+Results: 331 Passed, 0 Failed
