@@ -381,8 +381,8 @@ func test_rapid_save_load_stress_cycles() -> void:
 	_assert_true(cycles_passed, "Completed 30 rapid save/load cycles across slots 1-3 without corruption (%s)" % error_msg)
 	
 	# Corruption Resistance Test: Load corrupted data
-	var corrupted_loaded = SaveSystem.load_from_dict({"corrupted_key": 12345})
-	_assert_true(not corrupted_loaded, "SaveSystem rejects malformed save dictionary safely without crash")
+	var corrupted_loaded = GameState.from_dict({"corrupted_key": 12345})
+	_assert_true(not corrupted_loaded, "GameState rejects malformed save dictionary safely without crash")
 
 ## 7. Mobile Back Button Stack Stress
 func test_mobile_back_button_stack_stress() -> void:
