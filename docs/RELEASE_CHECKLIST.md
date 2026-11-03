@@ -116,13 +116,13 @@ In Google Play Console, go to **Monetize > Products > In-app products**:
   - Product ID: `danfo_golden_skin`
   - Name: `Golden Danfo Van Skin`
   - Description: `Exclusive metallic yellow and gold exterior styling for your transport fleet.`
-  - Price: `₦1,500` (~$1.49 USD equivalent)
+  - Price: `₦1,000` (~$0.99 USD equivalent)
   - Status: Active
 - [ ] **5.4 Create Product: `market_tycoon_banner`**
   - Product ID: `market_tycoon_banner`
   - Name: `Market Tycoon Stall Banner`
   - Description: `Prestigious hand-painted stall banner boosting market customer appeal.`
-  - Price: `₦1,500` (~$1.49 USD equivalent)
+  - Price: `₦1,000` (~$0.99 USD equivalent)
   - Status: Active
 
 ---
