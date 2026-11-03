@@ -121,6 +121,12 @@ func test_export_presets_configuration() -> void:
 		_assert_true("package/unique_name=\"com.danfostudios.oshodimushin\"" in content, "Package name matches standard convention")
 		_assert_true("gradle_build/min_sdk=\"24\"" in content, "Min SDK is set to 24 (Android 7.0+)")
 		_assert_true("gradle_build/target_sdk=\"34\"" in content, "Target SDK is set to 34 (Play Store requirement)")
+		_assert_true("name=\"Android AAB (Release)\"" in content, "Android AAB release preset is configured")
+		_assert_true("version/name=\"1.0.0\"" in content, "App version is set to 1.0.0 for production")
+		_assert_true(FileAccess.file_exists("res://assets/icons/icon_192.png"), "Main launcher icon 192x192 exists")
+		_assert_true(FileAccess.file_exists("res://assets/icons/icon_512.png"), "Store icon 512x512 exists")
+		_assert_true(FileAccess.file_exists("res://assets/icons/adaptive_foreground_432.png"), "Adaptive icon foreground exists")
+		_assert_true(FileAccess.file_exists("res://assets/icons/adaptive_background_432.png"), "Adaptive icon background exists")
 	else:
 		_assert_true(false, "Failed to read export_presets.cfg")
 

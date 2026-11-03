@@ -369,6 +369,12 @@
   [PASS] Package name matches standard convention
   [PASS] Min SDK is set to 24 (Android 7.0+)
   [PASS] Target SDK is set to 34 (Play Store requirement)
+  [PASS] Android AAB release preset is configured
+  [PASS] App version is set to 1.0.0 for production
+  [PASS] Main launcher icon 192x192 exists
+  [PASS] Store icon 512x512 exists
+  [PASS] Adaptive icon foreground exists
+  [PASS] Adaptive icon background exists
   [PASS] Touch from mouse emulation is enabled for responsive mobile gestures
   [PASS] Mouse from touch emulation is enabled for UI controls
 
@@ -393,4 +399,4 @@
   [PASS] Graceful offline notification emitted without crashing
 
 ===========================
-Results: 366 Passed, 0 Failed
+Results: 372 Passed, 0 Failed
