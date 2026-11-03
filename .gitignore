@@ -12,6 +12,10 @@ export_credentials.cfg
 build/
 android/
 
+# Allow release binaries if placed in releases/
+!releases/*.apk
+!releases/*.aab
+
 # OS specific files
 .DS_Store
 Thumbs.db
