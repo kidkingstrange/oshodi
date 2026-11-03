@@ -17,6 +17,12 @@ signal purchases_restored(restored_count: int)
 const ENTITLEMENTS_FILE: String = "user://entitlements.json"
 const MAX_DAILY_ADS: int = 5
 
+## --- Google AdMob Configuration ---
+## Official Google test IDs are configured by default so you never get account strikes during development.
+## Replace these two strings with your real IDs from admob.google.com when ready for release.
+var admob_app_id: String = "ca-app-pub-3940256099942544~3347511713"
+var rewarded_ad_unit_id: String = "ca-app-pub-3940256099942544/5224354917"
+
 var is_test_mode: bool = true
 var is_offline_override: bool = false
 var owned_products: Array[String] = []
@@ -26,6 +32,13 @@ var last_ad_day: int = -1
 
 func _ready() -> void:
 	_load_entitlements()
+	# Connect native mobile AdMob plugin if installed
+	if Engine.has_singleton("PoingGodotAdMob"):
+		var admob = Engine.get_singleton("PoingGodotAdMob")
+		if admob.has_signal("on_rewarded_ad_user_earned_reward"):
+			admob.connect("on_rewarded_ad_user_earned_reward", func(_type, _amount): _grant_ad_reward("energy_boost", false))
+		if admob.has_signal("on_rewarded_ad_failed_to_load"):
+			admob.connect("on_rewarded_ad_failed_to_load", func(err): ad_failed_to_load.emit(str(err)))
 	print("[Monetization] Initialized. Owned products: %s" % str(owned_products))
 
 ## Returns true if the device is operating offline or network is disabled
@@ -71,8 +84,12 @@ func show_rewarded_ad(reward_id: String = "energy_boost") -> void:
 		return
 	
 	daily_ad_views += 1
-	# Simulate completed rewarded ad callback
-	_grant_ad_reward(reward_id, false)
+	if Engine.has_singleton("PoingGodotAdMob"):
+		var admob = Engine.get_singleton("PoingGodotAdMob")
+		admob.show_rewarded_ad()
+	else:
+		# Simulate completed rewarded ad callback in test mode / desktop
+		_grant_ad_reward(reward_id, false)
 
 func _grant_ad_reward(reward_id: String, via_supporter_pass: bool) -> void:
 	var reward_data: Dictionary = {}
