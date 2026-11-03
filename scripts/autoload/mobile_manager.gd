@@ -12,6 +12,12 @@ signal safe_area_changed(margins: Dictionary)
 
 ## Stack of active overlay modals or dialogs (topmost receives back first).
 var _modal_stack: Array[Node] = []
+var modal_stack: Array[Node]:
+	get:
+		return _modal_stack
+
+func clear_modal_stack() -> void:
+	_modal_stack.clear()
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS

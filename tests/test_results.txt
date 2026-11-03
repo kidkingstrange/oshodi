@@ -398,5 +398,44 @@
   [PASS] Ads are disabled when offline
   [PASS] Graceful offline notification emitted without crashing
 
+[Suite: System Stress, Fuzzing & Boundary Integrity]
+  [PASS] Simulated 600 full in-game days across all 6 classes (got 600)
+  [PASS] Zero numerical, state, or invariant violations during 600-day simulation (Clean)
+  [PASS] Exactly 64 situations loaded in pool (got 64)
+  [PASS] All 130 situation options across 64 situations resolved cleanly without error (, : )
+  [PASS] Naira strictly clamped to 0 on negative deduction
+  [PASS] Extreme high wealth formatted correctly (₦500,000,000)
+  [PASS] Energy strictly clamped to 0 on negative drain
+  [PASS] Exhaustion recovery triggered at 0 energy
+  [PASS] Exhaustion restored +30 baseline energy
+  [PASS] Exhaustion clinic fee deducted (2500 - 1000 = 1500)
+  [PASS] Heat clamped at maximum 100
+  [PASS] Heat clamped at minimum 0
+  [PASS] Stamina stat cannot be reduced below 1
+  [PASS] At least 10 quests loaded (got 10)
+  [PASS] All 10 quests started and evaluated successfully (Clean)
+  [PASS] At least 25 dialogue trees loaded (got 25)
+  [PASS] All 25 dialogue trees have valid lines and branching targets (: )
+  [PASS] Inventory weight reached max limit (20 kg)
+  [PASS] Shop rejects item purchase when exceeding max weight
+  [PASS] Consumable 'energy_drink' added successfully (count: 2)
+  [PASS] Consumable 'energy_drink' consumed successfully
+  [PASS] Item count decremented to 1
+  [PASS] Consumable 'suya_wrap' added successfully (count: 2)
+  [PASS] Consumable 'suya_wrap' consumed successfully
+  [PASS] Item count decremented to 1
+  [PASS] Consumable 'herbal_tonic' added successfully (count: 2)
+  [PASS] Consumable 'herbal_tonic' consumed successfully
+  [PASS] Item count decremented to 1
+  [PASS] Completed 30 rapid save/load cycles across slots 1-3 without corruption ()
+  [PASS] MobileManager singleton available for modal stack stress
+  [PASS] Successfully pushed 25 modals to modal stack
+  [PASS] All 25 modals popped cleanly via back button
+  [PASS] Stack underflow calls handled safely without crashing
+  [PASS] Exactly 5 ads permitted by daily cap (got 5)
+  [PASS] Remaining 5 ads rejected by daily cap
+  [PASS] Purchased remove_ads entitlement verified
+  [PASS] Entitlements cache file persisted reliably
+
 ===========================
-Results: 372 Passed, 0 Failed
+Results: 409 Passed, 0 Failed

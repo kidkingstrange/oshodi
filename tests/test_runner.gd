@@ -16,6 +16,7 @@ const TestRoadOfficialMechanic = preload("res://tests/test_roadofficial_mechanic
 const TestFaithLeaderMechanic = preload("res://tests/test_faithleader_mechanic.gd")
 const TestMobileLifecycle = preload("res://tests/test_mobile_lifecycle.gd")
 const TestMonetization = preload("res://tests/test_monetization.gd")
+const TestStressAndIntegrity = preload("res://tests/test_stress_and_integrity.gd")
 
 @onready var output_label: Label = %OutputLabel
 @onready var summary_label: Label = %SummaryLabel
@@ -143,6 +144,15 @@ func _run_all_tests() -> void:
 	total_passed += mo_test.passed_count
 	total_failed += mo_test.failed_count
 	for msg in mo_test.messages:
+		all_messages.append(msg)
+	
+	# Suite 14: System Stress, Fuzzing & Boundary Integrity
+	all_messages.append("\n[Suite: System Stress, Fuzzing & Boundary Integrity]")
+	var si_test = TestStressAndIntegrity.new()
+	si_test.run_all()
+	total_passed += si_test.passed_count
+	total_failed += si_test.failed_count
+	for msg in si_test.messages:
 		all_messages.append(msg)
 	
 	# Summary

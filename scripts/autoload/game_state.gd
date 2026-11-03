@@ -128,7 +128,7 @@ func modify_resource(res_key: String, delta: int) -> void:
 	if res_key == "energy":
 		resources.energy = clampi(resources.energy + delta, 0, resources.max_energy)
 	elif res_key == "heat":
-		resources.heat = maxi(0, resources.heat + delta)
+		resources.heat = clampi(resources.heat + delta, 0, 100)
 	elif res_key == "respect":
 		resources.respect = maxi(0, resources.respect + delta)
 	elif res_key == "naira":
