@@ -90,7 +90,7 @@ func _render_buy_items() -> void:
 	if shop_items.is_empty():
 		var empty_lbl = Label.new()
 		empty_lbl.text = "No trade goods or stock available at this location."
-		empty_lbl.theme_override_colors.font_color = Color(0.4, 0.4, 0.4, 1)
+		empty_lbl.add_theme_color_override("font_color", Color(0.4, 0.4, 0.4, 1))
 		items_container.add_child(empty_lbl)
 		return
 	
@@ -102,7 +102,7 @@ func _render_sell_items() -> void:
 	if GameState.inventory.is_empty():
 		var empty_lbl = Label.new()
 		empty_lbl.text = "Your bag is empty! Buy stock or trade goods first."
-		empty_lbl.theme_override_colors.font_color = Color(0.4, 0.4, 0.4, 1)
+		empty_lbl.add_theme_color_override("font_color", Color(0.4, 0.4, 0.4, 1))
 		items_container.add_child(empty_lbl)
 		return
 	
@@ -130,7 +130,7 @@ func _create_item_card(item: Dictionary, for_buying: bool, owned_qty: int = -1) 
 	var top_row = HBoxContainer.new()
 	var name_lbl = Label.new()
 	name_lbl.text = item.get("name", "Unknown Item")
-	name_lbl.theme_override_font_sizes.font_size = 16
+	name_lbl.add_theme_font_size_override("font_size", 16)
 	name_lbl.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	top_row.add_child(name_lbl)
 	
@@ -140,8 +140,8 @@ func _create_item_card(item: Dictionary, for_buying: bool, owned_qty: int = -1) 
 		unit_price = int(unit_price * 1.15)
 	
 	price_lbl.text = ("Buy: %s" if for_buying else "Sell: %s") % GameState.format_naira(unit_price)
-	price_lbl.theme_override_font_sizes.font_size = 15
-	price_lbl.theme_override_colors.font_color = Color(0.12, 0.58, 0.28, 1) if not for_buying else Color(0.85, 0.45, 0.05, 1)
+	price_lbl.add_theme_font_size_override("font_size", 15)
+	price_lbl.add_theme_color_override("font_color", Color(0.12, 0.58, 0.28, 1) if not for_buying else Color(0.85, 0.45, 0.05, 1))
 	top_row.add_child(price_lbl)
 	vbox.add_child(top_row)
 	
@@ -154,8 +154,8 @@ func _create_item_card(item: Dictionary, for_buying: bool, owned_qty: int = -1) 
 	
 	desc_lbl.text = "%s\nType: %s • Weight: %d kg • Owned: %d" % [desc_text, cat, weight, owned_count]
 	desc_lbl.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	desc_lbl.theme_override_font_sizes.font_size = 13
-	desc_lbl.theme_override_colors.font_color = Color(0.3, 0.35, 0.4, 1)
+	desc_lbl.add_theme_font_size_override("font_size", 13)
+	desc_lbl.add_theme_color_override("font_color", Color(0.3, 0.35, 0.4, 1))
 	vbox.add_child(desc_lbl)
 	
 	# Action Button Row
@@ -235,7 +235,7 @@ func _render_special_items() -> void:
 		var top_row = HBoxContainer.new()
 		var name_lbl = Label.new()
 		name_lbl.text = prod.get("name", "Product")
-		name_lbl.theme_override_font_sizes.font_size = 16
+		name_lbl.add_theme_font_size_override("font_size", 16)
 		name_lbl.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		top_row.add_child(name_lbl)
 		
@@ -243,16 +243,16 @@ func _render_special_items() -> void:
 		var price_naira = int(prod.get("price_naira", 1000))
 		var price_usd = prod.get("price_usd", "0.99")
 		price_lbl.text = "%s ($%s)" % [GameState.format_naira(price_naira), price_usd]
-		price_lbl.theme_override_font_sizes.font_size = 15
-		price_lbl.theme_override_colors.font_color = Color(0.12, 0.58, 0.28, 1)
+		price_lbl.add_theme_font_size_override("font_size", 15)
+		price_lbl.add_theme_color_override("font_color", Color(0.12, 0.58, 0.28, 1))
 		top_row.add_child(price_lbl)
 		vbox.add_child(top_row)
 		
 		# Description
 		var desc_lbl = Label.new()
 		desc_lbl.text = prod.get("description", "")
-		desc_lbl.theme_override_font_sizes.font_size = 13
-		desc_lbl.theme_override_colors.font_color = Color(0.35, 0.38, 0.44, 1)
+		desc_lbl.add_theme_font_size_override("font_size", 13)
+		desc_lbl.add_theme_color_override("font_color", Color(0.35, 0.38, 0.44, 1))
 		desc_lbl.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		vbox.add_child(desc_lbl)
 		
